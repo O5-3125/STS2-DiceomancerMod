@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce3jah1wjxn3f"]
+
+[ext_resource type="Texture2D" uid="uid://b6s4eyce4hgj3" path="res://Diceomancer/images/Hero/icon.png" id="1_235s6"]
+
+[node name="TestCharacter" type="Node2D"]
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -96.0
+offset_top = -192.0
+offset_right = 96.0
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -159)
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -72)
+
+[node name="Visuals" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -101)
+texture = ExtResource("1_235s6")
+flip_h = true
+
+[node name="OrbPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -309)

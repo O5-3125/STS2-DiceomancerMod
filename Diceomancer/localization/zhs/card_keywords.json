@@ -1,0 +1,10 @@
+﻿{
+  "DICEOMANCER_KEYWORD_BONUS.title": "附赠",
+  "DICEOMANCER_KEYWORD_BONUS.description": "抽到此牌时，抽一张牌。",
+  "DICEOMANCER_KEYWORD_REBOUND.title": "回响",
+  "DICEOMANCER_KEYWORD_REBOUND.description": "打出后回到手牌",
+  "DICEOMANCER_KEYWORD_FRAGILE.title": "一次性",
+  "DICEOMANCER_KEYWORD_FRAGILE.description": "打出后从牌组中移除",
+  "DICEOMANCER_KEYWORD_LIMITED.title": "限制",
+  "DICEOMANCER_KEYWORD_LIMITED.description": "每回合只能打出一张限制牌"
+}

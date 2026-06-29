@@ -1,0 +1,32 @@
+﻿{
+  // 混沌香气事件中的内心独白
+  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.aromaPrinciple": "[sine][blue]……ZZZ…ZZZ…ZZZ…[/blue][/sine]",
+  // 多人模式：存活时回合结束对白
+  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.banter.alive.endTurnPing": "多人模式：存活时回合结束对白",
+  // 多人模式：死亡后回合结束对白
+  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.banter.dead.endTurnPing": "多人模式：死亡后回合结束对白",
+  // 自定义模式文本
+  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.cardsModifierDescription": "骰子浪游者的卡牌现在会出现在奖励和商店中。",
+  // 卡池名字
+  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.cardsModifierTitle": "骰子浪游者卡牌",
+  // 角色选择界面描述
+  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.description": "紫雾消退之后，来到通货膨胀的尖塔寻找混沌。",
+  // 死亡时事件对话
+  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.eventDeathPrevention": "死亡时事件对话",
+  // 沉没宝库事件中对金币的独白
+  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.goldMonologue": "[sine]沉没宝库事件中对金币的独白[/sine]",
+  // 物主形容词，用于动态文本
+  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.possessiveAdjective": "物主形容词-他的",
+  // 宾语代词
+  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.pronounObject": "宾语代词-他",
+  // 所有格代词
+  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.pronounPossessive": "所有格代词-他的",
+  // 主语代词
+  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.pronounSubject": "主语代词-他",
+  // 角色名（标题用）
+  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.title": "混沌使者",
+  // 角色名（作宾语用）
+  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.titleObject": "角色名（作宾语用）",
+  // 解锁条件文案，{Prerequisite} 会被替换
+  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.unlockText": "用[pink]{Prerequisite}[/pink]进行一局游戏来解锁这个角色。"
+}

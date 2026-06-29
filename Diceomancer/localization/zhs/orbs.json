@@ -1,0 +1,20 @@
+﻿{
+  "DICEOMANCER_ORB_MANA_BLACK.title": "黑色球",
+  "DICEOMANCER_ORB_MANA_BLACK.description": "黑色球：没有效果。",
+  "DICEOMANCER_ORB_MANA_BLACK.smartDescription": "没有效果",
+  "DICEOMANCER_ORB_MANA_BLUE.title": "蓝色球",
+  "DICEOMANCER_ORB_MANA_BLUE.description": "蓝色球：没有效果。",
+  "DICEOMANCER_ORB_MANA_BLUE.smartDescription": "没有效果",
+  "DICEOMANCER_ORB_MANA_GREEN.title": "绿色球",
+  "DICEOMANCER_ORB_MANA_GREEN.description": "绿色球：没有效果。",
+  "DICEOMANCER_ORB_MANA_GREEN.smartDescription": "没有效果",
+  "DICEOMANCER_ORB_MANA_PURPLE.title": "紫色球",
+  "DICEOMANCER_ORB_MANA_PURPLE.description": "紫色球：没有效果。",
+  "DICEOMANCER_ORB_MANA_PURPLE.smartDescription": "没有效果",
+  "DICEOMANCER_ORB_MANA_RED.title": "红色球",
+  "DICEOMANCER_ORB_MANA_RED.description": "红色球：没有效果。",
+  "DICEOMANCER_ORB_MANA_RED.smartDescription": "没有效果",
+  "DICEOMANCER_ORB_MANA_VOID.title": "无色球",
+  "DICEOMANCER_ORB_MANA_VOID.description": "无色球：没有效果。",
+  "DICEOMANCER_ORB_MANA_VOID.smartDescription": "没有效果"
+}

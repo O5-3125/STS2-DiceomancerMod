@@ -1,0 +1,38 @@
+﻿{
+  "DICEOMANCER_RELIC_MY_DECK.title": "自制卡组",
+  "DICEOMANCER_RELIC_MY_DECK.description": "当你生成牌时，将其加入卡组。\n当你消耗牌时，将其移出卡组。",
+  "DICEOMANCER_RELIC_MY_DECK.flavor": "自己的卡组自己印。",
+  //
+  "DICEOMANCER_RELIC_BUILDER_RING.title": "工匠护符",
+  "DICEOMANCER_RELIC_BUILDER_RING.description": "每回合打出第{Cards}张牌后，抽两张牌并获得{Energy:energyIcons()}。",
+  "DICEOMANCER_RELIC_BUILDER_RING.flavor": "下雨当成晴天干，晚上当成白天干。",
+  //
+  "DICEOMANCER_RELIC_PRO_RING.title": "高手护符",
+  "DICEOMANCER_RELIC_PRO_RING.description": "每回合一次,打出攻击牌后免费打出技能牌，打出技能牌后免费打出攻击牌。",
+  "DICEOMANCER_RELIC_PRO_RING.flavor": "天下武功，无坚不摧，唯快不破！",
+  //
+  "DICEOMANCER_RELIC_RED_BALL.title": "情感之球",
+  "DICEOMANCER_RELIC_RED_BALL.description": "你受到伤害不再失去生命，而是获得等量[gold]负伤[/gold]计数。回合结束失去[gold]负伤[/gold]点生命，随后[gold]负伤[/gold]减半。",
+  "DICEOMANCER_RELIC_RED_BALL.flavor": "速战速决",
+  //
+  "DICEOMANCER_RELIC_CHAOTIC_PENDANTS.title": "混乱挂坠",
+  "DICEOMANCER_RELIC_CHAOTIC_PENDANTS.description": "卡牌奖励和商店会包含所有牌。",
+  "DICEOMANCER_RELIC_CHAOTIC_PENDANTS.flavor": "杂乱无章。",
+  //
+  "DICEOMANCER_RELIC_INSPIRATION_VOID.title": "灵感虚空",
+  "DICEOMANCER_RELIC_INSPIRATION_VOID.description": "拾起时，将至多{Cards}张牌[gold]变化[/gold]为[black]占位符[/black]。",
+  "DICEOMANCER_RELIC_INSPIRATION_VOID.flavor": "遗忘并非缺失，总有东西会填补缺口。",
+  "DICEOMANCER_RELIC_INSPIRATION_VOID.selectionScreenPrompt": "选择{Cards}张牌变化。",
+  //
+  "DICEOMANCER_RELIC_HEART_OF_STEEL.title": "钢铁之心",
+  "DICEOMANCER_RELIC_HEART_OF_STEEL.description": "战斗开始时，生命值变为{Heal}。",
+  "DICEOMANCER_RELIC_HEART_OF_STEEL.flavor": "难以受伤，永不愈合。",
+  //
+  "DICEOMANCER_RELIC_OUROBOROS.title": "衔尾蛇",
+  "DICEOMANCER_RELIC_OUROBOROS.description": "回合结束时，如果你没有手牌也没有能量，则获得额外回合。",
+  "DICEOMANCER_RELIC_OUROBOROS.flavor": "无穷无尽",
+  //
+  "DICEOMANCER_RELIC_SMALL_MIRROR.title": "小镜子",
+  "DICEOMANCER_RELIC_SMALL_MIRROR.description": "每回合打出的第{Cards}张牌额外打出一次。",
+  "DICEOMANCER_RELIC_SMALL_MIRROR.flavor": ""
+}

@@ -1,0 +1,17 @@
+﻿{
+  "DICEOMANCER_ENCHANTMENT_PHASE_POWER.title": "能量",
+  "DICEOMANCER_ENCHANTMENT_PHASE_POWER.extraCardText": "打出时，获得{Energy:energyIcons()}", // 额外添加在卡牌上的文本
+  "DICEOMANCER_ENCHANTMENT_PHASE_POWER.description": "打出时，获得{Energy:energyIcons()}", // 附魔介绍
+
+  "DICEOMANCER_ENCHANTMENT_FILTERING.title": "滤波",
+  "DICEOMANCER_ENCHANTMENT_FILTERING.extraCardText": "抽{Cards:diff()}张牌",
+  "DICEOMANCER_ENCHANTMENT_FILTERING.description": "抽{Cards:diff()}张牌",
+
+  "DICEOMANCER_ENCHANTMENT_SPRAY.title": "扫射",
+  "DICEOMANCER_ENCHANTMENT_SPRAY.extraCardText": "对所有敌人造成{Damage:diff()}点伤害",
+  "DICEOMANCER_ENCHANTMENT_SPRAY.description": "对所有敌人造成{Damage:diff()}点伤害",
+
+  "DICEOMANCER_ENCHANTMENT_PHANTOM.title": "幻影",
+  "DICEOMANCER_ENCHANTMENT_PHANTOM.extraCardText": "将{Cards:diff()}张本牌的幻影加入手牌。幻影为消耗牌，需要的能量减少1点。",
+  "DICEOMANCER_ENCHANTMENT_PHANTOM.description": "将{Cards:diff()}张本牌的幻影加入手牌。幻影为消耗牌，需要的能量减少1点。"
+}
