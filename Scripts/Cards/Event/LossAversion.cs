@@ -10,7 +10,7 @@ using STS2RitsuLib.Interop.AutoRegistration;
 
 namespace Diceomancer.Scripts.Cards.Event;
 
-// TODO
+// TODO 损失规避
 [RegisterCard(typeof(ColorlessCardPool))]
 public class LossAversion() : ModCardTemplate(2, CardType.Skill, CardRarity.Event, TargetType.Self)
 {

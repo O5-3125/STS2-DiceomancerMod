@@ -1,9 +1,11 @@
 using System.Reflection;
 using Diceomancer.Scripts.Common;
+using Diceomancer.Scripts.Hero;
 using Diceomancer.Scripts.Relics.Basic;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
 using STS2RitsuLib;
+using STS2RitsuLib.Content;
 using STS2RitsuLib.Interop;
 
 namespace Diceomancer.Scripts;
@@ -28,5 +30,12 @@ public class Entry
 
         // 注册初始遗物的先古升级
         RitsuLibFramework.RegisterTouchOfOrobasRefinementMapping<RedBall, BuilderRing>();
+        
+        ModContentRegistry.For(ModId)
+            .RegisterCardLibraryCompendiumSharedPoolFilter<ModifyCardPool>(
+                "what_modify_card_pool", // ID
+                "res://icon.svg" // 图标位置
+                // null // 放置顺序（可选）
+            );
     }
 }

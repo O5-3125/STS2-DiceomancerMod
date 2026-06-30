@@ -14,7 +14,7 @@ public class Ignite()
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<Powers.Ignite>(2)
+        new PowerVar<Powers.Ignite>(1)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

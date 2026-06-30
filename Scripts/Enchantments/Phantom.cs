@@ -15,7 +15,6 @@ public class Phantom : ModEnchantmentTemplate
     // 是否在附魔上显示数值
     public override bool ShowAmount => true;
 
-    // 是否会添加额外的卡牌描述文本
     public override bool HasExtraCardText => true;
 
     // 像卡牌、遗物、药水等一样，可以使用DynamicVars和ExtraHoverTips
@@ -28,9 +27,7 @@ public class Phantom : ModEnchantmentTemplate
 
     public override bool CanEnchant(CardModel card)
     {
-        if (base.CanEnchant(card)) return card.Enchantment is Phantom;
-
-        return false;
+        return card.Enchantment is Phantom || base.CanEnchant(card);
     }
 
     // 当附魔的卡牌被打出时调用。
@@ -43,7 +40,7 @@ public class Phantom : ModEnchantmentTemplate
             cardModel.EnergyCost.AddThisCombat(-1); // 减一费
             cardModel.AddKeyword(CardKeyword.Exhaust); // 消耗
             // cardModel.ClearEnchantmentInternal(); 
-            CardCmd.ClearEnchantment(cardPlay.Card); // 移除附魔
+            CardCmd.ClearEnchantment(cardModel); // 移除附魔
             await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Hand, cardPlay.Card.Owner);
         }
     }

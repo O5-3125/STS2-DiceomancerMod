@@ -32,20 +32,9 @@ public class Spray : ModEnchantmentTemplate
 
     public override bool CanEnchant(CardModel card)
     {
-        if (base.CanEnchant(card)) return card.Enchantment is Spray;
-        return false;
+        return card.Enchantment is Spray || base.CanEnchant(card);
     }
-
-    // 决定是否可以附魔到某张卡牌上
-    // public override bool CanEnchant(CardModel card)
-    // {
-    //     if (base.CanEnchant(card))
-    //     {
-    //         return card.GainsBlock;
-    //     }
-    //     return false;
-    // }
-
+    
     // 当附魔的卡牌被打出时调用。
     public override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay? cardPlay)
     {

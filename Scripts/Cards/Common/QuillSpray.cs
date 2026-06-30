@@ -16,55 +16,44 @@ using STS2RitsuLib.Interop.AutoRegistration;
 namespace Diceomancer.Scripts.Cards.Common;
 
 [RegisterCard(typeof(DiceomancerCardPool))]
-public class QuillSpray() : ModCardTemplate(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
+public class QuillSpray() : ModCardTemplate(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
 {
-    // ��������
-    private const int energyCost = 1;
-
-    // ��������
-    private const CardType type = CardType.Attack;
-
-    // ����ϡ�ж�
-    private const CardRarity rarity = CardRarity.Common;
-
-    // Ŀ�����ͣ�AnyEnemy��ʾ������ˣ�?
-    private const TargetType targetType = TargetType.AllEnemies;
-
-    // �Ƿ��ڿ���ͼ������ʾ
-    private const bool shouldShowInCardLibrary = true;
-
-
-    protected override HashSet<CardTag> CanonicalTags =>
-    [
-        MyTags.Modify.GetModCardTag()
-    ];
-
-    // �˺�ֵ
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(3, ValueProp.Move),
+        new DamageVar(8, ValueProp.Move),
         new DynamicVar("modify", 3)
             .WithSharedTooltip("modify")
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.IntValue) // ����˺�����ֵ��Դ�ڿ��ƵĻ����˺�����?
-            .FromCard(this) // �˺���Դ�����ſ���
-            .TargetingAllOpponents(base.CombatState) // �˺�Ŀ�������ѡ���Ŀ��
+        await DamageCmd.Attack(DynamicVars.Damage.IntValue)
+            .FromCard(this)
+            .TargetingAllOpponents(base.CombatState)
             .Execute(choiceContext);
 
-        var cardModel = (await CardSelectCmd.FromHand(choiceContext, base.Owner,
-            new CardSelectorPrefs(CardSelectorPrefs.EnchantSelectionPrompt, 1),
-            (CardModel c) => c.Enchantment == null, this)).FirstOrDefault();
-        if (cardModel is { Enchantment: null }) CardCmd.Enchant<Spray>(cardModel, DynamicVars["modify"].IntValue);
+        var pile = PileType.Hand.GetPile(base.Owner);
+        var cardModel =
+            base.Owner.RunState.Rng.CombatCardSelection.NextItem(pile.Cards.Where((CardModel c) =>
+                c.Type == CardType.Attack && c is { Enchantment: Spray }));
+        if (cardModel != null)
+        {
+            switch (cardModel.Enchantment)
+            {
+                case null:
+                    CardCmd.Enchant<Spray>(cardModel, DynamicVars["modify"].IntValue);
+                    break;
+                case Spray:
+                    cardModel.Enchantment.Amount += DynamicVars["modify"].IntValue;
+                    break;
+            }
+        }
     }
 
-    // �������Ч���߼�?
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(1); // ����������1���˺�
-        DynamicVars["modify"].UpgradeValueBy(1);
+        DynamicVars.Damage.UpgradeValueBy(3);
+        DynamicVars["modify"].UpgradeValueBy(3);
         // DynamicVars["Evolution"].UpgradeValueBy(1);
     }
 }

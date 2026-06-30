@@ -32,8 +32,7 @@ public class PhasePower : ModEnchantmentTemplate
     // 决定是否可以附魔到某张卡牌上
     public override bool CanEnchant(CardModel card)
     {
-        if (base.CanEnchant(card)) return card.Enchantment is PhasePower;
-        return false;
+        return card.Enchantment is PhasePower || base.CanEnchant(card);
     }
 
     // 当附魔的卡牌被打出时调用。

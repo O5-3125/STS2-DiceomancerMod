@@ -12,6 +12,6 @@
   "DICEOMANCER_ENCHANTMENT_SPRAY.description": "对所有敌人造成{Damage:diff()}点伤害",
 
   "DICEOMANCER_ENCHANTMENT_PHANTOM.title": "幻影",
-  "DICEOMANCER_ENCHANTMENT_PHANTOM.extraCardText": "将{Cards:diff()}张本牌的幻影加入手牌。幻影为消耗牌，需要的能量减少1点。",
-  "DICEOMANCER_ENCHANTMENT_PHANTOM.description": "将{Cards:diff()}张本牌的幻影加入手牌。幻影为消耗牌，需要的能量减少1点。"
+  "DICEOMANCER_ENCHANTMENT_PHANTOM.extraCardText": "将{Cards:diff()}张幻影加入手牌。",
+  "DICEOMANCER_ENCHANTMENT_PHANTOM.description": "将{Cards:diff()}张本牌的幻影加入手牌。\n幻影为消耗牌，需要的能量减少1点，没有附魔。"
 }

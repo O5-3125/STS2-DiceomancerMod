@@ -30,19 +30,16 @@ public class Lore() : ModCardTemplate(1, CardType.Skill, CardRarity.Rare, Target
         new("selectCount", 1)
     ];
 
-    // ���ʱ��Ч���߼�?
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        // ���н�ɫ�Ŀ����б�
+
         List<CardPoolModel> cardPoolList = base.Owner.UnlockState.CharacterCardPools.ToList();
-        // ����ְҵ���б�
+
         IEnumerable<CardModel> cardModelList = from c in cardPoolList.SelectMany(c =>
                 c.GetUnlockedCards(base.Owner.UnlockState, base.Owner.RunState.CardMultiplayerConstraint)
             )
             where c.Rarity == CardRarity.Rare
             select c;
-
-
         var list = CardFactory.GetDistinctForCombat(base.Owner,
             cardModelList,
             Math.Min(cardModelList.Count(), this.DynamicVars.Cards.IntValue),
@@ -58,12 +55,8 @@ public class Lore() : ModCardTemplate(1, CardType.Skill, CardRarity.Rare, Target
         foreach (var item2 in await CardSelectCmd.FromSimpleGrid(choiceContext, list, base.Owner,
                      new CardSelectorPrefs(this.SelectionScreenPrompt, 0, this.DynamicVars["selectCount"].IntValue)))
             await CardCmd.AutoPlay(choiceContext, item2.CreateDupe(), null);
-
-        // ��������
-        // CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(cardModel, PileType.Deck));
     }
 
-    // �������Ч���߼�?
     protected override void OnUpgrade()
     {
         this.EnergyCost.UpgradeBy(-1);

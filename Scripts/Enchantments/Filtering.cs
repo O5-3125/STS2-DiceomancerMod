@@ -19,7 +19,6 @@ public class Filtering : ModEnchantmentTemplate
 
     // 像卡牌、遗物、药水等一样，可以使用DynamicVars和ExtraHoverTips
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
-    // protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Retain)];
 
     // 图标位置。大小1:1就行，原版是64x64
     public override EnchantmentAssetProfile AssetProfile => new(
@@ -28,14 +27,11 @@ public class Filtering : ModEnchantmentTemplate
 
     // 重载这个以改变显示的数字
     // public override int DisplayAmount => DynamicVars.Cards.IntValue;
-
+    
     public override bool CanEnchant(CardModel card)
     {
-        if (base.CanEnchant(card)) return card.Enchantment is Filtering;
-
-        return false;
+        return card.Enchantment is Filtering || base.CanEnchant(card);
     }
-
     // 当附魔的卡牌被打出时调用。
     public override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay? cardPlay)
     {

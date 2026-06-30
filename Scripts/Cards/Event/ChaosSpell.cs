@@ -40,6 +40,5 @@ public class ChaosSpell() : ModCardTemplate(0, CardType.Skill, CardRarity.Event,
     protected override void OnUpgrade()
     {
         this.RemoveKeyword(CardKeyword.Exhaust);
-        // base.EnergyCost.UpgradeBy(-1);
     }
 }

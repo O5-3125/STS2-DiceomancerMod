@@ -8,10 +8,15 @@
   //
   "DICEOMANCER_CARD_MODIFY_PHASE_POWER.title": "改装：能量",
   "DICEOMANCER_CARD_MODIFY_PHASE_POWER.description": "[gold]改装[/gold]：获得{Energy:energyIcons()}。",
-  "DICEOMANCER_CARD_QUILL_SPRAY.title": "针刺扫射",
-  "DICEOMANCER_CARD_QUILL_SPRAY.description": "对所有敌人造成{Damage:diff()}点伤害。\n[gold]改装[/gold]：对所有敌人造成{modify:diff()}点伤害",
-  "DICEOMANCER_CARD_MODIFY_FILTERING.title": "改装：滤波",
+  "DICEOMANCER_CARD_MODIFY_PHANTOM.selectionScreenPrompt": "选择要附魔的牌。",
+  "DICEOMANCER_CARD_MODIFY_FILTERING.title": "改装：抽牌",
   "DICEOMANCER_CARD_MODIFY_FILTERING.description": "[gold]改装[/gold]：抽{Cards:diff()}张牌。",
+  "DICEOMANCER_CARD_MODIFY_PHANTOM.selectionScreenPrompt": "选择要附魔的牌。",
+  "DICEOMANCER_CARD_MODIFY_PHANTOM.title": "改装：幻影",
+  "DICEOMANCER_CARD_MODIFY_PHANTOM.description": "[gold]改装[/gold]：将本牌的{Cards:diff()}张幻影加入手牌。",
+  "DICEOMANCER_CARD_MODIFY_PHANTOM.selectionScreenPrompt": "选择要附魔的牌。",
+  "DICEOMANCER_CARD_QUILL_SPRAY.title": "针刺扫射",
+  "DICEOMANCER_CARD_QUILL_SPRAY.description": "对所有敌人造成{Damage:diff()}点伤害。\n为手中随机攻击牌[gold]改装[/gold]：对所有敌人造成{modify:diff()}点伤害",
   //
   "DICEOMANCER_CARD_DEFEND_BUILDER.title": "工匠防御",
   "DICEOMANCER_CARD_DEFEND_BUILDER.description": "获得{Block:diff()}点[gold]格挡[/gold]。",
@@ -115,30 +120,34 @@
   //
   "DICEOMANCER_CARD_WHAT_IS_THIS.title": "这是啥",
   "DICEOMANCER_CARD_WHAT_IS_THIS.description": "获得{Energy:energyIcons()}。\n从{Cards}张随机牌中选择{selectCount}张加入[gold]手牌[/gold]。",
-  "DICEOMANCER_CARD_WHAT_IS_THIS.selectionScreenPrompt": "选择最多{selectCount}张牌加入[gold]手牌[/gold]",
+  "DICEOMANCER_CARD_WHAT_IS_THIS.selectionScreenPrompt": "选择最多{selectCount}张牌加入[gold]手牌[/gold]。",
   "DICEOMANCER_CARD_LORE.title": "传说",
   "DICEOMANCER_CARD_LORE.description": "从{Cards}张[gold]稀有[/gold]牌中选择至多{selectCount}张打出。",
-  "DICEOMANCER_CARD_LORE.selectionScreenPrompt": "选择最多{selectCount}张牌打出",
+  "DICEOMANCER_CARD_LORE.selectionScreenPrompt": "选择最多{selectCount}张牌打出。",
   //
   "DICEOMANCER_CARD_BATTLE_OF_WITS.title": "智斗",
   "DICEOMANCER_CARD_BATTLE_OF_WITS.description": "丢弃至多{kick:diff()}张牌，每弃一张牌造成{Damage:diff()}点伤害一次。",
-  "DICEOMANCER_CARD_BATTLE_OF_WITS.selectionScreenPrompt": "丢弃至多{kick:diff()}张牌",
+  "DICEOMANCER_CARD_BATTLE_OF_WITS.selectionScreenPrompt": "丢弃至多{kick:diff()}张牌。",
   "DICEOMANCER_CARD_BRAINWAVE.title": "灵光乍现",
   "DICEOMANCER_CARD_BRAINWAVE.description": "从[gold]抽牌堆[/gold]选择{Cards}张牌加入[gold]手牌[/gold]。",
-  "DICEOMANCER_CARD_BRAINWAVE.selectionScreenPrompt": "选择卡牌加入手牌",
+  "DICEOMANCER_CARD_BRAINWAVE.selectionScreenPrompt": "选择卡牌加入手牌。",
   "DICEOMANCER_CARD_CATALYST.title": "催化剂",
   "DICEOMANCER_CARD_CATALYST.description": "目标卡牌上所有数字翻倍。",
-  "DICEOMANCER_CARD_CATALYST.selectionScreenPrompt": "选择目标卡牌",
+  "DICEOMANCER_CARD_CATALYST.selectionScreenPrompt": "选择目标卡牌。",
   "DICEOMANCER_CARD_I_AM_FIRE.title": "我着火了！",
-  "DICEOMANCER_CARD_I_AM_FIRE.description": "获得{HastePower:diff()}层加速",
+  "DICEOMANCER_CARD_I_AM_FIRE.description": "获得{HastePower:diff()}层加速。",
   //
   "DICEOMANCER_CARD_THROWING_KNIFE.title": "飞刀",
   "DICEOMANCER_CARD_THROWING_KNIFE.description": "造成{Damage:diff()}点伤害。\n施加{BleedPower:diff()}层[gold]流血[/gold]。",
-
   "DICEOMANCER_CARD_CHAOS_SPELL.title": "混乱术",
   "DICEOMANCER_CARD_CHAOS_SPELL.description": "打乱你的buff层数。",
-  
   //
   "DICEOMANCER_CARD_MISTY_STEP.title": "迷踪步",
-  "DICEOMANCER_CARD_MISTY_STEP.description": "获得{Slippery:diff()}层[gold]滑溜[/gold]。"
+  "DICEOMANCER_CARD_MISTY_STEP.description": "获得{Slippery:diff()}层[gold]滑溜[/gold]。",
+  //
+  "DICEOMANCER_CARD_BORROWED_CARD.title": "借用之牌",
+  "DICEOMANCER_CARD_BORROWED_CARD.description": "选择手中{Cards}张牌，将其复制加入手牌。",
+  "DICEOMANCER_CARD_BORROWED_CARD.selectionScreenPrompt": "选择最多{Cards}张牌进行复制。",
+  "DICEOMANCER_CARD_WHOEVER_MOVES_FIRST_IS_GAY.title": "谁动谁是GAY",
+  "DICEOMANCER_CARD_WHOEVER_MOVES_FIRST_IS_GAY.description": "击晕目标，结束你的回合。\n余量{Remain}"
 }
