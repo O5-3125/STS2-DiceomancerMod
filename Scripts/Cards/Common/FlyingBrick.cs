@@ -4,6 +4,7 @@ using Diceomancer.Scripts.Hero;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -21,13 +22,17 @@ public class FlyingBrick() : ModCardTemplate(0, CardType.Attack, CardRarity.Comm
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [MyKeywords.Bonus];
-
+    // 通过HoverTipFactory添加各种提示文本
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
+    [
+        HoverTipFactory.FromPower<WeakPower>(),
+    ];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
         await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue)
-            .FromCard(this)
+            .FromCard(this,cardPlay)
             .Targeting(cardPlay.Target)
             .Execute(choiceContext);
         await PowerCmd.Apply<WeakPower>(choiceContext, cardPlay.Target, base.DynamicVars.Weak.BaseValue,
@@ -36,7 +41,7 @@ public class FlyingBrick() : ModCardTemplate(0, CardType.Attack, CardRarity.Comm
 
     protected override void OnUpgrade()
     {
-        // base.DynamicVars.Weak.UpgradeValueBy(1m);
-        base.DynamicVars.Damage.UpgradeValueBy(3m);
+        base.DynamicVars.Weak.UpgradeValueBy(1m);
+        // base.DynamicVars.Damage.UpgradeValueBy(3m);
     }
 }

@@ -12,9 +12,19 @@ public enum NormalityBuffKind
     RetainHand, //  保留
     Vigor, // 活力
     Thorns, // 荆棘
+    Haste, // 加速
+    Evade, // 闪避 免疫下次伤害
+    CriticalHit,// 暴击
+    
+
+
+    // 厚皮
+    // 蓄能 每打一张牌获得一费
+    // 坚韧 下次受到的伤害减半
+
 
     // Artifact,// 人工
-    
+
     // BlockNextTurn,
     // EnergyNextTurn,
     // DrawCardsNextTurn,

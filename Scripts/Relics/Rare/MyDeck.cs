@@ -10,7 +10,7 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Relics.Rare;
 
-[RegisterRelic(typeof(DiceomancerRelicPool))]
+// [RegisterRelic(typeof(DiceomancerRelicPool))]
 public class MyDeck : ModRelicTemplate
 {
     public override RelicRarity Rarity => RelicRarity.Rare;

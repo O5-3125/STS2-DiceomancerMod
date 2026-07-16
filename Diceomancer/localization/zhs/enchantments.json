@@ -1,17 +1,16 @@
 ﻿{
   "DICEOMANCER_ENCHANTMENT_PHASE_POWER.title": "能量",
-  "DICEOMANCER_ENCHANTMENT_PHASE_POWER.extraCardText": "打出时，获得{Energy:energyIcons()}", // 额外添加在卡牌上的文本
-  "DICEOMANCER_ENCHANTMENT_PHASE_POWER.description": "打出时，获得{Energy:energyIcons()}", // 附魔介绍
+  "DICEOMANCER_ENCHANTMENT_PHASE_POWER.extraCardText": "打出时，获得{Energy:energyIcons()}",
+  // 额外添加在卡牌上的文本
+  "DICEOMANCER_ENCHANTMENT_PHASE_POWER.description": "打出时，获得{Energy:energyIcons()}",
+  // 附魔介绍
+  /////
+  "DICEOMANCER_MODEL_CAPABILITY_PHASE_CAPABILITY.description": "[blue]获得{Energy:energyIcons()}[/blue]。",
+  "DICEOMANCER_MODEL_CAPABILITY_DRAW_CAPABILITY.description": "[blue]抽{Cards:diff()}张牌[/blue]。",
+  "DICEOMANCER_MODEL_CAPABILITY_RANDOM_BUFF_CAPABILITY.description": "[blue]获得{Buff:diff()}层随机常见增益[/blue]。",
+  "DICEOMANCER_MODEL_CAPABILITY_RANDOM_DEBUFF_CAPABILITY.description": "[blue]向随机敌人施加{Debuff:diff()}层随机常见减益[/blue]。",
+  "DICEOMANCER_MODEL_CAPABILITY_PHANTOM_CAPABILITY.description": "[blue]将{Cards:diff()}张本牌的幻影加入手牌[/blue]。",
+  "DICEOMANCER_MODEL_CAPABILITY_SPRAY_CAPABILITY.description": "[blue]对所有敌人造成{Damage:diff()}点伤害[/blue]。",
+  "DICEOMANCER_MODEL_CAPABILITY_BLOCK_CAPABILITY.description": "[blue]获得{Block:diff()}点格挡[/blue]。"
 
-  "DICEOMANCER_ENCHANTMENT_FILTERING.title": "滤波",
-  "DICEOMANCER_ENCHANTMENT_FILTERING.extraCardText": "抽{Cards:diff()}张牌",
-  "DICEOMANCER_ENCHANTMENT_FILTERING.description": "抽{Cards:diff()}张牌",
-
-  "DICEOMANCER_ENCHANTMENT_SPRAY.title": "扫射",
-  "DICEOMANCER_ENCHANTMENT_SPRAY.extraCardText": "对所有敌人造成{Damage:diff()}点伤害",
-  "DICEOMANCER_ENCHANTMENT_SPRAY.description": "对所有敌人造成{Damage:diff()}点伤害",
-
-  "DICEOMANCER_ENCHANTMENT_PHANTOM.title": "幻影",
-  "DICEOMANCER_ENCHANTMENT_PHANTOM.extraCardText": "将{Cards:diff()}张幻影加入手牌。",
-  "DICEOMANCER_ENCHANTMENT_PHANTOM.description": "将{Cards:diff()}张本牌的幻影加入手牌。\n幻影为消耗牌，需要的能量减少1点，没有附魔。"
 }

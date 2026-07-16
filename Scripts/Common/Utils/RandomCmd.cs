@@ -6,15 +6,34 @@ namespace Diceomancer.Scripts.Common.Utils;
 // 检定函数
 public static class RandomCmd
 {
-    public static bool CheckD20(Player player, decimal amount = 0, decimal luckAmount = 0)
+    public static int CheckD4(Player player)
     {
-        // 第一次掷骰
-        var value = player.RunState.Rng.CombatEnergyCosts.NextInt(1, 21);
-        // 取幸运骰
-        for (var i = 0; i < luckAmount / 6; i++)
-            value = int.Min(value, player.RunState.Rng.CombatEnergyCosts.NextInt(21));
+        return GetRandomInt(player, 1, 4);
+    }
 
-        return value < amount;
+    public static int CheckD6(Player player)
+    {
+        return GetRandomInt(player, 1, 6);
+    }
+
+    public static int CheckD8(Player player)
+    {
+        return GetRandomInt(player, 1, 8);
+    }
+
+    public static int CheckD10(Player player)
+    {
+        return GetRandomInt(player, 1, 10);
+    }
+
+    public static int CheckD12(Player player)
+    {
+        return GetRandomInt(player, 1, 12);
+    }
+
+    public static int CheckD20(Player player)
+    {
+        return GetRandomInt(player, 1, 20);
     }
 
     public static int GetRandomInt(Player player, int min, int max)

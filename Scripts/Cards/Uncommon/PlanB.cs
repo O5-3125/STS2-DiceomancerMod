@@ -11,26 +11,10 @@ using STS2RitsuLib.Scaffolding.Characters;
 namespace Diceomancer.Scripts.Cards.Uncommon;
 
 [RegisterCard(typeof(DiceomancerCardPool))]
-public class PlanB() : ModCardTemplate(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
+public class PlanB() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
-
-    private const int energyCost = 1;
-
-
-    private const CardType type = CardType.Skill;
-
-
-    private const CardRarity rarity = CardRarity.Uncommon;
-
-
-    private const TargetType targetType = TargetType.Self;
-
-
-    private const bool shouldShowInCardLibrary = true;
-
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
-
-
+    
     public override bool GainsBlock => true;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
@@ -51,7 +35,6 @@ public class PlanB() : ModCardTemplate(energyCost, type, rarity, targetType, sho
 
         if (this.Owner.GetEnergy() <= 0) await PlayerCmd.GainEnergy(base.DynamicVars.Energy.BaseValue, base.Owner);
     }
-
 
 
     protected override void OnUpgrade()

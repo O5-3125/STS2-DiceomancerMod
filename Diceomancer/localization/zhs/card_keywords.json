@@ -6,5 +6,11 @@
   "DICEOMANCER_KEYWORD_FRAGILE.title": "一次性",
   "DICEOMANCER_KEYWORD_FRAGILE.description": "打出后从牌组中移除",
   "DICEOMANCER_KEYWORD_LIMITED.title": "限制",
-  "DICEOMANCER_KEYWORD_LIMITED.description": "每回合只能打出一张限制牌"
+  "DICEOMANCER_KEYWORD_LIMITED.description": "每回合只能打出一张限制牌",
+  "DICEOMANCER_KEYWORD_PHANTOM.title": "幻影",
+  "DICEOMANCER_KEYWORD_PHANTOM.description": "获得本牌的幻影。\n幻影牌费用-1，消耗且移除幻影关键词。",
+  "DICEOMANCER_KEYWORD_CHAOS.title": "混乱",
+  "DICEOMANCER_KEYWORD_CHAOS.description": "抽到时在1~6范围内重掷这张牌的基本效果。",
+  "DICEOMANCER_KEYWORD_EPIDEMIC.title": "疫病",
+  "DICEOMANCER_KEYWORD_EPIDEMIC.description": "右键此牌将其消耗，获得3[gold]灾厄[/gold]。"
 }

@@ -10,11 +10,11 @@ using STS2RitsuLib.Interop.AutoRegistration;
 namespace Diceomancer.Scripts.Cards.Uncommon;
 
 [RegisterCard(typeof(DiceomancerCardPool))]
-public class Beacon() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self, true)
+public class Beacon() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        List<CardModel> cardList = base.Owner.PlayerCombatState.Hand.Cards.ToList();
+        var cardList = PileType.Hand.GetPile(Owner).Cards.ToList();
 
         foreach (var card in cardList)
         {
@@ -22,7 +22,7 @@ public class Beacon() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommon, 
 
             (await PowerCmd.Apply<NightmarePower>(choiceContext,
                 base.Owner.Creature, 1m,
-                base.Owner.Creature, this)).SetSelectedCard(card);
+                base.Owner.Creature, this))?.SetSelectedCard(card);
         }
     }
 

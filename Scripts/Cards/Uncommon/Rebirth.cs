@@ -13,52 +13,30 @@ using STS2RitsuLib.Interop.AutoRegistration;
 namespace Diceomancer.Scripts.Cards.Uncommon;
 
 [RegisterCard(typeof(DiceomancerCardPool))]
-public class Rebirth() : ModCardTemplate(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
+public class Rebirth() : ModCardTemplate(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    // ��������
-    private const int energyCost = 2;
-
-    // ��������
-    private const CardType type = CardType.Attack;
-
-    // ����ϡ�ж�
-    private const CardRarity rarity = CardRarity.Uncommon;
-
-    // Ŀ�����ͣ�AnyEnemy��ʾ������ˣ�?
-    private const TargetType targetType = TargetType.AnyEnemy;
-
-    // �Ƿ��ڿ���ͼ������ʾ
-    private const bool shouldShowInCardLibrary = true;
-
     protected override HashSet<CardTag> CanonicalTags =>
     [
         MyTags.Evolution.GetModCardTag()
     ];
 
-    // ���ƵĻ������ԣ�����������12���˺���
-
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(1, ValueProp.Move),
         new DynamicVar("Evolution", 12M)
-            .WithSharedTooltip("Evolution")
+            .WithSharedTooltip("evolution")
     ];
 
-    // ������һ�У�ָ����������·����������MyMod/images/cards/Test.png
-    // public override string PortraitPath => $"res://MyMod/images/cards/{nameof(Test)}.png";
-
-    // ���ʱ��Ч���߼�?
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue) // ����˺�����ֵ��Դ�ڿ��ƵĻ����˺�����?
-            .FromCard(this) // �˺���Դ�����ſ���
-            .Targeting(cardPlay.Target) // ���ѡ��Ŀ��?
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+            .FromCard(this, cardPlay)
+            .Targeting(cardPlay.Target)
             .Execute(choiceContext);
     }
 
-    // �������Ч���߼�?
     protected override void OnUpgrade()
     {
         base.EnergyCost.UpgradeBy(-1);

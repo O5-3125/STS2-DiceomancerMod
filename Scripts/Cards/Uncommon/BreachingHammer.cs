@@ -11,7 +11,7 @@ namespace Diceomancer.Scripts.Cards.Uncommon;
 
 [RegisterCard(typeof(DiceomancerCardPool))]
 public class BreachingHammer()
-    : ModCardTemplate(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy, true)
+    : ModCardTemplate(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -25,13 +25,13 @@ public class BreachingHammer()
 
         if (cardPlay.Target.Block > 0) DynamicVars.Damage.BaseValue *= DynamicVars["multiples"].IntValue;
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue) 
-            .FromCard(this) 
+            .FromCard(this,cardPlay) 
             .Targeting(cardPlay.Target) 
             .Execute(choiceContext);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["multiples"].UpgradeValueBy(1); // ����������4���˺�
+        DynamicVars["multiples"].UpgradeValueBy(1); 
     }
 }

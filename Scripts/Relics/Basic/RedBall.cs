@@ -1,13 +1,17 @@
 ﻿using Diceomancer.Scripts.Hero;
 using Godot;
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands.Builders;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
+using STS2RitsuLib.Cards;
 using STS2RitsuLib.Combat.HealthBars;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -19,7 +23,7 @@ namespace Diceomancer.Scripts.Relics.Basic;
 [RegisterRelic(typeof(DiceomancerRelicPool))]
 // 加入初始遗物池
 [RegisterCharacterStarterRelic(typeof(DiceomancerCharacter))]
-public class RedBall : ModRelicTemplate
+public class RedBall : ModRelicTemplate, ICardOnPlayHookListener
 {
     private static readonly SavedAttachedState<RedBall, int> Injury = new("Injury", _ => 0);
     public override RelicRarity Rarity => RelicRarity.Common;
@@ -42,6 +46,12 @@ public class RedBall : ModRelicTemplate
     // 大图标（原版256x256）
     protected override string BigIconPath => "res://Diceomancer/images/Relics/RedBall.png";
 
+    // public Task<bool> BeforeCardOnPlay(BeforeCardOnPlayContext context)
+    // {
+    //     return Task.FromResult(context.CardPlay.Card.TargetType == TargetType.AnyEnemy);
+    // }
+
+    
     // 覆盖生命血条
     public IEnumerable<HealthBarForecastSegment> GetHealthBarForecastSegments(HealthBarForecastContext context)
     {
@@ -86,7 +96,7 @@ public class RedBall : ModRelicTemplate
         UpdateDisplay();
     }
 
-    private void UpdateDisplay()
+    private  void UpdateDisplay()
     {
         Flash();
         DynamicVars["Injury"].BaseValue = Injury[this];

@@ -25,7 +25,6 @@ public class Catalyst() : ModCardTemplate(2, CardType.Skill, CardRarity.Rare, Ta
         }
     }
 
-    // 升级后的效果逻辑
     protected override void OnUpgrade()
     {
         EnergyCost.UpgradeBy(-1);

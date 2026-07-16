@@ -24,6 +24,18 @@
   "DICEOMANCER_POWER_SLOW_POWER.description": "打出牌时，层数减少并失去能量。回合结束时消失。",
   "DICEOMANCER_POWER_SLOW_POWER.smartDescription": "本回合你打出下{Amount}张牌时，失去{Energy:energyIcons()}。",
   //
+  "DICEOMANCER_POWER_EVADE_POWER.title": "闪避",
+  "DICEOMANCER_POWER_EVADE_POWER.description": "下次受到的伤害变为0。",
+  "DICEOMANCER_POWER_EVADE_POWER.smartDescription": "阻止下{Amount}次受到的伤害。\n回合开始时失去一层。",
+  //
+  "DICEOMANCER_POWER_CRITICAL_HIT.title": "暴击",
+  "DICEOMANCER_POWER_CRITICAL_HIT.description": "下次造成的伤害翻倍。",
+  "DICEOMANCER_POWER_CRITICAL_HIT.smartDescription": "下{Amount}次造成的伤害翻倍。\n回合结束时失去一层。",
+  //
+  "DICEOMANCER_POWER_BLIND_POWER.title": "目盲",
+  "DICEOMANCER_POWER_BLIND_POWER.description": "下次造成的伤害落空。",
+  "DICEOMANCER_POWER_BLIND_POWER.smartDescription": "本回合下{Amount}次造成的伤害落空。",
+  //
   "DICEOMANCER_POWER_HASTE_POWER.title": "加速",
   "DICEOMANCER_POWER_HASTE_POWER.description": "本回合你每打出一张牌，抽一张牌。",
   "DICEOMANCER_POWER_HASTE_POWER.smartDescription": "本回合当你打出牌时，层数减少并抽一张牌。",
@@ -44,43 +56,68 @@
   "DICEOMANCER_POWER_INJURY.description": "负伤将在你的回合结束时一次性结算。",
   "DICEOMANCER_POWER_INJURY.smartDescription": "本回合结束时，失去{Amount}点生命值。",
   //
+  "DICEOMANCER_POWER_TECH_POWER.title": "科技",
+  "DICEOMANCER_POWER_TECH_POWER.description": "用于建造的资源。",
+  "DICEOMANCER_POWER_TECH_POWER.smartDescription": "右键点击建造牌，消耗科技进行建造。",
+  //
+  "DICEOMANCER_POWER_BLACK_ELEMENT.title": "黯元素",
+  "DICEOMANCER_POWER_BLACK_ELEMENT.description": "回合结束时给予随机敌人随机减益效果。",
+  "DICEOMANCER_POWER_BLACK_ELEMENT.smartDescription": "回合结束时给予随机敌人{Buff:diff()}层随机减益效果。",
+  "DICEOMANCER_POWER_EARTH_ELEMENT.title": "土元素",
+  "DICEOMANCER_POWER_EARTH_ELEMENT.description": "回合开始时获得能量。",
+  "DICEOMANCER_POWER_EARTH_ELEMENT.smartDescription": "回合开始时获得{Energy:energyIcons()}。",
+  "DICEOMANCER_POWER_FIRE_ELEMENT.title": "火元素",
+  "DICEOMANCER_POWER_FIRE_ELEMENT.description": "回合结束时造成伤害。",
+  "DICEOMANCER_POWER_FIRE_ELEMENT.smartDescription": "回合结束时随机造成{Damage:diff()}点伤害。",
+  "DICEOMANCER_POWER_SPACE_FIRE_ELEMENT.title": "星际火元素",
+  "DICEOMANCER_POWER_SPACE_FIRE_ELEMENT.description": "回合结束时造成伤害。",
+  "DICEOMANCER_POWER_SPACE_FIRE_ELEMENT.smartDescription": "回合结束时对随机敌人造成{Damage:diff()}点伤害{Repeat:diff()}次。",
+  "DICEOMANCER_POWER_STEAM_TANK_ELEMENT.title": "蒸汽坦克",
+  "DICEOMANCER_POWER_STEAM_TANK_ELEMENT.description": "回合结束时造成伤害，获得格挡",
+  "DICEOMANCER_POWER_STEAM_TANK_ELEMENT.smartDescription": "回合结束时对所有敌人造成{Damage:diff()}点伤害，获得{Block:diff()}点格挡。",
+  "DICEOMANCER_POWER_WATER_ELEMENT.title": "水元素",
+  "DICEOMANCER_POWER_WATER_ELEMENT.description": "回合结束时获得格挡",
+  "DICEOMANCER_POWER_WATER_ELEMENT.smartDescription": "回合结束时获得{Block:diff()}点格挡。",
+  //
+  "DICEOMANCER_POWER_STANDARDIZED_SUMMON.title": "标准化召唤",
+  "DICEOMANCER_POWER_STANDARDIZED_SUMMON.smartDescription": "回合开始时，召唤{FireElement:diff()}个[red]火元素[/red]。",
+  //
+  "DICEOMANCER_POWER_SUPERPOSITION_POWER.title": "叠加态",
+  "DICEOMANCER_POWER_SUPERPOSITION_POWER.smartDescription": "混乱牌获得[gold]重放[/gold]。",
+  //
+  "DICEOMANCER_POWER_EXTRA_TURN.title": "额外回合",
+  "DICEOMANCER_POWER_EXTRA_TURN.smartDescription": "回合结束后，获得一个额外回合。",
+  //
   "DICEOMANCER_POWER_TULPENMANIE.title": "郁金香",
-  //  "DICEOMANCER_POWER_TULPENMANIE.description": "回合结束时，手牌上的数降为1。",
   "DICEOMANCER_POWER_TULPENMANIE.smartDescription": "回合结束时，手牌上的数降为1。",
   //
   "DICEOMANCER_POWER_FATIGUE.title": "疲劳",
-  //  "DICEOMANCER_POWER_FATIGUE.description": "本回合不能打出限制牌。",
   "DICEOMANCER_POWER_FATIGUE.smartDescription": "本回合不能打出限制牌。",
   //
   "DICEOMANCER_POWER_BREAK_COCOON.title": "破茧",
-  //  "DICEOMANCER_POWER_BREAK_COCOON.description": "失去生命时，获得等量力量。",
   "DICEOMANCER_POWER_BREAK_COCOON.smartDescription": "失去生命时，获得等量力量。",
   //
   "DICEOMANCER_POWER_COUNTER_HELIX.title": "反击螺旋",
-  //  "DICEOMANCER_POWER_COUNTER_HELIX.description": "受到未被格挡的伤害时，所有敌人失去生命。",
   "DICEOMANCER_POWER_COUNTER_HELIX.smartDescription": "受到未被格挡的伤害时，所有敌人失去{Amount}生命。",
   //
   "DICEOMANCER_POWER_ELASTIC_DEFENCE.title": "防御战术",
-  //  "DICEOMANCER_POWER_ELASTIC_DEFENCE.description": "受到未被格挡的伤害时，获得护甲。",
   "DICEOMANCER_POWER_ELASTIC_DEFENCE.smartDescription": "受到未被格挡的伤害时，获得{Amount}护甲。",
   //
   "DICEOMANCER_POWER_FLOW_POWER.title": "心流",
-  //  "DICEOMANCER_POWER_FLOW_POWER.description": "本回合造成两倍伤害。",
   "DICEOMANCER_POWER_FLOW_POWER.smartDescription": "本回合造成双倍伤害。",
   //
   "DICEOMANCER_POWER_BODY_BURNING.title": "燃烧之躯",
-  //  "DICEOMANCER_POWER_BODY_BURNING.description": "打出攻击牌时，对随机敌人施加{Amount}层燃烧。",
   "DICEOMANCER_POWER_BODY_BURNING.smartDescription": "打出攻击牌时，对随机敌人施加{Amount}层燃烧。",
   //
   "DICEOMANCER_POWER_AMERI_ROULETTE.title": "美式轮盘赌",
-  //  "DICEOMANCER_POWER_AMERI_ROULETTE.description": "回合开始时，受到当前生命值一半的伤害。",
   "DICEOMANCER_POWER_AMERI_ROULETTE.smartDescription": "回合开始时，受到当前生命值一半的伤害。",
   //
   "DICEOMANCER_POWER_COLOSSUS.title": "巨像",
-  //  "DICEOMANCER_POWER_COLOSSUS.description": "手牌上限减少。",
   "DICEOMANCER_POWER_COLOSSUS.smartDescription": "手牌上限变为{Amount}。",
   //
   "DICEOMANCER_POWER_IGNITE.title": "点燃",
-  //  "DICEOMANCER_POWER_IGNITE.description": "回合开始时，获得烈焰。",
-  "DICEOMANCER_POWER_IGNITE.smartDescription": "回合开始时，获得{Amount}张烈焰。"
+  "DICEOMANCER_POWER_IGNITE.smartDescription": "回合开始时，获得{Amount}张烈焰。",
+  //
+  "THE_TIME_IS_CALLING_POWER.title": "时代在召唤！",
+  "THE_TIME_IS_CALLING_POWER.smartDescription": "回合开始时，召唤{Amount}。"
 }

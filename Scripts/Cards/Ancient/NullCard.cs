@@ -16,9 +16,7 @@ public class NullCard()
     // 卡牌类型
     private const CardType type = CardType.Curse;
 
-    // 卡牌稀有度
-    // Ancient Basic Common None Curse Event Quest Rare Status Token Uncommon
-    // 先古 基础 常见 没有 诅咒 事件 任务 稀�?状�?任务 罕见
+
     private const CardRarity rarity = CardRarity.Ancient;
 
     // 目标类型
@@ -27,7 +25,7 @@ public class NullCard()
     // 是否在卡牌图鉴中显示
     private const bool shouldShowInCardLibrary = true;
 
-    // 不能被升�?
+    // 不能被升�?
     public override int MaxUpgradeLevel => 0;
 
 
@@ -40,7 +38,7 @@ public class NullCard()
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
         MyKeywords.Bonus, // 添加自定义关键词
-        CardKeyword.Unplayable // 添加原版关键�?
+        CardKeyword.Unplayable // 添加原版关键?
     ];
 
 
@@ -53,8 +51,8 @@ public class NullCard()
     //     // ModKeywordRegistry.CreateHoverTip(MyKeywords.Rebound), // 自定义关键词
     // ];
 
-    // 自定义卡�?
+    // 自定义卡?
     public override CardAssetProfile AssetProfile => new(
-        "res://Diceomancer/images/Cards/占位�?.png" // 卡图
+        "res://Diceomancer/images/Cards/占位�?.png" // 卡图
     );
 }

@@ -1,3 +1,4 @@
+using Diceomancer.Scripts.Capabilitys;
 using STS2RitsuLib.Scaffolding.Content;
 using Diceomancer.Scripts.Common;
 using Diceomancer.Scripts.Hero;
@@ -13,6 +14,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 using STS2RitsuLib.Cards.DynamicVars;
 using STS2RitsuLib.CardTags;
 using STS2RitsuLib.Interop.AutoRegistration;
+using STS2RitsuLib.Models.Capabilities;
 
 namespace Diceomancer.Scripts.Cards.Common;
 
@@ -25,40 +27,34 @@ public class Bedrock() : ModCardTemplate(2, CardType.Skill, CardRarity.Common, T
         MyTags.Modify.GetModCardTag()
     ];
 
-    // ��������ƿ��Ի�÷���
     public override bool GainsBlock => true;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new BlockVar(5, ValueProp.Move),
-        new PowerVar<PlatingPower>(5),
+        new BlockVar(12, ValueProp.Move),
         new("modify", 3),
         new DynamicVar("Evolution", 2M)
-            .WithSharedTooltip("Evolution")
+            .WithSharedTooltip("evolution")
     ];
 
-
-    // ���ʱ��Ч���߼�?
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (base.IsUpgraded)
-            await PowerCmd.Apply<PlatingPower>(choiceContext,
-                base.Owner.Creature,
-                DynamicVars["PlatingPower"].IntValue,
-                base.Owner.Creature,
-                this);
-        else
-            await CreatureCmd.GainBlock(base.Owner.Creature, base.DynamicVars.Block, cardPlay);
-
+        await CreatureCmd.GainBlock(base.Owner.Creature, base.DynamicVars.Block, cardPlay);
+        
         var cardModel = (await CardSelectCmd.FromHand(choiceContext, base.Owner,
             new CardSelectorPrefs(CardSelectorPrefs.EnchantSelectionPrompt, 1),
-            (CardModel c) => c.Enchantment == null, this)).FirstOrDefault();
+            null, this)).FirstOrDefault();
 
-        if (cardModel is { Enchantment: null }) CardCmd.Enchant<Adroit>(cardModel, DynamicVars["modify"].IntValue);
+        if (cardModel != null)
+        {
+            var capability = ModelCapabilityRegistry.Create<BlockCapability>();
+            capability.DynamicVars.Block.BaseValue = DynamicVars["modify"].IntValue;
+            cardModel.AddCapability(capability);
+        }
     }
 
-    // �������Ч���߼�?
     protected override void OnUpgrade()
     {
+        DynamicVars.Block.UpgradeValueBy(3);
     }
 }

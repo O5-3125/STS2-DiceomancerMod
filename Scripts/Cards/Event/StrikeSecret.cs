@@ -10,13 +10,13 @@ using STS2RitsuLib.Interop.AutoRegistration;
 
 namespace Diceomancer.Scripts.Cards.Event;
 
-[RegisterCard(typeof(ColorlessCardPool))]
+[RegisterCard(typeof(EventCardPool))]
 public class StrikeSecret() : ModCardTemplate(3, CardType.Attack, CardRarity.Event, TargetType.AnyEnemy)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
-    
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(5)];
+
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
 
@@ -27,9 +27,9 @@ public class StrikeSecret() : ModCardTemplate(3, CardType.Attack, CardRarity.Eve
             where c.Tags.Contains(CardTag.Strike) && c is not StrikeSecret
             select c,
             DynamicVars.Cards.IntValue, Owner.RunState.Rng.CombatCardGeneration);
-        
+
         foreach (var item in distinctForCombat.ToList())
-            await CardCmd.AutoPlay(choiceContext, item.CreateDupe(), cardPlay.Target);
+            await CardCmd.AutoPlay(choiceContext, item.CreateDupe(), null);
     }
 
 

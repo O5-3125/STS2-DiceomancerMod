@@ -10,7 +10,7 @@ using STS2RitsuLib.Interop.AutoRegistration;
 namespace Diceomancer.Scripts.Cards.Rare;
 
 [RegisterCard(typeof(DiceomancerCardPool))]
-public class FightToLive() : ModCardTemplate(1, CardType.Skill, CardRarity.Rare, TargetType.Self, true)
+public class FightToLive() : ModCardTemplate(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -19,16 +19,15 @@ public class FightToLive() : ModCardTemplate(1, CardType.Skill, CardRarity.Rare,
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        List<CardModel> cardList = base.Owner.PlayerCombatState.Hand.Cards.ToList();
+        var cardList = PileType.Hand.GetPile(Owner).Cards.ToList();
 
         foreach (var card in cardList) await CardCmd.Exhaust(choiceContext, card);
 
         await CardPileCmd.Draw(choiceContext, base.DynamicVars.Cards.BaseValue, base.Owner);
     }
-    
+
     protected override void OnUpgrade()
     {
-        // this.EnergyCost.UpgradeBy(-1);
         this.AddKeyword(CardKeyword.Retain);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Diceomancer.Scripts.Common;
+using Diceomancer.Scripts.Common.Utils;
 using Diceomancer.Scripts.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -29,12 +30,21 @@ public class TestSingleton : SingletonModel
     // 抽到的逻辑
     public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)
     {
+        // 附赠
         if (card.Keywords.Contains(MyKeywords.Bonus)) await CardPileCmd.Draw(choiceContext, 1m, card.Owner);
-    }
 
+        // 混乱
+        if (card.Keywords.Contains(MyKeywords.Chaos))
+        {
+            var keyList = card.DynamicVars.Keys.ToList();
+            foreach (var key in keyList)
+                card.DynamicVars[key].BaseValue = RandomCmd.CheckD6(card.Owner);
+        }
+    }
 
     public override async Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        // 进化
         if (cardPlay.Card.Tags.Contains(MyTags.Evolution.GetModCardTag()))
         {
             var keyList = cardPlay.Card.DynamicVars.Keys;
@@ -47,6 +57,17 @@ public class TestSingleton : SingletonModel
         if (cardPlay.Card.Keywords.Contains(MyKeywords.Limited))
             await PowerCmd.Apply<Fatigue>(
                 choiceContext, cardPlay.Card.Owner.Creature, 1, null, null);
+
+
+        // 打出获得幻影复制
+        if (cardPlay.Card.Keywords.Contains(MyKeywords.Phantom))
+        {
+            var cardModel = cardPlay.Card.CreateClone(); // 获得复制
+            cardModel.EnergyCost.AddThisCombat(-1); // 减一费
+            cardModel.AddKeyword(CardKeyword.Exhaust); // 消耗
+            cardModel.RemoveKeyword(MyKeywords.Phantom); // 移除关键词
+            await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Hand, cardPlay.Card.Owner);
+        }
     }
 
 
@@ -56,8 +77,4 @@ public class TestSingleton : SingletonModel
     //     return Task.CompletedTask;
     // }
 
-    // public async override Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)
-    // {
-    //     Log.Info($"AfterCardDrawn: {card.Id}");
-    // }
 }

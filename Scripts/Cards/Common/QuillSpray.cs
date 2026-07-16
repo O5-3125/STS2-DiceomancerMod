@@ -1,6 +1,6 @@
+using Diceomancer.Scripts.Capabilitys;
 using STS2RitsuLib.Scaffolding.Content;
 using Diceomancer.Scripts.Common;
-using Diceomancer.Scripts.Enchantments;
 using Diceomancer.Scripts.Hero;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 using STS2RitsuLib.Cards.DynamicVars;
 using STS2RitsuLib.CardTags;
 using STS2RitsuLib.Interop.AutoRegistration;
+using STS2RitsuLib.Models.Capabilities;
 
 namespace Diceomancer.Scripts.Cards.Common;
 
@@ -27,33 +28,27 @@ public class QuillSpray() : ModCardTemplate(1, CardType.Attack, CardRarity.Commo
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        ArgumentNullException.ThrowIfNull(CombatState);
+
         await DamageCmd.Attack(DynamicVars.Damage.IntValue)
-            .FromCard(this)
+            .FromCard(this, cardPlay)
             .TargetingAllOpponents(base.CombatState)
             .Execute(choiceContext);
 
-        var pile = PileType.Hand.GetPile(base.Owner);
-        var cardModel =
-            base.Owner.RunState.Rng.CombatCardSelection.NextItem(pile.Cards.Where((CardModel c) =>
-                c.Type == CardType.Attack && c is { Enchantment: Spray }));
-        if (cardModel != null)
-        {
-            switch (cardModel.Enchantment)
-            {
-                case null:
-                    CardCmd.Enchant<Spray>(cardModel, DynamicVars["modify"].IntValue);
-                    break;
-                case Spray:
-                    cardModel.Enchantment.Amount += DynamicVars["modify"].IntValue;
-                    break;
-            }
-        }
+
+        var cardModel = (await CardSelectCmd.FromHand(choiceContext, base.Owner,
+            new CardSelectorPrefs(CardSelectorPrefs.EnchantSelectionPrompt, 1),
+            null, this)).FirstOrDefault();
+
+        var capability = ModelCapabilityRegistry.Create<SprayCapability>();
+        capability.DynamicVars.Block.BaseValue = DynamicVars["modify"].IntValue;
+        cardModel?.AddCapability(capability);
+        // cardModel?.GetOrCreateCapability<SprayCapability>(); // 挂载组件
     }
 
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(3);
         DynamicVars["modify"].UpgradeValueBy(3);
-        // DynamicVars["Evolution"].UpgradeValueBy(1);
     }
 }

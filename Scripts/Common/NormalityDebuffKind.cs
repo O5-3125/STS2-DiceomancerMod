@@ -8,4 +8,11 @@ public enum NormalityDebuffKind
     Frail, // 脆弱
     Vulnerable, // 易伤
     Weak, // 虚弱
+
+
+    Bleed, // 流血
+    Burn, // 燃烧
+    Blind, // 目盲  本回合下次攻击伤害为0
+    Strength, // 无力 力量-1
+    Tainted//  污染
 }

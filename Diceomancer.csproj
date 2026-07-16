@@ -31,6 +31,10 @@
     <!--        <PathMap>$(AppOutputBase)=.\</PathMap>-->
     <!--    </PropertyGroup>-->
 
+<!--    <PropertyGroup>-->
+<!--        &lt;!&ndash; 回退：手动安装到游戏 mods 目录（需要另外定义 ModsPath） &ndash;&gt;-->
+<!--        <MultiEnchantmentModPath Condition="!Exists('$(MultiEnchantmentModPath)')">$(ModsPath)/MultiEnchantmentMod/MultiEnchantmentMod.dll</MultiEnchantmentModPath>-->
+<!--    </PropertyGroup>-->
 
     <ItemGroup>
         <Reference Include="sts2">
@@ -44,14 +48,17 @@
         </Reference>
 
         <!-- 本地引用，注意路径是否正确 -->
-
+        <Reference Include="MultiEnchantmentMod">
+            <HintPath>$(MultiEnchantmentModPath)</HintPath>
+            <Private>false</Private>
+        </Reference>
         <!-- NuGet获取，注意版本是否一致，不一致手动更改Version -->
-        <PackageReference Include="STS2.RitsuLib" Version="0.4.20"/>
+        <PackageReference Include="STS2.RitsuLib" Version="0.4.56"/>
+
 
         <!--        <PackageReference Include="FuYnAloft.Sts2.MinionLib.RitsuAdapters" Version="0.4.4"/>-->
     </ItemGroup>
-
-
+    
     <ItemGroup>
         <Content Include="Diceomancer\images\Character\fishing_bg.png"/>
         <Content Include="Diceomancer\images\Character\rest.png"/>
@@ -73,32 +80,33 @@
         <Content Include="Diceomancer\localization\zhs\monsters.json"/>
         <Content Include="Diceomancer\localization\zhs\orbs.json"/>
         <Content Include="Diceomancer\localization\zhs\potions.json"/>
+        <Content Include="Scripts\Cards\Ancient\K.cs.uid" />
         <Content Include="Scripts\Cards\Ancient\NullCard.cs.uid"/>
         <Content Include="Scripts\Cards\Event\InvincibleStrike.cs.uid"/>
         <Content Include="Scripts\Cards\Event\StrikeSecret.cs.uid"/>
         <Content Include="Scripts\Cards\Uncommon\Swarm.cs.uid"/>
-        <Content Include="Scripts\Relics\Ancient\计划.txt"/>
+        <Content Include="Scripts\计划.txt" />
     </ItemGroup>
 
 
     <ItemGroup>
         <Compile Remove="Example\**"/>
         <Compile Remove="Scripts\Hero\WonderfulCardPool\**"/>
-        <Compile Remove="Scripts\Hero\CardPool\**"/>
     </ItemGroup>
 
 
     <ItemGroup>
         <EmbeddedResource Remove="Example\**"/>
         <EmbeddedResource Remove="Scripts\Hero\WonderfulCardPool\**"/>
-        <EmbeddedResource Remove="Scripts\Hero\CardPool\**"/>
     </ItemGroup>
 
 
     <ItemGroup>
         <Folder Include="Diceomancer\images\Ancient\"/>
+        <Folder Include="Scripts\Cards\Token\Options\" />
         <Folder Include="Scripts\Cards\Token\Scrap\"/>
     </ItemGroup>
+
 
     <!-- 自动复制dll和json -->
     <Target Name="Copy Mod" AfterTargets="PostBuildEvent">
@@ -111,7 +119,6 @@
               Condition="Exists('$(TargetDir)$(TargetName).pdb')"/>
         <Copy SourceFiles="$(MSBuildProjectName).json" DestinationFolder="$(Sts2Dir)/mods/$(MSBuildProjectName)/"/>
     </Target>
-
 
     <Target Name="ExportPck">
         <Message Text="Copying PCK to Slay the Spire 2 mods folder..." Importance="high"/>

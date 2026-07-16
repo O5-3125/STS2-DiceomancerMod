@@ -1,5 +1,6 @@
 using STS2RitsuLib.Scaffolding.Content;
 using Diceomancer.Scripts.Powers;
+using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -22,7 +23,8 @@ public class Flame() : ModCardTemplate(0, CardType.Skill, CardRarity.Token, Targ
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        
+        ArgumentNullException.ThrowIfNull(Owner.Creature.CombatState);
+
         await PowerCmd.Apply<BurnPower>(choiceContext, Owner.Creature.CombatState.Creatures,
             DynamicVars["BurnPower"].IntValue,
             Owner.Creature, this);

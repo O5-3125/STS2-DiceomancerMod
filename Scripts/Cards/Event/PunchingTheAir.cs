@@ -12,7 +12,7 @@ namespace Diceomancer.Scripts.Cards.Event;
 
 [RegisterCard(typeof(EventCardPool))]
 public class PunchingTheAir()
-    : ModCardTemplate(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy, true)
+    : ModCardTemplate(2, CardType.Attack, CardRarity.Event, TargetType.AnyEnemy)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
@@ -28,7 +28,7 @@ public class PunchingTheAir()
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .WithHitCount(DynamicVars.Repeat.IntValue)
-            .FromCard(this)
+            .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
             .Execute(choiceContext);
     }

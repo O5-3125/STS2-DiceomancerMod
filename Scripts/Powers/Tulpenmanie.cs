@@ -23,8 +23,8 @@ public class Tulpenmanie : ModPowerTemplate
     public override PowerAssetProfile AssetProfile => new(
         // IconPath: $"res://Diceomancer/images/Power/{GetType().Name}.png",
         // BigIconPath: $"res://Diceomancer/images/Power/{GetType().Name}_big.png"
-        "res://Diceomancer/images/Power/郁金香.png",
-        "res://Diceomancer/images/Power/郁金香.png"
+        "res://Diceomancer/images/Power/Tulpenmanie.png",
+        "res://Diceomancer/images/Power/Tulpenmanie.png"
     );
 
 

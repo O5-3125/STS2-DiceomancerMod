@@ -23,7 +23,7 @@ public class CounterHelix : ModPowerTemplate
         {
             Flash();
             await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies,
-                Amount, ValueProp.Unblockable | ValueProp.Unpowered, null, null);
+                Amount, ValueProp.Unblockable | ValueProp.Unpowered, null, null, null);
         }
     }
 }

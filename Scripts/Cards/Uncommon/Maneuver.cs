@@ -38,7 +38,7 @@ public class Maneuver() : ModCardTemplate(0, CardType.Skill, CardRarity.Uncommon
             (await CardSelectCmd.FromHand(
                 prefs: new CardSelectorPrefs(base.SelectionScreenPrompt,
                     base.DynamicVars["PutBack"].IntValue,
-                    999999),
+                    999),
                 context: choiceContext, player: base.Owner, filter: null, source: this)).ToArray();
 
         if (array.Length != 0) await CardPileCmd.Add(array, PileType.Draw, CardPilePosition.Top);

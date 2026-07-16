@@ -23,7 +23,7 @@ public class Alertness() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommo
     [
         new CardsVar(2),
         new DynamicVar("Evolution", 2M)
-            .WithSharedTooltip("Evolution")
+            .WithSharedTooltip("evolution")
     ];
 
 

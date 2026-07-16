@@ -9,40 +9,23 @@ using MegaCrit.Sts2.Core.ValueProps;
 using STS2RitsuLib.Cards.DynamicVars;
 using STS2RitsuLib.CardTags;
 using STS2RitsuLib.Interop.AutoRegistration;
+
 namespace Diceomancer.Scripts.Cards.Uncommon;
 
 [RegisterCard(typeof(DiceomancerCardPool))]
-public class Swarm() : ModCardTemplate(energyCost, type, rarity, targetType)
+public class Swarm() : ModCardTemplate(2, CardType.Attack, CardRarity.Uncommon, TargetType.RandomEnemy)
 {
-    // 基础耗能
-    private const int energyCost = 2;
-
-    // 卡牌类型
-    private const CardType type = CardType.Attack;
-
-    // 卡牌稀有度
-    private const CardRarity rarity = CardRarity.Uncommon;
-
-    // 目标类型（AnyEnemy表示任意敌人�?
-    private const TargetType targetType = TargetType.RandomEnemy;
-
-    // 是否在卡牌图鉴中显示
-    private const bool shouldShowInCardLibrary = true;
-
-
     protected override HashSet<CardTag> CanonicalTags =>
     [
         MyTags.Evolution.GetModCardTag()
     ];
-
-    // 卡牌的基础属性（例如这里�?2点伤害）
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(3m, ValueProp.Move),
         new RepeatVar(3),
         new DynamicVar("Evolution", 2M)
-            .WithSharedTooltip("Evolution")
+            .WithSharedTooltip("evolution")
     ];
 
     // 添加这一行，指定卡牌立绘路径，这里是MyMod/images/cards/Test.png
@@ -53,8 +36,8 @@ public class Swarm() : ModCardTemplate(energyCost, type, rarity, targetType)
     {
         ArgumentNullException.ThrowIfNull(CombatState, "base.CombatState");
 
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue) // 造成伤害，数值来源于卡牌的基础伤害属�?
-            .FromCard(this) // 伤害来源于这张卡�?
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+            .FromCard(this, cardPlay) // 伤害来源于这张卡?
             .TargetingRandomOpponents(CombatState) // 随机选择目标
             .WithHitCount(DynamicVars.Repeat.IntValue) // 攻击次数
             .Execute(choiceContext);
@@ -64,6 +47,6 @@ public class Swarm() : ModCardTemplate(energyCost, type, rarity, targetType)
     protected override void OnUpgrade()
     {
         DynamicVars["Evolution"].UpgradeValueBy(1);
-        // DynamicVars.Damage.UpgradeValueBy(4); // 升级后增�?点伤�?
+        // DynamicVars.Damage.UpgradeValueBy(4); 
     }
 }

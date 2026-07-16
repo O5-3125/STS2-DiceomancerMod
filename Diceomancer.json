@@ -3,8 +3,8 @@
   "name": "骰子浪游者Mod",
   "author": "what",
   "description": "测试用的mod",
-  "version": "0.0.1",
-  "min_game_version": "0.106.0",
+  "version": "0.0.10",
+  "min_game_version": "0.108.0",
   "has_pck": true,
   "has_dll": true,
   "dependencies": [

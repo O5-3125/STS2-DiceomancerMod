@@ -10,9 +10,10 @@ using STS2RitsuLib.Interop.AutoRegistration;
 
 namespace Diceomancer.Scripts.Cards.Basic;
 
-[RegisterCard(typeof(DiceomancerCardPool))]
-[RegisterCharacterStarterCard(typeof(DiceomancerCharacter))]
-public class TestSkill() : ModCardTemplate(0, CardType.Skill, CardRarity.Basic, TargetType.Self)
+// [RegisterCard(typeof(DiceomancerCardPool))]
+// [RegisterCharacterStarterCard(typeof(DiceomancerCharacter))]
+public class TestSkill()
+    : ModCardTemplate(0, CardType.Skill, CardRarity.Basic, TargetType.Self)
 {
     private CardType ThisType { get; set; } = CardType.Skill;
 
@@ -28,16 +29,16 @@ public class TestSkill() : ModCardTemplate(0, CardType.Skill, CardRarity.Basic, 
         new BlockVar(5m, ValueProp.Move)
     ];
 
-    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
-        // IEnumerable<CardDrawnEntry> cardDrawnEntries = CombatManager.Instance.History.Entries.OfType<CardDrawnEntry>();
-
-        this.ThisType = this.ThisType switch
-        {
-            // CardType.None => CardType.Attack,
-            CardType.Skill => CardType.Attack,
-            CardType.Attack => CardType.Skill,
-            _ => this.ThisType
-        };
-    }
+    // protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    // {
+    //     // IEnumerable<CardDrawnEntry> cardDrawnEntries = CombatManager.Instance.History.Entries.OfType<CardDrawnEntry>();
+    //     
+    //     this.ThisType = this.ThisType switch
+    //     {
+    //         // CardType.None => CardType.Attack,
+    //         CardType.Skill => CardType.Attack,
+    //         CardType.Attack => CardType.Skill,
+    //         _ => this.ThisType
+    //     };
+    // }
 }

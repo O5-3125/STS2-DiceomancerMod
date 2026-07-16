@@ -15,39 +15,34 @@ namespace Diceomancer.Scripts.Cards.Common;
 public class BattleOfWits() :
     ModCardTemplate(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy, true)
 {
-    // ���ƵĻ������ԣ�����������6���˺���
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(6, ValueProp.Move),
-        new DynamicVar("kick", 3).WithSharedTooltip("kick")
     ];
 
 
-    // ���ʱ��Ч���߼�?
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var discardList =
-            (await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs
-                    (base.SelectionScreenPrompt, 0, DynamicVars["kick"].IntValue),
-                context: choiceContext, player: base.Owner, filter: null, source: this)).ToList();
-
-        var discardSize = discardList.Count();
-        await CardCmd.Discard(choiceContext, discardList);
-
+        var hand = PileType.Hand.GetPile(Owner).Cards.ToList();
+        var discardSize = 0;
+        foreach (var cardModel in hand.Where(cardModel => cardModel.CanonicalKeywords.Any()))
+        {
+            await CardCmd.Discard(choiceContext, cardModel);
+            discardSize += 1;
+        }
 
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue) // ����˺�����ֵ��Դ�ڿ��ƵĻ����˺�����?
-            .FromCard(this) // �˺���Դ�����ſ���
-            .WithHitCount(discardSize) // ��������
-            .Targeting(cardPlay.Target) // �˺�Ŀ�������ѡ���Ŀ��
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+            .FromCard(this, cardPlay)
+            .WithHitCount(discardSize)
+            .Targeting(cardPlay.Target)
             .Execute(choiceContext);
     }
 
-    // �������Ч���߼�?
+
     protected override void OnUpgrade()
     {
-        DynamicVars["kick"].UpgradeValueBy(3);
-        DynamicVars.Damage.UpgradeValueBy(4); // ����������4���˺�
+        DynamicVars.Damage.UpgradeValueBy(4);
     }
 }

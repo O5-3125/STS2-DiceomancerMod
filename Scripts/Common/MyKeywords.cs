@@ -16,6 +16,10 @@ namespace Diceomancer.Scripts.Common;
     CardDescriptionPlacement = ModKeywordCardDescriptionPlacement.AfterCardDescription)]
 [RegisterOwnedCardKeyword(nameof(Phantom),
     CardDescriptionPlacement = ModKeywordCardDescriptionPlacement.AfterCardDescription)]
+[RegisterOwnedCardKeyword(nameof(Chaos),
+    CardDescriptionPlacement = ModKeywordCardDescriptionPlacement.AfterCardDescription)]
+[RegisterOwnedCardKeyword(nameof(Epidemic),
+    CardDescriptionPlacement = ModKeywordCardDescriptionPlacement.AfterCardDescription)]
 public class MyKeywords
 {
     public static readonly CardKeyword Bonus = ModContentRegistry.GetQualifiedKeywordId(Entry.ModId, nameof(Bonus))
@@ -32,6 +36,12 @@ public class MyKeywords
 
     public static readonly CardKeyword Phantom =
         ModContentRegistry.GetQualifiedKeywordId(Entry.ModId, nameof(Phantom)).GetModCardKeyword();
-}
 
-// Wonder 奇迹
+    public static readonly CardKeyword Chaos =
+        ModContentRegistry.GetQualifiedKeywordId(Entry.ModId, nameof(Chaos)).GetModCardKeyword();
+
+    public static readonly CardKeyword Epidemic =
+        ModContentRegistry.GetQualifiedKeywordId(Entry.ModId, nameof(Epidemic)).GetModCardKeyword();
+
+    
+}

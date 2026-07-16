@@ -3,6 +3,18 @@
   "DICEOMANCER_RELIC_MY_DECK.description": "当你生成牌时，将其加入卡组。\n当你消耗牌时，将其移出卡组。",
   "DICEOMANCER_RELIC_MY_DECK.flavor": "自己的卡组自己印。",
   //
+  "DICEOMANCER_RELIC_TEST_RELIC.title": "测试遗物",
+  "DICEOMANCER_RELIC_TEST_RELIC.description": "测试遗物。",
+  "DICEOMANCER_RELIC_TEST_RELIC.flavor": "测试遗物。",
+  //
+  "DICEOMANCER_RELIC_STATUS.title": "地位",
+  "DICEOMANCER_RELIC_STATUS.description": "你的商店和战斗奖励只有稀有牌。",
+  "DICEOMANCER_RELIC_STATUS.flavor": "注定伟大。",
+  //
+  "DICEOMANCER_RELIC_FREEDOM.title": "自由",
+  "DICEOMANCER_RELIC_FREEDOM.description": "拾起时，将一张K加入你的牌组。",
+  "DICEOMANCER_RELIC_FREEDOM.flavor": "无拘无束。",
+  //
   "DICEOMANCER_RELIC_BUILDER_RING.title": "工匠护符",
   "DICEOMANCER_RELIC_BUILDER_RING.description": "每回合打出第{Cards}张牌后，抽两张牌并获得{Energy:energyIcons()}。",
   "DICEOMANCER_RELIC_BUILDER_RING.flavor": "下雨当成晴天干，晚上当成白天干。",

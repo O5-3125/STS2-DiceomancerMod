@@ -26,26 +26,26 @@ public class ExcelAtCraft() : ModCardTemplate(1, CardType.Skill, CardRarity.Unco
         MyTags.Evolution.GetModCardTag()
     ];
 
-    // ��������ƿ��Ի�÷���
     public override bool GainsBlock => true;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new BlockVar(1m, ValueProp.Move),
         new DynamicVar("Evolution", 3M)
-            .WithSharedTooltip("Evolution")
+            .WithSharedTooltip("evolution")
     ];
-
-    // �����ص�����
-    protected override PileType GetResultPileTypeForCardPlay()
+    
+    protected override (PileType, CardPilePosition) GetResultPileTypeAndPositionForCardPlay()
     {
-        PileType resultPileType = base.GetResultPileTypeForCardPlay();
-        if (resultPileType != PileType.Discard) return resultPileType;
+        var (pileType, item) = base.GetResultPileTypeAndPositionForCardPlay();
+        if (pileType != PileType.Discard)
+        {
+            return (pileType, item);
+        }
 
-        return PileType.Hand;
+        return (PileType.Hand, CardPilePosition.Bottom);
     }
 
-    // ���ʱ��Ч���߼�?
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(base.CombatState, "base.CombatState");

@@ -1,13 +1,15 @@
+using Diceomancer.Scripts.Hero;
 using STS2RitsuLib.Scaffolding.Content;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using STS2RitsuLib.Interop.AutoRegistration;
 
 namespace Diceomancer.Scripts.Cards.Rare;
 
-// [RegisterCard(typeof(DiceomancerCardPool))]
-public class Lotus() : ModCardTemplate(5, CardType.Skill, CardRarity.Rare, TargetType.Self, true)
+[RegisterCard(typeof(DiceomancerCardPool))]
+public class Lotus() : ModCardTemplate(3, CardType.Skill, CardRarity.Rare, TargetType.Self, true)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -16,12 +18,11 @@ public class Lotus() : ModCardTemplate(5, CardType.Skill, CardRarity.Rare, Targe
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
-    // ���ʱ��Ч���߼�?
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        ArgumentNullException.ThrowIfNull(this.Owner.PlayerCombatState, "this.Owner.PlayerCombatState");
+        ArgumentNullException.ThrowIfNull(Owner.PlayerCombatState);
 
-        List<CardModel> list = this.Owner.PlayerCombatState.AllCards.ToList();
+        var list = Owner.PlayerCombatState.AllCards.ToList();
         foreach (var item in list)
         {
             var keyList = item.DynamicVars.Keys;
@@ -29,7 +30,6 @@ public class Lotus() : ModCardTemplate(5, CardType.Skill, CardRarity.Rare, Targe
         }
     }
 
-    // �������Ч���߼�?
     protected override void OnUpgrade()
     {
         this.EnergyCost.UpgradeBy(-1);

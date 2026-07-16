@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using STS2RitsuLib.Interop.AutoRegistration;
 
@@ -29,24 +30,36 @@ public class GatlingGun() : ModCardTemplate(1, CardType.Attack, CardRarity.Rare,
     {
         ArgumentNullException.ThrowIfNull(base.CombatState, "base.CombatState");
 
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue) 
-            .FromCard(this)
-            .TargetingRandomOpponents(base.CombatState) 
-            .WithHitCount(base.DynamicVars.Repeat.IntValue) 
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+            .FromCard(this, cardPlay)
+            .TargetingRandomOpponents(base.CombatState)
+            .WithHitCount(base.DynamicVars.Repeat.IntValue)
             .Execute(choiceContext);
 
         BaseReplayCount += 1;
     }
-    
-    // protected override PileType GetResultPileTypeForCardPlay()
+
+
+    // public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card, bool isAutoPlay,
+    //     ResourceInfo resources, PileType pileType, CardPilePosition position)
     // {
-    //     PileType resultPileType = base.GetResultPileTypeForCardPlay();
-    //     if (resultPileType != PileType.Discard) return resultPileType;
-    //     return PileType.Hand;
+    //     return base.ModifyCardPlayResultPileTypeAndPosition(card, isAutoPlay, resources, pileType, position);
     // }
-    
+
+    //
+    // protected override (PileType, CardPilePosition) GetResultPileTypeAndPositionForCardPlay()
+    // {
+    //     var (pileType, item) = base.GetResultPileTypeAndPositionForCardPlay();
+    //     if (pileType != PileType.Discard)
+    //     {
+    //         return (pileType, item);
+    //     }
+    //
+    //     return (PileType.Hand, CardPilePosition.Bottom);
+    // }
+
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(1); 
+        DynamicVars.Damage.UpgradeValueBy(1);
     }
 }
