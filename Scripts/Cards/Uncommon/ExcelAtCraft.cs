@@ -34,17 +34,22 @@ public class ExcelAtCraft() : ModCardTemplate(1, CardType.Skill, CardRarity.Unco
         new DynamicVar("Evolution", 3M)
             .WithSharedTooltip("evolution")
     ];
-    
-    protected override (PileType, CardPilePosition) GetResultPileTypeAndPositionForCardPlay()
+
+
+    protected override CardLocation GetResultLocationForCardPlay()
     {
-        var (pileType, item) = base.GetResultPileTypeAndPositionForCardPlay();
-        if (pileType != PileType.Discard)
+        var cardLocation = base.GetResultLocationForCardPlay();
+        if (cardLocation.pileType != PileType.Discard)
         {
-            return (pileType, item);
+            return cardLocation;
         }
 
-        return (PileType.Hand, CardPilePosition.Bottom);
+        cardLocation.pileType = PileType.Hand;
+        cardLocation.position = CardPilePosition.Bottom;
+
+        return cardLocation;
     }
+
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

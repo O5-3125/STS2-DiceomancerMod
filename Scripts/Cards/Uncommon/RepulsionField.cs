@@ -13,6 +13,8 @@ using STS2RitsuLib.Cards.DynamicVars;
 using STS2RitsuLib.Interactions.RightClick;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
+using Diceomancer.Scripts.Common;
+using STS2RitsuLib.CardTags;
 
 namespace Diceomancer.Scripts.Cards.Uncommon;
 
@@ -21,6 +23,8 @@ public class RepulsionField()
     : ModCardTemplate(2, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies), IModRightClickableCard
 
 {
+    protected override HashSet<CardTag> CanonicalTags => [MyTags.Upgrade.GetModCardTag()];
+
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
         HoverTipFactory.FromCard<InvincibilityDevice>(),
@@ -39,9 +43,9 @@ public class RepulsionField()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        ArgumentNullException.ThrowIfNull(cardPlay.Target);
+        ArgumentNullException.ThrowIfNull(Owner.Creature.CombatState);
 
-        await PowerCmd.Apply<WeakPower>(choiceContext, cardPlay.Target,
+        await PowerCmd.Apply<WeakPower>(choiceContext,Owner.Creature.CombatState.HittableEnemies ,
             DynamicVars.Weak.IntValue, Owner.Creature, this);
         await PowerCmd.Apply<PlatingPower>(choiceContext, Owner.Creature,
             DynamicVars["PlatingPower"].IntValue, Owner.Creature, this);
@@ -53,12 +57,7 @@ public class RepulsionField()
         if (tech == null) return;
         var amount = tech.Amount;
 
-        if (DynamicVars["Upgrade"].BaseValue > amount)
-        {
-            await PowerCmd.Remove(tech);
-            DynamicVars["Upgrade"].BaseValue -= amount;
-        }
-        else
+        if (DynamicVars["Upgrade"].BaseValue <= amount)
         {
             await PowerCmd.ModifyAmount(context.PlayerChoiceContext, tech, -DynamicVars["Upgrade"].BaseValue, null,
                 this);

@@ -38,7 +38,8 @@ public class PhantomCapability : CardPlayCapability, ICardDescriptionContributor
             var cardModel = cardPlay.Card.CreateClone(); // 获得复制
             cardModel.EnergyCost.AddThisCombat(-1); // 减一费
             cardModel.AddKeyword(CardKeyword.Exhaust); // 消耗
-            cardModel.RemoveCapability<PhantomCapability>();
+            // cardModel.RemoveCapability<PhantomCapability>();
+            cardModel.Capabilities().RemoveAll<PhantomCapability>();
             await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Hand, cardPlay.Card.Owner);
         }
     }

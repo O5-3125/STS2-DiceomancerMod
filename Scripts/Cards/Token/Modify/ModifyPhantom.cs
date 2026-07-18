@@ -27,7 +27,6 @@ public class ModifyPhantom()
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        // new CardsVar(1)
         new DynamicVar("modify", 1)
             .WithSharedTooltip("modify")
     ];

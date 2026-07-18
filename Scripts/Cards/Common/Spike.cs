@@ -16,6 +16,8 @@ using STS2RitsuLib.Cards.DynamicVars;
 using STS2RitsuLib.Interactions.RightClick;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
+using Diceomancer.Scripts.Common;
+using STS2RitsuLib.CardTags;
 
 namespace Diceomancer.Scripts.Cards.Common;
 
@@ -23,6 +25,8 @@ namespace Diceomancer.Scripts.Cards.Common;
 public sealed class Spike()
     : ModCardTemplate(2, CardType.Skill, CardRarity.Common, TargetType.AnyEnemy), IModRightClickableCard
 {
+    protected override HashSet<CardTag> CanonicalTags => [MyTags.Upgrade.GetModCardTag()];
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new PowerVar<WeakPower>(2),
@@ -54,12 +58,7 @@ public sealed class Spike()
         if (tech == null) return;
         var amount = tech.Amount;
 
-        if (DynamicVars["Upgrade"].BaseValue > amount)
-        {
-            await PowerCmd.Remove(tech);
-            DynamicVars["Upgrade"].BaseValue -= amount;
-        }
-        else
+        if (DynamicVars["Upgrade"].BaseValue <= amount)
         {
             await PowerCmd.ModifyAmount(context.PlayerChoiceContext, tech, -DynamicVars["Upgrade"].BaseValue, null,
                 this);
@@ -72,23 +71,7 @@ public sealed class Spike()
             await CardCmd.Transform(this, cardModel);
         }
     }
-    // public override async Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    // {
-    //     if (cardPlay.Card == this) return;
-    //     if (Pile?.Type != PileType.Hand) return;
-    //
-    //     DynamicVars["Upgrade"].BaseValue--;
-    //
-    //     ArgumentNullException.ThrowIfNull(base.CombatState);
-    //     if (DynamicVars["Upgrade"].BaseValue <= 0)
-    //     {
-    //         CardModel cardModel = base.CombatState.CreateCard<SpikeTrap>(base.Owner);
-    //         await CardCmd.Transform(this, cardModel);
-    //     }
-    // }
-
-
-    protected override void OnUpgrade()
+ protected override void OnUpgrade()
     {
         base.DynamicVars.Weak.UpgradeValueBy(1);
         base.DynamicVars["BleedPower"].UpgradeValueBy(2);

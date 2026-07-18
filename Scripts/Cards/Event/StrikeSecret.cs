@@ -29,7 +29,7 @@ public class StrikeSecret() : ModCardTemplate(3, CardType.Attack, CardRarity.Eve
             DynamicVars.Cards.IntValue, Owner.RunState.Rng.CombatCardGeneration);
 
         foreach (var item in distinctForCombat.ToList())
-            await CardCmd.AutoPlay(choiceContext, item.CreateDupe(), null);
+            await CardCmd.AutoPlay(choiceContext, item.CreateDupe(Owner), null);
     }
 
 

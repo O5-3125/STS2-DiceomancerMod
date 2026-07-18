@@ -16,7 +16,7 @@
   "DICEOMANCER_RELIC_FREEDOM.flavor": "无拘无束。",
   //
   "DICEOMANCER_RELIC_BUILDER_RING.title": "工匠护符",
-  "DICEOMANCER_RELIC_BUILDER_RING.description": "每回合打出第{Cards}张牌后，抽两张牌并获得{Energy:energyIcons()}。",
+  "DICEOMANCER_RELIC_BUILDER_RING.description": "在每场战斗开始时，获得{TechPower}点[gold]科技[/gold]。",
   "DICEOMANCER_RELIC_BUILDER_RING.flavor": "下雨当成晴天干，晚上当成白天干。",
   //
   "DICEOMANCER_RELIC_PRO_RING.title": "高手护符",

@@ -14,6 +14,7 @@ using STS2RitsuLib.Cards.DynamicVars;
 using STS2RitsuLib.Interactions.RightClick;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
+using STS2RitsuLib.CardTags;
 
 namespace Diceomancer.Scripts.Cards.Uncommon;
 
@@ -21,6 +22,10 @@ namespace Diceomancer.Scripts.Cards.Uncommon;
 public class SiegeTent()
     : ModCardTemplate(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self), IModRightClickableCard
 {
+    protected override HashSet<CardTag> CanonicalTags => [MyTags.Upgrade.GetModCardTag()];
+
+    public override bool GainsBlock => true;
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new PowerVar<PlatingPower>(4),
@@ -31,7 +36,7 @@ public class SiegeTent()
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
-        HoverTipFactory.FromCard<Dawn>(),
+        HoverTipFactory.FromCard<Trebuchet>(),
         HoverTipFactory.FromPower<PlatingPower>()
     ];
 
@@ -45,15 +50,18 @@ public class SiegeTent()
             DynamicVars["PlatingPower"].IntValue, Owner.Creature, this);
     }
 
-    protected override (PileType, CardPilePosition) GetResultPileTypeAndPositionForCardPlay()
+    protected override CardLocation GetResultLocationForCardPlay()
     {
-        var (pileType, item) = base.GetResultPileTypeAndPositionForCardPlay();
-        if (pileType != PileType.Discard)
+        var cardLocation = base.GetResultLocationForCardPlay();
+        if (cardLocation.pileType != PileType.Discard)
         {
-            return (pileType, item);
+            return cardLocation;
         }
 
-        return (PileType.Hand, CardPilePosition.Bottom);
+        cardLocation.pileType = PileType.Hand;
+        cardLocation.position = CardPilePosition.Bottom;
+
+        return cardLocation;
     }
 
     public async Task OnRightClick(ModRightClickExecutionContext context)
@@ -62,12 +70,7 @@ public class SiegeTent()
         if (tech == null) return;
         var amount = tech.Amount;
 
-        if (DynamicVars["Upgrade"].BaseValue > amount)
-        {
-            await PowerCmd.Remove(tech);
-            DynamicVars["Upgrade"].BaseValue -= amount;
-        }
-        else
+        if (DynamicVars["Upgrade"].BaseValue <= amount)
         {
             await PowerCmd.ModifyAmount(context.PlayerChoiceContext, tech, -DynamicVars["Upgrade"].BaseValue, null,
                 this);
@@ -76,7 +79,7 @@ public class SiegeTent()
 
         if (DynamicVars["Upgrade"].BaseValue <= 0)
         {
-            CardModel cardModel = base.CombatState.CreateCard<Dawn>(base.Owner);
+            CardModel cardModel = base.CombatState.CreateCard<Trebuchet>(base.Owner);
             await CardCmd.Transform(this, cardModel);
         }
     }

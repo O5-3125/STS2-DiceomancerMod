@@ -1,4 +1,5 @@
-﻿using Diceomancer.Scripts.Hero;
+﻿using Diceomancer.Scripts.Common;
+using Diceomancer.Scripts.Hero;
 using Diceomancer.Scripts.Hero.CardPool;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -9,6 +10,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
+using STS2RitsuLib.CardTags;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
@@ -28,17 +30,18 @@ public class Design()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        List<CardModel> cards = CardFactory.GetDistinctForCombat(base.Owner,
-            ModelDb.CardPool<UpgradeCardPool>()
-                .GetUnlockedCards(base.Owner.UnlockState, base.Owner.RunState.CardMultiplayerConstraint),
+        var cards = CardFactory.GetDistinctForCombat(base.Owner,
+            ModelDb.CardPool<DiceomancerCardPool>().AllCards
+                .Where(card => card.Tags.Contains(MyTags.Upgrade.GetModCardTag())),
             DynamicVars.Cards.IntValue,
             base.Owner.RunState.Rng.CombatCardGeneration).ToList();
+        
         if (base.IsUpgraded)
         {
             CardCmd.Upgrade(cards, CardPreviewStyle.HorizontalLayout);
         }
 
-        CardModel? cardModel =
+        var cardModel =
             await CardSelectCmd.FromChooseACardScreen(choiceContext, cards, base.Owner, canSkip: true);
         if (cardModel != null)
         {

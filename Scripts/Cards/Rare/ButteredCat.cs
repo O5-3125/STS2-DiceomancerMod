@@ -12,6 +12,8 @@ using STS2RitsuLib.Cards.DynamicVars;
 using STS2RitsuLib.Interactions.RightClick;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
+using Diceomancer.Scripts.Common;
+using STS2RitsuLib.CardTags;
 
 namespace Diceomancer.Scripts.Cards.Rare;
 
@@ -19,6 +21,8 @@ namespace Diceomancer.Scripts.Cards.Rare;
 public class ButteredCat()
     : ModCardTemplate(0, CardType.Skill, CardRarity.Rare, TargetType.Self), IModRightClickableCard
 {
+    protected override HashSet<CardTag> CanonicalTags => [MyTags.Upgrade.GetModCardTag()];
+
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
         HoverTipFactory.FromCard<ParadoxEngine>(),
@@ -57,12 +61,7 @@ public class ButteredCat()
         if (tech == null) return;
         var amount = tech.Amount;
 
-        if (DynamicVars["Upgrade"].BaseValue > amount)
-        {
-            await PowerCmd.Remove(tech);
-            DynamicVars["Upgrade"].BaseValue -= amount;
-        }
-        else
+        if (DynamicVars["Upgrade"].BaseValue <= amount)
         {
             await PowerCmd.ModifyAmount(context.PlayerChoiceContext, tech, -DynamicVars["Upgrade"].BaseValue, null,
                 this);

@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using STS2RitsuLib.Interop.AutoRegistration;
+using STS2RitsuLib.Models.Capabilities;
 
 namespace Diceomancer.Scripts.Cards.Token;
 
@@ -36,6 +37,9 @@ public class Up() : ModCardTemplate(1, CardType.Skill, CardRarity.Token, TargetT
             var keyList = cardModel.DynamicVars.Keys;
             foreach (var key in keyList)
                 cardModel.DynamicVars[key].BaseValue += DynamicVars["Up"].BaseValue;
+
+            
+           
         }
     }
 

@@ -14,6 +14,7 @@ using STS2RitsuLib.Cards.DynamicVars;
 using STS2RitsuLib.Interactions.RightClick;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
+using STS2RitsuLib.CardTags;
 
 namespace Diceomancer.Scripts.Cards.Uncommon;
 
@@ -21,6 +22,8 @@ namespace Diceomancer.Scripts.Cards.Uncommon;
 public sealed class ElectricArc()
     : ModCardTemplate(2, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies), IModRightClickableCard
 {
+    protected override HashSet<CardTag> CanonicalTags => [MyTags.Upgrade.GetModCardTag()];
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
 
@@ -54,12 +57,7 @@ public sealed class ElectricArc()
         if (tech == null) return;
         var amount = tech.Amount;
 
-        if (DynamicVars["Upgrade"].BaseValue > amount)
-        {
-            await PowerCmd.Remove(tech);
-            DynamicVars["Upgrade"].BaseValue -= amount;
-        }
-        else
+        if (DynamicVars["Upgrade"].BaseValue <= amount)
         {
             await PowerCmd.ModifyAmount(context.PlayerChoiceContext, tech, -DynamicVars["Upgrade"].BaseValue, null,
                 this);

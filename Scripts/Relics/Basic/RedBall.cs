@@ -18,11 +18,11 @@ using STS2RitsuLib.Scaffolding.Content;
 using STS2RitsuLib.Utils;
 
 namespace Diceomancer.Scripts.Relics.Basic;
-
-// 加入角色遗物池
-[RegisterRelic(typeof(DiceomancerRelicPool))]
-// 加入初始遗物池
-[RegisterCharacterStarterRelic(typeof(DiceomancerCharacter))]
+//
+// // 加入角色遗物池
+// [RegisterRelic(typeof(DiceomancerRelicPool))]
+// // 加入初始遗物池
+// [RegisterCharacterStarterRelic(typeof(DiceomancerCharacter))]
 public class RedBall : ModRelicTemplate, ICardOnPlayHookListener
 {
     private static readonly SavedAttachedState<RedBall, int> Injury = new("Injury", _ => 0);

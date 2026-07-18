@@ -17,6 +17,8 @@ using STS2RitsuLib.Cards.DynamicVars;
 using STS2RitsuLib.Interactions.RightClick;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
+using Diceomancer.Scripts.Common;
+using STS2RitsuLib.CardTags;
 
 namespace Diceomancer.Scripts.Cards.Basic;
 
@@ -25,7 +27,8 @@ namespace Diceomancer.Scripts.Cards.Basic;
 public sealed class Pipe()
     : ModCardTemplate(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy), IModRightClickableCard
 {
-    
+    protected override HashSet<CardTag> CanonicalTags => [MyTags.Upgrade.GetModCardTag()];
+
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
         HoverTipFactory.FromCard<PipeGun>(),
@@ -59,12 +62,7 @@ public sealed class Pipe()
         if (tech == null) return;
         var amount = tech.Amount;
 
-        if (DynamicVars["Upgrade"].BaseValue > amount)
-        {
-            await PowerCmd.Remove(tech);
-            DynamicVars["Upgrade"].BaseValue -= amount;
-        }
-        else
+        if (DynamicVars["Upgrade"].BaseValue <= amount)
         {
             await PowerCmd.ModifyAmount(context.PlayerChoiceContext, tech, -DynamicVars["Upgrade"].BaseValue, null,
                 this);
@@ -77,22 +75,6 @@ public sealed class Pipe()
             await CardCmd.Transform(this, cardModel);
         }
     }
-
-    // public override async Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    // {
-    //     if (Pile?.Type != PileType.Hand) return;
-    //     if (cardPlay.Card == this) return;
-    //     ArgumentNullException.ThrowIfNull(base.CombatState);
-    //
-    //     DynamicVars["Upgrade"].BaseValue--;
-    //
-    //     if (DynamicVars["Upgrade"].BaseValue <= 0)
-    //     {
-    //         CardModel cardModel = base.CombatState.CreateCard<PipeGun>(base.Owner);
-    //         await CardCmd.Transform(this, cardModel);
-    //     }
-    // }
-
 
     protected override void OnUpgrade()
     {

@@ -19,6 +19,8 @@ namespace Diceomancer.Scripts.Cards.Uncommon;
 [RegisterCard(typeof(DiceomancerCardPool))]
 public class ThornWall() : ModCardTemplate(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
+    public override bool GainsBlock => true;
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override HashSet<CardTag> CanonicalTags =>

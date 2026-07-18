@@ -16,6 +16,8 @@ namespace Diceomancer.Scripts.Cards.Upgrade;
 
 public class SummonTank() : ModCardTemplate(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
+    public override bool GainsBlock => true;
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new SummonVar(6),

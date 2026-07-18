@@ -30,11 +30,4 @@ public class TestCapability : CardCapability
 
     public IEnumerable<CardDescriptionFragment> GetDescriptionFragments(CardDescriptionContext context) =>
         [new(new LocString("enchantments", $"{Id.Entry}.description"))];
-    //
-    // public Task OnRightClick(ModRightClickExecutionContext context)
-    // {
-    //     CardCmd.Exhaust(context.PlayerChoiceContext, this);
-    // }
-
-    // IModRightClickableCard
 }

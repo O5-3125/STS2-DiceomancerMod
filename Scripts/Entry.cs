@@ -34,13 +34,13 @@ public class Entry
         // 注册初始遗物的先古升级
         RitsuLibFramework.RegisterTouchOfOrobasRefinementMapping<RedBall, BuilderRing>();
 
-        // // 注册卡池
-        // ModContentRegistry.For(ModId)
-        //     .RegisterCardLibraryCompendiumSharedPoolFilter<UpgradeCardPool>(
-        //         "what_upgrade_card_pool", // ID
-        //         "res://icon.svg" // 图标位置
-        //         // null // 放置顺序（可选）
-        //     );
+        // 注册卡池
+        ModContentRegistry.For(ModId)
+            .RegisterCardLibraryCompendiumSharedPoolFilter<UpgradeCardPool>(
+                "what_upgrade_card_pool", // ID
+                "res://icon.svg" // 图标位置
+                // null // 放置顺序（可选）
+            );
 
 
 // // 所有 TestRelic 实例创建时自动附加 ChargingRelicCapability

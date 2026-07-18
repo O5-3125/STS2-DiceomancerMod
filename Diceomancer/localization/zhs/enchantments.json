@@ -7,8 +7,8 @@
   /////
   "DICEOMANCER_MODEL_CAPABILITY_PHASE_CAPABILITY.description": "[blue]获得{Energy:energyIcons()}[/blue]。",
   "DICEOMANCER_MODEL_CAPABILITY_DRAW_CAPABILITY.description": "[blue]抽{Cards:diff()}张牌[/blue]。",
-  "DICEOMANCER_MODEL_CAPABILITY_RANDOM_BUFF_CAPABILITY.description": "[blue]获得{Buff:diff()}层随机常见增益[/blue]。",
-  "DICEOMANCER_MODEL_CAPABILITY_RANDOM_DEBUFF_CAPABILITY.description": "[blue]向随机敌人施加{Debuff:diff()}层随机常见减益[/blue]。",
+  "DICEOMANCER_MODEL_CAPABILITY_RANDOM_BUFF_CAPABILITY.description": "[blue]获得{Buff:diff()}层随机增益[/blue]。",
+  "DICEOMANCER_MODEL_CAPABILITY_RANDOM_DEBUFF_CAPABILITY.description": "[blue]向随机敌人施加{Debuff:diff()}层随机减益[/blue]。",
   "DICEOMANCER_MODEL_CAPABILITY_PHANTOM_CAPABILITY.description": "[blue]将{Cards:diff()}张本牌的幻影加入手牌[/blue]。",
   "DICEOMANCER_MODEL_CAPABILITY_SPRAY_CAPABILITY.description": "[blue]对所有敌人造成{Damage:diff()}点伤害[/blue]。",
   "DICEOMANCER_MODEL_CAPABILITY_BLOCK_CAPABILITY.description": "[blue]获得{Block:diff()}点格挡[/blue]。"

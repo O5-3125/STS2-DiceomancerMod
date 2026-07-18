@@ -21,26 +21,24 @@ public class Hindsight() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommo
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        
-        
-        new DynamicVar("modify", 5)
-            .WithSharedTooltip("modify")
+        new CardsVar(1),
     ];
 
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var cardModel =
-            (await CardSelectCmd.FromCombatPile(prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 1),
-                context: choiceContext, pile: PileType.Discard.GetPile(base.Owner), player: base.Owner))
-            .FirstOrDefault();
-        if (cardModel != null)
+        var cardModels =
+            (await CardSelectCmd.FromCombatPile(
+                prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, DynamicVars.Cards.IntValue),
+                context: choiceContext, pile: PileType.Discard.GetPile(base.Owner), player: base.Owner)).ToList();
+
+
+        foreach (var cardModel in cardModels.Where(cardModel => cardModel.Keywords.Contains(CardKeyword.Exhaust)))
         {
-            var capability = ModelCapabilityRegistry.Create<BlockCapability>();
-            capability.DynamicVars.Block.BaseValue = DynamicVars["modify"].IntValue;
-            cardModel.AddCapability(capability);
-            await CardPileCmd.Add(cardModel, PileType.Hand);
+            cardModel.RemoveKeyword(CardKeyword.Exhaust);
         }
+
+        await CardPileCmd.Add(cardModels, PileType.Hand);
     }
 
     protected override void OnUpgrade()

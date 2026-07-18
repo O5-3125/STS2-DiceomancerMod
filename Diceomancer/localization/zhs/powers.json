@@ -118,6 +118,6 @@
   "DICEOMANCER_POWER_IGNITE.title": "点燃",
   "DICEOMANCER_POWER_IGNITE.smartDescription": "回合开始时，获得{Amount}张烈焰。",
   //
-  "THE_TIME_IS_CALLING_POWER.title": "时代在召唤！",
-  "THE_TIME_IS_CALLING_POWER.smartDescription": "回合开始时，召唤{Amount}。"
+  "DICEOMANCER_POWER_WINGED_LIGHT_POWER.title": "飞光",
+  "DICEOMANCER_POWER_WINGED_LIGHT_POWER.smartDescription": "出牌后，结束你的回合。"
 }

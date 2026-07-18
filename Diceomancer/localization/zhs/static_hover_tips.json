@@ -14,5 +14,7 @@
   "buff.title": "增益",
   "buff.description": "一定范围内的正面buff。",
   "debuff.title": "减益",
-  "debuff.description": "一定范围内的负面debuff。"
+  "debuff.description": "一定范围内的负面debuff。",
+  "miracle.title":"奇迹",
+  "miracle.description":"如果这张牌不是在回合开始时抽到的，则打出时触发效果。"
 }

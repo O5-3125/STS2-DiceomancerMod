@@ -1,5 +1,5 @@
-﻿using Diceomancer.Scripts.Cards.Token;
-using Diceomancer.Scripts.Cards.Upgrade;
+﻿using Diceomancer.Scripts.Cards.Upgrade;
+using Diceomancer.Scripts.Common;
 using Diceomancer.Scripts.Hero;
 using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Commands;
@@ -8,42 +8,37 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.ValueProps;
 using STS2RitsuLib.Cards.DynamicVars;
+using STS2RitsuLib.CardTags;
 using STS2RitsuLib.Interactions.RightClick;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
-using Diceomancer.Scripts.Common;
-using STS2RitsuLib.CardTags;
 
-namespace Diceomancer.Scripts.Cards.Uncommon;
+namespace Diceomancer.Scripts.Cards.Ancient;
 
 [RegisterCard(typeof(DiceomancerCardPool))]
-public class Firework()
-    : ModCardTemplate(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self), IModRightClickableCard
+public sealed class MetalParts()
+    : ModCardTemplate(1, CardType.Skill, CardRarity.Ancient, TargetType.Self), IModRightClickableCard
 {
     protected override HashSet<CardTag> CanonicalTags => [MyTags.Upgrade.GetModCardTag()];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
-        HoverTipFactory.FromCard<FireworkRocket>(),
-        HoverTipFactory.FromCard<FireworkArray>(),
+        HoverTipFactory.FromCard<GatlingGun>(),
     ];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new CardsVar(3),
-        new DynamicVar("Upgrade", 4)
+        new BlockVar(16, ValueProp.Move),
+        new DynamicVar("Upgrade", 8)
             .WithSharedTooltip("upgrade"),
     ];
 
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        for (var i = 0; i < DynamicVars.Cards.IntValue; i++)
-        {
-            CardModel cardModel = Owner.Creature.CombatState.CreateCard<FireworkRocket>(Owner);
-            await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Hand, Owner, CardPilePosition.Random);
-        }
+        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
     }
 
     public async Task OnRightClick(ModRightClickExecutionContext context)
@@ -61,13 +56,13 @@ public class Firework()
 
         if (DynamicVars["Upgrade"].BaseValue <= 0)
         {
-            CardModel cardModel = base.CombatState.CreateCard<FireworkArray>(base.Owner);
+            CardModel cardModel = base.CombatState.CreateCard<GatlingGun>(base.Owner);
             await CardCmd.Transform(this, cardModel);
         }
     }
 
     protected override void OnUpgrade()
     {
-        base.DynamicVars.Cards.UpgradeValueBy(3m);
+        base.DynamicVars.Block.UpgradeValueBy(4m);
     }
 }

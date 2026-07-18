@@ -16,6 +16,8 @@ using STS2RitsuLib.Interactions.RightClick;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Models.Capabilities;
 using STS2RitsuLib.Scaffolding.Content;
+using Diceomancer.Scripts.Common;
+using STS2RitsuLib.CardTags;
 
 namespace Diceomancer.Scripts.Cards.Common;
 
@@ -23,6 +25,8 @@ namespace Diceomancer.Scripts.Cards.Common;
 public class GunBarrel() :
     ModCardTemplate(2, CardType.Attack, CardRarity.Common, TargetType.AllEnemies), IModRightClickableCard
 {
+    protected override HashSet<CardTag> CanonicalTags => [MyTags.Upgrade.GetModCardTag()];
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(12, ValueProp.Move),
@@ -54,12 +58,7 @@ public class GunBarrel() :
         if (tech == null) return;
         var amount = tech.Amount;
 
-        if (DynamicVars["Upgrade"].BaseValue > amount)
-        {
-            await PowerCmd.Remove(tech);
-            DynamicVars["Upgrade"].BaseValue -= amount;
-        }
-        else
+        if (DynamicVars["Upgrade"].BaseValue <= amount)
         {
             await PowerCmd.ModifyAmount(context.PlayerChoiceContext, tech, -DynamicVars["Upgrade"].BaseValue, null,
                 this);

@@ -34,12 +34,13 @@ public class RandomDebuffCapability : CardPlayCapability, ICardDescriptionContri
     {
         var card = cardPlay.Card;
 
-        ArgumentNullException.ThrowIfNull(card.CombatState);
-        
+        // ArgumentNullException.ThrowIfNull(card.CombatState);
+
         var enemy = card.Owner.RunState.Rng.CombatTargets.NextItem(card.CombatState.HittableEnemies);
 
-        if (enemy != null)
-            await DiceomancerCardCmd.ApplyRandomDebuff(choiceContext, card.Owner,
-                enemy, card.Owner.Creature, card, DynamicVars["Debuff"].IntValue);
+        // if (enemy == null) return;
+
+        await DiceomancerCardCmd.ApplyRandomDebuff(choiceContext, card.Owner,
+            enemy, card.Owner.Creature, card, DynamicVars["Debuff"].IntValue);
     }
 }

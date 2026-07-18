@@ -18,7 +18,7 @@ namespace Diceomancer.Scripts.Common;
     CardDescriptionPlacement = ModKeywordCardDescriptionPlacement.AfterCardDescription)]
 [RegisterOwnedCardKeyword(nameof(Chaos),
     CardDescriptionPlacement = ModKeywordCardDescriptionPlacement.AfterCardDescription)]
-[RegisterOwnedCardKeyword(nameof(Epidemic),
+[RegisterOwnedCardKeyword(nameof(Diabolical),
     CardDescriptionPlacement = ModKeywordCardDescriptionPlacement.AfterCardDescription)]
 public class MyKeywords
 {
@@ -40,8 +40,6 @@ public class MyKeywords
     public static readonly CardKeyword Chaos =
         ModContentRegistry.GetQualifiedKeywordId(Entry.ModId, nameof(Chaos)).GetModCardKeyword();
 
-    public static readonly CardKeyword Epidemic =
-        ModContentRegistry.GetQualifiedKeywordId(Entry.ModId, nameof(Epidemic)).GetModCardKeyword();
-
-    
+    public static readonly CardKeyword Diabolical =
+        ModContentRegistry.GetQualifiedKeywordId(Entry.ModId, nameof(Diabolical)).GetModCardKeyword();
 }

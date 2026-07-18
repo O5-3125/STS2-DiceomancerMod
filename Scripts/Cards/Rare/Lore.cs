@@ -54,7 +54,7 @@ public class Lore() : ModCardTemplate(1, CardType.Skill, CardRarity.Rare, Target
 
         foreach (var item2 in await CardSelectCmd.FromSimpleGrid(choiceContext, list, base.Owner,
                      new CardSelectorPrefs(this.SelectionScreenPrompt, 0, this.DynamicVars["selectCount"].IntValue)))
-            await CardCmd.AutoPlay(choiceContext, item2.CreateDupe(), null);
+            await CardCmd.AutoPlay(choiceContext, item2.CreateDupe(Owner), null);
     }
 
     protected override void OnUpgrade()
