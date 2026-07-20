@@ -13,6 +13,10 @@ namespace Diceomancer.Scripts.Cards.Common;
 public class WorkOvertime()
     : ModCardTemplate(0, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
 

@@ -13,6 +13,10 @@ namespace Diceomancer.Scripts.Cards.Uncommon;
 public class TensionAndRelaxation()
     : ModCardTemplate(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self, true)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new CardsVar(1)

@@ -14,6 +14,10 @@ namespace Diceomancer.Scripts.Cards.Uncommon;
 [RegisterCard(typeof(DiceomancerCardPool))]
 public class Maneuver() : ModCardTemplate(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self, true)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override bool IsPlayable =>
         base.IsUpgradable || base.Owner.Creature.GetPower<Fatigue>() is null;
 

@@ -17,6 +17,10 @@ namespace Diceomancer.Scripts.Cards.Common;
 [RegisterCard(typeof(DiceomancerCardPool))]
 public class SummonWater() : ModCardTemplate(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     public override bool GainsBlock => true;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>

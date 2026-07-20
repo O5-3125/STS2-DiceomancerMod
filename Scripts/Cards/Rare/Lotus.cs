@@ -11,6 +11,10 @@ namespace Diceomancer.Scripts.Cards.Rare;
 [RegisterCard(typeof(DiceomancerCardPool))]
 public class Lotus() : ModCardTemplate(3, CardType.Skill, CardRarity.Rare, TargetType.Self, true)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new("Lotus", 5)

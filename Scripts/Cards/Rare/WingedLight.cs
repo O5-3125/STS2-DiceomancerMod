@@ -26,7 +26,7 @@ public class WingedLight() : ModCardTemplate(3, CardType.Skill, CardRarity.Rare,
     ];
 
     public override CardAssetProfile AssetProfile => new(
-        $"res://Diceomancer/images/Power/{GetType().Name}.png"
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
     );
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

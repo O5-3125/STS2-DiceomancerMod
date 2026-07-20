@@ -15,6 +15,10 @@ namespace Diceomancer.Scripts.Cards.Rare;
 // [RegisterCard(typeof(DiceomancerCardPool))]
 public class Explosion() : ModCardTemplate(1, CardType.Skill, CardRarity.Rare, TargetType.AllEnemies)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>

@@ -13,25 +13,33 @@ namespace Diceomancer.Scripts.Cards.Uncommon;
 public class BreachingHammer()
     : ModCardTemplate(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
+        
         new DamageVar(15, ValueProp.Move),
-        new("multiples", 3)
+        new("multiples", 3),
+        // new CalculatedDamageVar(ValueProp.Move).WithMultiplier()
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        if (cardPlay.Target.Block > 0) DynamicVars.Damage.BaseValue *= DynamicVars["multiples"].IntValue;
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue) 
-            .FromCard(this,cardPlay) 
-            .Targeting(cardPlay.Target) 
+        var multiples = 1;
+        if (cardPlay.Target.Block > 0)
+            multiples = DynamicVars["multiples"].IntValue;
+        await DamageCmd.Attack(DynamicVars.Damage.IntValue * multiples)
+            .FromCard(this, cardPlay)
+            .Targeting(cardPlay.Target)
             .Execute(choiceContext);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["multiples"].UpgradeValueBy(1); 
+        DynamicVars["multiples"].UpgradeValueBy(1);
     }
 }

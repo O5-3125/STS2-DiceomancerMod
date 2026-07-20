@@ -4,6 +4,7 @@ using Diceomancer.Scripts.Powers;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -27,29 +28,30 @@ public class UnimaginablePath() : ModCardTemplate(2, CardType.Skill, CardRarity.
     ];
 
     public override CardAssetProfile AssetProfile => new(
-        $"res://Diceomancer/images/Power/{GetType().Name}.png"
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
     );
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var array =
+        var cardModels =
             (await CardSelectCmd.FromHand(
                 prefs: new CardSelectorPrefs(CardSelectorPrefs.TransformSelectionPrompt,
                     0, base.DynamicVars.Cards.IntValue),
-                context: choiceContext, player: base.Owner, filter: null, source: this)).ToArray();
+                context: choiceContext, player: base.Owner, filter: null, source: this)).ToList();
 
-        foreach (var cardModel in array)
+        foreach (var cardModel in cardModels)
         {
             if (PileType.Deck.GetPile(Owner).Cards.Contains(cardModel.DeckVersion))
             {
                 var newCard = await CardCmd.TransformToRandom(cardModel, Owner.RunState.Rng.CombatCardGeneration);
-                await CardCmd.Transform(cardModel.DeckVersion, newCard.cardAdded);
+                var newCardDeck = Owner.RunState.CloneCard(newCard.cardAdded);
+                await CardCmd.Transform(cardModel.DeckVersion, newCardDeck);
             }
             else
             {
                 var newCard = await CardCmd.TransformToRandom(cardModel, Owner.RunState.Rng.CombatCardSelection);
-
-                CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(newCard.cardAdded, PileType.Deck));
+                var newCardDeck = Owner.RunState.CloneCard(newCard.cardAdded);
+                CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(newCardDeck, PileType.Deck));
             }
         }
     }

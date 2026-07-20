@@ -9,6 +9,10 @@ namespace Diceomancer.Scripts.Cards.Rare;
 // [RegisterCard(typeof(DiceomancerCardPool))]
 public class BreakCocoon() : ModCardTemplate(2, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);

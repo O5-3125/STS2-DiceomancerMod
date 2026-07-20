@@ -11,8 +11,12 @@ namespace Diceomancer.Scripts.Cards.Upgrade;
 
 [RegisterCard(typeof(UpgradeCardPool))]
 public class LifeTakerThreeThousand()
-    : ModCardTemplate(2, CardType.Attack, CardRarity.Rare, TargetType.Self)
+    : ModCardTemplate(2, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar("Buff", 5),

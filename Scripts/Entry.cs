@@ -32,13 +32,13 @@ public class Entry
         // RitsuLibFramework.RegisterArchaicToothTranscendenceMapping<TestCard, Shiv>();
 
         // 注册初始遗物的先古升级
-        RitsuLibFramework.RegisterTouchOfOrobasRefinementMapping<RedBall, BuilderRing>();
+        RitsuLibFramework.RegisterTouchOfOrobasRefinementMapping<BuilderMana, BuilderRing>();
 
         // 注册卡池
         ModContentRegistry.For(ModId)
             .RegisterCardLibraryCompendiumSharedPoolFilter<UpgradeCardPool>(
                 "what_upgrade_card_pool", // ID
-                "res://icon.svg" // 图标位置
+                "res://Diceomancer/images/Hero/UpgradeCardPool.png" // 图标位置
                 // null // 放置顺序（可选）
             );
 

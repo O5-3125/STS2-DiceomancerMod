@@ -20,6 +20,10 @@ namespace Diceomancer.Scripts.Cards.Uncommon;
 public class Design()
     : ModCardTemplate(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new CardsVar(3)

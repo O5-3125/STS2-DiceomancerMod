@@ -15,6 +15,10 @@ namespace Diceomancer.Scripts.Cards.Common;
 // [RegisterCard(typeof(DiceomancerCardPool))]
 public class MistyStep() : ModCardTemplate(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new("Evade", 2M),

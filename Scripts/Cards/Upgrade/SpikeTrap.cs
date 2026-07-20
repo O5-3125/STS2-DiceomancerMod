@@ -15,6 +15,10 @@ namespace Diceomancer.Scripts.Cards.Upgrade;
 public sealed class SpikeTrap()
     : ModCardTemplate(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new PowerVar<PlatingPower>(5),

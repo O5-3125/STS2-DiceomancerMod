@@ -14,6 +14,10 @@ namespace Diceomancer.Scripts.Cards.Rare;
 [RegisterCard(typeof(ColorlessCardPool))]
 public class WhoeverMovesFirstIsGay() : ModCardTemplate(3, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     private const int MaxRemain = 10;
 
     private int _currentRemain = MaxRemain;

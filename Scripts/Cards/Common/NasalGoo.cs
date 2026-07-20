@@ -15,6 +15,10 @@ namespace Diceomancer.Scripts.Cards.Common;
 public class NasalGoo()
     : ModCardTemplate(1, CardType.Skill, CardRarity.Common, TargetType.AnyEnemy)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>

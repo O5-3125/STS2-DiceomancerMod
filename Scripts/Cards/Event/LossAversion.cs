@@ -13,6 +13,10 @@ namespace Diceomancer.Scripts.Cards.Event;
 [RegisterCard(typeof(EventCardPool))]
 public class LossAversion() : ModCardTemplate(2, CardType.Skill, CardRarity.Event, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

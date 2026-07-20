@@ -14,6 +14,10 @@ namespace Diceomancer.Scripts.Cards.Rare;
 // [RegisterCard(typeof(DiceomancerCardPool))]
 public class FlameInRemnants() : ModCardTemplate(2, CardType.Skill, CardRarity.Rare, TargetType.AnyEnemy, true)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     // protected override bool HasEnergyCostX => true;
 
 

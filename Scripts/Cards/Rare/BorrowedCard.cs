@@ -14,6 +14,10 @@ namespace Diceomancer.Scripts.Cards.Rare;
 [RegisterCard(typeof(ColorlessCardPool))]
 public class BorrowedCard() : ModCardTemplate(0, CardType.Skill, CardRarity.Rare, TargetType.Self, true)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
         CardKeyword.Exhaust,

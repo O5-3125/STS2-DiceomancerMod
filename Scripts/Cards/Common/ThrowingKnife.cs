@@ -18,6 +18,10 @@ namespace Diceomancer.Scripts.Cards.Common;
 [RegisterCard(typeof(DiceomancerCardPool))]
 public class ThrowingKnife() : ModCardTemplate(0, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(3m, ValueProp.Move),

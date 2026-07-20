@@ -12,6 +12,10 @@ namespace Diceomancer.Scripts.Cards.Uncommon;
 [RegisterCard(typeof(DiceomancerCardPool))]
 public class FullPreparation() : ModCardTemplate(1, CardType.Skill, CardRarity.Common, TargetType.Self, true)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords =>

@@ -21,6 +21,10 @@ namespace Diceomancer.Scripts.Cards.Common;
 [RegisterCard(typeof(DiceomancerCardPool))]
 public class AngelInvestment() : ModCardTemplate(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
         CardKeyword.Innate,

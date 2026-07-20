@@ -18,10 +18,10 @@ public class SlowPower : ModPowerTemplate
     // 叠加类型，Counter表示可叠加，Single表示不可叠加
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    // public override PowerAssetProfile AssetProfile => new(
-    // IconPath: "res://Diceomancer/images/Power/Panic.png",
-    // BigIconPath: "res://Diceomancer/images/Power/Panic_big.png"
-    // );
+    public override PowerAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Power/{GetType().Name}.png",
+        $"res://Diceomancer/images/Power/{GetType().Name}.png"
+    );
 
     // 每出一张牌
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -30,8 +30,6 @@ public class SlowPower : ModPowerTemplate
         await PlayerCmd.GainEnergy(-1, Owner.Player);
         await PowerCmd.Decrement(this);
     }
-
-
     // 回合结束消失
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
         IEnumerable<Creature> participants)

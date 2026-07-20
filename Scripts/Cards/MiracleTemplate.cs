@@ -14,6 +14,10 @@ namespace Diceomancer.Scripts.Cards;
 
 public class MiracleTemplate() : ModCardTemplate(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     private bool _miracle = true;
 
     private bool Miracle

@@ -46,8 +46,9 @@ public class BlackElement : ModPowerTemplate
 
         ArgumentNullException.ThrowIfNull(Owner.CombatState);
         var enemy = base.Owner.CombatState.RunState.Rng.CombatTargets.NextItem(base.CombatState.HittableEnemies);
+        if (enemy == null) return;
 
-        await DiceomancerCardCmd.ApplyRandomDebuff(choiceContext, Owner.Player, enemy, null, 
+        await DiceomancerCardCmd.ApplyRandomDebuff(choiceContext, Owner.Player, enemy, null,
             null, DynamicVars["Buff"].IntValue);
         await PowerCmd.Decrement(this);
     }

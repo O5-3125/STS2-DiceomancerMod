@@ -17,6 +17,10 @@ namespace Diceomancer.Scripts.Cards.Rare;
 [RegisterCard(typeof(DiceomancerCardPool))]
 public class Fallout() : ModCardTemplate(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>

@@ -19,6 +19,10 @@ namespace Diceomancer.Scripts.Cards.Uncommon;
 [RegisterCard(typeof(DiceomancerCardPool))]
 public class ChaoticTransform() : ModCardTemplate(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>

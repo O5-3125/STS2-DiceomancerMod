@@ -41,10 +41,12 @@ public class SpaceFireElement : ModPowerTemplate
         IEnumerable<Creature> participants)
     {
         if (!participants.Contains(base.Owner)) return;
-        
-        
+
+
         ArgumentNullException.ThrowIfNull(Owner.CombatState);
         var enemy = base.Owner.CombatState.RunState.Rng.CombatTargets.NextItem(base.CombatState.HittableEnemies);
+        if (enemy == null) return;
+
         for (int i = 0; i < DynamicVars.Repeat.IntValue; i++)
         {
             await CreatureCmd.Damage(choiceContext, enemy,

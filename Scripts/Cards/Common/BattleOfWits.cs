@@ -15,6 +15,10 @@ namespace Diceomancer.Scripts.Cards.Common;
 public class BattleOfWits() :
     ModCardTemplate(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy, true)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(6, ValueProp.Move),

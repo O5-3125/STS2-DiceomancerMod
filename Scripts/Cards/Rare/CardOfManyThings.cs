@@ -13,6 +13,10 @@ namespace Diceomancer.Scripts.Cards.Rare;
 [RegisterCard(typeof(ColorlessCardPool))]
 public class CardOfManyThings() : ModCardTemplate(3, CardType.Skill, CardRarity.Rare, TargetType.RandomEnemy)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(10)];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];

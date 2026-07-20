@@ -13,6 +13,10 @@ namespace Diceomancer.Scripts.Cards.Event;
 [RegisterCard(typeof(EventCardPool))]
 public class Colossus() : ModCardTemplate(4, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new PowerVar<StrengthPower>(16),

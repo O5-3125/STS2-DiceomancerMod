@@ -11,10 +11,13 @@ using STS2RitsuLib.Interop.AutoRegistration;
 namespace Diceomancer.Scripts.Cards.Basic;
 
 // [RegisterCard(typeof(DiceomancerCardPool))]
-// [RegisterCharacterStarterCard(typeof(DiceomancerCharacter))]
 public class TestSkill()
     : ModCardTemplate(0, CardType.Skill, CardRarity.Basic, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     private CardType ThisType { get; set; } = CardType.Skill;
 
     public override CardType Type => ThisType;

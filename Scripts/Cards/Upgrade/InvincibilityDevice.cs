@@ -14,6 +14,10 @@ namespace Diceomancer.Scripts.Cards.Upgrade;
 public class InvincibilityDevice()
     : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new PowerVar<Invincible>(1),

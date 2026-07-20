@@ -10,6 +10,10 @@ namespace Diceomancer.Scripts.Cards.Rare;
 [RegisterCard(typeof(DiceomancerCardPool))]
 public class Catalyst() : ModCardTemplate(2, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Ethereal];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

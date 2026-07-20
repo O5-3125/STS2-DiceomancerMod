@@ -39,6 +39,12 @@ public static class Chaos
             var eKeyList = card.Enchantment.DynamicVars.Keys.ToList();
             foreach (var eKey in eKeyList)
                 card.Enchantment.DynamicVars[eKey].BaseValue = RandomCmd.CheckD6(card.Owner);
+
+            // var capabilities = card.Capabilities().All.ToList();
+            // foreach (var capability in capabilities)
+            // {
+            //     // capability.CapabilityId
+            // }
         }
     }
 

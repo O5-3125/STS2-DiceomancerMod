@@ -11,38 +11,37 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Cards.Upgrade;
 
-// todo 特斯拉线圈
 [RegisterCard(typeof(UpgradeCardPool))]
 public sealed class TeslaCoil()
-    : ModCardTemplate(1, CardType.Attack, CardRarity.Basic, TargetType.AllEnemies)
+    : ModCardTemplate(1, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies)
 {
-    // protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
-    // [
-    //     HoverTipFactory.FromCard<PipeGun>(),
-    // ];
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(12, ValueProp.Move),
-        new PowerVar<TaintedPower>(1),
+        new PowerVar<VulnerablePower>(2),
     ];
 
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        ArgumentNullException.ThrowIfNull(cardPlay.Target);
+        ArgumentNullException.ThrowIfNull(Owner.Creature.CombatState);
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this, cardPlay)
-            .TargetingRandomOpponents(Owner.Creature.CombatState)
+            .TargetingAllOpponents(Owner.Creature.CombatState)
             .Execute(choiceContext);
 
-        await PowerCmd.Apply<TaintedPower>(choiceContext, cardPlay.Target,
-            DynamicVars["TaintedPower"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<VulnerablePower>(choiceContext, Owner.Creature.CombatState.HittableEnemies,
+            DynamicVars["VulnerablePower"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
         base.DynamicVars.Damage.UpgradeValueBy(4m);
+        base.DynamicVars["VulnerablePower"].UpgradeValueBy(1m);
     }
 }

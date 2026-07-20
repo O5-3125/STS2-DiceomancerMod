@@ -22,6 +22,10 @@ namespace Diceomancer.Scripts.Cards.Rare;
 public class AdvancedSummoning()
     : ModCardTemplate(2, CardType.Skill, CardRarity.Rare, TargetType.Self), IModRightClickableCard
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override HashSet<CardTag> CanonicalTags => [MyTags.Upgrade.GetModCardTag()];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
@@ -43,13 +47,13 @@ public class AdvancedSummoning()
     {
         for (int i = 0; i < DynamicVars["WaterElement"].IntValue; i++)
         {
-            await PowerCmd.Apply<WaterElement>(choiceContext, base.Owner.Creature, DynamicVars.Summon.IntValue,
+            await PowerCmd.Apply<WaterElement>(choiceContext, base.Owner.Creature, 4,
                 base.Owner.Creature, this);
         }
 
         for (int i = 0; i < DynamicVars["FireElement"].IntValue; i++)
         {
-            await PowerCmd.Apply<FireElement>(choiceContext, base.Owner.Creature, DynamicVars.Summon.IntValue,
+            await PowerCmd.Apply<FireElement>(choiceContext, base.Owner.Creature, 3,
                 base.Owner.Creature, this);
         }
     }

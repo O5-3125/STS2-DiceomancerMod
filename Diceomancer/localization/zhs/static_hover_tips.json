@@ -4,7 +4,7 @@
   "assault.title": "突击",
   "assault.description": "第一次打出时生效",
   "modify.title": "改装",
-  "modify.description": "使另一张牌获得此效果。",
+  "modify.description": "使另一张牌获得此效果。\n改装的词条不被修改数字效果影响。",
   "kick.title": "增幅",
   "kick.description": "丢弃最多{kick}张牌，每丢弃一张牌额外生效一次。",
   "flow.title": "流转",
@@ -16,5 +16,5 @@
   "debuff.title": "减益",
   "debuff.description": "一定范围内的负面debuff。",
   "miracle.title":"奇迹",
-  "miracle.description":"如果这张牌不是在回合开始时抽到的，则打出时触发效果。"
+  "miracle.description":"如果这张牌不是在回合开始时抽到的，则触发效果。"
 }

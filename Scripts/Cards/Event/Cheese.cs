@@ -3,6 +3,7 @@ using Diceomancer.Scripts.Common;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using STS2RitsuLib.Interop.AutoRegistration;
@@ -12,6 +13,10 @@ namespace Diceomancer.Scripts.Cards.Event;
 [RegisterCard(typeof(EventCardPool))]
 public class Cheese() : ModCardTemplate(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new HealVar(99m),
@@ -34,11 +39,10 @@ public class Cheese() : ModCardTemplate(0, CardType.Skill, CardRarity.Rare, Targ
 
         // if (cardPlay.Card != this || cardPlay.Card.Owner != base.Owner)
         // return;
-        
+
         if (PileType.Deck.GetPile(Owner).Cards.Contains(cardPlay.Card.DeckVersion))
             await CardPileCmd.RemoveFromDeck(cardPlay.Card.DeckVersion);
 
         await CardPileCmd.RemoveFromCombat(cardPlay.Card);
-        
     }
 }

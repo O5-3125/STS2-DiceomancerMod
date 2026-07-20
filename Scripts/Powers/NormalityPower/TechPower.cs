@@ -8,8 +8,8 @@ namespace Diceomancer.Scripts.Powers.NormalityPower;
 public class TechPower : ModPowerTemplate
 {
     public override PowerAssetProfile AssetProfile => new(
-        $"res://Diceomancer/images/Power/Tech.png",
-        $"res://Diceomancer/images/Power/Tech.png"
+        $"res://Diceomancer/images/Power/{GetType().Name}.png",
+        $"res://Diceomancer/images/Power/{GetType().Name}.png"
     );
     
     // 类型，Buff或Debuff

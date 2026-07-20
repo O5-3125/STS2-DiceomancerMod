@@ -18,6 +18,10 @@ namespace Diceomancer.Scripts.Cards.Rare;
 [RegisterCard(typeof(DiceomancerCardPool))]
 public class Lore() : ModCardTemplate(1, CardType.Skill, CardRarity.Rare, TargetType.Self, true)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
         CardKeyword.Exhaust,

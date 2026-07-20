@@ -14,6 +14,10 @@ namespace Diceomancer.Scripts.Cards.Event;
 public class PunchingTheAir()
     : ModCardTemplate(2, CardType.Attack, CardRarity.Event, TargetType.AnyEnemy)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>

@@ -20,6 +20,10 @@ namespace Diceomancer.Scripts.Cards.Token.Modify;
 public class ModifySpray()
     : ModCardTemplate(1, CardType.Skill, CardRarity.Token, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override HashSet<CardTag> CanonicalTags =>

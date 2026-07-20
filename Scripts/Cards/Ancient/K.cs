@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using STS2RitsuLib.Interop.AutoRegistration;
@@ -22,13 +23,19 @@ public class K()
         CardKeyword.Exhaust
     ];
 
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new CardsVar(1),
+    ];
+
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         // var cardPool = ModelDb.AllCards;
         // var cardPool = base.Owner.Character.CardPool.AllCards.ToList();
 
-        var cardPool = base.Owner.RunState.Rng.CombatCardGeneration.NextItem(ModelDb.AllCharacterCardPools)?.AllCards.ToList();
+        var cardPool = base.Owner.RunState.Rng.CombatCardGeneration.NextItem(ModelDb.AllCharacterCardPools)?.AllCards
+            .ToList();
 
         if (cardPool == null)
         {
@@ -39,7 +46,7 @@ public class K()
             base.Owner.RunState.Rng.CombatCardGeneration).ToList();
 
         var cards = await CardSelectCmd.FromSimpleGrid(choiceContext, cardModels, base.Owner,
-            new CardSelectorPrefs(this.SelectionScreenPrompt, 0, 1));
+            new CardSelectorPrefs(this.SelectionScreenPrompt, 0, DynamicVars.Cards.IntValue));
 
 
         foreach (CardModel card in cards)
@@ -50,7 +57,7 @@ public class K()
 
 
     public override CardAssetProfile AssetProfile => new(
-        $"res://Diceomancer/images/Cards/K.png" // 卡图
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png" // 卡图
     );
 
 

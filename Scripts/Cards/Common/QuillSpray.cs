@@ -19,6 +19,10 @@ namespace Diceomancer.Scripts.Cards.Common;
 [RegisterCard(typeof(DiceomancerCardPool))]
 public class QuillSpray() : ModCardTemplate(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(8, ValueProp.Move),

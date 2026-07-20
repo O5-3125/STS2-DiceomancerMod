@@ -21,10 +21,9 @@ public class Fatigue : ModPowerTemplate
     {
         return !card.Keywords.Contains(MyKeywords.Limited);
     }
-
     public override PowerAssetProfile AssetProfile => new(
-        "res://Diceomancer/images/Power/累坏了.png",
-        "res://Diceomancer/images/Power/累坏了.png"
+        $"res://Diceomancer/images/Power/{GetType().Name}.png",
+        $"res://Diceomancer/images/Power/{GetType().Name}.png"
     );
 
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,

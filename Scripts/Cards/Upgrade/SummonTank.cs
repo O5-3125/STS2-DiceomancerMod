@@ -13,9 +13,12 @@ using STS2RitsuLib.Scaffolding.Content;
 namespace Diceomancer.Scripts.Cards.Upgrade;
 
 [RegisterCard(typeof(UpgradeCardPool))]
-
 public class SummonTank() : ModCardTemplate(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     public override bool GainsBlock => true;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>

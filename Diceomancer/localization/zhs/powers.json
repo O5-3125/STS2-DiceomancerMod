@@ -12,6 +12,13 @@
 
   //  remoteDescription：联机专用。当能力由他人施加（`Applier` 存在且不是本地玩家）且配置了该键时，用其替换 `smartDescription`。
 
+  "DICEOMANCER_POWER_BEACON_POWER.title": "信标",
+  "DICEOMANCER_POWER_BEACON_POWER.smartDescription": "下回合开始将这些牌的复制加入手牌。{Card}",
+  //
+  "DICEOMANCER_POWER_TOUGHNESS_POWER.title": "坚韧",
+  "DICEOMANCER_POWER_TOUGHNESS_POWER.description": "下次受到的攻击伤害减半。",
+  "DICEOMANCER_POWER_TOUGHNESS_POWER.smartDescription": "下{Amount}次受到的攻击伤害减半。\n回合开始时失去一层。",
+  //
   "DICEOMANCER_POWER_PANIC.title": "慌乱",
   "DICEOMANCER_POWER_PANIC.description": "你每打出一张牌，随机丢弃一张牌。",
   "DICEOMANCER_POWER_PANIC.smartDescription": "本回合当你每打出一张牌，随机丢弃一张牌。",
@@ -79,8 +86,8 @@
   "DICEOMANCER_POWER_WATER_ELEMENT.description": "回合结束时获得格挡",
   "DICEOMANCER_POWER_WATER_ELEMENT.smartDescription": "回合结束时获得{Block:diff()}点格挡。",
   //
-  "DICEOMANCER_POWER_STANDARDIZED_SUMMON.title": "标准化召唤",
-  "DICEOMANCER_POWER_STANDARDIZED_SUMMON.smartDescription": "回合开始时，召唤{FireElement:diff()}个[red]火元素[/red]。",
+  "DICEOMANCER_POWER_STANDARDIZED_SUMMON_POWER.title": "标准化召唤",
+  "DICEOMANCER_POWER_STANDARDIZED_SUMMON_POWER.smartDescription": "回合开始时，召唤{FireElement:diff()}个[red]火元素[/red]。",
   //
   "DICEOMANCER_POWER_SUPERPOSITION_POWER.title": "叠加态",
   "DICEOMANCER_POWER_SUPERPOSITION_POWER.smartDescription": "混乱牌获得[gold]重放[/gold]。",
@@ -119,5 +126,9 @@
   "DICEOMANCER_POWER_IGNITE.smartDescription": "回合开始时，获得{Amount}张烈焰。",
   //
   "DICEOMANCER_POWER_WINGED_LIGHT_POWER.title": "飞光",
-  "DICEOMANCER_POWER_WINGED_LIGHT_POWER.smartDescription": "出牌后，结束你的回合。"
+  "DICEOMANCER_POWER_WINGED_LIGHT_POWER.smartDescription": "出牌后，结束你的回合。",
+  "DICEOMANCER_POWER_INVINCIBLE.title": "无敌",
+  "DICEOMANCER_POWER_INVINCIBLE.smartDescription": "本回合阻止敌人的伤害。",
+  "DICEOMANCER_POWER_FIREWORK_ARRAY_POWER.title": "烟花阵列",
+  "DICEOMANCER_POWER_FIREWORK_ARRAY_POWER.smartDescription": "回合结束时，向抽牌堆加入{Cards}张[gold]烟花火箭[/gold]。"
 }

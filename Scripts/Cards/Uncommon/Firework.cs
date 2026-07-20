@@ -21,6 +21,10 @@ namespace Diceomancer.Scripts.Cards.Uncommon;
 public class Firework()
     : ModCardTemplate(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self), IModRightClickableCard
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override HashSet<CardTag> CanonicalTags => [MyTags.Upgrade.GetModCardTag()];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
@@ -42,7 +46,7 @@ public class Firework()
         for (var i = 0; i < DynamicVars.Cards.IntValue; i++)
         {
             CardModel cardModel = Owner.Creature.CombatState.CreateCard<FireworkRocket>(Owner);
-            await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Hand, Owner, CardPilePosition.Random);
+            await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Draw, Owner, CardPilePosition.Random);
         }
     }
 

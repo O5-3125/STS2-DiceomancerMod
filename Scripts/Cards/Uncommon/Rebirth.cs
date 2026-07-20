@@ -15,6 +15,10 @@ namespace Diceomancer.Scripts.Cards.Uncommon;
 [RegisterCard(typeof(DiceomancerCardPool))]
 public class Rebirth() : ModCardTemplate(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override HashSet<CardTag> CanonicalTags =>
     [
         MyTags.Evolution.GetModCardTag()

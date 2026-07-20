@@ -11,6 +11,10 @@ namespace Diceomancer.Scripts.Cards.Rare;
 // [RegisterCard(typeof(DiceomancerCardPool))]
 public class CounterHelix() : ModCardTemplate(2, CardType.Power, CardRarity.Rare, TargetType.Self, true)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<Powers.CounterHelix>(5m)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

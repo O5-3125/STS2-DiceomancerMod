@@ -17,6 +17,10 @@ namespace Diceomancer.Scripts.Cards.Upgrade;
 [RegisterCard(typeof(UpgradeCardPool))]
 public class Cannon() : ModCardTemplate(2, CardType.Skill, CardRarity.Rare, TargetType.AllEnemies)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(9, ValueProp.Move),
@@ -32,7 +36,7 @@ public class Cannon() : ModCardTemplate(2, CardType.Skill, CardRarity.Rare, Targ
             .TargetingAllOpponents(Owner.Creature.CombatState)
             .Execute(choiceContext);
 
-        await PowerCmd.Apply<BurnPower>(choiceContext, cardPlay.Target,
+        await PowerCmd.Apply<BurnPower>(choiceContext, Owner.Creature.CombatState.HittableEnemies,
             base.DynamicVars["BurnPower"].BaseValue, base.Owner.Creature, this);
     }
 

@@ -1,7 +1,7 @@
 ﻿{
   "DICEOMANCER_RELIC_MY_DECK.title": "自制卡组",
   "DICEOMANCER_RELIC_MY_DECK.description": "当你生成牌时，将其加入卡组。\n当你消耗牌时，将其移出卡组。",
-  "DICEOMANCER_RELIC_MY_DECK.flavor": "自己的卡组自己印。",
+  "DICEOMANCER_RELIC_MY_DECK.flavor": "让咱们走吧，就你还有我。\n当十一日帝国正将天空吞没。\n宛如人形溶烂得像蛤蜊摆上早餐桌。",
   //
   "DICEOMANCER_RELIC_TEST_RELIC.title": "测试遗物",
   "DICEOMANCER_RELIC_TEST_RELIC.description": "测试遗物。",
@@ -12,18 +12,22 @@
   "DICEOMANCER_RELIC_STATUS.flavor": "注定伟大。",
   //
   "DICEOMANCER_RELIC_FREEDOM.title": "自由",
-  "DICEOMANCER_RELIC_FREEDOM.description": "拾起时，将一张K加入你的牌组。",
+  "DICEOMANCER_RELIC_FREEDOM.description": "拾起时，将K加入你的牌组。",
   "DICEOMANCER_RELIC_FREEDOM.flavor": "无拘无束。",
   //
+  "DICEOMANCER_RELIC_BUILDER_MANA.title": "工匠之球",
+  "DICEOMANCER_RELIC_BUILDER_MANA.description": "在每场战斗开始时，获得{TechPower}点[gold]科技[/gold]。",
+  "DICEOMANCER_RELIC_BUILDER_MANA.flavor": "下雨当成晴天干，晚上当成白天干。",
+  //
   "DICEOMANCER_RELIC_BUILDER_RING.title": "工匠护符",
-  "DICEOMANCER_RELIC_BUILDER_RING.description": "在每场战斗开始时，获得{TechPower}点[gold]科技[/gold]。",
-  "DICEOMANCER_RELIC_BUILDER_RING.flavor": "下雨当成晴天干，晚上当成白天干。",
+  "DICEOMANCER_RELIC_BUILDER_RING.description": "每回合打出{Cards}张牌后，获得{Energy:energyIcons()},抽2张牌",
+  "DICEOMANCER_RELIC_BUILDER_RING.flavor": "科技引领进步。",
   //
   "DICEOMANCER_RELIC_PRO_RING.title": "高手护符",
   "DICEOMANCER_RELIC_PRO_RING.description": "每回合一次,打出攻击牌后免费打出技能牌，打出技能牌后免费打出攻击牌。",
   "DICEOMANCER_RELIC_PRO_RING.flavor": "天下武功，无坚不摧，唯快不破！",
   //
-  "DICEOMANCER_RELIC_RED_BALL.title": "情感之球",
+  "DICEOMANCER_RELIC_RED_BALL.title": "行动之球",
   "DICEOMANCER_RELIC_RED_BALL.description": "你受到伤害不再失去生命，而是获得等量[gold]负伤[/gold]计数。回合结束失去[gold]负伤[/gold]点生命，随后[gold]负伤[/gold]减半。",
   "DICEOMANCER_RELIC_RED_BALL.flavor": "速战速决",
   //

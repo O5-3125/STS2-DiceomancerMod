@@ -16,8 +16,10 @@ namespace Diceomancer.Scripts.Cards.Event;
 [RegisterCard(typeof(EventCardPool))]
 public class InvincibleStrike() : ModCardTemplate(3, CardType.Attack, CardRarity.Event, TargetType.RandomEnemy)
 {
-    
-    
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>

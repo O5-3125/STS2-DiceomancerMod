@@ -21,10 +21,10 @@ public class CriticalHit : ModPowerTemplate
     // 叠加类型，Counter表示可叠加，Single表示不可叠加
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    // public override PowerAssetProfile AssetProfile => new(
-    //     "res://Diceomancer/images/Power/加速.png",
-    //     "res://Diceomancer/images/Power/加速.png"
-    // );
+    public override PowerAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Power/{GetType().Name}.png",
+        $"res://Diceomancer/images/Power/{GetType().Name}.png"
+    );
 
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props,
         Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)

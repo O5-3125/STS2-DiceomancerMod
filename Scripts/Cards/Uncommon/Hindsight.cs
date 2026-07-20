@@ -17,6 +17,10 @@ namespace Diceomancer.Scripts.Cards.Uncommon;
 [RegisterCard(typeof(DiceomancerCardPool))]
 public class Hindsight() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
@@ -27,6 +31,8 @@ public class Hindsight() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommo
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        
+        
         var cardModels =
             (await CardSelectCmd.FromCombatPile(
                 prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, DynamicVars.Cards.IntValue),

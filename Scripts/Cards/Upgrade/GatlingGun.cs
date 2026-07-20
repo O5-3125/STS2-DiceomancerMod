@@ -20,6 +20,9 @@ public class GatlingGun()
         new RepeatVar(3)
     ];
 
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png" // 卡图
+    );
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(base.CombatState, "base.CombatState");

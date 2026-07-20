@@ -12,6 +12,10 @@ namespace Diceomancer.Scripts.Cards.Uncommon;
 public class ReorganizeThoughts()
     : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self, true)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(4)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];

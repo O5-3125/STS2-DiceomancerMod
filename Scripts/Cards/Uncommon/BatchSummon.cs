@@ -21,6 +21,10 @@ namespace Diceomancer.Scripts.Cards.Uncommon;
 public class BatchSummon()
     : ModCardTemplate(2, CardType.Skill, CardRarity.Rare, TargetType.Self), IModRightClickableCard
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override HashSet<CardTag> CanonicalTags => [MyTags.Upgrade.GetModCardTag()];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>

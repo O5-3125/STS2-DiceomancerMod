@@ -17,7 +17,10 @@ namespace Diceomancer.Scripts.Cards.Uncommon;
 [RegisterCard(typeof(DiceomancerCardPool))]
 public class Monosword() : ModCardTemplate(2, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy, true)
 {
-    
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
         HoverTipFactory.FromPower<BleedPower>()

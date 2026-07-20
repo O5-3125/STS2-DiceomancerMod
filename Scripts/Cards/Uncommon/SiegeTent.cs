@@ -22,6 +22,10 @@ namespace Diceomancer.Scripts.Cards.Uncommon;
 public class SiegeTent()
     : ModCardTemplate(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self), IModRightClickableCard
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override HashSet<CardTag> CanonicalTags => [MyTags.Upgrade.GetModCardTag()];
 
     public override bool GainsBlock => true;

@@ -28,6 +28,8 @@ public class BlockCapability : CardPlayCapability, ICardDescriptionContributor
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(0, ValueProp.Move)];
 
+    
+    
     public IEnumerable<CardDescriptionFragment> GetDescriptionFragments(CardDescriptionContext context) =>
         [new(new LocString("enchantments", $"{Id.Entry}.description"))];
 

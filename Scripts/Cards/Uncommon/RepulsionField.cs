@@ -23,6 +23,10 @@ public class RepulsionField()
     : ModCardTemplate(2, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies), IModRightClickableCard
 
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override HashSet<CardTag> CanonicalTags => [MyTags.Upgrade.GetModCardTag()];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>

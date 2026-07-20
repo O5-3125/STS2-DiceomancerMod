@@ -13,6 +13,10 @@ namespace Diceomancer.Scripts.Cards.Upgrade;
 [RegisterCard(typeof(UpgradeCardPool))]
 public class NeuroSama() : ModCardTemplate(3, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Retain];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>

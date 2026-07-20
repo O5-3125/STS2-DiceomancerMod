@@ -43,6 +43,7 @@ public class FireElement : ModPowerTemplate
 
         ArgumentNullException.ThrowIfNull(Owner.CombatState);
         var enemy = base.Owner.CombatState.RunState.Rng.CombatTargets.NextItem(base.CombatState.HittableEnemies);
+        if (enemy == null) return;
         await CreatureCmd.Damage(choiceContext, enemy,
             DynamicVars.Damage.IntValue, ValueProp.Unpowered, base.Owner);
         await PowerCmd.Decrement(this);

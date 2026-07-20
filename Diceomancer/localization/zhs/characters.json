@@ -6,15 +6,15 @@
   // 多人模式：死亡后回合结束对白
   "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.banter.dead.endTurnPing": "多人模式：死亡后回合结束对白",
   // 自定义模式文本
-  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.cardsModifierDescription": "骰子浪游者的卡牌现在会出现在奖励和商店中。",
+  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.cardsModifierDescription": "工匠的卡牌现在会出现在奖励和商店中。",
   // 卡池名字
-  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.cardsModifierTitle": "骰子浪游者卡牌",
+  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.cardsModifierTitle": "工匠卡牌",
   // 角色选择界面描述
-  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.description": "紫雾消退之后，来到通货膨胀的尖塔寻找混沌。",
+  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.description": "紫雾消退之后，来到通货膨胀的尖塔寻找混沌。\n",
   // 死亡时事件对话
   "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.eventDeathPrevention": "死亡时事件对话",
   // 沉没宝库事件中对金币的独白
-  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.goldMonologue": "[sine]沉没宝库事件中对金币的独白[/sine]",
+  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.goldMonologue": "[sine][blue]金币总是有用的。[/blue][/sine]",
   // 物主形容词，用于动态文本
   "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.possessiveAdjective": "物主形容词-他的",
   // 宾语代词
@@ -24,7 +24,7 @@
   // 主语代词
   "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.pronounSubject": "主语代词-他",
   // 角色名（标题用）
-  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.title": "混沌使者",
+  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.title": "工匠",
   // 角色名（作宾语用）
   "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.titleObject": "角色名（作宾语用）",
   // 解锁条件文案，{Prerequisite} 会被替换

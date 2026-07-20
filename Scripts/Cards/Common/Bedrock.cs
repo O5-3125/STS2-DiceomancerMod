@@ -21,6 +21,10 @@ namespace Diceomancer.Scripts.Cards.Common;
 [RegisterCard(typeof(DiceomancerCardPool))]
 public class Bedrock() : ModCardTemplate(2, CardType.Skill, CardRarity.Common, TargetType.Self, true)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override HashSet<CardTag> CanonicalTags =>
     [
         MyTags.Evolution.GetModCardTag(),

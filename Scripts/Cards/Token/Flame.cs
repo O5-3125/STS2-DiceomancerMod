@@ -13,6 +13,10 @@ namespace Diceomancer.Scripts.Cards.Token;
 [RegisterCard(typeof(TokenCardPool))]
 public class Flame() : ModCardTemplate(0, CardType.Skill, CardRarity.Token, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>

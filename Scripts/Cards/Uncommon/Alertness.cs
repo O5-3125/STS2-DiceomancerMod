@@ -14,6 +14,10 @@ namespace Diceomancer.Scripts.Cards.Uncommon;
 [RegisterCard(typeof(DiceomancerCardPool))]
 public class Alertness() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self, true)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override HashSet<CardTag> CanonicalTags =>
     [
         MyTags.Evolution.GetModCardTag()

@@ -17,8 +17,12 @@ namespace Diceomancer.Scripts.Cards.Upgrade;
 
 [RegisterCard(typeof(UpgradeCardPool))]
 public class Trebuchet()
-    : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies)
+    : ModCardTemplate(1, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(12, ValueProp.Move),

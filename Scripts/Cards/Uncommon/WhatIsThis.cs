@@ -21,6 +21,10 @@ namespace Diceomancer.Scripts.Cards.Uncommon;
 // [RegisterCharacterStarterCard(typeof(DiceomancerCharacter))]
 public class WhatIsThis() : ModCardTemplate(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self, true)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     // public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override HashSet<CardTag> CanonicalTags =>

@@ -16,6 +16,10 @@ namespace Diceomancer.Scripts.Cards.Rare;
 [RegisterCard(typeof(DiceomancerCardPool))]
 public class Mutation() : ModCardTemplate(2, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override HashSet<CardTag> CanonicalTags => [MyTags.Evolution.GetModCardTag()];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>

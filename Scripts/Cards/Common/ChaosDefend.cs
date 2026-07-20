@@ -14,6 +14,10 @@ namespace Diceomancer.Scripts.Cards.Common;
 public class ChaosDefend() :
     ModCardTemplate(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords =>

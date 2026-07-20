@@ -15,6 +15,10 @@ namespace Diceomancer.Scripts.Cards.Rare;
 [RegisterCard(typeof(DiceomancerCardPool))]
 public class SemanticSatiation() : ModCardTemplate(2, CardType.Attack, CardRarity.Rare, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     // public override IEnumerable<CardKeyword> CanonicalKeywords =>
     // [
     //     CardKeyword.Exhaust,

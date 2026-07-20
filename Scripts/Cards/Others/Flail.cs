@@ -13,6 +13,10 @@ namespace Diceomancer.Scripts.Cards.Common;
 // [RegisterCard(typeof(DiceomancerCardPool))]
 public class Flail() : ModCardTemplate(0, CardType.Attack, CardRarity.Common, TargetType.RandomEnemy, true)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(6, ValueProp.Move),

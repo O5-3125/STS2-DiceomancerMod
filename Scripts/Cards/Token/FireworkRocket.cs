@@ -15,6 +15,10 @@ namespace Diceomancer.Scripts.Cards.Token;
 public class FireworkRocket()
     : ModCardTemplate(-1, CardType.Attack, CardRarity.Token, TargetType.RandomEnemy)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(6, ValueProp.Move),

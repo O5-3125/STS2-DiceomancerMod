@@ -27,6 +27,10 @@ namespace Diceomancer.Scripts.Cards.Basic;
 public sealed class Pipe()
     : ModCardTemplate(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy), IModRightClickableCard
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     protected override HashSet<CardTag> CanonicalTags => [MyTags.Upgrade.GetModCardTag()];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>

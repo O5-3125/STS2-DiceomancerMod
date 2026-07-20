@@ -3,6 +3,7 @@ using Diceomancer.Scripts.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -15,7 +16,17 @@ namespace Diceomancer.Scripts.Cards.Upgrade;
 public sealed class PoweredArmor()
     : ModCardTemplate(2, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
+    );
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
+    [
+        HoverTipFactory.FromPower<StrengthPower>(),
+        HoverTipFactory.FromPower<ThickSkin>(),
+    ];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
