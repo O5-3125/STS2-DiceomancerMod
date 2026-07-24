@@ -15,7 +15,7 @@ namespace Diceomancer.Scripts.Cards.Upgrade;
 
 [RegisterCard(typeof(UpgradeCardPool))]
 public class StandardizedSummon()
-    : ModCardTemplate(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+    : ModCardTemplate(1, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     public override CardAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"

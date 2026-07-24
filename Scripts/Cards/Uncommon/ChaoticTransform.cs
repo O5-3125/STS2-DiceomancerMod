@@ -1,6 +1,7 @@
 ﻿using Diceomancer.Scripts.Common;
 using Diceomancer.Scripts.Hero;
 using Diceomancer.Scripts.Hero.CardPool;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Factories;
@@ -27,20 +28,26 @@ public class ChaoticTransform() : ModCardTemplate(0, CardType.Skill, CardRarity.
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new CardsVar(3)
+        new CardsVar(3),
+        new("selectCount", 1)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var cards = CardFactory.GetDistinctForCombat(base.Owner,
+        var modifyCardModels = CardFactory.GetDistinctForCombat(base.Owner,
             ModelDb.CardPool<TokenCardPool>().AllCards
                 .Where(model => model.Tags.Contains(MyTags.Modify.GetModCardTag())),
             DynamicVars.Cards.IntValue, base.Owner.RunState.Rng.CombatCardGeneration).ToList();
 
-        var cardModel = await CardSelectCmd.FromChooseACardScreen(choiceContext, cards, base.Owner, canSkip: true);
-        if (cardModel != null)
+        // var cardModel = await CardSelectCmd.FromChooseACardScreen(choiceContext, cards, base.Owner, canSkip: true);
+
+        var cardModels = await CardSelectCmd.FromSimpleGrid
+        (choiceContext, modifyCardModels, base.Owner,
+            new CardSelectorPrefs(SelectionScreenPrompt, 0, DynamicVars["selectCount"].IntValue));
+
+        foreach (var cardModel in cardModels)
         {
-            await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Hand, base.Owner);
+              await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Hand, base.Owner);
         }
     }
 

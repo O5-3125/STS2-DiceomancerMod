@@ -1,23 +1,25 @@
 ﻿{
   "evolution.title": "进化",
   "evolution.description": "打出后，卡牌效果中不包含进化的数字在本场战斗增加{Evolution}。",
+  
+  
   "assault.title": "突击",
   "assault.description": "第一次打出时生效",
-  "modify.title": "改装",
-  "modify.description": "使另一张牌获得此效果。\n改装的词条不被修改数字效果影响。",
-  "kick.title": "增幅",
-  "kick.description": "丢弃最多{kick}张牌，每丢弃一张牌额外生效一次。",
   "flow.title": "流转",
   "flow.description": "若上一张牌与本牌类型不同，则生效。",
-  "upgrade.title": "建造",
-  "upgrade.description": "右键点击建造牌，消耗科技进行建造。",
   "buff.title": "增益",
   "buff.description": "一定范围内的正面buff。",
   "debuff.title": "减益",
   "debuff.description": "一定范围内的负面debuff。",
+  
+  
+  "upgrade.title": "建造",
+  "upgrade.description": "右键点击建造牌，消耗科技进行建造。",
   "miracle.title":"奇迹",
   "miracle.description":"如果这张牌不是在回合开始时抽到的，则触发效果。",
-
+  "modify.title": "改装",
+  "modify.description": "使另一张牌获得此效果。\n改装的词条不被修改数字效果影响。",
+  
   "DICEOMANCER_SECONDARY_RESOURCE_BLACK_MANA.title": "黑球",
   "DICEOMANCER_SECONDARY_RESOURCE_BLACK_MANA.description": "对黑球的描述文本。"
 }

@@ -93,10 +93,10 @@
   "DICEOMANCER_POWER_SUPERPOSITION_POWER.smartDescription": "混乱牌获得[gold]重放[/gold]。",
   //
   "DICEOMANCER_POWER_EXTRA_TURN.title": "额外回合",
-  "DICEOMANCER_POWER_EXTRA_TURN.smartDescription": "回合结束后，获得一个额外回合。",
+  "DICEOMANCER_POWER_EXTRA_TURN.smartDescription": "回合结束后，获得额外回合。",
   //
   "DICEOMANCER_POWER_TULPENMANIE.title": "郁金香",
-  "DICEOMANCER_POWER_TULPENMANIE.smartDescription": "回合结束时，手牌上的数降为1。",
+  "DICEOMANCER_POWER_TULPENMANIE.smartDescription": "回合结束时，手牌上的数降为{Amount}。",
   //
   "DICEOMANCER_POWER_FATIGUE.title": "疲劳",
   "DICEOMANCER_POWER_FATIGUE.smartDescription": "本回合不能打出限制牌。",
@@ -108,19 +108,16 @@
   "DICEOMANCER_POWER_COUNTER_HELIX.smartDescription": "受到未被格挡的伤害时，所有敌人失去{Amount}生命。",
   //
   "DICEOMANCER_POWER_ELASTIC_DEFENCE.title": "防御战术",
-  "DICEOMANCER_POWER_ELASTIC_DEFENCE.smartDescription": "受到未被格挡的伤害时，获得{Amount}护甲。",
+  "DICEOMANCER_POWER_ELASTIC_DEFENCE.smartDescription": "受到未被格挡的伤害时，获得{Amount}格挡。",
   //
   "DICEOMANCER_POWER_FLOW_POWER.title": "心流",
-  "DICEOMANCER_POWER_FLOW_POWER.smartDescription": "本回合造成双倍伤害。",
+  "DICEOMANCER_POWER_FLOW_POWER.smartDescription": "本回合造成的伤害翻倍。",
   //
   "DICEOMANCER_POWER_BODY_BURNING.title": "燃烧之躯",
   "DICEOMANCER_POWER_BODY_BURNING.smartDescription": "打出攻击牌时，对随机敌人施加{Amount}层燃烧。",
   //
-  "DICEOMANCER_POWER_AMERI_ROULETTE.title": "美式轮盘赌",
-  "DICEOMANCER_POWER_AMERI_ROULETTE.smartDescription": "回合开始时，受到当前生命值一半的伤害。",
-  //
-  "DICEOMANCER_POWER_COLOSSUS.title": "巨像",
-  "DICEOMANCER_POWER_COLOSSUS.smartDescription": "手牌上限变为{Amount}。",
+  "DICEOMANCER_POWER_MAX_HAND_SIZE.title": "手牌上限",
+  "DICEOMANCER_POWER_MAX_HAND_SIZE.smartDescription": "手牌上限变为{Amount}。",
   //
   "DICEOMANCER_POWER_IGNITE.title": "点燃",
   "DICEOMANCER_POWER_IGNITE.smartDescription": "回合开始时，获得{Amount}张烈焰。",

@@ -157,7 +157,7 @@ public static class DiceomancerCardCmd
                 // await PowerCmd.Apply<Blin>(choiceContext, target, amount, applier, cardSource);
                 break;
             case NormalityDebuffKind.Strength:
-                await PowerCmd.Apply<StranglePower>(choiceContext, target, -amount, applier, cardSource);
+                await PowerCmd.Apply<StrengthPower>(choiceContext, target, -amount, applier, cardSource);
                 break;
             case NormalityDebuffKind.Tainted:
                 await PowerCmd.Apply<WeakPower>(choiceContext, target, amount, applier, cardSource);

@@ -6,6 +6,8 @@ using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -23,11 +25,16 @@ public class QuillSpray() : ModCardTemplate(1, CardType.Attack, CardRarity.Commo
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
     );
 
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
+    [
+        new HoverTip(new LocString("static_hover_tips", "modify.title"),
+            new LocString("static_hover_tips", "modify.description"))
+    ];
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(8, ValueProp.Move),
         new DynamicVar("modify", 3)
-            .WithSharedTooltip("modify")
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

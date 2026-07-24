@@ -16,7 +16,7 @@ namespace Diceomancer.Scripts.Cards.Ancient;
 
 [RegisterCard(typeof(DiceomancerCardPool))]
 public sealed class MetalParts()
-    : UpgradeTemplate<GatlingGun>(1, CardType.Attack, CardRarity.Ancient, TargetType.Self, 8)
+    : UpgradeTemplate<GatlingGun>(1, CardType.Skill, CardRarity.Ancient, TargetType.Self, 8)
 {
     public override CardAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"

@@ -15,7 +15,7 @@ using STS2RitsuLib.Scaffolding.Content;
 namespace Diceomancer.Scripts.Cards.Upgrade;
 
 [RegisterCard(typeof(UpgradeCardPool))]
-public class Cannon() : ModCardTemplate(2, CardType.Skill, CardRarity.Rare, TargetType.AllEnemies)
+public class Cannon() : ModCardTemplate(2, CardType.Skill, CardRarity.Common, TargetType.AllEnemies)
 {
     public override CardAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"

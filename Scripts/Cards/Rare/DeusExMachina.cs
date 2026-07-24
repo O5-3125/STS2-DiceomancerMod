@@ -65,6 +65,8 @@ public class DeusExMachina() : ModCardTemplate(2, CardType.Attack, CardRarity.Ra
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Cards.UpgradeValueBy(2);
+        DynamicVars["Turns"].UpgradeValueBy(-1);
+        DynamicVars["Before"].UpgradeValueBy(3);
+        DynamicVars["After"].UpgradeValueBy(10);
     }
 }

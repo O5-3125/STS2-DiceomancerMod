@@ -1,5 +1,4 @@
-﻿using Diceomancer.Scripts.Capabilitys;
-using Diceomancer.Scripts.Hero;
+using Diceomancer.Scripts.Common;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -8,17 +7,12 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Enchantments;
-using MegaCrit.Sts2.Core.ValueProps;
-using STS2RitsuLib.Cards.DynamicVars;
-using STS2RitsuLib.Interop.AutoRegistration;
-using STS2RitsuLib.Models.Capabilities;
+using STS2RitsuLib.CardTags;
 using STS2RitsuLib.Scaffolding.Content;
 
-namespace Diceomancer.Scripts.Cards.Rare;
+namespace Diceomancer.Scripts.Cards.Template;
 
-[RegisterCard(typeof(DiceomancerCardPool))]
-public class Stellaris() : ModCardTemplate(2, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public abstract class ModifyTemplate() : ModCardTemplate(1, CardType.Skill, CardRarity.Token, TargetType.Self)
 {
     public override CardAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
@@ -26,9 +20,9 @@ public class Stellaris() : ModCardTemplate(2, CardType.Skill, CardRarity.Rare, T
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    protected override HashSet<CardTag> CanonicalTags =>
     [
-        new EnergyVar(1)
+        MyTags.Modify.GetModCardTag()
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
@@ -39,16 +33,15 @@ public class Stellaris() : ModCardTemplate(2, CardType.Skill, CardRarity.Rare, T
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var cardList = PileType.Hand.GetPile(this.Owner).Cards.ToList();
+        var cardModel = (await CardSelectCmd.FromHand(choiceContext,
+            base.Owner, new CardSelectorPrefs(CardSelectorPrefs.EnchantSelectionPrompt, 1),
+            null, this)).FirstOrDefault();
 
-        foreach (var card in cardList)
-        {
-            var capability = ModelCapabilityRegistry.Create<PhaseCapability>();
-            capability.DynamicVars.Energy.BaseValue = DynamicVars.Energy.IntValue;
-            card.AddCapability(capability);
-            // card.GetOrCreateCapability<PhaseCapability>(); // 挂载组件
-        }
+        if (cardModel != null)
+            AttachCapability(cardModel);
     }
+
+    protected abstract void AttachCapability(CardModel cardModel);
 
     protected override void OnUpgrade()
     {

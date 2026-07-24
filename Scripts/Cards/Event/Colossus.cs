@@ -21,7 +21,7 @@ public class Colossus() : ModCardTemplate(4, CardType.Power, CardRarity.Rare, Ta
     [
         new PowerVar<StrengthPower>(16),
         new PowerVar<ThickSkin>(8),
-        new PowerVar<Powers.Colossus>(3)
+        new PowerVar<MaxHandSize>(3)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -31,8 +31,8 @@ public class Colossus() : ModCardTemplate(4, CardType.Power, CardRarity.Rare, Ta
             DynamicVars["StrengthPower"].IntValue, base.Owner.Creature, this);
         await PowerCmd.Apply<ThickSkin>(choiceContext, base.Owner.Creature,
             DynamicVars["ThickSkin"].IntValue, base.Owner.Creature, this);
-        await PowerCmd.Apply<Powers.Colossus>(choiceContext, base.Owner.Creature,
-            DynamicVars["Colossus"].IntValue, base.Owner.Creature, this);
+        await PowerCmd.Apply<MaxHandSize>(choiceContext, base.Owner.Creature,
+            DynamicVars["MaxHandSize"].IntValue, base.Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

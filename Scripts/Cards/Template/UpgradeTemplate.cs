@@ -3,6 +3,7 @@ using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using STS2RitsuLib.Cards.DynamicVars;
@@ -26,12 +27,20 @@ public abstract class UpgradeTemplate<TTransform>(
     protected override HashSet<CardTag> CanonicalTags => [MyTags.Upgrade.GetModCardTag()];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
-        new[] { HoverTipFactory.FromCard<TTransform>() }.Concat(OwnAdditionalHoverTips);
+        new[]
+        {
+            HoverTipFactory.FromCard<TTransform>(),
+            new HoverTip(new LocString("static_hover_tips", "upgrade.title"),
+                new LocString("static_hover_tips", "upgrade.description"))
+        }.Concat(OwnAdditionalHoverTips);
+
 
     protected virtual IEnumerable<IHoverTip> OwnAdditionalHoverTips => [];
 
+
     protected sealed override IEnumerable<DynamicVar> CanonicalVars =>
-        OwnCanonicalVars.Append(new DynamicVar("Upgrade", UpgradeCost).WithSharedTooltip("upgrade"));
+        OwnCanonicalVars.Append(new DynamicVar("Upgrade", UpgradeCost)
+        );
 
     protected abstract IEnumerable<DynamicVar> OwnCanonicalVars { get; }
 
@@ -55,6 +64,7 @@ public abstract class UpgradeTemplate<TTransform>(
             {
                 CardCmd.Upgrade(cardModel);
             }
+
             await CardCmd.Transform(this, cardModel);
         }
     }

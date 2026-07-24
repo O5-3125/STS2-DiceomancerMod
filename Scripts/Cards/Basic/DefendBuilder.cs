@@ -37,7 +37,7 @@ public class DefendBuilder : ModCardTemplate
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
-            await SecondaryResourceCmd.Gain(Owner, BlackMana.ManaId, 1);
+      
         
     }
 

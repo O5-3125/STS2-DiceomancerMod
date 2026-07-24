@@ -15,7 +15,7 @@ namespace Diceomancer.Scripts.Cards.Upgrade;
 
 [RegisterCard(typeof(UpgradeCardPool))]
 public class FireworkArray()
-    : ModCardTemplate(2, CardType.Power, CardRarity.Rare, TargetType.Self)
+    : ModCardTemplate(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
     public override CardAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"

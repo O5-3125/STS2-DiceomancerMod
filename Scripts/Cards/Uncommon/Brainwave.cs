@@ -28,7 +28,8 @@ public class Brainwave() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommo
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var prefs = new CardSelectorPrefs(base.SelectionScreenPrompt, DynamicVars.Cards.IntValue);
+        var prefs = new CardSelectorPrefs(base.SelectionScreenPrompt,0, DynamicVars.Cards.IntValue);
+        
         List<CardModel> cardsIn = (from c in PileType.Draw.GetPile(base.Owner).Cards
             orderby c.Rarity, c.Id
             select c).ToList();

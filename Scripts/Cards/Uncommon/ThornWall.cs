@@ -35,7 +35,7 @@ public class ThornWall() : ModCardTemplate(2, CardType.Skill, CardRarity.Uncommo
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new BlockVar(12, ValueProp.Move),
-        new PowerVar<ThornsPower>(8)
+        new PowerVar<ThornsPower>(5)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

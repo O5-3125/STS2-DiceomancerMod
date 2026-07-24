@@ -19,7 +19,7 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Cards.Token;
 // todo 渡河
-[RegisterCard(typeof(TokenCardPool))]
+// [RegisterCard(typeof(TokenCardPool))]
 public class CrossRiver() : ModCardTemplate(0, CardType.Skill, CardRarity.Token, TargetType.Self)
 {
     public override CardAssetProfile AssetProfile => new(

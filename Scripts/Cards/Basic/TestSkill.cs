@@ -14,34 +14,14 @@ namespace Diceomancer.Scripts.Cards.Basic;
 public class TestSkill()
     : ModCardTemplate(0, CardType.Skill, CardRarity.Basic, TargetType.Self)
 {
-    public override CardAssetProfile AssetProfile => new(
-        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
-    );
-
-    private CardType ThisType { get; set; } = CardType.Skill;
-
-    public override CardType Type => ThisType;
-
-    protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];
-
-    public override bool GainsBlock => true;
-
-
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new BlockVar(5m, ValueProp.Move)
     ];
 
-    // protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    // {
-    //     // IEnumerable<CardDrawnEntry> cardDrawnEntries = CombatManager.Instance.History.Entries.OfType<CardDrawnEntry>();
-    //     
-    //     this.ThisType = this.ThisType switch
-    //     {
-    //         // CardType.None => CardType.Attack,
-    //         CardType.Skill => CardType.Attack,
-    //         CardType.Attack => CardType.Skill,
-    //         _ => this.ThisType
-    //     };
-    // }
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        // 获得副资源
+        await SecondaryResourceCmd.Gain(Owner, BlackMana.ManaId, 1);
+    }
 }

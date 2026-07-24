@@ -38,7 +38,7 @@ public class BatchSummon()
     {
         for (int i = 0; i < DynamicVars["FireElement"].IntValue; i++)
         {
-            await PowerCmd.Apply<FireElement>(choiceContext, base.Owner.Creature, DynamicVars.Summon.IntValue,
+            await PowerCmd.Apply<FireElement>(choiceContext, base.Owner.Creature, DynamicVars["FireElement"].IntValue,
                 base.Owner.Creature, this);
         }
     }
