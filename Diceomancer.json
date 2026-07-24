@@ -3,7 +3,7 @@
   "name": "骰子浪游者Mod",
   "author": "what",
   "description": "以骰子浪游者中工匠为原型做的mod，由于技术原因没有完全复刻。",
-  "version": "0.1.0",
+  "version": "0.1.01",
   "min_game_version": "0.109.0",
   "has_pck": true,
   "has_dll": true,

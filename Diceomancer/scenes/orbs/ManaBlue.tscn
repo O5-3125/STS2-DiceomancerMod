@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://m68snsy8caed"]
-
-[ext_resource type="Texture2D" uid="uid://00jnwrwlolcy" path="res://Diceomancer/images/Orbs/ManaBlue.png" id="1_nf0fv"]
-
-[node name="ManaRed" type="Node2D"]
-
-[node name="ManaBlack" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_nf0fv")

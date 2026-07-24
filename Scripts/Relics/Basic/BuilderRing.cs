@@ -12,6 +12,7 @@ using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Relics.Basic;
+
 //
 // // 加入角色遗物池
 [RegisterRelic(typeof(DiceomancerRelicPool))]
@@ -26,15 +27,10 @@ public class BuilderRing : ModRelicTemplate
     public override string FlashSfx => "event:/sfx/ui/relic_activate_draw";
 
     public override bool ShowCounter => CombatManager.Instance.IsInProgress;
-    
-    // 小图标（原版85x85）
-    public override string PackedIconPath => "res://Diceomancer/images/Relics/BuilderRing_big.png";
 
-    // 轮廓图标（原版85x85）
-    protected override string PackedIconOutlinePath => "res://Diceomancer/images/Relics/BuilderRing_big.png";
-
-    // 大图标（原版256x256）
-    protected override string BigIconPath => "res://Diceomancer/images/Relics/BuilderRing_big.png";
+    public override string PackedIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
+    protected override string PackedIconOutlinePath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
+    protected override string BigIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
 
     public override int DisplayAmount => CardsPlayed;
 

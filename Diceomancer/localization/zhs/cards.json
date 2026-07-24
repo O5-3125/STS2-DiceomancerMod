@@ -1,7 +1,4 @@
 {
-  "DICEOMANCER_CARD_TEST_EPIDEMIC.title": "测试疫病",
-  "DICEOMANCER_CARD_TEST_EPIDEMIC.description": "测试疫病",
-  //
   "DICEOMANCER_CARD_MODIFY_PHASE.title": "改装：能量",
   "DICEOMANCER_CARD_MODIFY_PHASE.description": "选择一张手牌[gold]改装[/gold]：\n获得{Energy:energyIcons()}。",
   "DICEOMANCER_CARD_MODIFY_BUFF.title": "改装：正向",
@@ -49,7 +46,7 @@
   "DICEOMANCER_CARD_NULL_CARD.description": "",
   "DICEOMANCER_CARD_INVINCIBLE_STRIKE.title": "无敌打击",
   "DICEOMANCER_CARD_INVINCIBLE_STRIKE.description": "随机对敌人造成{Damage:diff()}点伤害{Repeat:diff()}次。\n获得{Evade:diff()}层[gold]闪避[/gold]。",
-  "DICEOMANCER_CARD_STRIKE_SECRET.title": "打击奥义",
+  "DICEOMANCER_CARD_STRIKE_SECRET.title": "真·打击",
   "DICEOMANCER_CARD_STRIKE_SECRET.description": "随机打出{Cards:diff()}张名字中带有「打击」的牌。",
   "DICEOMANCER_CARD_CHAOS_STRIKE.title": "混乱打击",
   "DICEOMANCER_CARD_CHAOS_STRIKE.description": "造成{Damage:diff()}点伤害{Repeat:diff()}次。",
@@ -247,6 +244,14 @@
   "DICEOMANCER_CARD_UNIMAGINABLE_PATH.description": "选择至多{Cards:diff()}张手牌，永久变化。",
   "DICEOMANCER_CARD_FORGE_TEMPLATE.title": "锻造模板",
   "DICEOMANCER_CARD_FORGE_TEMPLATE.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n获得{TechPower:diff()}层科技。",
+  "DICEOMANCER_CARD_VIOLET_SMOKE.title": "紫烟",
+  "DICEOMANCER_CARD_VIOLET_SMOKE.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n[gold]奇迹[/gold]：再获得{Block:diff()}点[gold]格挡[/gold]。",
+  "DICEOMANCER_CARD_BLUR.title": "朦胧术",
+  "DICEOMANCER_CARD_BLUR.description": "获得{EvadePower:diff()}层[gold]闪避[/gold]。\n获得{PlatingPower:diff()}层[gold]覆甲[/gold]。",
+  "DICEOMANCER_CARD_MUSCLE_SMASH.title": "肌肉猛击",
+  "DICEOMANCER_CARD_MUSCLE_SMASH.description": "造成{Damage:diff()}点伤害。丢弃随机手牌。",
+  "DICEOMANCER_CARD_DEUS_EX_MACHINA.title": "机械降神",
+  "DICEOMANCER_CARD_DEUS_EX_MACHINA.description": "对所有敌人造成{Before:diff()}点伤害。如果此回合不是战斗的前{Turns:diff()}回合则改为造成{After:diff()}伤害。",
   "DICEOMANCER_CARD_CROSS_RIVER.title": "渡河",
   "DICEOMANCER_CARD_CROSS_RIVER.description": "[pulse freq=1.0 color=#ffffff40 ease=-2.0]这是一段用于测试的文本。[/pulse]",
   "DICEOMANCER_CARD_DROUPNIR.title": "德罗普尼尔",
@@ -269,5 +274,9 @@
   "DICEOMANCER_CARD_HOPE.title": "希望",
   "DICEOMANCER_CARD_HOPE.description": "[gold]奇迹[/gold]:获得{StrengthPower:diff()}点[gold]力量[/gold]，获得{PlatingPower:diff()}层[gold]覆甲[/gold]。",
   "DICEOMANCER_CARD_WINGED_LIGHT.title": "飞光",
-  "DICEOMANCER_CARD_WINGED_LIGHT.description": "获得{ExtraTurn:diff()}个额外回合。\n接下来{WingedLightPower:diff()}个回合，你出牌后结束回合。\n结束回合。"
+  "DICEOMANCER_CARD_WINGED_LIGHT.description": "获得{ExtraTurn:diff()}个额外回合。\n接下来{WingedLightPower:diff()}个回合，你出牌后结束回合。\n结束回合。",
+  "DICEOMANCER_CARD_EXCELLENT_STRIKE.title": "优秀打击",
+  "DICEOMANCER_CARD_EXCELLENT_STRIKE.description": "造成{Damage:diff()}点伤害。",
+  "DICEOMANCER_CARD_EXCELLENT_DEFENSE.title": "优秀防御",
+  "DICEOMANCER_CARD_EXCELLENT_DEFENSE.description": "获得{Block:diff()}点[gold]格挡[/gold]。"
 }

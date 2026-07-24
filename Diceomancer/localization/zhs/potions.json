@@ -1,4 +1,8 @@
 ﻿{
   "DICEOMANCER_POTION_FORGET_ME_NOT.title": "勿忘我",
-  "DICEOMANCER_POTION_FORGET_ME_NOT.description": "[red]摧毁[/red]弃牌堆的所有卡牌。"
+  "DICEOMANCER_POTION_FORGET_ME_NOT.description": "[red]摧毁[/red]弃牌堆的所有卡牌。",
+
+
+  "DICEOMANCER_POTION_BONFIRE.title": "小篝火",
+  "DICEOMANCER_POTION_BONFIRE.description": "回复最大生命值的30%。 "
 }

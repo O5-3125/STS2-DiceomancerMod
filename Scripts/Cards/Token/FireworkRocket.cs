@@ -13,7 +13,7 @@ namespace Diceomancer.Scripts.Cards.Token;
 
 [RegisterCard(typeof(TokenCardPool))]
 public class FireworkRocket()
-    : ModCardTemplate(-1, CardType.Attack, CardRarity.Token, TargetType.RandomEnemy)
+    : ModCardTemplate(-1, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)
 {
     public override CardAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"

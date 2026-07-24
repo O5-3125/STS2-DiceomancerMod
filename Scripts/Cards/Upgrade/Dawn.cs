@@ -24,10 +24,9 @@ public class Dawn()
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new PowerVar<StrengthPower>(2),
-        // new 
     ];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
 
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
 
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -35,15 +34,25 @@ public class Dawn()
         await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature,
             DynamicVars["StrengthPower"].IntValue, Owner.Creature, this);
 
-        await PowerCmd.Apply<StrengthPower>(choiceContext, cardPlay.Target,
-            -DynamicVars["StrengthPower"].IntValue, Owner.Creature, this);
+        // if (!IsUpgraded)
+        // {
+        //     await PowerCmd.Apply<StrengthPower>(choiceContext, cardPlay.Target,
+        //         -DynamicVars["StrengthPower"].IntValue, Owner.Creature, this);
+        // }
+        // else
+        // {
+            await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature.CombatState.HittableEnemies,
+                -DynamicVars["StrengthPower"].IntValue, Owner.Creature, this);
+        // }
     }
-
-    public override TargetType TargetType => Target;
-    private TargetType Target { get; set; } = TargetType.AnyEnemy;
+    //
+    // public override TargetType TargetType => Target;
+    // private TargetType Target { get; set; } = TargetType.AnyEnemy;
 
     protected override void OnUpgrade()
     {
-        Target = TargetType.AllEnemies;
+        // Target = TargetType.AllEnemies;
+        DynamicVars["StrengthPower"].UpgradeValueBy(1);
+        
     }
 }

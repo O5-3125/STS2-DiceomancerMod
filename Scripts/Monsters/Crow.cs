@@ -27,16 +27,6 @@ public class Crow : ModMonsterTemplate
     // 怪物场景
     public override MonsterAssetProfile AssetProfile => new(
         "res://Test/scenes/test_monster.tscn"
-
-        // string? PortraitPath = null,
-        // string? BetaPortraitPath = null,
-        // string? FramePath = null,
-        // string? PortraitBorderPath = null,
-        // string? EnergyIconPath = null,
-        // string? FrameMaterialPath = null,
-        // string? OverlayScenePath = null,
-        // string? BannerTexturePath = null,
-        // string? BannerMaterialPath = null,
     );
 
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()

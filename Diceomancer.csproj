@@ -63,58 +63,114 @@
     <ItemGroup>
         <Content Include="Diceomancer\images\Character\fishing_bg.png"/>
         <Content Include="Diceomancer\images\Character\rest.png"/>
-        <Content Include="Diceomancer\images\Energy\D20_big.png"/>
-        <Content Include="Diceomancer\images\Energy\D20.png"/>
-        <Content Include="Diceomancer\images\Energy\slot_unknown.png"/>
-        <Content Include="Diceomancer\images\Orbs\ManaBlack.png"/>
-        <Content Include="Diceomancer\images\Orbs\ManaBlue.png"/>
-        <Content Include="Diceomancer\images\Orbs\ManaGreen.png"/>
-        <Content Include="Diceomancer\images\Orbs\ManaPurple.png"/>
-        <Content Include="Diceomancer\images\Orbs\ManaRed.png"/>
-        <Content Include="Diceomancer\images\Orbs\ManaVoid.png"/>
-        <Content Include="Diceomancer\images\Potions\后悔药.png"/>
+        <Content Include="Diceomancer\images\Encounters\city1_layer1.png" />
+        <Content Include="Diceomancer\images\Encounters\city1_layer2.png" />
+        <Content Include="Diceomancer\images\Encounters\city1_layer3.png" />
+        <Content Include="Diceomancer\images\Encounters\city_palace_layer0.png" />
+        <Content Include="Diceomancer\images\Encounters\city_palace_layer2.png" />
+        <Content Include="Diceomancer\images\Encounters\city_ruins_layer0.png" />
+        <Content Include="Diceomancer\images\Encounters\city_ruins_layer1.png" />
+        <Content Include="Diceomancer\images\Encounters\city_ruins_layer2.png" />
+        <Content Include="Diceomancer\images\Encounters\city_ruins_layer2_anim_0000.png" />
+        <Content Include="Diceomancer\images\Encounters\city_ruins_layer2_anim_0001.png" />
+        <Content Include="Diceomancer\images\Encounters\city_ruins_layer2_anim_0002.png" />
+        <Content Include="Diceomancer\images\Encounters\city_ruins_layer2_anim_0003.png" />
+        <Content Include="Diceomancer\images\Encounters\city_ruins_layer2_anim_0004.png" />
+        <Content Include="Diceomancer\images\Encounters\city_ruins_layer3.png" />
+        <Content Include="Diceomancer\images\Encounters\city_slum_layer0.png" />
+        <Content Include="Diceomancer\images\Encounters\city_slum_layer1.png" />
+        <Content Include="Diceomancer\images\Encounters\forest_layer2_ground.png" />
+        <Content Include="Diceomancer\images\Encounters\forest_layer3_variant1.png" />
+        <Content Include="Diceomancer\images\Encounters\forest_layer3_variant2.png" />
+        <Content Include="Diceomancer\images\Encounters\forest_original_layer3.png" />
+        <Content Include="Diceomancer\images\Encounters\homerealm_layer0.png" />
+        <Content Include="Diceomancer\images\Encounters\homerealm_layer1.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_boneyard_layer0.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_boneyard_layer1.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_boneyard_layer1_flag1_0000.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_boneyard_layer1_flag1_0001.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_boneyard_layer1_flag1_0002.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_boneyard_layer1_flag1_0003.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_boneyard_layer1_flag1_0004.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_boneyard_layer1_flag2_0000.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_boneyard_layer1_flag2_0001.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_boneyard_layer1_flag2_0002.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_boneyard_layer1_flag2_0003.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_boneyard_layer2.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_ending_layer2.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_ending_layer3.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_ending_layer4.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_field_layer0.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_field_layer1.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_field_layer2.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_field_layer4.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_layer0-3.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_layer0-4.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_layer0-5.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_village_layer0_1.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_village_layer1_1.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_village_layer2.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_village_layer3.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_windmill_layer1.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_windmill_layer2.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_windmill_layer3.png" />
+        <Content Include="Diceomancer\images\Encounters\riverside_windmill_layer4.png" />
+        <Content Include="Diceomancer\images\Energy\D20_big.png" />
+        <Content Include="Diceomancer\images\Energy\D20.png" />
+        <Content Include="Diceomancer\images\Energy\ManaBlack.png" />
+        <Content Include="Diceomancer\images\Energy\slot_unknown.png" />
+        <Content Include="Diceomancer\images\Monsters\error.png" />
+        <Content Include="Diceomancer\images\Monsters\error.png.import" />
+        <Content Include="Diceomancer\images\Orbs\ManaBlack.png" />
+        <Content Include="Diceomancer\images\Orbs\ManaBlue.png" />
+        <Content Include="Diceomancer\images\Orbs\ManaGreen.png" />
+        <Content Include="Diceomancer\images\Orbs\ManaPurple.png" />
+        <Content Include="Diceomancer\images\Orbs\ManaRed.png" />
+        <Content Include="Diceomancer\images\Orbs\ManaVoid.png" />
+        <Content Include="Diceomancer\images\Potions\Bonfire.png" />
+        <Content Include="Diceomancer\images\Potions\后悔药.png" />
         <Content Include="Diceomancer\images\Relics\ManaBlue.png" />
         <Content Include="Diceomancer\images\Relics\BuilderMana.png" />
         <Content Include="Diceomancer\images\Relics\ManaGreen.png" />
         <Content Include="Diceomancer\images\Relics\ManaRed.png" />
         <Content Include="Diceomancer\images\Relics\ManaRedBlue.png" />
         <Content Include="Diceomancer\images\Relics\ManaRedGreen.png" />
-        <Content Include="Diceomancer\images\Relics\RedBall.png"/>
-        <Content Include="Diceomancer\images\Relics\ProRing.png"/>
-        <Content Include="Diceomancer\images\Relics\ManaP.png"/>
-        <Content Include="Diceomancer\images\Relics\ManaP.png.import"/>
-        <Content Include="Diceomancer\localization\zhs\encounters.json"/>
-        <Content Include="Diceomancer\localization\zhs\monsters.json"/>
-        <Content Include="Diceomancer\localization\zhs\orbs.json"/>
-        <Content Include="Diceomancer\localization\zhs\potions.json"/>
+        <Content Include="Diceomancer\images\Relics\RedBall.png" />
+        <Content Include="Diceomancer\images\Relics\ProRing.png" />
+        <Content Include="Diceomancer\images\Relics\ManaP.png" />
+        <Content Include="Diceomancer\images\Relics\ManaP.png.import" />
+        <Content Include="Diceomancer\localization\zhs\encounters.json" />
+        <Content Include="Diceomancer\localization\zhs\monsters.json" />
+        <Content Include="Diceomancer\localization\zhs\orbs.json" />
+        <Content Include="Diceomancer\localization\zhs\potions.json" />
         <Content Include="Scripts\Cards\Ancient\K.cs.uid" />
-        <Content Include="Scripts\Cards\Ancient\NullCard.cs.uid"/>
-        <Content Include="Scripts\Cards\Event\InvincibleStrike.cs.uid"/>
-        <Content Include="Scripts\Cards\Event\StrikeSecret.cs.uid"/>
-        <Content Include="Scripts\Cards\Uncommon\Swarm.cs.uid"/>
+        <Content Include="Scripts\Cards\Ancient\NullCard.cs.uid" />
+        <Content Include="Scripts\Cards\Event\InvincibleStrike.cs.uid" />
+        <Content Include="Scripts\Cards\Event\StrikeSecret.cs.uid" />
+        <Content Include="Scripts\Cards\Template\MiracleTemplate.cs.uid" />
+        <Content Include="Scripts\Cards\Uncommon\Swarm.cs.uid" />
         <Content Include="Scripts\计划.txt" />
     </ItemGroup>
 
 
     <ItemGroup>
-        <Compile Remove="Example\**"/>
-        <Compile Remove="Scripts\Hero\WonderfulCardPool\**"/>
+        <Compile Remove="Example\**" />
+        <Compile Remove="Scripts\Hero\WonderfulCardPool\**" />
         <Compile Remove="参考\**" />
         <Compile Remove="示例\**" />
     </ItemGroup>
 
 
     <ItemGroup>
-        <EmbeddedResource Remove="Example\**"/>
-        <EmbeddedResource Remove="Scripts\Hero\WonderfulCardPool\**"/>
+        <EmbeddedResource Remove="Example\**" />
+        <EmbeddedResource Remove="Scripts\Hero\WonderfulCardPool\**" />
         <EmbeddedResource Remove="参考\**" />
         <EmbeddedResource Remove="示例\**" />
     </ItemGroup>
 
 
     <ItemGroup>
-        <Folder Include="Diceomancer\images\Ancient\"/>
-        <Folder Include="Scripts\Cards\Diabolical\" />
+        <Folder Include="Diceomancer\images\Ancient\" />
         <Folder Include="Scripts\Cards\Token\Options\" />
         <Folder Include="Scripts\Cards\Token\Scrap\"/>
     </ItemGroup>

@@ -1,5 +1,6 @@
 using Diceomancer.Scripts.Cards.Basic;
 using Diceomancer.Scripts.Cards.Rare;
+using Diceomancer.Scripts.Cards.Template;
 using Diceomancer.Scripts.Cards.Upgrade;
 using Diceomancer.Scripts.Hero;
 using Diceomancer.Scripts.Hero.CardPool;
@@ -13,37 +14,30 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using STS2RitsuLib.Cards.DynamicVars;
-using STS2RitsuLib.Interactions.RightClick;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 using Diceomancer.Scripts.Common;
-using STS2RitsuLib.CardTags;
 
 namespace Diceomancer.Scripts.Cards.Common;
 
 [RegisterCard(typeof(DiceomancerCardPool))]
 public sealed class Spike()
-    : ModCardTemplate(2, CardType.Skill, CardRarity.Common, TargetType.AnyEnemy), IModRightClickableCard
+    : UpgradeTemplate<SpikeTrap>(2, CardType.Skill, CardRarity.Common, TargetType.AnyEnemy, 2)
 {
     public override CardAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
     );
 
-    protected override HashSet<CardTag> CanonicalTags => [MyTags.Upgrade.GetModCardTag()];
-
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    protected override IEnumerable<DynamicVar> OwnCanonicalVars =>
     [
         new PowerVar<WeakPower>(2),
         new PowerVar<BleedPower>(8),
-        new DynamicVar("Upgrade", 2)
-            .WithSharedTooltip("upgrade")
     ];
 
-    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
-    [        HoverTipFactory.FromPower<WeakPower>(),
+    protected override IEnumerable<IHoverTip> OwnAdditionalHoverTips =>
+    [
+        HoverTipFactory.FromPower<WeakPower>(),
         HoverTipFactory.FromPower<BleedPower>(),
-
-        HoverTipFactory.FromCard<SpikeTrap>(),
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -55,25 +49,6 @@ public sealed class Spike()
 
         await PowerCmd.Apply<BleedPower>(choiceContext, cardPlay.Target,
             DynamicVars["BleedPower"].IntValue, Owner.Creature, this);
-    }
-    public async Task OnRightClick(ModRightClickExecutionContext context)
-    {
-        var tech = Owner.Creature.GetPower<TechPower>();
-        if (tech == null) return;
-        var amount = tech.Amount;
-
-        if (DynamicVars["Upgrade"].BaseValue <= amount)
-        {
-            await PowerCmd.ModifyAmount(context.PlayerChoiceContext, tech, -DynamicVars["Upgrade"].BaseValue, null,
-                this);
-            DynamicVars["Upgrade"].BaseValue = 0;
-        }
-
-        if (DynamicVars["Upgrade"].BaseValue <= 0)
-        {
-            CardModel cardModel = base.CombatState.CreateCard<SpikeTrap>(base.Owner);
-            await CardCmd.Transform(this, cardModel);
-        }
     }
  protected override void OnUpgrade()
     {

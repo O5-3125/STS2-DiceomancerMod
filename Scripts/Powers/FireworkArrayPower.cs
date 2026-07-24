@@ -27,12 +27,16 @@ public class FireworkArrayPower : ModPowerTemplate
     );
 
 
-    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext,
+        ICombatState combatState)
     {
         for (var i = 0; i < Amount; i++)
         {
             CardModel cardModel = combatState.CreateCard<FireworkRocket>(player);
-            await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Hand, player, CardPilePosition.Random);
+
+            CardCmd.PreviewCardPileAdd(
+                await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Hand, player, CardPilePosition.Random),
+                2.2f);
         }
     }
 }

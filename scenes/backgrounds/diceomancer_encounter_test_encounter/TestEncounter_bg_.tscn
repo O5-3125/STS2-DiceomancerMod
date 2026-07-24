@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://r3kb2ah1ar6s"]
+
+[ext_resource type="Texture2D" uid="uid://b04ygt82akhv1" path="res://Diceomancer/images/Encounters/city/city_layer.png" id="1_wh7sf"]
+
+[node name="CityLayer" type="TextureRect"]
+offset_left = -8.0
+offset_right = 2040.0
+offset_bottom = 1152.0
+texture = ExtResource("1_wh7sf")
+metadata/_edit_lock_ = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1552, 512)

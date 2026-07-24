@@ -48,7 +48,7 @@
   "DICEOMANCER_POWER_HASTE_POWER.smartDescription": "本回合当你打出牌时，层数减少并抽一张牌。",
   //
   "DICEOMANCER_POWER_BURN_POWER.title": "燃烧",
-  "DICEOMANCER_POWER_BURN_POWER.description": "燃烧的生物会在自身回合结束时受到伤害。燃烧层数每回合减少1层。\n造成未被格挡的攻击伤害时，施加1层燃烧。",
+  "DICEOMANCER_POWER_BURN_POWER.description": "燃烧的生物会在自身回合结束时受到伤害。燃烧层数每回合减少。",
   "DICEOMANCER_POWER_BURN_POWER.smartDescription": "回合结束时受到{Amount}点伤害。",
   //
   "DICEOMANCER_POWER_BLEED_POWER.title": "流血",

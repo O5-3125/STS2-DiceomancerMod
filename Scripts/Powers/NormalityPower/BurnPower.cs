@@ -24,19 +24,6 @@ public class BurnPower : ModPowerTemplate
         $"res://Diceomancer/images/Power/{GetType().Name}.png"
     );
 
-    public override async Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer,
-        DamageResult result, ValueProp props, Creature target, CardModel? cardSource)
-    {
-        if (dealer != Owner) return;
-
-        if (!props.HasFlag(ValueProp.Move)) return;
-
-        if (result.UnblockedDamage <= 0) return;
-
-        await PowerCmd.Apply<BurnPower>(choiceContext, target, 1, Owner, null);
-    }
-
-
     public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
         IEnumerable<Creature> participants)
     {

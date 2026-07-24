@@ -50,5 +50,17 @@
   //
   "DICEOMANCER_RELIC_SMALL_MIRROR.title": "小镜子",
   "DICEOMANCER_RELIC_SMALL_MIRROR.description": "每回合打出的第{Cards}张牌额外打出一次。",
-  "DICEOMANCER_RELIC_SMALL_MIRROR.flavor": ""
+  "DICEOMANCER_RELIC_SMALL_MIRROR.flavor": "",
+  //
+  "DICEOMANCER_RELIC_FAKE_PYRAMID.title": "假金字塔",
+  "DICEOMANCER_RELIC_FAKE_PYRAMID.description": "回合结束时，保留最多{Cards}张牌。",
+  "DICEOMANCER_RELIC_FAKE_PYRAMID.flavor": "现在，你比金字塔还要高了。",
+//
+  "DICEOMANCER_RELIC_DIMENSIONAL_BAG.title": "次元袋",
+  "DICEOMANCER_RELIC_DIMENSIONAL_BAG.description": "回合结束时，丢弃随机手牌，跳过你的弃牌阶段。",
+  "DICEOMANCER_RELIC_DIMENSIONAL_BAG.flavor": "。",
+  //
+  "DICEOMANCER_RELIC_THE_STABILIZER.title": "稳定器",
+  "DICEOMANCER_RELIC_THE_STABILIZER.description": "拾起时，记录你的牌组大小。\n当你的牌组变得更大时，移除卡牌。",
+  "DICEOMANCER_RELIC_THE_STABILIZER.flavor": "。"
 }

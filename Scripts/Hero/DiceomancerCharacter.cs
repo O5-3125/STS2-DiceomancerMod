@@ -38,21 +38,21 @@ public class
         new CharacterAssetProfile(
             new CharacterSceneAssetSet(
                 // 人物模型tscn路径。
-                "res://Diceomancer/scenes/test_character.tscn",
+                "res://Diceomancer/scenes/Heros/Hero.tscn",
                 // 能量表盘tscn路径。
-                "res://Diceomancer/scenes/test_energy_counter.tscn",
+                "res://Diceomancer/scenes/Heros/Hero_energy_counter.tscn",
                 // 商店人物场景。
-                "res://Diceomancer/scenes/test_character_merchant.tscn",
+                "res://Diceomancer/scenes/Heros/Hero_merchant.tscn",
                 // 篝火休息场景。
-                "res://Diceomancer/scenes/test_character_rest_site.tscn"
+                "res://Diceomancer/scenes/Heros/Hero_rest_site.tscn"
             ),
             new CharacterUiAssetSet(
                 // 人物头像(图鉴)。
                 "res://Diceomancer/images/Hero/icon.png",
                 // 人物头像(地图)。
-                IconPath: "res://Diceomancer/scenes/icon.tscn",
+                IconPath: "res://Diceomancer/scenes/Heros/icon.tscn",
                 // 人物选择背景。
-                CharacterSelectBgPath: "res://Diceomancer/scenes/test_bg.tscn",
+                CharacterSelectBgPath: "res://Diceomancer/scenes/Heros/Hero_bg.tscn",
                 // 人物选择图标。
                 CharacterSelectIconPath: "res://Diceomancer/images/Hero/icon.png",
                 // 人物选择图标-锁定状态。

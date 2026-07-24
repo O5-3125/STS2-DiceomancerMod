@@ -16,5 +16,8 @@
   "debuff.title": "减益",
   "debuff.description": "一定范围内的负面debuff。",
   "miracle.title":"奇迹",
-  "miracle.description":"如果这张牌不是在回合开始时抽到的，则触发效果。"
+  "miracle.description":"如果这张牌不是在回合开始时抽到的，则触发效果。",
+
+  "DICEOMANCER_SECONDARY_RESOURCE_BLACK_MANA.title": "黑球",
+  "DICEOMANCER_SECONDARY_RESOURCE_BLACK_MANA.description": "对黑球的描述文本。"
 }

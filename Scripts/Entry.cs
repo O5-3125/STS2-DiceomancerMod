@@ -1,4 +1,6 @@
 using System.Reflection;
+using Diceomancer.Scripts.Cards.Ancient;
+using Diceomancer.Scripts.Cards.Basic;
 using Diceomancer.Scripts.Common;
 using Diceomancer.Scripts.Hero;
 using Diceomancer.Scripts.Hero.CardPool;
@@ -27,9 +29,13 @@ public class Entry
         // 自动注册内容
         ModTypeDiscoveryHub.RegisterModAssembly(ModId, assembly);
 
+
+        // 注册副资源
+        BlackMana.Register();
+
         // 注册初始卡的先古升级
         // 第一个类型参数是你的初始卡，第二个类型参数是被升级成的卡。
-        // RitsuLibFramework.RegisterArchaicToothTranscendenceMapping<TestCard, Shiv>();
+        RitsuLibFramework.RegisterArchaicToothTranscendenceMapping<Pipe, MetalParts>();
 
         // 注册初始遗物的先古升级
         RitsuLibFramework.RegisterTouchOfOrobasRefinementMapping<BuilderMana, BuilderRing>();

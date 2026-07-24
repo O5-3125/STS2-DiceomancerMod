@@ -39,15 +39,13 @@ public class QuillSpray() : ModCardTemplate(1, CardType.Attack, CardRarity.Commo
             .TargetingAllOpponents(base.CombatState)
             .Execute(choiceContext);
 
-
         var cardModel = (await CardSelectCmd.FromHand(choiceContext, base.Owner,
             new CardSelectorPrefs(CardSelectorPrefs.EnchantSelectionPrompt, 1),
             null, this)).FirstOrDefault();
 
         var capability = ModelCapabilityRegistry.Create<SprayCapability>();
-        capability.DynamicVars.Block.BaseValue = DynamicVars["modify"].IntValue;
+        capability.DynamicVars.Damage.BaseValue = DynamicVars["modify"].IntValue;
         cardModel?.AddCapability(capability);
-        // cardModel?.GetOrCreateCapability<SprayCapability>(); // 挂载组件
     }
 
     protected override void OnUpgrade()
