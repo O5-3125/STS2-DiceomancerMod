@@ -14,6 +14,11 @@ namespace Diceomancer.Scripts.Powers;
 [RegisterPower]
 public class ExtraTurn : ModPowerTemplate
 {
+    public override PowerAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Power/{GetType().Name}.png",
+        $"res://Diceomancer/images/Power/{GetType().Name}.png"
+    );
+
     public override PowerType Type => PowerType.Buff;
 
     public override PowerStackType StackType => PowerStackType.Counter;

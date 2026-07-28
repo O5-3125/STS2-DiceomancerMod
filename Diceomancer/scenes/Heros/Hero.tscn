@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://ce3jah1wjxn3f"]
+[gd_scene load_steps=2 format=3 uid="uid://bqpoipeoteamm"]
 
-[ext_resource type="Texture2D" uid="uid://b6s4eyce4hgj3" path="res://Diceomancer/images/Hero/icon.png" id="1_235s6"]
+[ext_resource type="Texture2D" uid="uid://b80pm2xtngmel" path="res://Diceomancer/images/Hero/Hero.png" id="1"]
 
 [node name="TestCharacter" type="Node2D"]
 
@@ -23,7 +23,7 @@ position = Vector2(0, -72)
 [node name="Visuals" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, -101)
-texture = ExtResource("1_235s6")
+texture = ExtResource("1")
 flip_h = true
 
 [node name="OrbPos" type="Marker2D" parent="."]

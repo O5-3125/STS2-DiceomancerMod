@@ -1,32 +1,65 @@
 ﻿{
+  /*------------- 莽战士 ----------- */
   // 混沌香气事件中的内心独白
-  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.aromaPrinciple": "[sine][blue]……ZZZ…ZZZ…ZZZ…[/blue][/sine]",
+  "DICEOMANCER_CHARACTER_BERSERKER.aromaPrinciple": "[sine][red]……ZZZ…ZZZ…ZZZ…[/red][/sine]",
   // 多人模式：存活时回合结束对白
-  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.banter.alive.endTurnPing": "多人模式：存活时回合结束对白",
+  "DICEOMANCER_CHARACTER_BERSERKER.banter.alive.endTurnPing": "多人模式：存活时回合结束对白",
   // 多人模式：死亡后回合结束对白
-  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.banter.dead.endTurnPing": "多人模式：死亡后回合结束对白",
+  "DICEOMANCER_CHARACTER_BERSERKER.banter.dead.endTurnPing": "多人模式：死亡后回合结束对白",
   // 自定义模式文本
-  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.cardsModifierDescription": "工匠的卡牌现在会出现在奖励和商店中。",
+  "DICEOMANCER_CHARACTER_BERSERKER.cardsModifierDescription": "莽战士的卡牌现在会出现在奖励和商店中。",
   // 卡池名字
-  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.cardsModifierTitle": "工匠卡牌",
+  "DICEOMANCER_CHARACTER_BERSERKER.cardsModifierTitle": "莽战士卡牌",
   // 角色选择界面描述
-  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.description": "紫雾消退之后，来到通货膨胀的尖塔寻找混沌。\n",
+  "DICEOMANCER_CHARACTER_BERSERKER.description": "还没做好。\n",
   // 死亡时事件对话
-  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.eventDeathPrevention": "死亡时事件对话",
+  "DICEOMANCER_CHARACTER_BERSERKER.eventDeathPrevention": "死亡时事件对话",
   // 沉没宝库事件中对金币的独白
-  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.goldMonologue": "[sine][blue]金币总是有用的。[/blue][/sine]",
+  "DICEOMANCER_CHARACTER_BERSERKER.goldMonologue": "[sine][blue]金币总是有用的。[/blue][/sine]",
   // 物主形容词，用于动态文本
-  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.possessiveAdjective": "物主形容词-他的",
+  "DICEOMANCER_CHARACTER_BERSERKER.possessiveAdjective": "莽战士",
   // 宾语代词
-  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.pronounObject": "宾语代词-他",
+  "DICEOMANCER_CHARACTER_BERSERKER.pronounObject": "莽战士",
   // 所有格代词
-  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.pronounPossessive": "所有格代词-他的",
+  "DICEOMANCER_CHARACTER_BERSERKER.pronounPossessive": "莽战士",
   // 主语代词
-  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.pronounSubject": "主语代词-他",
+  "DICEOMANCER_CHARACTER_BERSERKER.pronounSubject": "莽战士",
   // 角色名（标题用）
-  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.title": "工匠",
+  "DICEOMANCER_CHARACTER_BERSERKER.title": "莽战士",
   // 角色名（作宾语用）
-  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.titleObject": "角色名（作宾语用）",
+  "DICEOMANCER_CHARACTER_BERSERKER.titleObject": "莽战士",
   // 解锁条件文案，{Prerequisite} 会被替换
-  "DICEOMANCER_CHARACTER_DICEOMANCER_CHARACTER.unlockText": "用[pink]{Prerequisite}[/pink]进行一局游戏来解锁这个角色。"
+  "DICEOMANCER_CHARACTER_BERSERKER.unlockText": "用[pink]{Prerequisite}[/pink]进行一局游戏来解锁这个角色。",
+
+  /*------------- 工匠 ----------- */
+  // 混沌香气事件中的内心独白
+  "DICEOMANCER_CHARACTER_BUILDER.aromaPrinciple": "[sine][blue]……ZZZ…ZZZ…ZZZ…[/blue][/sine]",
+  // 多人模式：存活时回合结束对白
+  "DICEOMANCER_CHARACTER_BUILDER.banter.alive.endTurnPing": "多人模式：存活时回合结束对白",
+  // 多人模式：死亡后回合结束对白
+  "DICEOMANCER_CHARACTER_BUILDER.banter.dead.endTurnPing": "多人模式：死亡后回合结束对白",
+  // 自定义模式文本
+  "DICEOMANCER_CHARACTER_BUILDER.cardsModifierDescription": "工匠的卡牌现在会出现在奖励和商店中。",
+  // 卡池名字
+  "DICEOMANCER_CHARACTER_BUILDER.cardsModifierTitle": "工匠卡牌",
+  // 角色选择界面描述
+  "DICEOMANCER_CHARACTER_BUILDER.description": "下雨当成晴天干，晚上当成白天干。\n",
+  // 死亡时事件对话
+  "DICEOMANCER_CHARACTER_BUILDER.eventDeathPrevention": "死亡时事件对话",
+  // 沉没宝库事件中对金币的独白
+  "DICEOMANCER_CHARACTER_BUILDER.goldMonologue": "[sine][blue]金币总是有用的。[/blue][/sine]",
+  // 物主形容词，用于动态文本
+  "DICEOMANCER_CHARACTER_BUILDER.possessiveAdjective": "物主形容词-他的",
+  // 宾语代词
+  "DICEOMANCER_CHARACTER_BUILDER.pronounObject": "宾语代词-他",
+  // 所有格代词
+  "DICEOMANCER_CHARACTER_BUILDER.pronounPossessive": "所有格代词-他的",
+  // 主语代词
+  "DICEOMANCER_CHARACTER_BUILDER.pronounSubject": "主语代词-他",
+  // 角色名（标题用）
+  "DICEOMANCER_CHARACTER_BUILDER.title": "工匠",
+  // 角色名（作宾语用）
+  "DICEOMANCER_CHARACTER_BUILDER.titleObject": "角色名（作宾语用）",
+  // 解锁条件文案，{Prerequisite} 会被替换
+  "DICEOMANCER_CHARACTER_BUILDER.unlockText": "用[pink]{Prerequisite}[/pink]进行一局游戏来解锁这个角色。"
 }

@@ -19,9 +19,9 @@
   "DICEOMANCER_POWER_TOUGHNESS_POWER.description": "下次受到的攻击伤害减半。",
   "DICEOMANCER_POWER_TOUGHNESS_POWER.smartDescription": "下{Amount}次受到的攻击伤害减半。\n回合开始时失去一层。",
   //
-  "DICEOMANCER_POWER_PANIC.title": "慌乱",
-  "DICEOMANCER_POWER_PANIC.description": "你每打出一张牌，随机丢弃一张牌。",
-  "DICEOMANCER_POWER_PANIC.smartDescription": "本回合当你每打出一张牌，随机丢弃一张牌。",
+  "DICEOMANCER_POWER_PANIC_POWER.title": "慌乱",
+  "DICEOMANCER_POWER_PANIC_POWER.description": "你每打出一张牌，随机丢弃一张牌。",
+  "DICEOMANCER_POWER_PANIC_POWER.smartDescription": "本回合当你每打出一张牌，随机丢弃一张牌。",
   //
   "DICEOMANCER_POWER_THICK_SKIN.title": "厚皮",
   "DICEOMANCER_POWER_THICK_SKIN.description": "受到攻击时，受到的伤害减少。",
@@ -127,5 +127,8 @@
   "DICEOMANCER_POWER_INVINCIBLE.title": "无敌",
   "DICEOMANCER_POWER_INVINCIBLE.smartDescription": "本回合阻止敌人的伤害。",
   "DICEOMANCER_POWER_FIREWORK_ARRAY_POWER.title": "烟花阵列",
-  "DICEOMANCER_POWER_FIREWORK_ARRAY_POWER.smartDescription": "回合结束时，向抽牌堆加入{Cards}张[gold]烟花火箭[/gold]。"
+  "DICEOMANCER_POWER_FIREWORK_ARRAY_POWER.smartDescription": "回合结束时，向抽牌堆加入{Cards}张[gold]烟花火箭[/gold]。",
+  //
+  "DICEOMANCER_POWER_DYSON_SPHERE_POWER.title": "戴森球计划",
+  "DICEOMANCER_POWER_DYSON_SPHERE_POWER.smartDescription": "每抽一张牌，获得{Amount:energyIcons()}。"
 }

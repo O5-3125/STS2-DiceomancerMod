@@ -6,7 +6,6 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using STS2RitsuLib.Scaffolding.Content;
-using StaticHoverTip = Diceomancer.Scripts.Common.StaticHoverTip;
 
 namespace Diceomancer.Scripts.Cards.Template;
 
@@ -20,17 +19,11 @@ public abstract class MiracleTemplate(int energyCost, CardType type, CardRarity 
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
-        new HoverTip(new LocString("static_hover_tips","miracle.title"), 
+        new HoverTip(new LocString("static_hover_tips", "miracle.title"),
             new LocString("static_hover_tips", "miracle.description"))
     ];
 
-    private bool _miracle = true;
-
-    protected bool Miracle
-    {
-        get => _miracle;
-        set => _miracle = value;
-    }
+    protected bool Miracle { get; set; } = true;
 
     protected override bool ShouldGlowGoldInternal => Miracle;
 

@@ -1,4 +1,5 @@
 using Diceomancer.Scripts.Hero;
+using Diceomancer.Scripts.Hero.Builder;
 using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -18,9 +19,9 @@ using STS2RitsuLib.Scaffolding.Content;
 namespace Diceomancer.Scripts.Relics.Basic;
 
 // 加入角色遗物池
-[RegisterRelic(typeof(DiceomancerRelicPool))]
+[RegisterRelic(typeof(BuilderRelicPool))]
 // 加入初始遗物池
-[RegisterCharacterStarterRelic(typeof(DiceomancerCharacter))]
+[RegisterCharacterStarterRelic(typeof(Builder))]
 public class BuilderMana : ModRelicTemplate
 {
     public override RelicRarity Rarity => RelicRarity.Common;

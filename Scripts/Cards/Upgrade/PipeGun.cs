@@ -3,7 +3,6 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -31,12 +30,12 @@ public sealed class PipeGun()
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this, cardPlay)
             .TargetingRandomOpponents(CombatState)
-            .WithHitCount(base.DynamicVars.Repeat.IntValue)
+            .WithHitCount(DynamicVars.Repeat.IntValue)
             .Execute(choiceContext);
     }
 
     protected override void OnUpgrade()
     {
-        base.DynamicVars.Repeat.UpgradeValueBy(1m);
+        DynamicVars.Repeat.UpgradeValueBy(1m);
     }
 }

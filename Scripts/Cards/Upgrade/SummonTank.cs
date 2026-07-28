@@ -1,5 +1,4 @@
-﻿using Diceomancer.Scripts.Hero;
-using Diceomancer.Scripts.Hero.CardPool;
+﻿using Diceomancer.Scripts.Hero.CardPool;
 using Diceomancer.Scripts.Powers.Elements;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -25,24 +24,24 @@ public class SummonTank() : ModCardTemplate(2, CardType.Skill, CardRarity.Uncomm
     [
         new SummonVar(6),
         new DamageVar(14, ValueProp.Unpowered),
-        new BlockVar(7, ValueProp.Unpowered),
+        new BlockVar(7, ValueProp.Unpowered)
     ];
 
     // 通过HoverTipFactory添加各种提示文本
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
-        HoverTipFactory.FromPower<SteamTankElement>(),
+        HoverTipFactory.FromPower<SteamTankElement>()
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         var steamTankElement =
-            await PowerCmd.Apply<SteamTankElement>(choiceContext, base.Owner.Creature, DynamicVars.Summon.IntValue,
-                base.Owner.Creature, this);
+            await PowerCmd.Apply<SteamTankElement>(choiceContext, Owner.Creature, DynamicVars.Summon.IntValue,
+                Owner.Creature, this);
         if (steamTankElement != null)
         {
-            steamTankElement.DynamicVars.Damage.BaseValue = base.DynamicVars.Damage.BaseValue;
-            steamTankElement.DynamicVars.Block.BaseValue = base.DynamicVars.Block.BaseValue;
+            steamTankElement.DynamicVars.Damage.BaseValue = DynamicVars.Damage.BaseValue;
+            steamTankElement.DynamicVars.Block.BaseValue = DynamicVars.Block.BaseValue;
         }
     }
 

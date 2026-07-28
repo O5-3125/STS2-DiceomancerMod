@@ -1,13 +1,9 @@
-﻿using Diceomancer.Scripts.Hero;
-using Diceomancer.Scripts.Hero.CardPool;
-using Diceomancer.Scripts.Powers.NormalityPower;
+﻿using Diceomancer.Scripts.Hero.CardPool;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
-using STS2RitsuLib.Interactions.RightClick;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
@@ -23,7 +19,7 @@ public class Dawn()
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<StrengthPower>(2),
+        new PowerVar<StrengthPower>(2)
     ];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
@@ -41,8 +37,8 @@ public class Dawn()
         // }
         // else
         // {
-            await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature.CombatState.HittableEnemies,
-                -DynamicVars["StrengthPower"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature.CombatState.HittableEnemies,
+            -DynamicVars["StrengthPower"].IntValue, Owner.Creature, this);
         // }
     }
     //
@@ -53,6 +49,5 @@ public class Dawn()
     {
         // Target = TargetType.AllEnemies;
         DynamicVars["StrengthPower"].UpgradeValueBy(1);
-        
     }
 }

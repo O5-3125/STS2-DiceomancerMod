@@ -22,8 +22,8 @@ public class FireworkArrayPower : ModPowerTemplate
 
 
     public override PowerAssetProfile AssetProfile => new(
-        "res://Diceomancer/images/Power/累坏了.png",
-        "res://Diceomancer/images/Power/累坏了.png"
+        $"res://Diceomancer/images/Power/{GetType().Name}.png",
+        $"res://Diceomancer/images/Power/{GetType().Name}.png"
     );
 
 

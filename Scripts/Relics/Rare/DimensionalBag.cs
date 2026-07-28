@@ -1,4 +1,5 @@
 ﻿using Diceomancer.Scripts.Hero;
+using Diceomancer.Scripts.Hero.Builder;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -14,7 +15,7 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Relics.Rare;
 
-[RegisterRelic(typeof(DiceomancerRelicPool))]
+[RegisterRelic(typeof(BuilderRelicPool))]
 public class DimensionalBag : ModRelicTemplate
 {
     public override RelicRarity Rarity => RelicRarity.Rare;

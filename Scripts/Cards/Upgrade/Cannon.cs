@@ -4,11 +4,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
-using STS2RitsuLib.Cards.DynamicVars;
-using STS2RitsuLib.Interactions.RightClick;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
@@ -31,13 +27,13 @@ public class Cannon() : ModCardTemplate(2, CardType.Skill, CardRarity.Common, Ta
     {
         ArgumentNullException.ThrowIfNull(Owner.Creature.CombatState);
 
-        await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue)
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this, cardPlay)
             .TargetingAllOpponents(Owner.Creature.CombatState)
             .Execute(choiceContext);
 
         await PowerCmd.Apply<BurnPower>(choiceContext, Owner.Creature.CombatState.HittableEnemies,
-            base.DynamicVars["BurnPower"].BaseValue, base.Owner.Creature, this);
+            DynamicVars["BurnPower"].BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

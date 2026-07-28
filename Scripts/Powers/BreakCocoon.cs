@@ -17,12 +17,10 @@ public class BreakCocoon : ModPowerTemplate
     // 叠加类型，Counter表示可叠加，Single表示不可叠加
     public override PowerStackType StackType => PowerStackType.Single;
 
-    // 自定义图标路径。1:1即可。原版游戏大图256x256，小图64x64。
-    // 自定义图标路径。1:1即可。原版游戏大图256x256，小图64x64。
-    // public override PowerAssetProfile AssetProfile => new(
-    // IconPath: "res://Diceomancer/images/Power/Panic.png",
-    // BigIconPath: "res://Diceomancer/images/Power/Panic_big.png"
-    // );
+    public override PowerAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Power/{GetType().Name}.png",
+        $"res://Diceomancer/images/Power/{GetType().Name}.png"
+    );
 
 
     public override async Task AfterCurrentHpChanged(Creature creature, decimal delta)

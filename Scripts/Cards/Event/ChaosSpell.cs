@@ -22,27 +22,22 @@ public class ChaosSpell() : ModCardTemplate(0, CardType.Skill, CardRarity.Event,
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         IEnumerable<PowerModel> powerList =
-            base.Owner.Creature.Powers
+            Owner.Creature.Powers
                 .Where(p => p is { StackType: PowerStackType.Counter, Type: PowerType.Buff })
                 .ToList();
 
         IEnumerable<int> powerAmountList =
-            powerList.Select(p => p.Amount).ToList().StableShuffle(base.Owner.RunState.Rng.Shuffle);
+            powerList.Select(p => p.Amount).ToList().StableShuffle(Owner.RunState.Rng.Shuffle);
 
-        foreach (var power in powerList)
-        {
-            await PowerCmd.Remove(power);
-        }
+        foreach (var power in powerList) await PowerCmd.Remove(power);
 
         for (var i = 0; i < powerList.Count(); i++)
-        {
             await PowerCmd.Apply(choiceContext, powerList.ElementAt(i), Owner.Creature,
                 powerAmountList.ElementAt(i), Owner.Creature, this);
-        }
     }
 
     protected override void OnUpgrade()
     {
-        this.RemoveKeyword(CardKeyword.Exhaust);
+        RemoveKeyword(CardKeyword.Exhaust);
     }
 }

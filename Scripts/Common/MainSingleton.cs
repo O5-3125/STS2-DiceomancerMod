@@ -36,17 +36,29 @@ public class MainSingleton : SingletonModel, IModRightClickableCard
 
     public async Task OnRightClick(ModRightClickExecutionContext context)
     {
-        if (context.PlayerChoiceContext == null) return;
-
-        var card = (CardModel)context.Model;
-
-        if (card.Keywords.Contains(MyKeywords.Diabolical))
-        {
-            await CardCmd.Exhaust(context.PlayerChoiceContext, card);
-            await CardPileCmd.Draw(context.PlayerChoiceContext, 1m, card.Owner);
-        
-            // await SecondaryResourceCmd.Gain(context.Player, BlackMana.ManaId, 1);
-            // await PowerCmd.Apply<DoomPower>(context.PlayerChoiceContext, context.Player.Creature, 3, null, null);
-        }
+        // if (context.PlayerChoiceContext == null) return;
+        //
+        // var card = (CardModel)context.Model;
+        //
+        // if (card.Keywords.Contains(MyKeywords.Diabolical))
+        // {
+        //     await CardCmd.Exhaust(context.PlayerChoiceContext, card);
+        //     await CardPileCmd.Draw(context.PlayerChoiceContext, 1m, card.Owner);
+        //
+        //     // await SecondaryResourceCmd.Gain(context.Player, BlackMana.ManaId, 1);
+        //     // await PowerCmd.Apply<DoomPower>(context.PlayerChoiceContext, context.Player.Creature, 3, null, null);
+        // }
     }
+
+
+    // public override CardLocation ModifyCardPlayResultLocation(CardModel card, bool isAutoPlay, ResourceInfo resources,
+    //     CardLocation cardLocation)
+    // {
+    //     if (card.Keywords.Contains(MyKeywords.Rebound) && cardLocation.pileType == PileType.Discard  )
+    //     {
+    //         cardLocation.pileType = PileType.Hand;
+    //     }
+    //
+    //     return cardLocation;
+    // }
 }

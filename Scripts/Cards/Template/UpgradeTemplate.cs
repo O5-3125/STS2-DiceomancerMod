@@ -6,7 +6,6 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using STS2RitsuLib.Cards.DynamicVars;
 using STS2RitsuLib.CardTags;
 using STS2RitsuLib.Interactions.RightClick;
 using STS2RitsuLib.Scaffolding.Content;
@@ -59,11 +58,8 @@ public abstract class UpgradeTemplate<TTransform>(
 
         if (DynamicVars["Upgrade"].BaseValue <= 0)
         {
-            CardModel cardModel = base.CombatState.CreateCard<TTransform>(base.Owner);
-            if (IsUpgraded)
-            {
-                CardCmd.Upgrade(cardModel);
-            }
+            CardModel cardModel = CombatState.CreateCard<TTransform>(Owner);
+            if (IsUpgraded) CardCmd.Upgrade(cardModel);
 
             await CardCmd.Transform(this, cardModel);
         }

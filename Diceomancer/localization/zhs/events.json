@@ -1,0 +1,13 @@
+﻿{
+  "DICEOMANCER_EVENT_STRIKE_MASTER.title": "打击大师",
+
+  "DICEOMANCER_EVENT_STRIKE_MASTER.pages.INITIAL.description": "刚刚经历了一场战斗，我连续几个打击便击败了怪物。\n随即我便听到远处一位老师傅的声音：“现在的年轻人太不重视打击了！你的打击简直是糟糕透顶！”\n“过来让打击大师教教你什么才是真正的打击！” ",
+  "DICEOMANCER_EVENT_STRIKE_MASTER.pages.INITIAL.options.EXCELLENT_STRIKE.title": "学学高水平的打击是什么样子的！",
+  "DICEOMANCER_EVENT_STRIKE_MASTER.pages.INITIAL.options.EXCELLENT_STRIKE.description": "将{SmallStrike}张打击添加到你的牌组。\n将{ExcellentStrike}添加到你的牌组。",
+  "DICEOMANCER_EVENT_STRIKE_MASTER.pages.INITIAL.options.INVINCIBLE_STRIKE.title": "大师教教我打击的终极奥义吧！",
+  "DICEOMANCER_EVENT_STRIKE_MASTER.pages.INITIAL.options.INVINCIBLE_STRIKE.description": "将{LargeStrike}张打击添加到你的牌组。\n将{InvincibleStrike}添加到你的牌组。",
+  "DICEOMANCER_EVENT_STRIKE_MASTER.pages.INITIAL.options.NO_STRIKE.title": "打击什么的不要啊！",
+  "DICEOMANCER_EVENT_STRIKE_MASTER.pages.INITIAL.options.NO_STRIKE.description": " 获得犹豫，离开。 ",
+
+  "DICEOMANCER_EVENT_STRIKE_MASTER.pages.STRIKE_CHOSEN.description": " “不错不错，这么快你就学会了打击的精髓！”打击大师欣慰地说道。\n“不过可别过几天就把基础的打击忘光了，不然我会很难过的！” "
+}

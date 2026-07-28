@@ -1,4 +1,3 @@
-using Diceomancer.Scripts.Hero;
 using Diceomancer.Scripts.Hero.CardPool;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -23,14 +22,15 @@ public class GatlingGun()
     public override CardAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Cards/{GetType().Name}.png" // 卡图
     );
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        ArgumentNullException.ThrowIfNull(base.CombatState, "base.CombatState");
+        ArgumentNullException.ThrowIfNull(CombatState);
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this, cardPlay)
-            .TargetingRandomOpponents(base.CombatState)
-            .WithHitCount(base.DynamicVars.Repeat.IntValue)
+            .TargetingRandomOpponents(CombatState)
+            .WithHitCount(DynamicVars.Repeat.IntValue)
             .Execute(choiceContext);
 
         BaseReplayCount += 1;

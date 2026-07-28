@@ -4,12 +4,13 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.RelicPools;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Relics.Ancient;
 
-[RegisterRelic(typeof(DiceomancerRelicPool))]
+[RegisterRelic(typeof(EventRelicPool))]
 public class TheStabilizer : ModRelicTemplate
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
@@ -26,10 +27,10 @@ public class TheStabilizer : ModRelicTemplate
             InvokeDisplayAmountChanged();
         }
     }
-    
+
     public override bool ShowCounter => true;
     public override int DisplayAmount => CardCount;
-    
+
     public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
     {
         if (card.Pile is not { Type: PileType.Deck }) return;
@@ -40,10 +41,10 @@ public class TheStabilizer : ModRelicTemplate
         if (cardModels.Count > CardCount)
         {
             var removeCards = (await CardSelectCmd.FromDeckForRemoval(
-                prefs: new CardSelectorPrefs(CardSelectorPrefs.RemoveSelectionPrompt,
-                    cardModels.Count - CardCount),
-                // 1),
-                player: base.Owner))
+                    prefs: new CardSelectorPrefs(CardSelectorPrefs.RemoveSelectionPrompt,
+                        cardModels.Count - CardCount),
+                    // 1),
+                    player: base.Owner))
                 // .Where(model => model.Keywords.Contains(CardKeyword.Eternal))
                 .ToList();
 
@@ -60,13 +61,6 @@ public class TheStabilizer : ModRelicTemplate
             ;
         return Task.CompletedTask;
     }
-
-
-    public override Task BeforeCardRemoved(CardModel card)
-    {
-        return base.BeforeCardRemoved(card);
-    }
-
 
     public override string PackedIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
     protected override string PackedIconOutlinePath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";

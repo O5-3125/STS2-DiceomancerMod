@@ -1,9 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgcqw4hrpnf5i"]
+[gd_scene load_steps=2 format=3 uid="uid://y10cq4jbn0ai"]
 
-[ext_resource type="Texture2D" uid="uid://bm47y2qqbt5re" path="res://Diceomancer/images/Hero/icon.svg" id="1_luqv7"]
+[ext_resource type="Texture2D" uid="uid://b80pm2xtngmel" path="res://Diceomancer/images/Hero/Hero.png" id="1_tndgb"]
 
 [node name="IroncladMerchant" type="Node2D"]
 
-[node name="Icon2" type="Sprite2D" parent="."]
-texture = ExtResource("1_luqv7")
-flip_h = true
+[node name="Hero" type="Sprite2D" parent="."]
+texture = ExtResource("1_tndgb")

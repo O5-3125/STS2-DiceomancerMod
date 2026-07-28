@@ -6,20 +6,8 @@ using STS2RitsuLib.Keywords;
 namespace Diceomancer.Scripts.Common;
 
 //CardDescriptionPlacement代表这个关键词的描述加在卡牌的位置。默认不显示。
-[RegisterOwnedCardKeyword(nameof(Bonus),
-    CardDescriptionPlacement = ModKeywordCardDescriptionPlacement.BeforeCardDescription)]
-[RegisterOwnedCardKeyword(nameof(Limited),
-    CardDescriptionPlacement = ModKeywordCardDescriptionPlacement.BeforeCardDescription)]
-[RegisterOwnedCardKeyword(nameof(Rebound),
-    CardDescriptionPlacement = ModKeywordCardDescriptionPlacement.AfterCardDescription)]
-[RegisterOwnedCardKeyword(nameof(Fragile),
-    CardDescriptionPlacement = ModKeywordCardDescriptionPlacement.AfterCardDescription)]
-[RegisterOwnedCardKeyword(nameof(Phantom),
-    CardDescriptionPlacement = ModKeywordCardDescriptionPlacement.AfterCardDescription)]
-[RegisterOwnedCardKeyword(nameof(Chaos),
-    CardDescriptionPlacement = ModKeywordCardDescriptionPlacement.AfterCardDescription)]
-[RegisterOwnedCardKeyword(nameof(Diabolical),
-    CardDescriptionPlacement = ModKeywordCardDescriptionPlacement.AfterCardDescription)]
+// [RegisterOwnedCardKeyword(nameof(Diabolical),
+//     CardDescriptionPlacement = ModKeywordCardDescriptionPlacement.AfterCardDescription)]
 public class MyKeywords
 {
     public static readonly CardKeyword Bonus = ModContentRegistry.GetQualifiedKeywordId(Entry.ModId, nameof(Bonus))

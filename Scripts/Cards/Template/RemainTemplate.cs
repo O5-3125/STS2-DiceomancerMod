@@ -1,22 +1,21 @@
-using STS2RitsuLib.Scaffolding.Content;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Saves.Runs;
-using STS2RitsuLib.Interop.AutoRegistration;
-namespace Diceomancer.Scripts.Cards;
+using STS2RitsuLib.Scaffolding.Content;
+
+namespace Diceomancer.Scripts.Cards.Template;
 
 // [RegisterCard(typeof(ColorlessCardPool))]
 public sealed class RemainTemplate()
     : ModCardTemplate(0, CardType.Skill, CardRarity.Rare, TargetType.AllEnemies)
 {
-    private const int MaxRemain = 10; 
+    private const int MaxRemain = 10;
 
-    private int _currentRemain = MaxRemain; 
+    private int _currentRemain = MaxRemain;
 
     [SavedProperty]
     private int CurrentRemain

@@ -3,7 +3,6 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models.Afflictions;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using STS2RitsuLib.Interop.AutoRegistration;
@@ -22,7 +21,7 @@ public sealed class TeslaCoil()
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(12, ValueProp.Move),
-        new PowerVar<VulnerablePower>(2),
+        new PowerVar<VulnerablePower>(2)
     ];
 
 
@@ -41,7 +40,7 @@ public sealed class TeslaCoil()
 
     protected override void OnUpgrade()
     {
-        base.DynamicVars.Damage.UpgradeValueBy(4m);
-        base.DynamicVars["VulnerablePower"].UpgradeValueBy(1m);
+        DynamicVars.Damage.UpgradeValueBy(4m);
+        DynamicVars["VulnerablePower"].UpgradeValueBy(1m);
     }
 }

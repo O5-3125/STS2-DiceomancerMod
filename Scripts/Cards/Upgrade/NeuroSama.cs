@@ -1,6 +1,4 @@
-﻿using Diceomancer.Scripts.Common;
-using Diceomancer.Scripts.Hero.CardPool;
-using MegaCrit.Sts2.Core.CardSelection;
+﻿using Diceomancer.Scripts.Hero.CardPool;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -28,10 +26,7 @@ public class NeuroSama() : ModCardTemplate(3, CardType.Skill, CardRarity.Rare, T
     {
         var cardModels = PileType.Hand.GetPile(Owner).Cards.ToList();
 
-        foreach (var cardModel in cardModels)
-        {
-            await CardCmd.AutoPlay(choiceContext, cardModel, null);
-        }
+        foreach (var cardModel in cardModels) await CardCmd.AutoPlay(choiceContext, cardModel, null);
     }
 
     protected override void OnUpgrade()

@@ -1,4 +1,5 @@
 using Diceomancer.Scripts.Hero;
+using Diceomancer.Scripts.Hero.Builder;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -15,7 +16,7 @@ namespace Diceomancer.Scripts.Relics.Basic;
 
 //
 // // 加入角色遗物池
-[RegisterRelic(typeof(DiceomancerRelicPool))]
+[RegisterRelic(typeof(BuilderRelicPool))]
 // // 加入初始遗物池
 // [RegisterCharacterStarterRelic(typeof(DiceomancerCharacter))]
 public class BuilderRing : ModRelicTemplate

@@ -15,6 +15,11 @@ public class BodyBurning : ModPowerTemplate
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
+    public override PowerAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Power/{GetType().Name}.png",
+        $"res://Diceomancer/images/Power/{GetType().Name}.png"
+    );
+
 
     public override async Task BeforeCardPlayed(CardPlay cardPlay)
     {

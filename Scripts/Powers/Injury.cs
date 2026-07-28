@@ -22,8 +22,8 @@ public class Injury : ModPowerTemplate, IHealthBarForecastSource
 
     // 自定义图标路径。1:1即可。原版游戏大图256x256，小图64x64。
     public override PowerAssetProfile AssetProfile => new(
-        "res://Diceomancer/images/Power/负伤.png",
-        "res://Diceomancer/images/Power/负伤_big.png"
+        $"res://Diceomancer/images/Power/负伤.png",
+        $"res://Diceomancer/images/Power/负伤_big.png"
     );
 
     // 覆盖生命血条
@@ -48,6 +48,8 @@ public class Injury : ModPowerTemplate, IHealthBarForecastSource
         await CreatureCmd.Damage(choiceContext, Owner, Amount,
             ValueProp.Unblockable | ValueProp.Unpowered, null, null);
 
-        if (side == Owner.Side) await PowerCmd.Remove(this);
+        if (side == Owner.Side)
+            // await PowerCmd.Remove(this);
+            await PowerCmd.ModifyAmount(choiceContext, this, -(Amount / 2+ 1), Owner, null);
     }
 }

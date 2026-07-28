@@ -1,5 +1,6 @@
 ﻿using Diceomancer.Scripts.Cards.Ancient;
 using Diceomancer.Scripts.Hero;
+using Diceomancer.Scripts.Hero.Builder;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -13,6 +14,7 @@ using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Enchantments;
+using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Nodes;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.Rewards;
@@ -22,7 +24,7 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Relics.Ancient;
 
-[RegisterRelic(typeof(DiceomancerRelicPool))]
+[RegisterRelic(typeof(EventRelicPool))]
 public class Freedom : ModRelicTemplate
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;

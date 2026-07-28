@@ -1,6 +1,5 @@
-using STS2RitsuLib.Scaffolding.Content;
-using Diceomancer.Scripts.Common;
 using Diceomancer.Scripts.Hero;
+using Diceomancer.Scripts.Hero.Builder;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -8,13 +7,13 @@ using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.CardPools;
 using STS2RitsuLib.Interop.AutoRegistration;
+using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Cards.Ancient;
 
 // 加入哪个卡池
-[RegisterCard(typeof(DiceomancerCardPool))]
+[RegisterCard(typeof(BuilderCardPool))]
 public class K()
     : ModCardTemplate(1, CardType.Skill, CardRarity.Ancient, TargetType.Self)
 {
@@ -25,8 +24,13 @@ public class K()
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new CardsVar(1),
+        new CardsVar(1)
     ];
+
+
+    public override CardAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png" // 卡图
+    );
 
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -34,31 +38,20 @@ public class K()
         // var cardPool = ModelDb.AllCards;
         // var cardPool = base.Owner.Character.CardPool.AllCards.ToList();
 
-        var cardPool = base.Owner.RunState.Rng.CombatCardGeneration.NextItem(ModelDb.AllCharacterCardPools)?.AllCards
+        var cardPool = Owner.RunState.Rng.CombatCardGeneration.NextItem(ModelDb.AllCharacterCardPools)?.AllCards
             .ToList();
 
-        if (cardPool == null)
-        {
-            return;
-        }
+        if (cardPool == null) return;
 
-        var cardModels = CardFactory.GetDistinctForCombat(base.Owner, cardPool, cardPool.Count,
-            base.Owner.RunState.Rng.CombatCardGeneration).ToList();
+        var cardModels = CardFactory.GetDistinctForCombat(Owner, cardPool, cardPool.Count,
+            Owner.RunState.Rng.CombatCardGeneration).ToList();
 
-        var cards = await CardSelectCmd.FromSimpleGrid(choiceContext, cardModels, base.Owner,
-            new CardSelectorPrefs(this.SelectionScreenPrompt, 0, DynamicVars.Cards.IntValue));
+        var cards = await CardSelectCmd.FromSimpleGrid(choiceContext, cardModels, Owner,
+            new CardSelectorPrefs(SelectionScreenPrompt, 0, DynamicVars.Cards.IntValue));
 
 
-        foreach (CardModel card in cards)
-        {
-            await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, base.Owner);
-        }
+        foreach (var card in cards) await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, Owner);
     }
-
-
-    public override CardAssetProfile AssetProfile => new(
-        $"res://Diceomancer/images/Cards/{GetType().Name}.png" // 卡图
-    );
 
 
     protected override void OnUpgrade()

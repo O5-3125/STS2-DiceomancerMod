@@ -26,17 +26,17 @@ public class Colossus() : ModCardTemplate(4, CardType.Power, CardRarity.Rare, Ta
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<StrengthPower>(choiceContext, base.Owner.Creature,
-            DynamicVars["StrengthPower"].IntValue, base.Owner.Creature, this);
-        await PowerCmd.Apply<ThickSkin>(choiceContext, base.Owner.Creature,
-            DynamicVars["ThickSkin"].IntValue, base.Owner.Creature, this);
-        await PowerCmd.Apply<MaxHandSize>(choiceContext, base.Owner.Creature,
-            DynamicVars["MaxHandSize"].IntValue, base.Owner.Creature, this);
+        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
+        await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature,
+            DynamicVars["StrengthPower"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<ThickSkin>(choiceContext, Owner.Creature,
+            DynamicVars["ThickSkin"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<MaxHandSize>(choiceContext, Owner.Creature,
+            DynamicVars["MaxHandSize"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        this.EnergyCost.UpgradeBy(-1);
+        EnergyCost.UpgradeBy(-1);
     }
 }

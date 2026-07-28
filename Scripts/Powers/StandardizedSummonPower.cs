@@ -19,11 +19,10 @@ public class StandardizedSummonPower : ModPowerTemplate
     public override PowerType Type => PowerType.Buff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
-
-    // public override PowerAssetProfile AssetProfile => new(
-    //     "res://Diceomancer/images/Power/点燃.png",
-    //     "res://Diceomancer/images/Power/点燃.png"
-    // );
+    public override PowerAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Power/{GetType().Name}.png",
+        $"res://Diceomancer/images/Power/{GetType().Name}.png"
+    );
 
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)

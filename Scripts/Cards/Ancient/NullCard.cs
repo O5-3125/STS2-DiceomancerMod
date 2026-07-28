@@ -1,8 +1,8 @@
-using STS2RitsuLib.Scaffolding.Content;
 using Diceomancer.Scripts.Common;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using STS2RitsuLib.Interop.AutoRegistration;
+using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Cards.Ancient;
 
@@ -14,7 +14,7 @@ public class NullCard()
     private const int energyCost = -1;
 
     private const CardType type = CardType.Curse;
-    
+
     private const CardRarity rarity = CardRarity.Ancient;
 
     private const TargetType targetType = TargetType.Self;

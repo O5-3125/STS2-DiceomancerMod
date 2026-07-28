@@ -1,4 +1,5 @@
 ﻿using Diceomancer.Scripts.Hero;
+using Diceomancer.Scripts.Hero.Builder;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -12,7 +13,7 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Relics.Uncommon;
 
-[RegisterRelic(typeof(DiceomancerRelicPool))]
+[RegisterRelic(typeof(BuilderRelicPool))]
 public class SmallMirror : ModRelicTemplate
 {
     private int _cardsPlayed;

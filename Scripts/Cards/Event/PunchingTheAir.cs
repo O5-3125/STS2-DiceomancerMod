@@ -1,4 +1,3 @@
-using Diceomancer.Scripts.Hero;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -39,7 +38,7 @@ public class PunchingTheAir()
 
     protected override void OnUpgrade()
     {
-        this.DynamicVars.Repeat.UpgradeValueBy(2);
-        this.RemoveKeyword(CardKeyword.Exhaust);
+        DynamicVars.Repeat.UpgradeValueBy(2);
+        RemoveKeyword(CardKeyword.Exhaust);
     }
 }

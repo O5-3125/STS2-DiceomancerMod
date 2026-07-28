@@ -1,6 +1,6 @@
 using System.Reflection;
 using Diceomancer.Scripts.Cards.Ancient;
-using Diceomancer.Scripts.Cards.Basic;
+using Diceomancer.Scripts.Cards.Builder.Basic;
 using Diceomancer.Scripts.Common;
 using Diceomancer.Scripts.Hero;
 using Diceomancer.Scripts.Hero.CardPool;

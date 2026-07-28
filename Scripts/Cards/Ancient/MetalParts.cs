@@ -1,20 +1,18 @@
 ﻿using Diceomancer.Scripts.Cards.Template;
 using Diceomancer.Scripts.Cards.Upgrade;
-using Diceomancer.Scripts.Common;
 using Diceomancer.Scripts.Hero;
+using Diceomancer.Scripts.Hero.Builder;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
-using STS2RitsuLib.Cards.DynamicVars;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Cards.Ancient;
 
-[RegisterCard(typeof(DiceomancerCardPool))]
+[RegisterCard(typeof(BuilderCardPool))]
 public sealed class MetalParts()
     : UpgradeTemplate<GatlingGun>(1, CardType.Skill, CardRarity.Ancient, TargetType.Self, 8)
 {
@@ -24,7 +22,7 @@ public sealed class MetalParts()
 
     protected override IEnumerable<DynamicVar> OwnCanonicalVars =>
     [
-        new BlockVar(16, ValueProp.Move),
+        new BlockVar(16, ValueProp.Move)
     ];
 
 
@@ -35,6 +33,6 @@ public sealed class MetalParts()
 
     protected override void OnUpgrade()
     {
-        base.DynamicVars.Block.UpgradeValueBy(4m);
+        DynamicVars.Block.UpgradeValueBy(4m);
     }
 }

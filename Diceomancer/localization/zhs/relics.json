@@ -30,6 +30,10 @@
   "DICEOMANCER_RELIC_RED_BALL.title": "行动之球",
   "DICEOMANCER_RELIC_RED_BALL.description": "你受到伤害不再失去生命，而是获得等量[gold]负伤[/gold]计数。回合结束失去[gold]负伤[/gold]点生命，随后[gold]负伤[/gold]减半。",
   "DICEOMANCER_RELIC_RED_BALL.flavor": "速战速决",
+//
+  "DICEOMANCER_RELIC_RED_MANA.title": "情感之球",
+  "DICEOMANCER_RELIC_RED_MANA.description": "受到未被格挡的攻击伤害时改为获得等量[gold]负伤[/gold]。",
+  "DICEOMANCER_RELIC_RED_MANA.flavor": "   ",
   //
   "DICEOMANCER_RELIC_CHAOTIC_PENDANTS.title": "混乱挂坠",
   "DICEOMANCER_RELIC_CHAOTIC_PENDANTS.description": "卡牌奖励和商店会包含所有牌。",

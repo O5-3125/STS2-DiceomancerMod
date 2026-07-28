@@ -5,7 +5,6 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
-using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using STS2RitsuLib.CardTags;
 using STS2RitsuLib.Scaffolding.Content;
@@ -34,7 +33,7 @@ public abstract class ModifyTemplate() : ModCardTemplate(1, CardType.Skill, Card
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         var cardModel = (await CardSelectCmd.FromHand(choiceContext,
-            base.Owner, new CardSelectorPrefs(CardSelectorPrefs.EnchantSelectionPrompt, 1),
+            Owner, new CardSelectorPrefs(CardSelectorPrefs.EnchantSelectionPrompt, 1),
             null, this)).FirstOrDefault();
 
         if (cardModel != null)
@@ -45,6 +44,6 @@ public abstract class ModifyTemplate() : ModCardTemplate(1, CardType.Skill, Card
 
     protected override void OnUpgrade()
     {
-        base.EnergyCost.UpgradeBy(-1);
+        EnergyCost.UpgradeBy(-1);
     }
 }
