@@ -8,18 +8,15 @@ using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Relics.Ancient;
-[RegisterRelic(typeof(EventRelicPool))]
 
+[RegisterRelic(typeof(SharedRelicPool))]
 public class HeartOfSteel : ModRelicTemplate
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
-    // 小图标（原版85x85）
-    // public override string PackedIconPath => $"res://Diceomancer/images/Relics/BuilderRing.png";
-    // 轮廓图标（原版85x85）
-    // protected override string PackedIconOutlinePath => $"res://Diceomancer/images/Relics/BuilderRing.png";
-    // 大图标（原版256x256）
-    // protected override string BigIconPath => $"res://Diceomancer/images/Relics/BuilderRing_big.png";
+    public override string PackedIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
+    protected override string PackedIconOutlinePath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
+    protected override string BigIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

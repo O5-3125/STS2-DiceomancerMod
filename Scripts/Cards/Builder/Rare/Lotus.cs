@@ -1,3 +1,4 @@
+using Diceomancer.Scripts.Common.Utils;
 using Diceomancer.Scripts.Hero.Builder;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -8,7 +9,7 @@ using STS2RitsuLib.Scaffolding.Content;
 namespace Diceomancer.Scripts.Cards.Builder.Rare;
 
 [RegisterCard(typeof(BuilderCardPool))]
-public class Lotus() : ModCardTemplate(3, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class Lotus() : ModCardTemplate(5, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     public override CardAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
@@ -26,11 +27,14 @@ public class Lotus() : ModCardTemplate(3, CardType.Skill, CardRarity.Rare, Targe
         ArgumentNullException.ThrowIfNull(Owner.PlayerCombatState);
 
         var list = Owner.PlayerCombatState.AllCards.ToList();
-        foreach (var item in list)
-        {
-            var keyList = item.DynamicVars.Keys;
-            foreach (var key in keyList) item.DynamicVars[key].BaseValue += DynamicVars["Lotus"].BaseValue;
-        }
+
+        ModifyCardCmd.ModifyCardListDynamicVarsAdditive(list, (int)DynamicVars["Lotus"].BaseValue);
+
+        // foreach (var item in list)
+        // {
+        //     var keyList = item.DynamicVars.Keys;
+        //     foreach (var key in keyList) item.DynamicVars[key].BaseValue += DynamicVars["Lotus"].BaseValue;
+        // }
     }
 
     protected override void OnUpgrade()

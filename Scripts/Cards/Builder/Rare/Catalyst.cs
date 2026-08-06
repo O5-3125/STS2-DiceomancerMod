@@ -1,3 +1,4 @@
+using Diceomancer.Scripts.Common.Utils;
 using Diceomancer.Scripts.Hero.Builder;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -22,12 +23,8 @@ public class Catalyst() : ModCardTemplate(2, CardType.Skill, CardRarity.Rare, Ta
         var selection = (await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(SelectionScreenPrompt, 1),
             context: choiceContext, player: Owner, filter: c => !c.IsDupe,
             source: this)).FirstOrDefault();
-
-        if (selection != null)
-        {
-            var keyList = selection.DynamicVars.Keys;
-            foreach (var key in keyList) selection.DynamicVars[key].BaseValue *= 2;
-        }
+        
+        if (selection != null) ModifyCardCmd.ModifyCardDynamicVarMultiplicative(selection, 2);
     }
 
     protected override void OnUpgrade()

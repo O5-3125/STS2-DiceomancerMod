@@ -1,4 +1,6 @@
-﻿using Diceomancer.Scripts.Common;
+﻿using Diceomancer.Scripts.Cards.Template;
+using Diceomancer.Scripts.Cards.Upgrade;
+using Diceomancer.Scripts.Common;
 using Diceomancer.Scripts.Hero.Builder;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -11,16 +13,16 @@ using STS2RitsuLib.Scaffolding.Content;
 namespace Diceomancer.Scripts.Cards.Builder.Rare;
 
 [RegisterCard(typeof(BuilderCardPool))]
-public class DeepSeek() : ModCardTemplate(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class DeepSeek() : UpgradeTemplate<NeuroSama>(0, CardType.Skill, CardRarity.Rare, TargetType.Self,3)
 {
     public override CardAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
     );
 
-    // public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    
     public override IEnumerable<CardKeyword> CanonicalKeywords => [MyKeywords.Limited];
-
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    
+    protected override IEnumerable<DynamicVar> OwnCanonicalVars =>
     [
         new CardsVar(5),
         new("Select", 2)

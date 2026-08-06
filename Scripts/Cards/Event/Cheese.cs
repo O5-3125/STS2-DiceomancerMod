@@ -9,7 +9,7 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Cards.Event;
 
-[RegisterCard(typeof(EventCardPool))]
+// [RegisterCard(typeof(EventCardPool))]
 public class Cheese() : ModCardTemplate(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     public override CardAssetProfile AssetProfile => new(

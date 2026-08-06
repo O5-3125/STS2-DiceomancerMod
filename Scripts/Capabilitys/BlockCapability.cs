@@ -15,7 +15,6 @@ namespace Diceomancer.Scripts.Capabilitys;
 [RegisterModelCapability]
 public class BlockCapability : CardPlayCapability, ICardDescriptionContributor
 {
-
     protected override void OnAttach(CardModel model)
     {
         Log.Info("组件被挂载");
@@ -26,16 +25,19 @@ public class BlockCapability : CardPlayCapability, ICardDescriptionContributor
         Log.Info("组件被卸载");
     }
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(0, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new BlockVar("BlockCapability", 0, ValueProp.Move)
+    ];
 
-    
-    
+
     public IEnumerable<CardDescriptionFragment> GetDescriptionFragments(CardDescriptionContext context) =>
         [new(new LocString("enchantments", $"{Id.Entry}.description"))];
 
     // 当附魔的卡牌被打出时调用。
     protected override async Task OnOwnerCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await CreatureCmd.GainBlock(cardPlay.Card.Owner.Creature, DynamicVars.Block, cardPlay);
+        await CreatureCmd.GainBlock(cardPlay.Card.Owner.Creature, DynamicVars["BlockCapability"].IntValue,
+            ValueProp.Move, cardPlay);
     }
 }

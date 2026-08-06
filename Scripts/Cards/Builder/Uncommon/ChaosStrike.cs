@@ -19,7 +19,7 @@ public class ChaosStrike() : ModCardTemplate(1, CardType.Attack, CardRarity.Unco
 
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
-        MyKeywords.Chaos
+        MyKeywords.Chaos6
     ];
 
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];

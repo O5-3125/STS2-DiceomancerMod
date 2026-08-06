@@ -19,7 +19,7 @@ public class ModifyDraw : ModifyTemplate
     protected override void AttachCapability(CardModel cardModel)
     {
         var capability = ModelCapabilityRegistry.Create<DrawCapability>();
-        capability.DynamicVars.Cards.BaseValue = DynamicVars["modify"].IntValue;
+        capability.DynamicVars["DrawCapability"].BaseValue = DynamicVars["modify"].IntValue;
         cardModel?.AddCapability(capability);
     }
 }

@@ -1,10 +1,12 @@
 using Diceomancer.Scripts.Common;
 using Diceomancer.Scripts.Hero.Builder;
+using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
@@ -17,7 +19,7 @@ public class BinarySword() : ModCardTemplate(3, CardType.Skill, CardRarity.Rare,
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
     );
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [MyKeywords.Chaos];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [MyKeywords.Chaos4];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -29,13 +31,19 @@ public class BinarySword() : ModCardTemplate(3, CardType.Skill, CardRarity.Rare,
         if (cardPlay.Target == null) return;
 
         var enemy = cardPlay.Target;
+        var a = DynamicVars["A"].IntValue;
 
-        await CreatureCmd.SetMaxHp(enemy, ReplaceDigitsMath(enemy.MaxHp, DynamicVars["A"].IntValue));
-        await CreatureCmd.SetCurrentHp(enemy, ReplaceDigitsMath(enemy.CurrentHp, DynamicVars["A"].IntValue));
+        await CreatureCmd.SetMaxHp(enemy, ReplaceDigitsMath(enemy.MaxHp, a));
+        await CreatureCmd.SetCurrentHp(enemy, ReplaceDigitsMath(enemy.CurrentHp, a));
 
         var powerModels = enemy.Powers.ToList();
         foreach (var powerModel in powerModels.Where(powerModel => powerModel.StackType == PowerStackType.Counter))
-            powerModel.SetAmount(ReplaceDigitsMath(powerModel.Amount, DynamicVars["A"].IntValue));
+            powerModel.SetAmount(ReplaceDigitsMath(powerModel.Amount, a));
+
+        // await PowerCmd.Apply<BinaryBinaryPower>(choiceContext, enemy, a, Owner.Creature, this);
+        //
+        // var node = NCombatRoom.Instance?.GetCreatureNode(enemy);
+        // if (node != null) await node.RefreshIntents();
     }
 
     private static int ReplaceDigitsMath(int num, int a)

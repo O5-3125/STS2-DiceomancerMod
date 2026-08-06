@@ -3,7 +3,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using STS2RitsuLib.Scaffolding.Content;
 
-namespace Diceomancer.Scripts.Cards.Berserker.Others;
+namespace Diceomancer.Scripts.Cards.Others;
 
 // todo 渡河
 // [RegisterCard(typeof(TokenCardPool))]

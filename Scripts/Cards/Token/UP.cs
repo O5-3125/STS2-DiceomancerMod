@@ -1,4 +1,5 @@
 ﻿using Diceomancer.Scripts.Common;
+using Diceomancer.Scripts.Common.Utils;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -17,7 +18,7 @@ public class Up() : ModCardTemplate(1, CardType.Skill, CardRarity.Token, TargetT
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
     );
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, MyKeywords.Chaos];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, MyKeywords.Chaos4];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -33,12 +34,9 @@ public class Up() : ModCardTemplate(1, CardType.Skill, CardRarity.Token, TargetT
                     DynamicVars.Cards.IntValue),
                 context: choiceContext, player: Owner, filter: null, source: this)).ToArray();
 
-        foreach (var cardModel in cardModels)
-        {
-            var keyList = cardModel.DynamicVars.Keys;
-            foreach (var key in keyList)
-                cardModel.DynamicVars[key].BaseValue += DynamicVars["Up"].BaseValue;
-        }
+
+        ModifyCardCmd.ModifyCardListDynamicVarsAdditive(cardModels, (int)DynamicVars["Up"].BaseValue);
+        
     }
 
     protected override void OnUpgrade()

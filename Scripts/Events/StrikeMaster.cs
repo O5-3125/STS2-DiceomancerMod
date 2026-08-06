@@ -14,7 +14,7 @@ namespace Diceomancer.Scripts.Events;
 [RegisterActEvent(typeof(Glory))]
 public sealed class StrikeMaster : ModEventTemplate
 {
-    // 背景图位置
+    // 背景图位置,目前没有背景图所以暂时用TestEvent.png代替
     public override EventAssetProfile AssetProfile => new(
         // InitialPortraitPath: $"res://Diceomancer/images/Event/{GetType().Name}.png",
         InitialPortraitPath: "res://Diceomancer/images/Event/TestEvent.png"
@@ -38,7 +38,7 @@ public sealed class StrikeMaster : ModEventTemplate
             new EventOption(this, InvincibleStrike, InitialOptionKey("INVINCIBLE_STRIKE"),
                 HoverTipFactory.FromCard<InvincibleStrike>()),
 
-            new EventOption(this, NoStrike, InitialOptionKey("NO_STRIKE"))
+            // new EventOption(this, NoStrike, InitialOptionKey("NO_STRIKE"))
         ];
     }
 
@@ -74,9 +74,9 @@ public sealed class StrikeMaster : ModEventTemplate
         StrikeChosen();
     }
 
-    private async Task NoStrike()
-    {
-    }
+    // private async Task NoStrike()
+    // {
+    // }
 
     private static CardModel GetStrikeForCharacter(CharacterModel character)
     {

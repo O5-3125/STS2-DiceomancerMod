@@ -47,7 +47,7 @@ public class QuillSpray() : ModCardTemplate(1, CardType.Attack, CardRarity.Commo
             null, this)).FirstOrDefault();
 
         var capability = ModelCapabilityRegistry.Create<SprayCapability>();
-        capability.DynamicVars.Damage.BaseValue = DynamicVars["modify"].IntValue;
+        capability.DynamicVars["SprayCapability"].BaseValue = DynamicVars["modify"].IntValue;
         cardModel?.AddCapability(capability);
     }
 

@@ -24,7 +24,7 @@ namespace Diceomancer.Scripts.Relics.Basic;
 [RegisterCharacterStarterRelic(typeof(Builder))]
 public class BuilderMana : ModRelicTemplate
 {
-    public override RelicRarity Rarity => RelicRarity.Common;
+    public override RelicRarity Rarity => RelicRarity.Starter;
 
     public override string FlashSfx => "event:/sfx/ui/relic_activate_draw";
 

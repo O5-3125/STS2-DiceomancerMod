@@ -1,5 +1,7 @@
-﻿using MegaCrit.Sts2.Core.Combat;
+﻿using Diceomancer.Scripts.Cards.Token;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -43,5 +45,10 @@ public class EarthElement : ModPowerTemplate
         await PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, Owner.Player);
 
         await PowerCmd.Decrement(this);
+    }
+    
+    public override async Task AfterRemoved(Creature oldOwner)
+    {
+        await CardPileCmd.AddToCombatAndPreview<EssenceOfEarth>(Owner, PileType.Hand, 1, null);
     }
 }

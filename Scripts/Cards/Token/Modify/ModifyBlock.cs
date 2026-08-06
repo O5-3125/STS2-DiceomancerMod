@@ -19,7 +19,7 @@ public class ModifyBlock : ModifyTemplate
     protected override void AttachCapability(CardModel cardModel)
     {
         var capability = ModelCapabilityRegistry.Create<BlockCapability>();
-        capability.DynamicVars.Block.BaseValue = DynamicVars["modify"].IntValue;
+        capability.DynamicVars["BlockCapability"].BaseValue = DynamicVars["modify"].IntValue;
         cardModel?.AddCapability(capability);
     }
 }

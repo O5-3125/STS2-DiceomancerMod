@@ -23,7 +23,7 @@ public class ChaosDefend() :
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
         // CardKeyword.Exhaust,
-        MyKeywords.Chaos
+        MyKeywords.Chaos6
     ];
 
     public override bool GainsBlock => true;

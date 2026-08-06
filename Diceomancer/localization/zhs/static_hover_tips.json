@@ -1,6 +1,6 @@
 ﻿{
   "evolution.title": "进化",
-  "evolution.description": "打出后，卡牌效果中不包含进化的数字在本场战斗增加{Evolution}。",
+  "evolution.description": "打出后，卡牌上的数字在本场战斗增加{Evolution}。",
   
   
   "assault.title": "突击",
@@ -18,7 +18,7 @@
   "miracle.title":"奇迹",
   "miracle.description":"如果这张牌不是在回合开始时抽到的，则触发效果。",
   "modify.title": "改装",
-  "modify.description": "使另一张牌获得此效果。\n改装的词条不被修改数字效果影响。",
+  "modify.description": "使另一张牌获得此效果。",
   
   "DICEOMANCER_SECONDARY_RESOURCE_BLACK_MANA.title": "黑球",
   "DICEOMANCER_SECONDARY_RESOURCE_BLACK_MANA.description": "对黑球的描述文本。"

@@ -53,7 +53,7 @@
             <Private>false</Private>
         </Reference>
         <!-- NuGet获取，注意版本是否一致，不一致手动更改Version -->
-        <PackageReference Include="STS2.RitsuLib" Version="0.4.60"/>
+        <PackageReference Include="STS2.RitsuLib" Version="0.5.10"/>
 <!--        <PackageReference Include="STS2.RitsuLib" Version="*"/>-->
 
 
@@ -71,25 +71,31 @@
         <Content Include="Scripts\Cards\Event\InvincibleStrike.cs.uid" />
         <Content Include="Scripts\Cards\Event\StrikeSecret.cs.uid" />
         <Content Include="Scripts\Cards\Template\MiracleTemplate.cs.uid" />
-        <Content Include="Scripts\计划.txt" />
+        <Content Include="计划\事件.md" />
+        <Content Include="计划\卡牌.md" />
+        <Content Include="计划\怪物.md" />
+        <Content Include="计划\角色.md" />
+        <Content Include="计划\遭遇.md" />
     </ItemGroup>
 
 
     <ItemGroup>
         <Compile Remove="Example\**" />
         <Compile Remove="Scripts\Hero\WonderfulCardPool\**" />
-        <Compile Remove="参考\**" />
         <Compile Remove="示例\**" />
         <Compile Remove="Diceomancer\**" />
+        <Compile Remove=".godot\**" />
+        <Compile Remove="教程\**" />
     </ItemGroup>
 
 
     <ItemGroup>
         <EmbeddedResource Remove="Example\**" />
         <EmbeddedResource Remove="Scripts\Hero\WonderfulCardPool\**" />
-        <EmbeddedResource Remove="参考\**" />
         <EmbeddedResource Remove="示例\**" />
         <EmbeddedResource Remove="Diceomancer\**" />
+        <EmbeddedResource Remove=".godot\**" />
+        <EmbeddedResource Remove="教程\**" />
     </ItemGroup>
 
 
@@ -97,6 +103,9 @@
         <Folder Include="Scripts\Cards\Builder\" />
         <Folder Include="Scripts\Cards\Token\Options\" />
         <Folder Include="Scripts\Cards\Token\Scrap\"/>
+        <Folder Include="Scripts\Patches\" />
+        <Folder Include="Scripts\Powers\MonstersPower\" />
+        <Folder Include="Scripts\Relics\Common\" />
     </ItemGroup>
 
 

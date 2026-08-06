@@ -13,14 +13,16 @@ using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Relics.Ancient;
-[RegisterRelic(typeof(EventRelicPool))]
 
+[RegisterRelic(typeof(SharedRelicPool))]
 public class InspirationVoid : ModRelicTemplate
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(5)];
-
+    public override string PackedIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
+    protected override string PackedIconOutlinePath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
+    protected override string BigIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
     // 通过HoverTipFactory添加各种提示文本
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
         HoverTipFactory.FromCardWithCardHoverTips<NullCard>();

@@ -24,7 +24,7 @@ public class PhantomCapability : CardPlayCapability, ICardDescriptionContributor
         Log.Info("组件被卸载");
     }
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar("PhantomCapability",2)];
 
     public IEnumerable<CardDescriptionFragment> GetDescriptionFragments(CardDescriptionContext context) =>
         [new(new LocString("enchantments", $"{Id.Entry}.description"))];
@@ -33,7 +33,7 @@ public class PhantomCapability : CardPlayCapability, ICardDescriptionContributor
     protected override async Task OnOwnerCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         // 打出获得幻影复制
-        for (int i = 0; i < DynamicVars.Cards.IntValue; i++)
+        for (int i = 0; i < DynamicVars["PhantomCapability"].IntValue; i++)
         {
             var cardModel = cardPlay.Card.CreateClone(); // 获得复制
             cardModel.EnergyCost.AddThisCombat(-1); // 减一费

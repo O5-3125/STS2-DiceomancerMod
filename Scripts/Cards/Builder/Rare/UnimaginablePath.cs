@@ -16,12 +16,12 @@ public class UnimaginablePath() : ModCardTemplate(2, CardType.Skill, CardRarity.
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
         CardKeyword.Exhaust,
-        MyKeywords.Chaos
+        MyKeywords.Chaos4
     ];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new CardsVar(6)
+        new CardsVar(4)
     ];
 
     public override CardAssetProfile AssetProfile => new(

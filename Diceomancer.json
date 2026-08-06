@@ -2,15 +2,15 @@
   "id": "Diceomancer",
   "name": "骰子浪游者Mod",
   "author": "what",
-  "description": "以骰子浪游者中工匠为原型做的mod，由于技术原因没有完全复刻。",
-  "version": "0.1.03",
+  "description": "以骰子浪游者中工匠为灵感做的mod，添加了改装、进化、元素等新机制。\n由于技术原因没有复刻修改数字系统。",
+  "version": "0.1.9",
   "min_game_version": "0.109.0",
   "has_pck": true,
   "has_dll": true,
   "dependencies": [
     {
       "id": "STS2-RitsuLib",
-      "min_version": "0.4.59"
+      "min_version": "0.5.0"
     }
   ],
   "affects_gameplay": true

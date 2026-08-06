@@ -1,5 +1,7 @@
-﻿using MegaCrit.Sts2.Core.Combat;
+﻿using Diceomancer.Scripts.Cards.Token;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -39,9 +41,14 @@ public class WaterElement : ModPowerTemplate
         IEnumerable<Creature> participants)
     {
         if (!participants.Contains(base.Owner)) return;
-        
+
         await CreatureCmd.GainBlock(Owner, DynamicVars.Block, null);
 
         await PowerCmd.Decrement(this);
+    }
+
+    public override async Task AfterRemoved(Creature oldOwner)
+    {
+        await CardPileCmd.AddToCombatAndPreview<EssenceOfWater>(Owner, PileType.Hand, 1, null);
     }
 }

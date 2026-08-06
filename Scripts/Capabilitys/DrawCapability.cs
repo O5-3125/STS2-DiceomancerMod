@@ -24,7 +24,7 @@ public class DrawCapability : CardPlayCapability, ICardDescriptionContributor
         Log.Info("组件被卸载");
     }
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar("DrawCapability",1)];
 
     public IEnumerable<CardDescriptionFragment> GetDescriptionFragments(CardDescriptionContext context) =>
         [new(new LocString("enchantments", $"{Id.Entry}.description"))];
@@ -32,6 +32,6 @@ public class DrawCapability : CardPlayCapability, ICardDescriptionContributor
     // 当附魔的卡牌被打出时调用。
     protected override async Task OnOwnerCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.IntValue, cardPlay.Card.Owner);
+        await CardPileCmd.Draw(choiceContext, DynamicVars["DrawCapability"].IntValue, cardPlay.Card.Owner);
     }
 }

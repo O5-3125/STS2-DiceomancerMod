@@ -18,8 +18,7 @@ public sealed class Pipe()
     : UpgradeTemplate<PipeGun>(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy, 3)
 {
     public override CardAssetProfile AssetProfile => new(
-        PortraitPath:$"res://Diceomancer/images/Cards/{GetType().Name}.png",
-        BetaPortraitPath:$"res://Diceomancer/images/Cards/{GetType().Name}Beta.jpg"
+        PortraitPath:$"res://Diceomancer/images/Cards/{GetType().Name}.png"
     );
 
     protected override IEnumerable<DynamicVar> OwnCanonicalVars =>

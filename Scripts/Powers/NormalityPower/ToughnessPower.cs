@@ -38,11 +38,4 @@ public class ToughnessPower : ModPowerTemplate
         if (target != base.Owner) return;
         await PowerCmd.Decrement(this);
     }
-
-    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants,
-        ICombatState combatState)
-    {
-        if (!participants.Contains(base.Owner)) return;
-        await PowerCmd.Decrement(this);
-    }
 }

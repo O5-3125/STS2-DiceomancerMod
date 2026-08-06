@@ -14,11 +14,13 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Relics.Ancient;
 
-[RegisterRelic(typeof(EventRelicPool))]
+[RegisterRelic(typeof(SharedRelicPool))]
 public class Status : ModRelicTemplate
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
-
+    public override string PackedIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
+    protected override string PackedIconOutlinePath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
+    protected override string BigIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
     public override CardCreationOptions ModifyCardRewardCreationOptions(Player player, CardCreationOptions options)
     {
         if (base.Owner != player)

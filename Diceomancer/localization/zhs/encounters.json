@@ -1,4 +1,27 @@
 ﻿{
   "DICEOMANCER_ENCOUNTER_TEST_ENCOUNTER.title": "一只戈多",
-  "DICEOMANCER_ENCOUNTER_TEST_ENCOUNTER.loss": "{character}被[gold]{encounter}[/gold]折磨而死。"
+  "DICEOMANCER_ENCOUNTER_TEST_ENCOUNTER.loss": "{character}被[gold]{encounter}[/gold]折磨而死。",
+  "DICEOMANCER_ENCOUNTER_TREE_BRO_ENCOUNTER.title": "树哥",
+  "DICEOMANCER_ENCOUNTER_TREE_BRO_ENCOUNTER.loss": "{character}被[gold]{encounter}[/gold]揍扁了。",
+  "DICEOMANCER_ENCOUNTER_SKELLY_ENCOUNTER.title": "骷髅哥",
+  "DICEOMANCER_ENCOUNTER_SKELLY_ENCOUNTER.loss": "{character}被[gold]{encounter}[/gold]敲碎了。",
+  //
+  "DICEOMANCER_ENCOUNTER_CROW_ENCOUNTER.title": "乌鸦",
+  "DICEOMANCER_ENCOUNTER_CROW_ENCOUNTER.loss": "{character}被[gold]{encounter}[/gold]啄得遍体鳞伤。",
+  "DICEOMANCER_ENCOUNTER_GOOSE_ENCOUNTER.title": "鹅",
+  "DICEOMANCER_ENCOUNTER_GOOSE_ENCOUNTER.loss": "{character}被[gold]{encounter}[/gold]狠狠啄了一顿。",
+  "DICEOMANCER_ENCOUNTER_PIGGY_ENCOUNTER.title": "厚皮猪猪",
+  "DICEOMANCER_ENCOUNTER_PIGGY_ENCOUNTER.loss": "{character}被[gold]{encounter}[/gold]撞成了肉饼。",
+  "DICEOMANCER_ENCOUNTER_GRASS_GUY_ENCOUNTER.title": "神选草",
+  "DICEOMANCER_ENCOUNTER_GRASS_GUY_ENCOUNTER.loss": "{character}被[gold]{encounter}[/gold]的藤蔓缠住了。",
+  "DICEOMANCER_ENCOUNTER_CAT_ENCOUNTER.title": "火猫三丈",
+  "DICEOMANCER_ENCOUNTER_CAT_ENCOUNTER.loss": "{character}被[gold]{encounter}[/gold]的数字吞没了。",
+  "DICEOMANCER_ENCOUNTER_VOID_ENCOUNTER.title": "空图层",
+  "DICEOMANCER_ENCOUNTER_VOID_ENCOUNTER.loss": "{character}被[gold]{encounter}[/gold]中的数据错误覆盖。",
+  "DICEOMANCER_ENCOUNTER_BLACK_FISH_ENCOUNTER.title": "黑色的鱼",
+  "DICEOMANCER_ENCOUNTER_BLACK_FISH_ENCOUNTER.loss": "{character}被[gold]{encounter}[/gold]的诅咒吞噬。",
+  "DICEOMANCER_ENCOUNTER_LIZZY_ENCOUNTER.title": "可爱的大手",
+  "DICEOMANCER_ENCOUNTER_LIZZY_ENCOUNTER.loss": "{character}被[gold]{encounter}[/gold]一巴掌扇飞了。",
+  "DICEOMANCER_ENCOUNTER_HAT_ENCOUNTER.title": "大红帽子怪",
+  "DICEOMANCER_ENCOUNTER_HAT_ENCOUNTER.loss": "{character}被[gold]{encounter}[/gold]的炸弹炸成了灰。"
 }

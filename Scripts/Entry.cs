@@ -4,11 +4,16 @@ using Diceomancer.Scripts.Cards.Builder.Basic;
 using Diceomancer.Scripts.Common;
 using Diceomancer.Scripts.Hero;
 using Diceomancer.Scripts.Hero.CardPool;
+using Diceomancer.Scripts.Powers;
 using Diceomancer.Scripts.Relics.Basic;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
 using STS2RitsuLib;
+using STS2RitsuLib.Cards.Transforms;
 using STS2RitsuLib.Content;
 using STS2RitsuLib.Interop;
 using STS2RitsuLib.Patching.Core;
@@ -25,6 +30,7 @@ public class Entry
     public static void Init()
     {
         var assembly = Assembly.GetExecutingAssembly();
+        // new Harmony("sts2.diceomancer.binarysword").PatchAll(assembly);
         RitsuLibFramework.EnsureGodotScriptsRegistered(assembly, Logger);
         // 自动注册内容
         ModTypeDiscoveryHub.RegisterModAssembly(ModId, assembly);
@@ -48,11 +54,17 @@ public class Entry
                 // null // 放置顺序（可选）
             );
 
-
-// // 所有 TestRelic 实例创建时自动附加 ChargingRelicCapability
-//         content.ConfigureDefaultModelCapabilities<TestRelic>(
-//             "charge-on-play", // modifier id（同 mod 内唯一）
-//             (relic, caps) => caps.Add<Testc>()
-//         );
+        // 大规模生产：变化牌时复制一张
+        ModCardTransformRegistry.For(ModId).Register("MassProduction",
+            async ctx =>
+            {
+                var player = ctx.Replacement.Owner;
+                if (player?.Creature?.GetPower<MassProductionPower>() != null)
+                {
+                    // var copy = player.RunState.CloneCard(ctx.Replacement);
+                    var copy = ctx.Replacement.CreateClone();
+                    await CardPileCmd.AddGeneratedCardToCombat(copy, PileType.Hand, player);
+                }
+            });
     }
 }

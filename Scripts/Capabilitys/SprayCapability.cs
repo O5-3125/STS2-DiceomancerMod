@@ -27,7 +27,7 @@ public class SprayCapability : CardPlayCapability, ICardDescriptionContributor
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(3, ValueProp.Move)
+        new DamageVar("SprayCapability",3, ValueProp.Move)
     ];
 
     public IEnumerable<CardDescriptionFragment> GetDescriptionFragments(CardDescriptionContext context) =>
@@ -40,7 +40,7 @@ public class SprayCapability : CardPlayCapability, ICardDescriptionContributor
 
         ArgumentNullException.ThrowIfNull(card.CombatState);
 
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue) // 造成伤害，数值来源于卡牌的基础伤害属性
+        await DamageCmd.Attack(DynamicVars["SprayCapability"].BaseValue) // 造成伤害，数值来源于卡牌的基础伤害属性
             .FromCard(card, cardPlay) // 伤害来源于这张卡牌
             .TargetingAllOpponents(card.CombatState) // 伤害目标是玩家选择的目标
             .Execute(choiceContext);

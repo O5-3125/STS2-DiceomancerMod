@@ -29,11 +29,16 @@ public class ChaosSpell() : ModCardTemplate(0, CardType.Skill, CardRarity.Event,
         IEnumerable<int> powerAmountList =
             powerList.Select(p => p.Amount).ToList().StableShuffle(Owner.RunState.Rng.Shuffle);
 
-        foreach (var power in powerList) await PowerCmd.Remove(power);
 
         for (var i = 0; i < powerList.Count(); i++)
-            await PowerCmd.Apply(choiceContext, powerList.ElementAt(i), Owner.Creature,
-                powerAmountList.ElementAt(i), Owner.Creature, this);
+            powerList.ElementAt(i).SetAmount(powerAmountList.ElementAt(i));
+
+
+        // foreach (var power in powerList) await PowerCmd.Remove(power);
+        //
+        // for (var i = 0; i < powerList.Count(); i++)
+        //     await PowerCmd.Apply(choiceContext, powerList.ElementAt(i), Owner.Creature,
+        //         powerAmountList.ElementAt(i), Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

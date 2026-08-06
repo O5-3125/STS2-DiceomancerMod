@@ -11,15 +11,16 @@ using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Events;
-
 // [RegisterActEvent(typeof(Glory))] // 指定只有荣耀这章生成
+// [RegisterActEvent(typeof(Overgrowth))] // 密林
+// [RegisterActEvent(typeof(Underdocks))] // 暗港
+// [RegisterActEvent(typeof(Hive))] // 巢穴
 // [RegisterSharedEvent] // 如果需要自定义生成条件，可以注册成通用再重载isAllowed
 public sealed class TestEvent : ModEventTemplate
 {
     // 背景图位置
     public override EventAssetProfile AssetProfile => new(
-        // InitialPortraitPath: $"res://Diceomancer/images/Hero/fishing_bg.png"
-        InitialPortraitPath: $"res://Diceomancer/images/Hero/fishing_bg.png"
+        InitialPortraitPath: "res://Diceomancer/images/Event/TestEvent.png"
     );
 
     // 设置一些数值
@@ -49,7 +50,8 @@ public sealed class TestEvent : ModEventTemplate
     }
 
     // 生成事件初始选项。这里是两个选项：失去生命值或者失去金币，然后进入选择奖励阶段
-    // 与 CustomEventModel.Option(delegate, pageKey) 一致：textKey = Id.Entry + ".pages." + page + ".options." + Slugify(方法名)
+    // 与 CustomEventModel.Option(delegate, pageKey) 一致
+    // textKey = Id.Entry + ".pages." + page + ".options." + Slugify(方法名)
     protected override IReadOnlyList<EventOption> GenerateInitialOptions()
     {
         return

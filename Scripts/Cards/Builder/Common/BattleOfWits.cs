@@ -19,7 +19,7 @@ public class BattleOfWits() :
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(9, ValueProp.Move)
+        new DamageVar(6, ValueProp.Move)
     ];
 
 

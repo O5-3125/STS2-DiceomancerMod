@@ -24,11 +24,6 @@ public class DysonSphere()
         new EnergyVar(1)
     ];
 
-    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
-    [
-        HoverTipFactory.FromPower<DysonSpherePower>()
-    ];
-
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         // await PowerCmd.Apply<DysonSpherePower>(choiceContext, Owner.Creature,

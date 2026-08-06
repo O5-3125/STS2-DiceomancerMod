@@ -7,13 +7,14 @@ using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Relics.Uncommon;
 
-[RegisterRelic(typeof(BuilderRelicPool))]
+[RegisterRelic(typeof(SharedRelicPool))]
 public class SmallMirror : ModRelicTemplate
 {
     private int _cardsPlayed;
@@ -70,10 +71,7 @@ public class SmallMirror : ModRelicTemplate
         return Task.CompletedTask;
     }
 
-    // 小图标（原版85x85）
-    // public override string PackedIconPath => $"res://Diceomancer/images/Relics/BuilderRing.png";
-    // // 轮廓图标（原版85x85）
-    // protected override string PackedIconOutlinePath => $"res://Diceomancer/images/Relics/BuilderRing.png";
-    // // 大图标（原版256x256）
-    // protected override string BigIconPath => $"res://Diceomancer/images/Relics/BuilderRing_big.png";
+    public override string PackedIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
+    protected override string PackedIconOutlinePath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
+    protected override string BigIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
 }

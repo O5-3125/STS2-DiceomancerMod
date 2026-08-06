@@ -1,5 +1,7 @@
-﻿using MegaCrit.Sts2.Core.Combat;
+﻿using Diceomancer.Scripts.Cards.Token;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -47,5 +49,9 @@ public class FireElement : ModPowerTemplate
         await CreatureCmd.Damage(choiceContext, enemy,
             DynamicVars.Damage.IntValue, ValueProp.Unpowered, base.Owner);
         await PowerCmd.Decrement(this);
+    }
+    public override async Task AfterRemoved(Creature oldOwner)
+    {
+        await CardPileCmd.AddToCombatAndPreview<EssenceOfFire>(Owner, PileType.Hand, 1, null);
     }
 }

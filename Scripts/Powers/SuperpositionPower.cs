@@ -18,22 +18,22 @@ public class SuperpositionPower : ModPowerTemplate
     public override PowerType Type => PowerType.Buff;
 
     // 叠加类型，Counter表示可叠加，Single表示不可叠加
-    public override PowerStackType StackType => PowerStackType.Single;
+    public override PowerStackType StackType => PowerStackType.Counter;
 
-    // 自定义图标路径。1:1即可。原版游戏大图256x256，小图64x64。
-    // 自定义图标路径。1:1即可。原版游戏大图256x256，小图64x64。
     public override PowerAssetProfile AssetProfile => new(
-        // IconPath: $"res://Diceomancer/images/Power/{GetType().Name}.png",
-        // BigIconPath: $"res://Diceomancer/images/Power/{GetType().Name}_big.png"
-        "res://Diceomancer/images/Power/郁金香.png",
-        "res://Diceomancer/images/Power/郁金香.png"
+        IconPath: $"res://Diceomancer/images/Power/{GetType().Name}.png",
+        BigIconPath: $"res://Diceomancer/images/Power/{GetType().Name}_big.png"
     );
 
     public override Task AfterModifyingCardPlayCount(CardModel card)
     {
-        if (card.Keywords.Contains(MyKeywords.Chaos))
+        if (card.Keywords.Contains(MyKeywords.Chaos4) ||
+            card.Keywords.Contains(MyKeywords.Chaos6) ||
+            card.Keywords.Contains(MyKeywords.Chaos8) ||
+            card.Keywords.Contains(MyKeywords.Chaos12) ||
+            card.Keywords.Contains(MyKeywords.Chaos20))
         {
-            card.BaseReplayCount += 1;
+            card.BaseReplayCount += Amount;
         }
 
         return base.AfterModifyingCardPlayCount(card);

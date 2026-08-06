@@ -19,8 +19,8 @@ public class ThickSkin : ModPowerTemplate
 
     // 自定义图标路径。1:1即可。原版游戏大图256x256，小图64x64。
     public override PowerAssetProfile AssetProfile => new(
-        "res://Diceomancer/images/Power/厚皮.png",
-        "res://Diceomancer/images/Power/厚皮.png"
+        $"res://Diceomancer/images/Power/{GetType().Name}.png",
+        $"res://Diceomancer/images/Power/{GetType().Name}.png"
     );
 
     public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props,

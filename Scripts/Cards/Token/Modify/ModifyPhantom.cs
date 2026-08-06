@@ -19,7 +19,7 @@ public class ModifyPhantom : ModifyTemplate
     protected override void AttachCapability(CardModel cardModel)
     {
         var capability = ModelCapabilityRegistry.Create<PhantomCapability>();
-        capability.DynamicVars.Cards.BaseValue = DynamicVars["modify"].IntValue;
+        capability.DynamicVars["PhantomCapability"].BaseValue = DynamicVars["modify"].IntValue;
         cardModel?.AddCapability(capability);
     }
 }

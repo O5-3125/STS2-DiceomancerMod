@@ -1,3 +1,4 @@
+using Diceomancer.Scripts.Common;
 using Diceomancer.Scripts.Hero.CardPool;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -13,6 +14,11 @@ namespace Diceomancer.Scripts.Cards.Upgrade;
 public class GatlingGun()
     : ModCardTemplate(1, CardType.Attack, CardRarity.Ancient, TargetType.Self)
 {
+    public override IEnumerable<CardKeyword> CanonicalKeywords =>
+    [
+        MyKeywords.Rebound
+    ];
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(3m, ValueProp.Move),

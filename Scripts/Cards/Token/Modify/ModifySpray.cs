@@ -19,7 +19,7 @@ public class ModifySpray : ModifyTemplate
     protected override void AttachCapability(CardModel cardModel)
     {
         var capability = ModelCapabilityRegistry.Create<SprayCapability>();
-        capability.DynamicVars.Damage.BaseValue = DynamicVars["modify"].IntValue;
+        capability.DynamicVars["SprayCapability"].BaseValue = DynamicVars["modify"].IntValue;
         cardModel?.AddCapability(capability);
     }
 }
