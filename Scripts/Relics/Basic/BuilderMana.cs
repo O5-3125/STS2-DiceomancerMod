@@ -24,37 +24,103 @@ namespace Diceomancer.Scripts.Relics.Basic;
 [RegisterCharacterStarterRelic(typeof(Builder))]
 public class BuilderMana : ModRelicTemplate
 {
-    public override RelicRarity Rarity => RelicRarity.Starter;
+    private int _cardsPlayed;
+    private bool _usedThisCombat;
+
+    public override RelicRarity Rarity => RelicRarity.Ancient;
 
     public override string FlashSfx => "event:/sfx/ui/relic_activate_draw";
 
-    // 小图标（原版85x85）
+    public override bool ShowCounter => CombatManager.Instance.IsInProgress;
+
     public override string PackedIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
-
-    // 轮廓图标（原版85x85）
     protected override string PackedIconOutlinePath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
-
-    // 大图标（原版256x256）
     protected override string BigIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
 
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new PowerVar<TechPower>(3m)
-    ];
+    public override int DisplayAmount => CardsPlayed;
 
-    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
-    [
-        HoverTipFactory.FromPower<TechPower>()
-    ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3), new EnergyVar(1)];
 
-    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants,
-        ICombatState combatState)
+
+    private int CardsPlayed
     {
-        if (participants.Contains(base.Owner.Creature) && base.Owner.PlayerCombatState.TurnNumber <= 1)
+        get => _cardsPlayed;
+        set
         {
-            Flash();
-            await PowerCmd.Apply<TechPower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature,
-                base.DynamicVars["TechPower"].IntValue, base.Owner.Creature, null);
+            AssertMutable();
+            _cardsPlayed = value;
+            UpdateDisplay();
         }
+    }
+
+    private bool UsedThisCombat
+    {
+        get => _usedThisCombat;
+        set
+        {
+            AssertMutable();
+            _usedThisCombat = value;
+            UpdateDisplay();
+        }
+    }
+
+    private void UpdateDisplay()
+    {
+        var intValue = DynamicVars.Cards.IntValue;
+        Status = CardsPlayed == intValue - 1 ? RelicStatus.Active : RelicStatus.Normal;
+
+
+        InvokeDisplayAmountChanged();
+    }
+
+    public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
+    {
+        if (cardPlay.Card.Owner == Owner && !UsedThisCombat)
+        {
+            CardsPlayed++;
+            var intValue = DynamicVars.Cards.IntValue;
+            if (CombatManager.Instance.IsInProgress && CardsPlayed == intValue)
+            {
+                UsedThisCombat = true;
+                Flash();
+                await TaskHelper.RunSafely(DoActivateVisuals());
+                await CardPileCmd.Draw(context, 2m, Owner);
+                await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
+            }
+        }
+    }
+
+    private async Task DoActivateVisuals()
+    {
+        Flash();
+        await Cmd.Wait(1f);
+    }
+
+    // 战斗开始
+    public override Task BeforeCombatStart()
+    {
+        CardsPlayed = 0;
+        UsedThisCombat = false;
+        base.Status = RelicStatus.Normal;
+        return Task.CompletedTask;
+    }
+
+    // 回合结束后
+    public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext,
+        CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+    {
+        if (side != Owner.Creature.Side) return Task.CompletedTask;
+
+        CardsPlayed = 0;
+        return Task.CompletedTask;
+    }
+
+    // 战斗结束后
+    public override Task AfterCombatEnd(CombatRoom _)
+    {
+        CardsPlayed = 0;
+        base.Status = RelicStatus.Normal;
+        UsedThisCombat = false;
+        return Task.CompletedTask;
     }
 }

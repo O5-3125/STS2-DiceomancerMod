@@ -1,6 +1,11 @@
-﻿using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using Diceomancer.Scripts.Powers;
+using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Characters;
@@ -16,11 +21,22 @@ public class Ouroboros : ModRelicTemplate
     protected override string PackedIconOutlinePath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
     protected override string BigIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
 
-    public override bool ShouldTakeExtraTurn(Player player)
+    // public override bool ShouldTakeExtraTurn(Player player)
+    // {
+    //     Flash();
+    //     return (Owner.GetEnergy() == 0) // 当前费用为0
+    //            & PileType.Hand.GetPile(Owner).IsEmpty // 手牌是空的
+    //            & (player == Owner); // 玩家拥有遗物
+    // }
+
+    public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
+        IEnumerable<Creature> participants)
     {
-        Flash();
-        return (Owner.GetEnergy() == 0) // 当前费用为0
-               & PileType.Hand.GetPile(Owner).IsEmpty // 手牌是空的
-               & (player == Owner); // 玩家拥有遗物
+        if (participants.Contains(base.Owner.Creature) && PileType.Hand.GetPile(base.Owner).IsEmpty)
+        {
+            Flash();
+            await PowerCmd.Apply<ExtraTurn>(choiceContext, Owner.Creature,
+                1m, null, null);
+        }
     }
 }

@@ -8,7 +8,7 @@ using STS2RitsuLib.Scaffolding.Content;
 namespace Diceomancer.Scripts.Encounters;
 
 // 荣耀boss遭遇：空图层
-[RegisterActEncounter(typeof(Overgrowth))]
+// [RegisterActEncounter(typeof(Overgrowth))]
 public class VoidEncounter : ModEncounterTemplate
 {
     public override IEnumerable<MonsterModel> AllPossibleMonsters => [ModelDb.Monster<Monsters.Void>()];

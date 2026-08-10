@@ -19,8 +19,8 @@ public class HatPassivePower : ModPowerTemplate
     public override PowerStackType StackType => PowerStackType.Counter;
 
     public override PowerAssetProfile AssetProfile => new(
-        $"res://Diceomancer/images/Power/MonstersPower/{nameof(HatPassivePower)}.png",
-        $"res://Diceomancer/images/Power/MonstersPower/{nameof(HatPassivePower)}.png"
+        $"res://Diceomancer/images/Power/MonstersPower/{GetType().Name}.png",
+        $"res://Diceomancer/images/Power/MonstersPower/{GetType().Name}.png"
     );
     
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)

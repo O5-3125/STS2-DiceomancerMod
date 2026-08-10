@@ -64,18 +64,7 @@ public class Goose : ModMonsterTemplate
     // 攻击：先随机获得一种弃牌buff，再造成伤害
     private async Task AttackMove(IReadOnlyList<Creature> targets)
     {
-        if (!Creature.HasPower<GooseDiscardBuff1Power>() && !Creature.HasPower<GooseDiscardBuff2Power>())
-        {
-            await CreatureCmd.TriggerAnim(Creature, "Discard", 0.3f);
-            if (RunRng.MonsterAi.NextInt(0, 2) == 0)
-            {
-                await PowerCmd.Apply<GooseDiscardBuff1Power>(new ThrowingPlayerChoiceContext(), Creature, 1m, Creature, null);
-            }
-            else
-            {
-                await PowerCmd.Apply<GooseDiscardBuff2Power>(new ThrowingPlayerChoiceContext(), Creature, 1m, Creature, null);
-            }
-        }
+
 
         await DamageCmd
             .Attack(AttackDamage)

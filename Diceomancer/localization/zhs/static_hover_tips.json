@@ -11,8 +11,9 @@
   "buff.description": "一定范围内的正面buff。",
   "debuff.title": "减益",
   "debuff.description": "一定范围内的负面debuff。",
-  
-  
+
+  "kick.title": "增幅",
+  "kick.description": "打出此牌时可以至多弃X张牌，每次弃牌都复制结算该牌效果。",
   "upgrade.title": "建造",
   "upgrade.description": "右键点击建造牌，消耗科技进行建造。",
   "miracle.title":"奇迹",

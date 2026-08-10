@@ -1,7 +1,10 @@
 using Diceomancer.Scripts.Common;
+using Diceomancer.Scripts.Common.Patches;
+using Diceomancer.Scripts.Common.Utils;
 using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -18,7 +21,8 @@ public abstract class UpgradeTemplate<TTransform>(
     CardRarity rarity,
     TargetType targetType,
     int upgradeCost)
-    : ModCardTemplate(energyCost, type, rarity, targetType), IModRightClickableCard
+    : ModCardTemplate(energyCost, type, rarity, targetType)
+// , IModRightClickableCard
     where TTransform : CardModel
 {
     protected readonly int UpgradeCost = upgradeCost;
@@ -43,18 +47,36 @@ public abstract class UpgradeTemplate<TTransform>(
 
     protected abstract IEnumerable<DynamicVar> OwnCanonicalVars { get; }
 
-    public async Task OnRightClick(ModRightClickExecutionContext context)
-    {
-        var tech = Owner.Creature.GetPower<TechPower>();
-        if (tech == null) return;
-        var amount = tech.Amount;
+    // public async Task OnRightClick(ModRightClickExecutionContext context)
+    // {
+    //     var tech = Owner.Creature.GetPower<TechPower>();
+    //     if (tech == null) return;
+    //     var amount = tech.Amount;
+    //
+    //     if (DynamicVars["Upgrade"].BaseValue <= amount)
+    //     {
+    //         await PowerCmd.ModifyAmount(context.PlayerChoiceContext, tech, -DynamicVars["Upgrade"].BaseValue, null,
+    //             this);
+    //         DynamicVars["Upgrade"].BaseValue = 0;
+    //     }
+    //
+    //     if (DynamicVars["Upgrade"].BaseValue <= 0)
+    //     {
+    //         CardModel cardModel = CombatState.CreateCard<TTransform>(Owner);
+    //         if (IsUpgraded) CardCmd.Upgrade(cardModel);
+    //
+    //         await CardCmd.Transform(this, cardModel);
+    //     }
+    // }
 
-        if (DynamicVars["Upgrade"].BaseValue <= amount)
-        {
-            await PowerCmd.ModifyAmount(context.PlayerChoiceContext, tech, -DynamicVars["Upgrade"].BaseValue, null,
-                this);
-            DynamicVars["Upgrade"].BaseValue = 0;
-        }
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        var played = cardPlay.Card;
+        if (played == this || played.Owner != Owner) return;
+        if (!ChargedStrikeNeighborTracker.GetNeighbors(played).Contains(this)) return;
+        if (!cardPlay.IsLastInSeries) return;
+
+        DynamicVars["Upgrade"].BaseValue -= 1;
 
         if (DynamicVars["Upgrade"].BaseValue <= 0)
         {

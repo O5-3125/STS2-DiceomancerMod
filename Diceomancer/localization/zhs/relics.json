@@ -16,7 +16,7 @@
   "DICEOMANCER_RELIC_FOUL_PLAY.flavor": "这是什么？",
   //
   "DICEOMANCER_RELIC_BUILDER_MANA.title": "工匠之球",
-  "DICEOMANCER_RELIC_BUILDER_MANA.description": "在每场战斗开始时，获得{TechPower}点[gold]科技[/gold]。",
+  "DICEOMANCER_RELIC_BUILDER_MANA.description": "每场战斗第一次在同一回合打出{Cards}张牌后，获得{Energy:energyIcons()},抽2张牌。",
   "DICEOMANCER_RELIC_BUILDER_MANA.flavor": "下雨当成晴天干，晚上当成白天干。",
   //
   "DICEOMANCER_RELIC_BUILDER_RING.title": "工匠护符",

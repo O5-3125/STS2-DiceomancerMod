@@ -19,9 +19,7 @@ using STS2RitsuLib.Scaffolding.Visuals.StateMachine.Backends;
 
 namespace Diceomancer.Scripts.Monsters;
 
-// 可爱的大手：虫巢2层精英
-// 每回合如果没有弃牌buff就获得弃牌buff（玩家打出10张牌后丢弃一半手牌）。
-// 两种行动模式交替：大嘴巴子扇你 -> 大嗓门使劲吼，初始为大嘴巴子扇你。
+
 [RegisterMonster]
 public class Lizzy : ModMonsterTemplate
 {
@@ -56,7 +54,7 @@ public class Lizzy : ModMonsterTemplate
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        await PowerCmd.Apply<LizzyBuffPower>(new ThrowingPlayerChoiceContext(), Creature, 1m, Creature, null);
+        // await PowerCmd.Apply<LizzyBuffPower>(new ThrowingPlayerChoiceContext(), Creature, 1m, Creature, null);
     }
 
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()

@@ -1,3 +1,4 @@
+using Diceomancer.Scripts.Cards.Template;
 using Diceomancer.Scripts.Hero.Builder;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -11,30 +12,18 @@ namespace Diceomancer.Scripts.Cards.Builder.Common;
 
 [RegisterCard(typeof(BuilderCardPool))]
 public class BattleOfWits() :
-    ModCardTemplate(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+    // ModCardTemplate(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+    KickTemplate(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy, 3)
 {
-    public override CardAssetProfile AssetProfile => new(
-        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
-    );
-
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    protected override IEnumerable<DynamicVar> OwnCanonicalVars =>
     [
         new DamageVar(6, ValueProp.Move)
     ];
 
-
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var hand = PileType.Hand.GetPile(Owner).Cards.ToList();
-
-        var discardSize = hand.Count;
-        await CardCmd.Discard(choiceContext, hand);
-
-        ArgumentNullException.ThrowIfNull(cardPlay.Target);
-
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this, cardPlay)
-            .WithHitCount(discardSize)
             .Targeting(cardPlay.Target)
             .Execute(choiceContext);
     }
@@ -42,6 +31,7 @@ public class BattleOfWits() :
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(3);
+        // DynamicVars.Damage.UpgradeValueBy(3);
+        DynamicVars["Kick"].BaseValue += 3;
     }
 }

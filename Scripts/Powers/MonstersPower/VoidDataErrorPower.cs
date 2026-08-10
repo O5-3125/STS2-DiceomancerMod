@@ -24,8 +24,8 @@ public class VoidDataErrorPower : ModPowerTemplate
     public override PowerStackType StackType => PowerStackType.Single;
 
     public override PowerAssetProfile AssetProfile => new(
-        $"res://Diceomancer/images/Power/MonstersPower/{nameof(VoidDataErrorPower)}.png",
-        $"res://Diceomancer/images/Power/MonstersPower/{nameof(VoidDataErrorPower)}.png"
+        $"res://Diceomancer/images/Power/MonstersPower/{GetType().Name}.png",
+        $"res://Diceomancer/images/Power/MonstersPower/{GetType().Name}.png"
     );
 
     public override decimal ModifyHpLostBeforeOsty(Creature target, decimal amount, ValueProp props, Creature? dealer,

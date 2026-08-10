@@ -97,7 +97,7 @@
   "DICEOMANCER_POWER_SUPERPOSITION_POWER.smartDescription": "混乱牌获得[gold]重放[/gold]。",
   //
   "DICEOMANCER_POWER_EXTRA_TURN.title": "额外回合",
-  "DICEOMANCER_POWER_EXTRA_TURN.smartDescription": "回合结束后，获得额外回合。",
+  "DICEOMANCER_POWER_EXTRA_TURN.smartDescription": "获得{Amount}个额外回合。",
   //
   "DICEOMANCER_POWER_TULPENMANIE.title": "郁金香",
   "DICEOMANCER_POWER_TULPENMANIE.smartDescription": "回合结束时，手牌上的数降为{Amount}。",
@@ -139,6 +139,8 @@
   //
   "DICEOMANCER_POWER_DYSON_SPHERE_POWER.title": "戴森球计划",
   "DICEOMANCER_POWER_DYSON_SPHERE_POWER.smartDescription": "每抽一张牌，获得{Amount:energyIcons()}。",
+  "DICEOMANCER_POWER_SHARK_TYPHOON_POWER.title": "鲨龙卷",
+  "DICEOMANCER_POWER_SHARK_TYPHOON_POWER.smartDescription": "每抽一张牌，对随机敌人造成{Amount}点伤害。",
   //
   "DICEOMANCER_POWER_MASS_PRODUCTION_POWER.title": "大规模生产",
   "DICEOMANCER_POWER_MASS_PRODUCTION_POWER.smartDescription": "当你变化牌时，将变化后的牌的复制加入手牌。",

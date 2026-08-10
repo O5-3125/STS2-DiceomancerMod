@@ -51,6 +51,7 @@ public abstract class ElementTemplate<TTransform>: ModPowerTemplate where TTrans
 
     public override async Task AfterRemoved(Creature oldOwner)
     {
+
         await CardPileCmd.AddToCombatAndPreview<TTransform>(Owner, PileType.Hand, 1, null);
     }
 

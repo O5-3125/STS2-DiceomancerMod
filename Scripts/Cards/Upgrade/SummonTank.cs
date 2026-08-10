@@ -23,8 +23,8 @@ public class SummonTank() : ModCardTemplate(2, CardType.Skill, CardRarity.Uncomm
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new SummonVar(6),
-        new DamageVar(14, ValueProp.Unpowered),
-        new BlockVar(7, ValueProp.Unpowered)
+        new DamageVar(20, ValueProp.Unpowered),
+        new BlockVar(10, ValueProp.Unpowered)
     ];
 
     // 通过HoverTipFactory添加各种提示文本

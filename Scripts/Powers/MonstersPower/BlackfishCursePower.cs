@@ -23,8 +23,8 @@ public class BlackfishCursePower : ModPowerTemplate
     public override PowerStackType StackType => PowerStackType.Single;
 
     public override PowerAssetProfile AssetProfile => new(
-        $"res://Diceomancer/images/Power/MonstersPower/全知.png",
-        $"res://Diceomancer/images/Power/MonstersPower/全知.png"
+        $"res://Diceomancer/images/Power/MonstersPower/{GetType().Name}.png",
+        $"res://Diceomancer/images/Power/MonstersPower/{GetType().Name}.png"
     );
 
     // 玩家回合开始时选择诅咒（第1回合不选）

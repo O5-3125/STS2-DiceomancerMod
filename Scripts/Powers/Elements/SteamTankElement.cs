@@ -31,8 +31,8 @@ public class SteamTankElement : ModPowerTemplate
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(14, ValueProp.Unpowered),
-        new BlockVar(7,ValueProp.Unpowered)
+        new DamageVar(20, ValueProp.Unpowered),
+        new BlockVar(10,ValueProp.Unpowered)
     ];
     
     // 回合结束

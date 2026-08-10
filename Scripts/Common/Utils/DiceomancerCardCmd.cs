@@ -6,19 +6,18 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.Powers.Mocks;
+using MegaCrit.Sts2.Core.Nodes.Vfx.Utilities;
 
 namespace Diceomancer.Scripts.Common.Utils;
 
 public static class DiceomancerCardCmd
 {
-    // buff
+    // 增益池
     private static readonly NormalityBuffKind[] NormalityBuffKinds =
     [
         NormalityBuffKind.Strength, // 力量
         NormalityBuffKind.Dexterity, // 敏捷
         NormalityBuffKind.Focus, // 集中
-        // NormalityBuffKind.Buffer, // 缓冲
-        // NormalityBuffKind.Intangible, // 无实体
         NormalityBuffKind.Plating, // 覆甲
         NormalityBuffKind.Regen, // 再生
         NormalityBuffKind.RetainHand, //  保留
@@ -27,6 +26,9 @@ public static class DiceomancerCardCmd
         NormalityBuffKind.Haste, // 加速
         NormalityBuffKind.Evade, // 闪避 免疫下次伤害
         NormalityBuffKind.CriticalHit, // 暴击
+        NormalityBuffKind.BlockNextTurn,
+        NormalityBuffKind.Fortified, // 加固
+        NormalityBuffKind.Toughness, // 坚韧
     ];
 
     public static async Task ApplyRandomBuff(PlayerChoiceContext choiceContext, Player owner, Creature target,
@@ -59,9 +61,7 @@ public static class DiceomancerCardCmd
             case NormalityBuffKind.Buffer:
                 await PowerCmd.Apply<BufferPower>(choiceContext, target, amount, applier, cardSource);
                 break;
-            case NormalityBuffKind.Intangible:
-                await PowerCmd.Apply<IntangiblePower>(choiceContext, target, amount, applier, cardSource);
-                break;
+
             case NormalityBuffKind.Plating:
                 await PowerCmd.Apply<PlatingPower>(choiceContext, target, amount, applier, cardSource);
                 break;
@@ -79,14 +79,27 @@ public static class DiceomancerCardCmd
                 break;
             case NormalityBuffKind.Haste:
                 await PowerCmd.Apply<HastePower>(choiceContext, target, amount, applier, cardSource);
-
                 break;
             case NormalityBuffKind.Evade:
                 await PowerCmd.Apply<EvadePower>(choiceContext, target, amount, applier, cardSource);
-
                 break;
             case NormalityBuffKind.CriticalHit:
                 await PowerCmd.Apply<CriticalHit>(choiceContext, target, amount, applier, cardSource);
+                break;
+            case NormalityBuffKind.Fortified:
+                await PowerCmd.Apply<FortifiedPower>(choiceContext, target, amount, applier, cardSource);
+                break;
+            case NormalityBuffKind.Toughness:
+                await PowerCmd.Apply<ToughnessPower>(choiceContext, target, amount, applier, cardSource);
+                break;
+            case NormalityBuffKind.BlockNextTurn:
+                await PowerCmd.Apply<BlockNextTurnPower>(choiceContext, target, amount, applier, cardSource);
+                break;
+            case NormalityBuffKind.EnergyNextTurn:
+                await PowerCmd.Apply<EnergyNextTurnPower>(choiceContext, target, amount, applier, cardSource);
+                break;
+            case NormalityBuffKind.DrawCardsNextTurn:
+                await PowerCmd.Apply<DrawCardsNextTurnPower>(choiceContext, target, amount, applier, cardSource);
                 break;
             default:
                 // await PowerCmd.Apply<BufferPower>(choiceContext, target, amount, applier, cardSource);
@@ -94,7 +107,7 @@ public static class DiceomancerCardCmd
         }
     }
 
-    // debuff
+    // 减益池
     private static readonly NormalityDebuffKind[] NormalityDebuffKinds =
     [
         NormalityDebuffKind.Poison, // 毒
@@ -107,7 +120,8 @@ public static class DiceomancerCardCmd
         NormalityDebuffKind.Burn, // 燃烧
         // NormalityDebuffKind.Blind, // 目盲  本回合下次攻击伤害为0
         NormalityDebuffKind.Strength, // 无力 力量-1
-        NormalityDebuffKind.Tainted //  污染
+        NormalityDebuffKind.Powerless, // 无力 
+        NormalityDebuffKind.Tainted // 脆皮/污染
     ];
 
     public static async Task ApplyRandomDebuff(PlayerChoiceContext choiceContext, Player owner, Creature target,
@@ -153,14 +167,14 @@ public static class DiceomancerCardCmd
             case NormalityDebuffKind.Burn:
                 await PowerCmd.Apply<BurnPower>(choiceContext, target, amount, applier, cardSource);
                 break;
-            case NormalityDebuffKind.Blind:
-                // await PowerCmd.Apply<Blin>(choiceContext, target, amount, applier, cardSource);
-                break;
             case NormalityDebuffKind.Strength:
                 await PowerCmd.Apply<StrengthPower>(choiceContext, target, -amount, applier, cardSource);
                 break;
             case NormalityDebuffKind.Tainted:
                 await PowerCmd.Apply<WeakPower>(choiceContext, target, amount, applier, cardSource);
+                break;
+            case NormalityDebuffKind.Powerless:
+                await PowerCmd.Apply<PowerlessPower>(choiceContext, target, amount, applier, cardSource);
                 break;
             default:
                 // await PowerCmd.Apply<DemisePower>(choiceContext, target, amount, applier, cardSource);

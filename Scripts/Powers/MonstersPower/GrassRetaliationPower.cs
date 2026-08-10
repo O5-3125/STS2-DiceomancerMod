@@ -21,8 +21,8 @@ public class GrassRetaliationPower : ModPowerTemplate
     public override PowerStackType StackType => PowerStackType.Single;
 
     public override PowerAssetProfile AssetProfile => new(
-        $"res://Diceomancer/images/Power/MonstersPower/prim_ability_herb_healing.png",
-        $"res://Diceomancer/images/Power/MonstersPower/prim_ability_herb_healing.png"
+        $"res://Diceomancer/images/Power/MonstersPower/{GetType().Name}.png",
+        $"res://Diceomancer/images/Power/MonstersPower/{GetType().Name}.png"
     );
 
     // 格挡被击破时触发

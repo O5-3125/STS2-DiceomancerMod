@@ -35,13 +35,13 @@ public abstract class MiracleTemplate(int energyCost, CardType type, CardRarity 
         return Task.CompletedTask;
     }
 
-    public override Task AfterCardDiscarded(PlayerChoiceContext choiceContext, CardModel card)
-    {
-        if (card != this) return Task.CompletedTask;
-        Miracle = true;
-
-        return Task.CompletedTask;
-    }
+    // public override Task AfterCardDiscarded(PlayerChoiceContext choiceContext, CardModel card)
+    // {
+    //     if (card != this) return Task.CompletedTask;
+    //     Miracle = true;
+    //
+    //     return Task.CompletedTask;
+    // }
 
     public override Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
@@ -54,6 +54,13 @@ public abstract class MiracleTemplate(int energyCost, CardType type, CardRarity 
         if (card == this)
             Miracle = true;
 
+        return Task.CompletedTask;
+    }
+
+    public override Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
+    {
+        if (card.Pile != PileType.Hand.GetPile(Owner))
+            Miracle = true;
         return Task.CompletedTask;
     }
 }

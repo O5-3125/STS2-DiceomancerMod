@@ -19,8 +19,8 @@ public class GooseTroublemakerPower : ModPowerTemplate
     public override PowerStackType StackType => PowerStackType.Single;
 
     public override PowerAssetProfile AssetProfile => new(
-        $"res://Diceomancer/images/Power/MonstersPower/prim_ability_goose.png",
-        $"res://Diceomancer/images/Power/MonstersPower/prim_ability_goose.png"
+        $"res://Diceomancer/images/Power/MonstersPower/goose.png",
+        $"res://Diceomancer/images/Power/MonstersPower/goose.png"
     );
 
     // 玩家回合结束时，清除尚未触发的弃牌buff（buff只维持一回合）
@@ -28,11 +28,11 @@ public class GooseTroublemakerPower : ModPowerTemplate
         IEnumerable<Creature> participants)
     {
         if (side != CombatSide.Player) return;
-
-        var buff1 = Owner.GetPower<GooseDiscardBuff1Power>();
-        if (buff1 != null) await PowerCmd.Remove(buff1);
-
-        var buff2 = Owner.GetPower<GooseDiscardBuff2Power>();
-        if (buff2 != null) await PowerCmd.Remove(buff2);
+        //
+        // var buff1 = Owner.GetPower<GooseDiscardBuff1Power>();
+        // if (buff1 != null) await PowerCmd.Remove(buff1);
+        //
+        // var buff2 = Owner.GetPower<GooseDiscardBuff2Power>();
+        // if (buff2 != null) await PowerCmd.Remove(buff2);
     }
 }

@@ -30,7 +30,7 @@ public class Entry
     public static void Init()
     {
         var assembly = Assembly.GetExecutingAssembly();
-        // new Harmony("sts2.diceomancer.binarysword").PatchAll(assembly);
+        new Harmony("sts2.diceomancer.binarysword").PatchAll(assembly);
         RitsuLibFramework.EnsureGodotScriptsRegistered(assembly, Logger);
         // 自动注册内容
         ModTypeDiscoveryHub.RegisterModAssembly(ModId, assembly);

@@ -1,15 +1,17 @@
-﻿using Diceomancer.Scripts.Hero.Builder;
+﻿using Diceomancer.Scripts.Common;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.CardPools;
+using STS2RitsuLib.CardTags;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
-namespace Diceomancer.Scripts.Cards.Builder.Uncommon;
+namespace Diceomancer.Scripts.Cards.Token.Modify;
 
-[RegisterCard(typeof(BuilderCardPool))]
+[RegisterCard(typeof(TokenCardPool))]
 public class Hindsight() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     public override CardAssetProfile AssetProfile => new(
@@ -17,6 +19,11 @@ public class Hindsight() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommo
     );
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+
+    protected override HashSet<CardTag> CanonicalTags =>
+    [
+        MyTags.Modify.GetModCardTag()
+    ];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -28,7 +35,7 @@ public class Hindsight() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommo
     {
         var cardModels =
             (await CardSelectCmd.FromCombatPile(
-                prefs: new CardSelectorPrefs(SelectionScreenPrompt,0, DynamicVars.Cards.IntValue),
+                prefs: new CardSelectorPrefs(SelectionScreenPrompt, 0, DynamicVars.Cards.IntValue),
                 context: choiceContext, pile: PileType.Discard.GetPile(Owner), player: Owner)).ToList();
 
 
@@ -40,6 +47,7 @@ public class Hindsight() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommo
 
     protected override void OnUpgrade()
     {
-        RemoveKeyword(CardKeyword.Exhaust);
+        // RemoveKeyword(CardKeyword.Exhaust);
+        EnergyCost.UpgradeBy(-1);
     }
 }
