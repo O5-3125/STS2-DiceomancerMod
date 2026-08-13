@@ -38,6 +38,7 @@ public class Entry
 
         // 注册副资源
         // BlackMana.Register();
+        Rage.Register();
 
         // 注册初始卡的先古升级
         // 第一个类型参数是你的初始卡，第二个类型参数是被升级成的卡。

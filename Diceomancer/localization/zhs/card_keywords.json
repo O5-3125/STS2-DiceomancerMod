@@ -21,5 +21,7 @@
   "DICEOMANCER_KEYWORD_CHAOS12.title": "混乱12",
   "DICEOMANCER_KEYWORD_CHAOS12.description": "抽到时在1~12范围内重掷这张牌的基本效果。",
   "DICEOMANCER_KEYWORD_CHAOS20.title": "混乱20",
-  "DICEOMANCER_KEYWORD_CHAOS20.description": "抽到时在1~20范围内重掷这张牌的基本效果。"
+  "DICEOMANCER_KEYWORD_CHAOS20.description": "抽到时在1~20范围内重掷这张牌的基本效果。",
+  "DICEOMANCER_KEYWORD_WILD.title": "狂野",
+  "DICEOMANCER_KEYWORD_WILD.description": "能量不足时也可以打出。打出时不会扣除能量，改为每点能量需求对你造成2点伤害。"
 }

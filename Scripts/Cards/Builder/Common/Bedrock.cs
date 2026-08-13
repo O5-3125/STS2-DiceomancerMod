@@ -49,7 +49,7 @@ public class Bedrock() : ModCardTemplate(2, CardType.Skill, CardRarity.Common, T
         if (cardModel != null)
         {
             var capability = ModelCapabilityRegistry.Create<BlockCapability>();
-            capability.DynamicVars.Block.BaseValue = DynamicVars["modify"].IntValue;
+            capability.DynamicVars["BlockCapability"].BaseValue = DynamicVars["modify"].IntValue;
             cardModel.AddCapability(capability);
         }
     }

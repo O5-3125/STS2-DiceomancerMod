@@ -139,8 +139,8 @@
   //
   "DICEOMANCER_POWER_DYSON_SPHERE_POWER.title": "戴森球计划",
   "DICEOMANCER_POWER_DYSON_SPHERE_POWER.smartDescription": "每抽一张牌，获得{Amount:energyIcons()}。",
-  "DICEOMANCER_POWER_SHARK_TYPHOON_POWER.title": "鲨龙卷",
-  "DICEOMANCER_POWER_SHARK_TYPHOON_POWER.smartDescription": "每抽一张牌，对随机敌人造成{Amount}点伤害。",
+  "DICEOMANCER_POWER_SHARK_TYPHOON_POWER.title": "鲨卷风",
+  "DICEOMANCER_POWER_SHARK_TYPHOON_POWER.smartDescription": "抽到非本职业牌时，对随机敌人造成{Amount}点伤害。",
   //
   "DICEOMANCER_POWER_MASS_PRODUCTION_POWER.title": "大规模生产",
   "DICEOMANCER_POWER_MASS_PRODUCTION_POWER.smartDescription": "当你变化牌时，将变化后的牌的复制加入手牌。",
@@ -157,16 +157,6 @@
 //  "DICEOMANCER_POWER_BINARY_BINARY_POWER.description": "该敌人造成的伤害和塞入你牌堆的牌数中的每位数字都变为{Amount}。",
 //  "DICEOMANCER_POWER_BINARY_BINARY_POWER.smartDescription": "该敌人造成的伤害和塞入你牌堆的牌数中的每位数字都变为{Amount}。",
   //
-  "DICEOMANCER_POWER_GOOSE_TROUBLEMAKER_POWER.title": "捣蛋鬼",
-  "DICEOMANCER_POWER_GOOSE_TROUBLEMAKER_POWER.description": "每回合随机获得一种弃牌buff。",
-  "DICEOMANCER_POWER_GOOSE_TROUBLEMAKER_POWER.smartDescription": "每回合随机获得一种弃牌buff。",
-  "DICEOMANCER_POWER_GOOSE_DISCARD_BUFF1_POWER.title": "弃牌",
-  "DICEOMANCER_POWER_GOOSE_DISCARD_BUFF1_POWER.description": "你打出任何牌后，弃掉你1张手牌，随后消失。",
-  "DICEOMANCER_POWER_GOOSE_DISCARD_BUFF1_POWER.smartDescription": "你打出任何牌后，弃掉你1张手牌，随后消失。",
-  "DICEOMANCER_POWER_GOOSE_DISCARD_BUFF2_POWER.title": "弃牌",
-  "DICEOMANCER_POWER_GOOSE_DISCARD_BUFF2_POWER.description": "你的下个回合开始时，弃掉你1张手牌，随后消失。",
-  "DICEOMANCER_POWER_GOOSE_DISCARD_BUFF2_POWER.smartDescription": "你的下个回合开始时，弃掉你1张手牌，随后消失。",
-  //
   "DICEOMANCER_POWER_GRASS_RETALIATION_POWER.title": "反击",
   "DICEOMANCER_POWER_GRASS_RETALIATION_POWER.description": "当格挡被击破时，对玩家造成12点伤害。",
   "DICEOMANCER_POWER_GRASS_RETALIATION_POWER.smartDescription": "当格挡被击破时，对玩家造成12点伤害。",
@@ -182,13 +172,6 @@
   "DICEOMANCER_POWER_HAT_PASSIVE_POWER.title": "躲起来",
   "DICEOMANCER_POWER_HAT_PASSIVE_POWER.description": "你打出不指向此敌人的卡牌时，获得闪避。",
   "DICEOMANCER_POWER_HAT_PASSIVE_POWER.smartDescription": "你打出不指向此敌人的卡牌时，获得{Amount}层闪避。",
- //
-  "DICEOMANCER_POWER_LIZZY_BUFF_POWER.title": "大手一挥",
-  "DICEOMANCER_POWER_LIZZY_BUFF_POWER.description": "每回合如果没有弃牌buff，获得弃牌buff。",
-  "DICEOMANCER_POWER_LIZZY_BUFF_POWER.smartDescription": "每回合如果没有弃牌buff，获得弃牌buff。",
-  "DICEOMANCER_POWER_LIZZY_DISCARD_BUFF_POWER.title": "弃牌",
-  "DICEOMANCER_POWER_LIZZY_DISCARD_BUFF_POWER.description": "当玩家打出10张牌后，丢弃玩家一半手牌，随后消失。",
-  "DICEOMANCER_POWER_LIZZY_DISCARD_BUFF_POWER.smartDescription": "当玩家打出10张牌后，丢弃玩家一半手牌，随后消失。",
   //
   "DICEOMANCER_POWER_BLACKFISH_CURSE_POWER.title": "黑鱼诅咒",
   "DICEOMANCER_POWER_BLACKFISH_CURSE_POWER.description": "你被诅咒了！",

@@ -10,8 +10,8 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Cards.Berserker.Basic;
 
-// [RegisterCard(typeof(BerserkerCardPool))]
-// [RegisterCharacterStarterCard(typeof(Hero.Berserker.Berserker), 4)]
+[RegisterCard(typeof(BerserkerCardPool))]
+[RegisterCharacterStarterCard(typeof(Hero.Berserker.Berserker), 4)]
 public class StrikeBerserker() :
     ModCardTemplate(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
 {

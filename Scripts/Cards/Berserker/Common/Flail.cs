@@ -1,14 +1,17 @@
 using Diceomancer.Scripts.Common;
+using Diceomancer.Scripts.Hero.Berserker;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
+using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Cards.Berserker.Common;
 
-// [RegisterCard(typeof(DiceomancerCardPool))]
+[RegisterCard(typeof(BerserkerCardPool))]
+
 public class Flail() : ModCardTemplate(0, CardType.Attack, CardRarity.Common, TargetType.RandomEnemy)
 {
     public override CardAssetProfile AssetProfile => new(
