@@ -43,6 +43,7 @@ public class MyKeywords
 
     public static readonly CardKeyword Diabolical =
         ModContentRegistry.GetQualifiedKeywordId(Entry.ModId, nameof(Diabolical)).GetModCardKeyword();
-    
-    
+
+    public static readonly CardKeyword Wild =
+        ModContentRegistry.GetQualifiedKeywordId(Entry.ModId, nameof(Wild)).GetModCardKeyword();
 }

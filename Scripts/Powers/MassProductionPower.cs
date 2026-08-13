@@ -1,6 +1,9 @@
 using Godot;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Powers;
+using STS2RitsuLib.Cards.Transforms;
 using STS2RitsuLib.Interop.AutoRegistration;
+using STS2RitsuLib.Models.Capabilities;
 using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Powers;
@@ -15,7 +18,7 @@ public class MassProductionPower : ModPowerTemplate
         $"res://Diceomancer/images/Power/{GetType().Name}.png",
         $"res://Diceomancer/images/Power/{GetType().Name}.png"
     );
-    
-    
+
+
     
 }

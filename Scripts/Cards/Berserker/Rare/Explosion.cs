@@ -1,3 +1,4 @@
+using Diceomancer.Scripts.Hero.Berserker;
 using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -5,11 +6,13 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
+using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Cards.Berserker.Rare;
 
-// [RegisterCard(typeof(DiceomancerCardPool))]
+[RegisterCard(typeof(BerserkerCardPool))]
+
 public class Explosion() : ModCardTemplate(1, CardType.Skill, CardRarity.Rare, TargetType.AllEnemies)
 {
     public override CardAssetProfile AssetProfile => new(

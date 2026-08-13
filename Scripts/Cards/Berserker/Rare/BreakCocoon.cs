@@ -1,11 +1,13 @@
+using Diceomancer.Scripts.Hero.Berserker;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Cards.Berserker.Rare;
-// [RegisterCard(typeof(BerserkerCardPool))]
 
+[RegisterCard(typeof(BerserkerCardPool))]
 public class BreakCocoon() : ModCardTemplate(2, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     public override CardAssetProfile AssetProfile => new(

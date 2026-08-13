@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
+using STS2RitsuLib;
 using STS2RitsuLib.CardTags;
 using STS2RitsuLib.Combat.SecondaryResources;
 using STS2RitsuLib.Interactions.RightClick;
@@ -28,7 +29,7 @@ public class MainSingleton : SingletonModel
 
     public override bool ShouldReceiveCombatHooks => true;
 
-    public override async Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (cardPlay.Card.Tags.Contains(MyTags.Evolution.GetModCardTag()))
         {
@@ -37,7 +38,7 @@ public class MainSingleton : SingletonModel
         }
     }
 
-
+    
 
 
 

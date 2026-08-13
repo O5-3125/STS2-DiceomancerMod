@@ -3,7 +3,7 @@
   "name": "骰子浪游者Mod",
   "author": "what",
   "description": "以骰子浪游者中工匠为灵感做的mod，添加了改装、进化、元素等新机制。\n由于技术原因没有复刻修改数字系统。",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "min_game_version": "0.109.0",
   "has_pck": true,
   "has_dll": true,

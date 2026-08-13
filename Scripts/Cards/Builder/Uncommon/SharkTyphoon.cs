@@ -1,5 +1,5 @@
-﻿using Diceomancer.Scripts.Hero.Berserker;
-using Diceomancer.Scripts.Powers.NormalityPower;
+using Diceomancer.Scripts.Hero.Builder;
+using Diceomancer.Scripts.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -7,11 +7,10 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
-namespace Diceomancer.Scripts.Cards.Berserker.Uncommon;
+namespace Diceomancer.Scripts.Cards.Builder.Uncommon;
 
-[RegisterCard(typeof(BerserkerCardPool))]
-
-public class IAmFire() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+[RegisterCard(typeof(BuilderCardPool))]
+public class SharkTyphoon() : ModCardTemplate(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
     public override CardAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
@@ -19,19 +18,18 @@ public class IAmFire() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommon,
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<HastePower>(3)
+        new PowerVar<SharkTyphoonPower>(4)
     ];
-
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<HastePower>(choiceContext, Owner.Creature,
-            DynamicVars["HastePower"].IntValue, Owner.Creature, this);
+        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
+        await PowerCmd.Apply<SharkTyphoonPower>(choiceContext, Owner.Creature,
+            DynamicVars["SharkTyphoonPower"].BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        DynamicVars["SharkTyphoonPower"].UpgradeValueBy(2);
     }
 }

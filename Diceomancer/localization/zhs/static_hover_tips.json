@@ -22,5 +22,8 @@
   "modify.description": "使另一张牌获得此效果。",
   
   "DICEOMANCER_SECONDARY_RESOURCE_BLACK_MANA.title": "黑球",
-  "DICEOMANCER_SECONDARY_RESOURCE_BLACK_MANA.description": "对黑球的描述文本。"
+  "DICEOMANCER_SECONDARY_RESOURCE_BLACK_MANA.description": "对黑球的描述文本。",
+
+  "DICEOMANCER_SECONDARY_RESOURCE_RAGE.title": "怒火",
+  "DICEOMANCER_SECONDARY_RESOURCE_RAGE.description": "对怒火的描述文本。"
 }

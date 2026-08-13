@@ -10,8 +10,8 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Cards.Berserker.Basic;
 
-// [RegisterCard(typeof(BerserkerCardPool))]
-// [RegisterCharacterStarterCard(typeof(Hero.Berserker.Berserker), 4)]
+[RegisterCard(typeof(BerserkerCardPool))]
+[RegisterCharacterStarterCard(typeof(Hero.Berserker.Berserker), 4)]
 public class PackR() : ModCardTemplate(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
 {
     public override CardAssetProfile AssetProfile => new(

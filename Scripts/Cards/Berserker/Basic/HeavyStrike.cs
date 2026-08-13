@@ -11,8 +11,8 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Cards.Berserker.Basic;
 
-// [RegisterCard(typeof(BerserkerCardPool))]
-// [RegisterCharacterStarterCard(typeof(Hero.Berserker.Berserker))]
+[RegisterCard(typeof(BerserkerCardPool))]
+[RegisterCharacterStarterCard(typeof(Hero.Berserker.Berserker))]
 public class HeavyStrike() :
     ModCardTemplate(2, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
 {

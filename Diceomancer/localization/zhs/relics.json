@@ -66,7 +66,7 @@
   "DICEOMANCER_RELIC_CHAOS_PENDANT.flavor": "世界在碰撞，秩序在崩塌。",
   //
   "DICEOMANCER_RELIC_CARD_BOOK.title": "便携卡包",
-  "DICEOMANCER_RELIC_CARD_BOOK.description": "拾起时，记录你的牌组大小。\n当你的牌组变得更大时，移除卡牌。",
+  "DICEOMANCER_RELIC_CARD_BOOK.description": "拾起时，记录你的牌组大小。\n战斗结束时，如果你的卡组大于牌组大小，移除卡牌。",
   "DICEOMANCER_RELIC_CARD_BOOK.flavor": "不是很大。",
   //
   "DICEOMANCER_RELIC_PIGGY_TOY.title": "小猪玩偶",
@@ -75,5 +75,9 @@
   //
   "DICEOMANCER_RELIC_IRON_STOMACH.title": "铁胃",
   "DICEOMANCER_RELIC_IRON_STOMACH.description": "你不再获得诅咒牌。",
-  "DICEOMANCER_RELIC_IRON_STOMACH.flavor": " "
+  "DICEOMANCER_RELIC_IRON_STOMACH.flavor": " ",
+  //
+  "DICEOMANCER_RELIC_SIX_SIDED_DIE.title": "六面骰",
+  "DICEOMANCER_RELIC_SIX_SIDED_DIE.description": "拾起后，你遇到的所有遗物的数值都会变为1到6之间的随机值。",
+  "DICEOMANCER_RELIC_SIX_SIDED_DIE.flavor": "重掷你的命运。"
 }
