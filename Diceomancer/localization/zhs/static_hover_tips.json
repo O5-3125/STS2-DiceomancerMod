@@ -5,6 +5,8 @@
   
   "assault.title": "突击",
   "assault.description": "第一次打出时生效",
+  "vengeance.title": "复仇",
+  "vengeance.description": "如果你的[gold]负伤[/gold]层数大于复仇要求，则效果生效。",
   "flow.title": "流转",
   "flow.description": "若上一张牌与本牌类型不同，则生效。",
   "buff.title": "增益",
@@ -25,5 +27,5 @@
   "DICEOMANCER_SECONDARY_RESOURCE_BLACK_MANA.description": "对黑球的描述文本。",
 
   "DICEOMANCER_SECONDARY_RESOURCE_RAGE.title": "怒火",
-  "DICEOMANCER_SECONDARY_RESOURCE_RAGE.description": "对怒火的描述文本。"
+  "DICEOMANCER_SECONDARY_RESOURCE_RAGE.description": "你当前的怒火数和怒火上限。莽战士部分卡牌根据怒火数量有更多效果。"
 }

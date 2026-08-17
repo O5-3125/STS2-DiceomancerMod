@@ -53,7 +53,7 @@
             <Private>false</Private>
         </Reference>
         <!-- NuGet获取，注意版本是否一致，不一致手动更改Version -->
-        <PackageReference Include="STS2.RitsuLib" Version="0.5.11"/>
+        <PackageReference Include="STS2.RitsuLib" Version="0.5.12"/>
 <!--        <PackageReference Include="STS2.RitsuLib" Version="*"/>-->
         
         <!--        <PackageReference Include="FuYnAloft.Sts2.MinionLib.RitsuAdapters" Version="0.4.4"/>-->
@@ -119,7 +119,7 @@
 
     <Target Name="ExportPck">
         <Message Text="Copying PCK to Slay the Spire 2 mods folder..." Importance="high"/>
-        <Exec Command="&quot;$(GodotExe)&quot; --headless --export-pack &quot;MyMod.pck&quot; &quot;$(Sts2Dir)/mods/$(MSBuildProjectName)/$(MSBuildProjectName).pck&quot;"
+        <Exec Command="&quot;$(GodotExe)&quot; --headless --export-pack &quot;DICEOMANCER&quot; &quot;$(Sts2Dir)/mods/$(MSBuildProjectName)/$(MSBuildProjectName).pck&quot;"
               EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1"
               ContinueOnError="WarnAndContinue"/>
     </Target>

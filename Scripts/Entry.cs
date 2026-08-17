@@ -5,7 +5,9 @@ using Diceomancer.Scripts.Common;
 using Diceomancer.Scripts.Hero;
 using Diceomancer.Scripts.Hero.CardPool;
 using Diceomancer.Scripts.Powers;
+using Diceomancer.Scripts.Relics.Ancient;
 using Diceomancer.Scripts.Relics.Basic;
+using Diceomancer.Scripts.Relics.Rare;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -46,6 +48,7 @@ public class Entry
 
         // 注册初始遗物的先古升级
         RitsuLibFramework.RegisterTouchOfOrobasRefinementMapping<BuilderMana, BuilderRing>();
+        RitsuLibFramework.RegisterTouchOfOrobasRefinementMapping<D6Die, D12Die>();
 
         // 注册卡池
         ModContentRegistry.For(ModId)

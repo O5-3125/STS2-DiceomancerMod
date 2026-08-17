@@ -41,8 +41,8 @@ public class MyKeywords
     public static readonly CardKeyword Chaos20 =
         ModContentRegistry.GetQualifiedKeywordId(Entry.ModId, nameof(Chaos20)).GetModCardKeyword();
 
-    public static readonly CardKeyword Diabolical =
-        ModContentRegistry.GetQualifiedKeywordId(Entry.ModId, nameof(Diabolical)).GetModCardKeyword();
+    public static readonly CardKeyword Storm =
+        ModContentRegistry.GetQualifiedKeywordId(Entry.ModId, nameof(Storm)).GetModCardKeyword();
 
     public static readonly CardKeyword Wild =
         ModContentRegistry.GetQualifiedKeywordId(Entry.ModId, nameof(Wild)).GetModCardKeyword();

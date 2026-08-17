@@ -9,7 +9,7 @@ using STS2RitsuLib.Scaffolding.Godot;
 
 namespace Diceomancer.Scripts.Hero.Berserker;
 
-[RegisterCharacter]
+// [RegisterCharacter]
 public class
     Berserker : ModCharacterTemplate<BerserkerCardPool, BerserkerRelicPool, BerserkerPotionPool>
 {

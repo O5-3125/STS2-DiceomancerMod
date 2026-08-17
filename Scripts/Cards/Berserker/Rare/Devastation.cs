@@ -9,7 +9,6 @@ using STS2RitsuLib.Scaffolding.Content;
 namespace Diceomancer.Scripts.Cards.Berserker.Rare;
 
 [RegisterCard(typeof(BerserkerCardPool))]
-
 public class Devastation() : ModCardTemplate(2, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     public override CardAssetProfile AssetProfile => new(

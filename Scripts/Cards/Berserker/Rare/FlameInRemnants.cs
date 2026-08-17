@@ -1,3 +1,4 @@
+using Diceomancer.Scripts.Common;
 using Diceomancer.Scripts.Hero.Berserker;
 using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Commands;
@@ -16,12 +17,11 @@ public class FlameInRemnants() : ModCardTemplate(2, CardType.Skill, CardRarity.R
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
     );
 
-    // protected override bool HasEnergyCostX => true;
-
 
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
-        CardKeyword.Exhaust
+        CardKeyword.Exhaust,
+        MyKeywords.Storm
     ];
 
     // protected override IEnumerable<DynamicVar> CanonicalVars => [];

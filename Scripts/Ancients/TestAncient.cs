@@ -14,7 +14,9 @@ using STS2RitsuLib.Utils;
 
 namespace Diceomancer.Scripts.Ancients;
 
-[RegisterSharedAncient] // 如果需要自定义生成条件，可以注册成通用再重载isAllowed
+// [RegisterSharedAncient] // 如果需要自定义生成条件，可以注册成通用再重载isAllowed
+
+[RegisterActAncient(typeof(Glory))] // 指定只有荣耀这章生成
 public class TestAncient : ModAncientEventTemplate
 {
     public override Color ButtonColor => new(0.533f, 0.247f, 0.961f);
@@ -68,7 +70,10 @@ public class TestAncient : ModAncientEventTemplate
 
 
     // 出现条件。这里是只能在密林出现
-    // public override bool IsValidForAct(ActModel act) {
-    //     return act is Overgrowth;
-    // }
+    public override bool IsValidForAct(ActModel act)
+    {
+        int _triBoomerangCount = 3;
+
+        return act is Overgrowth;
+    }
 }

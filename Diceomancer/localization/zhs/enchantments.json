@@ -1,4 +1,21 @@
 ﻿{
+  "DICEOMANCER_ENCHANTMENT_D4_ENCHANT.title": "D4",
+  "DICEOMANCER_ENCHANTMENT_D4_ENCHANT.extraCardText": "这张牌的数值被重掷为1到4之间的随机值。",
+  "DICEOMANCER_ENCHANTMENT_D4_ENCHANT.description": "附魔时，将这张牌上的所有数值重掷为1到4之间的随机值。",
+  "DICEOMANCER_ENCHANTMENT_D6_ENCHANT.title": "D6",
+  "DICEOMANCER_ENCHANTMENT_D6_ENCHANT.extraCardText": "这张牌的数值被重掷为1到6之间的随机值。",
+  // 额外添加在卡牌上的文本
+  "DICEOMANCER_ENCHANTMENT_D6_ENCHANT.description": "附魔时，将这张牌上的所有数值重掷为1到6之间的随机值。",
+  // 附魔介绍
+  "DICEOMANCER_ENCHANTMENT_D8_ENCHANT.title": "D8",
+  "DICEOMANCER_ENCHANTMENT_D8_ENCHANT.extraCardText": "这张牌的数值被重掷为1到8之间的随机值。",
+  "DICEOMANCER_ENCHANTMENT_D8_ENCHANT.description": "附魔时，将这张牌上的所有数值重掷为1到8之间的随机值。",
+  "DICEOMANCER_ENCHANTMENT_D12_ENCHANT.title": "D12",
+  "DICEOMANCER_ENCHANTMENT_D12_ENCHANT.extraCardText": "这张牌的数值被重掷为1到12之间的随机值。",
+  "DICEOMANCER_ENCHANTMENT_D12_ENCHANT.description": "附魔时，将这张牌上的所有数值重掷为1到12之间的随机值。",
+  "DICEOMANCER_ENCHANTMENT_D20_ENCHANT.title": "D20",
+  "DICEOMANCER_ENCHANTMENT_D20_ENCHANT.extraCardText": "这张牌的数值被重掷为1到20之间的随机值。",
+  "DICEOMANCER_ENCHANTMENT_D20_ENCHANT.description": "附魔时，将这张牌上的所有数值重掷为1到20之间的随机值。",
   "DICEOMANCER_ENCHANTMENT_PHASE_ENCHANT.title": "能量",
   "DICEOMANCER_ENCHANTMENT_PHASE_ENCHANT.extraCardText": "打出时，获得{Energy:energyIcons()}",
   // 额外添加在卡牌上的文本

@@ -28,6 +28,12 @@ public class VoidDataErrorPower : ModPowerTemplate
         $"res://Diceomancer/images/Power/MonstersPower/{GetType().Name}.png"
     );
 
+    public override Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props,
+        Creature? dealer, CardModel? cardSource)
+    {
+        return base.AfterDamageReceived(choiceContext, target, result, props, dealer, cardSource);
+    }
+
     public override decimal ModifyHpLostBeforeOsty(Creature target, decimal amount, ValueProp props, Creature? dealer,
         CardModel? cardSource)
     {

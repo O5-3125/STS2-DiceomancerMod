@@ -19,9 +19,9 @@ using STS2RitsuLib.Scaffolding.Content;
 namespace Diceomancer.Scripts.Relics.Basic;
 
 // 加入角色遗物池
-[RegisterRelic(typeof(BuilderRelicPool))]
+// [RegisterRelic(typeof(BuilderRelicPool))]
 // 加入初始遗物池
-[RegisterCharacterStarterRelic(typeof(Builder))]
+// [RegisterCharacterStarterRelic(typeof(Builder))]
 public class BuilderMana : ModRelicTemplate
 {
     private int _cardsPlayed;

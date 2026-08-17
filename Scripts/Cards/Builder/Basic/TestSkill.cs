@@ -15,13 +15,13 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Cards.Builder.Basic;
 
-// [RegisterCard(typeof(TokenCardPool))]
+[RegisterCard(typeof(TokenCardPool))]
 public class TestSkill()
-    : ModCardTemplate(3, CardType.Skill, CardRarity.Basic, TargetType.Self)
+    : ModCardTemplate(0, CardType.Skill, CardRarity.Basic, TargetType.Self)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
-        MyKeywords.Wild
+        MyKeywords.Storm
     ];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
@@ -30,5 +30,6 @@ public class TestSkill()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        await SecondaryResourceCmd.Gain(Owner, Rage.Id, 1);
     }
 }

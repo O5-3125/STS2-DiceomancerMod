@@ -13,7 +13,7 @@ namespace Diceomancer.Scripts.Cards.Berserker.Rare;
 
 [RegisterCard(typeof(BerserkerCardPool))]
 
-public class Explosion() : ModCardTemplate(1, CardType.Skill, CardRarity.Rare, TargetType.AllEnemies)
+public class Explosion() : ModCardTemplate(1, CardType.Attack, CardRarity.Rare, TargetType.AllEnemies)
 {
     public override CardAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
@@ -47,6 +47,6 @@ public class Explosion() : ModCardTemplate(1, CardType.Skill, CardRarity.Rare, T
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        DynamicVars.Damage.UpgradeValueBy(2);
     }
 }

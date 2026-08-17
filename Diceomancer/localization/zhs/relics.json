@@ -77,7 +77,23 @@
   "DICEOMANCER_RELIC_IRON_STOMACH.description": "你不再获得诅咒牌。",
   "DICEOMANCER_RELIC_IRON_STOMACH.flavor": " ",
   //
-  "DICEOMANCER_RELIC_SIX_SIDED_DIE.title": "六面骰",
-  "DICEOMANCER_RELIC_SIX_SIDED_DIE.description": "拾起后，你遇到的所有遗物的数值都会变为1到6之间的随机值。",
-  "DICEOMANCER_RELIC_SIX_SIDED_DIE.flavor": "重掷你的命运。"
+  "DICEOMANCER_RELIC_D4_DIE.title": "四面骰",
+  "DICEOMANCER_RELIC_D4_DIE.description": "你可以更换手牌上的数字。",
+  "DICEOMANCER_RELIC_D4_DIE.flavor": "重掷你的命运。",
+  //
+  "DICEOMANCER_RELIC_D6_DIE.title": "六面骰",
+  "DICEOMANCER_RELIC_D6_DIE.description": "你可以更换手牌上的数字。",
+  "DICEOMANCER_RELIC_D6_DIE.flavor": "重掷你的命运。",
+  //
+  "DICEOMANCER_RELIC_D8_DIE.title": "八面骰",
+  "DICEOMANCER_RELIC_D8_DIE.description": "你可以更换手牌上的数字。",
+  "DICEOMANCER_RELIC_D8_DIE.flavor": "重掷你的命运。",
+  //
+  "DICEOMANCER_RELIC_D12_DIE.title": "十二面骰",
+  "DICEOMANCER_RELIC_D12_DIE.description": "你可以更换手牌上的数字。",
+  "DICEOMANCER_RELIC_D12_DIE.flavor": "重掷你的命运。",
+  //
+  "DICEOMANCER_RELIC_D20_DIE.title": "二十面骰",
+  "DICEOMANCER_RELIC_D20_DIE.description": "你可以更换手牌上的数字。",
+  "DICEOMANCER_RELIC_D20_DIE.flavor": "重掷你的命运。"
 }

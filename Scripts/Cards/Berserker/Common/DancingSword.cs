@@ -11,7 +11,6 @@ using STS2RitsuLib.Scaffolding.Content;
 namespace Diceomancer.Scripts.Cards.Berserker.Common;
 
 [RegisterCard(typeof(BerserkerCardPool))]
-
 public class DancingSword()
     : ModCardTemplate(1, CardType.Attack, CardRarity.Common, TargetType.RandomEnemy)
 {

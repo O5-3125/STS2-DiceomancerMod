@@ -20,13 +20,17 @@ public class HeartOfSteel : ModRelicTemplate
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new HealVar(30)
+        new HealVar(40)
     ];
 
-    // 战斗开始前
     public override async Task BeforeCombatStart()
     {
         Flash();
+        if (Owner.Creature.MaxHp < DynamicVars.Heal.BaseValue)
+        {
+            await CreatureCmd.SetMaxHp(Owner.Creature, DynamicVars.Heal.BaseValue);
+        }
+
         await CreatureCmd.SetCurrentHp(Owner.Creature, DynamicVars.Heal.BaseValue);
     }
 }

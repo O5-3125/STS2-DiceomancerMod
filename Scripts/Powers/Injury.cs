@@ -1,4 +1,5 @@
-﻿using Godot;
+﻿using Diceomancer.Scripts.Powers.Berserker;
+using Godot;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -44,6 +45,14 @@ public class Injury : ModPowerTemplate, IHealthBarForecastSource
         if (!participants.Contains(Owner)) return;
 
         Flash();
+
+        var block = Owner.GetPower<InjuryBlock>();
+        if (block is { Amount: > 0 })
+        {
+            await PowerCmd.Decrement(block);
+            return;
+        }
+
         await CreatureCmd.Damage(choiceContext, Owner, Amount,
             ValueProp.Unblockable | ValueProp.Unpowered, null, null);
 

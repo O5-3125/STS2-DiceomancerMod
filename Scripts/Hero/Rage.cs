@@ -1,4 +1,5 @@
 using Godot;
+using MegaCrit.Sts2.Core.Models.Relics;
 using STS2RitsuLib;
 using STS2RitsuLib.Combat.SecondaryResources;
 
@@ -8,6 +9,7 @@ public static class Rage
 {
     public static SecondaryResourceDefinition Definition { get; private set; } = null!;
     public static string Id { get; private set; } = string.Empty;
+
 
     public static void Register()
     {
@@ -20,7 +22,12 @@ public static class Rage
             persistencePolicy: SecondaryResourcePersistencePolicy.Combat,
             smallIconPath: "res://Diceomancer/images/Energy/ManaRed_small.png",
             largeIconPath: "res://Diceomancer/images/Energy/ManaRed.png"
-        ));
+        )
+        {
+            ClampToMaxAmount = true,
+        });
+
+
         Id = Definition.Id;
 
         // 战斗计数器。使用的图标就是你注册时提供的图标
@@ -32,16 +39,19 @@ public static class Rage
                 {
                     FontSize = 32,
                     PositiveColor = Colors.Red,
-                    FormatAmount = (amount, max) => amount.ToString(),
+                    FormatAmount = (amount, max) =>
+                        $"{amount}/{max}",
+                    // AmountLabelOffset = new Vector2(0, 0),
+                    AnimateAmountGain = true,
                     IconStyle = SecondaryResourceIconStyle.Default with
                     {
-                        Size = new Vector2(80, 80),
+                        Size = new Vector2(50, 50),
                         HoverTip = SecondaryResourceHoverTipStyle.Default,
                     },
                 });
                 // 自由指定位置。例如这里我们找到能量计数器的位置，放在它旁边
                 var energyCounter = parent.GetNode<Control>("%EnergyCounterContainer");
-                row.Position = energyCounter.Position + new Vector2(80, 80);
+                row.Position = energyCounter.Position + new Vector2(80, 80); // 图标位置
                 return row;
             },
             ctx => ctx.Node.Bind(ctx.Player)

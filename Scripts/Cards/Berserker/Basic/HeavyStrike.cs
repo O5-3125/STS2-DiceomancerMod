@@ -1,10 +1,11 @@
 using Diceomancer.Scripts.Hero.Berserker;
 using Diceomancer.Scripts.Hero.Builder;
+using Diceomancer.Scripts.Powers.Berserker;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -24,8 +25,13 @@ public class HeavyStrike() :
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(16, ValueProp.Move),
-        new PowerVar<EnergyNextTurnPower>(2)
+        new DamageVar(18, ValueProp.Move),
+        new PowerVar<FrenzyPower>(2)
+    ];
+
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
+    [
+        HoverTipFactory.FromPower<FrenzyPower>()
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -37,13 +43,12 @@ public class HeavyStrike() :
             .Targeting(cardPlay.Target)
             .Execute(choiceContext);
 
-        await PowerCmd.Apply<EnergyNextTurnPower>(choiceContext, Owner.Creature,
-            DynamicVars["EnergyNextTurnPower"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<FrenzyPower>(choiceContext, Owner.Creature,
+            DynamicVars["FrenzyPower"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(4);
-        DynamicVars["EnergyNextTurnPower"].UpgradeValueBy(1);
+        DynamicVars.Damage.UpgradeValueBy(6);
     }
 }
