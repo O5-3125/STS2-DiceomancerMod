@@ -1,4 +1,5 @@
 using Diceomancer.Scripts.Enchantments;
+using Diceomancer.Scripts.Hero.Builder;
 using Diceomancer.Scripts.Relics.Basic;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Relics;
@@ -8,7 +9,7 @@ using STS2RitsuLib.Interop.AutoRegistration;
 
 namespace Diceomancer.Scripts.Relics.Ancient;
 
-[RegisterRelic(typeof(SharedRelicPool))]
+[RegisterRelic(typeof(BuilderRelicPool))]
 public class D12Die : DieRelic
 {
     protected override string OptionKey => "ENCHANT_D12";

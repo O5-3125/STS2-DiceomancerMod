@@ -1,6 +1,4 @@
-using Diceomancer.Scripts.Hero.Berserker;
 using Diceomancer.Scripts.Powers.Berserker;
-using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -21,12 +19,12 @@ public class ReleaseFrenzy()
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<FrenzyPower>(3)
+        new PowerVar<FuryPower>(3)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<FrenzyPower>(choiceContext, Owner.Creature,
-            DynamicVars["FrenzyPower"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<FuryPower>(choiceContext, Owner.Creature,
+            DynamicVars["FuryPower"].IntValue, Owner.Creature, this);
     }
 }

@@ -116,9 +116,6 @@
   "DICEOMANCER_POWER_ELASTIC_DEFENCE.title": "弹性防御",
   "DICEOMANCER_POWER_ELASTIC_DEFENCE.smartDescription": "受到未被格挡的伤害时，获得{Amount}格挡。",
   //
-  "DICEOMANCER_POWER_FLOW_POWER.title": "心流",
-  "DICEOMANCER_POWER_FLOW_POWER.smartDescription": "本回合造成的伤害翻倍。",
-  //
   "DICEOMANCER_POWER_BODY_BURNING.title": "燃烧之躯",
   "DICEOMANCER_POWER_BODY_BURNING.smartDescription": "打出攻击牌时，对随机敌人施加{Amount}层燃烧。",
   //
@@ -129,7 +126,7 @@
   "DICEOMANCER_POWER_IGNITE.smartDescription": "回合开始时，获得{Amount}张烈焰。",
   //
   "DICEOMANCER_POWER_WINGED_LIGHT_POWER.title": "飞光",
-  "DICEOMANCER_POWER_WINGED_LIGHT_POWER.smartDescription": "出牌后，结束你的回合。",
+  "DICEOMANCER_POWER_WINGED_LIGHT_POWER.smartDescription": "出牌后，结束你的额外回合。",
   //
   "DICEOMANCER_POWER_INVINCIBLE.title": "无敌",
   "DICEOMANCER_POWER_INVINCIBLE.smartDescription": "本回合阻止敌人的伤害。",
@@ -149,44 +146,13 @@
   "DICEOMANCER_POWER_FORTIFIED_POWER.description": "回合结束时获得层数点格挡，然后层数减半。",
   "DICEOMANCER_POWER_FORTIFIED_POWER.smartDescription": "回合结束时获得{Amount}点[gold]格挡[/gold]，然后层数减半。",
   //
-  "DICEOMANCER_POWER_SKELLY_BRAIN_POWER.title": "模块化脑瓜子",
-  "DICEOMANCER_POWER_SKELLY_BRAIN_POWER.description": "生命条降到一半以下时，骷髅哥会失去脑瓜子并将生命条全部回满，同时切换为甩鞭子模式。",
-  "DICEOMANCER_POWER_SKELLY_BRAIN_POWER.smartDescription": "{OwnerName}的生命条降到一半以下时，失去脑瓜子并将生命条全部回满，同时切换为甩鞭子模式。",
-  //
-//  "DICEOMANCER_POWER_BINARY_BINARY_POWER.title": "二进制化",
-//  "DICEOMANCER_POWER_BINARY_BINARY_POWER.description": "该敌人造成的伤害和塞入你牌堆的牌数中的每位数字都变为{Amount}。",
-//  "DICEOMANCER_POWER_BINARY_BINARY_POWER.smartDescription": "该敌人造成的伤害和塞入你牌堆的牌数中的每位数字都变为{Amount}。",
-  //
   "DICEOMANCER_POWER_GRASS_RETALIATION_POWER.title": "反击",
   "DICEOMANCER_POWER_GRASS_RETALIATION_POWER.description": "当格挡被击破时，对玩家造成12点伤害。",
   "DICEOMANCER_POWER_GRASS_RETALIATION_POWER.smartDescription": "当格挡被击破时，对玩家造成12点伤害。",
   //
-  "DICEOMANCER_POWER_CAT_NUMBER_CHAOS_POWER.title": "数字混乱",
-  "DICEOMANCER_POWER_CAT_NUMBER_CHAOS_POWER.description": "玩家回合开始时，随机变化手牌中的数字。",
-  "DICEOMANCER_POWER_CAT_NUMBER_CHAOS_POWER.smartDescription": "玩家回合开始时，随机变化手牌中的数字。",
-  //
-  "DICEOMANCER_POWER_VOID_DATA_ERROR_POWER.title": "数据错误",
-  "DICEOMANCER_POWER_VOID_DATA_ERROR_POWER.description": "失去生命和获得减益时改为获得等量最大生命。",
-  "DICEOMANCER_POWER_VOID_DATA_ERROR_POWER.smartDescription": "失去生命和获得减益时改为获得等量最大生命。\n当生命值超过999时，空图层死亡。",
-  //
-  "DICEOMANCER_POWER_HAT_PASSIVE_POWER.title": "躲起来",
-  "DICEOMANCER_POWER_HAT_PASSIVE_POWER.description": "你打出不指向此敌人的卡牌时，获得闪避。",
-  "DICEOMANCER_POWER_HAT_PASSIVE_POWER.smartDescription": "你打出不指向此敌人的卡牌时，获得{Amount}层闪避。",
-  //
-  "DICEOMANCER_POWER_BLACKFISH_CURSE_POWER.title": "黑鱼诅咒",
-  "DICEOMANCER_POWER_BLACKFISH_CURSE_POWER.description": "你被诅咒了！",
-  "DICEOMANCER_POWER_BLACKFISH_CURSE_POWER.smartDescription": "你被诅咒了！",
-  "DICEOMANCER_POWER_BLACKFISH_CURSE_POWER.prompt": "选择{Card}项诅咒",
-  //
   "DICEOMANCER_POWER_INJURY_BLOCK.title": "止痛",
   "DICEOMANCER_POWER_INJURY_BLOCK.description": "阻止[gold]负伤[/gold]的触发。",
   "DICEOMANCER_POWER_INJURY_BLOCK.smartDescription": "阻止{Amount}次[gold]负伤[/gold]的触发。",
-  //
-  "DICEOMANCER_POWER_RAGE_MAX_BONUS.title": "怒意高涨",
-  "DICEOMANCER_POWER_RAGE_MAX_BONUS.smartDescription": "[gold]怒火[/gold]上限增加{Amount}。",
-  //
-  "DICEOMANCER_POWER_THE_OLD_WAY.title": "古老之道",
-  "DICEOMANCER_POWER_THE_OLD_WAY.smartDescription": "[gold]怒火[/gold]上限变为{Amount}。",
   //
   "DICEOMANCER_POWER_ROULETTE_POWER.title": "轮盘赌",
   "DICEOMANCER_POWER_ROULETTE_POWER.description": "回合开始时受到当前生命值一半的伤害。",
@@ -200,15 +166,11 @@
   "DICEOMANCER_POWER_FIRE_PUNCH_POWER.description": "[gold]燃烧[/gold]不再减少。",
   "DICEOMANCER_POWER_FIRE_PUNCH_POWER.smartDescription": "{OwnerName}的[gold]燃烧[/gold]不再减少。",
   //
-  "DICEOMANCER_POWER_ENERGY_CAP_POWER.title": "能量透支",
-  "DICEOMANCER_POWER_ENERGY_CAP_POWER.description": "能量上限减少。",
-  "DICEOMANCER_POWER_ENERGY_CAP_POWER.smartDescription": "能量上限减少{Amount}。",
+  "DICEOMANCER_POWER_FURY_POWER.title": "狂怒",
+  "DICEOMANCER_POWER_FURY_POWER.description": "回合开始时，如果有空余的充能球槽位，消耗狂怒获得等量的情感充能球，直到槽位占满。",
+  "DICEOMANCER_POWER_FURY_POWER.smartDescription": "回合开始时，如果有空余的[gold]充能球槽位[/gold]，消耗{Amount}层[gold]狂怒[/gold]获得等量的[gold]情感球[/gold]，直到槽位占满。",
   //
-  "DICEOMANCER_POWER_FRENZY_POWER.title": "狂怒",
-  "DICEOMANCER_POWER_FRENZY_POWER.description": "回合开始时，将狂怒变为怒火，直到怒火达到上限。",
-  "DICEOMANCER_POWER_FRENZY_POWER.smartDescription": "回合开始时，将{Amount}层[gold]狂怒[/gold]变为[gold]怒火[/gold]，直到[gold]怒火[/gold]达到上限。",
-  //
-  "DICEOMANCER_POWER_MAX_HP_DEBT_POWER.title": "血债",
-  "DICEOMANCER_POWER_MAX_HP_DEBT_POWER.description": "最大生命值减少，战斗结束时恢复。",
-  "DICEOMANCER_POWER_MAX_HP_DEBT_POWER.smartDescription": "最大生命值减少{Amount}，战斗结束时恢复。"
+  "DICEOMANCER_POWER_GAIN_MAX_HP_POWER.title": "重返自然",
+  "DICEOMANCER_POWER_GAIN_MAX_HP_POWER.description": "战斗结束时，回复最大生命。",
+  "DICEOMANCER_POWER_GAIN_MAX_HP_POWER.smartDescription": "战斗结束时，最大生命回复{Amount}。"
 }

@@ -1,4 +1,4 @@
-﻿using Diceomancer.Scripts.Hero;
+﻿using Diceomancer.Scripts.Common.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -6,7 +6,6 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
-using STS2RitsuLib.Combat.SecondaryResources;
 using STS2RitsuLib.Content;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Keywords;
@@ -49,11 +48,11 @@ public static class Storm
         public override int ModifyCardPlayCount(CardModel card, Creature? target, int playCount)
         {
             if (!HasStorm(card)) return playCount;
-            
 
-            var currentMana = SecondaryResourceCmd.Get(card.Owner, Rage.Id);
 
-            return playCount + currentMana;
+            var orbCount = BarbarianCardUtils.CountEmotionOrbs(card.Owner);
+
+            return playCount + orbCount;
         }
     }
 }

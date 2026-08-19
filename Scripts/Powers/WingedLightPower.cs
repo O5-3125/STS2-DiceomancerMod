@@ -27,11 +27,17 @@ public class WingedLightPower : ModPowerTemplate
     );
 
 
-    public override async Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    public override bool ShouldTakeExtraTurn(Player player) => true;
+
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    {
+        await PowerCmd.Decrement(this);
+    }
+
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (cardPlay.Player != Owner.Player) return;
         if (cardPlay.IsAutoPlay) return;
-        await PowerCmd.Decrement(this);
         PlayerCmd.EndTurn(Owner.Player, canBackOut: false);
     }
 }

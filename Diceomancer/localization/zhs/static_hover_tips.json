@@ -24,8 +24,5 @@
   "modify.description": "使另一张牌获得此效果。",
   
   "DICEOMANCER_SECONDARY_RESOURCE_BLACK_MANA.title": "黑球",
-  "DICEOMANCER_SECONDARY_RESOURCE_BLACK_MANA.description": "对黑球的描述文本。",
-
-  "DICEOMANCER_SECONDARY_RESOURCE_RAGE.title": "怒火",
-  "DICEOMANCER_SECONDARY_RESOURCE_RAGE.description": "你当前的怒火数和怒火上限。莽战士部分卡牌根据怒火数量有更多效果。"
+  "DICEOMANCER_SECONDARY_RESOURCE_BLACK_MANA.description": "对黑球的描述文本。"
 }

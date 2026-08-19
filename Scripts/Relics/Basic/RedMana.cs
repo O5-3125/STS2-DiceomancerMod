@@ -1,5 +1,5 @@
 ﻿using Diceomancer.Scripts.Hero;
-using Diceomancer.Scripts.Hero.Berserker;
+using Diceomancer.Scripts.Hero.Barbarian;
 using Diceomancer.Scripts.Hero.Builder;
 using Diceomancer.Scripts.Powers;
 using MegaCrit.Sts2.Core.Commands;
@@ -15,8 +15,8 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Relics.Basic;
 
-[RegisterRelic(typeof(BerserkerRelicPool))]
-[RegisterCharacterStarterRelic(typeof(Berserker))]
+[RegisterRelic(typeof(BarbarianRelicPool))]
+[RegisterCharacterStarterRelic(typeof(Barbarian))]
 public class RedMana : ModRelicTemplate, ICardOnPlayHookListener
 {
     public override RelicRarity Rarity => RelicRarity.Common;

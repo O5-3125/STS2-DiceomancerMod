@@ -14,7 +14,6 @@ public class WingedLight() : ModCardTemplate(3, CardType.Power, CardRarity.Rare,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<ExtraTurn>(3),
         new PowerVar<WingedLightPower>(3)
     ];
 
@@ -24,8 +23,6 @@ public class WingedLight() : ModCardTemplate(3, CardType.Power, CardRarity.Rare,
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<ExtraTurn>(choiceContext, Owner.Creature,
-            DynamicVars["ExtraTurn"].IntValue, Owner.Creature, this);
         await PowerCmd.Apply<WingedLightPower>(choiceContext, Owner.Creature,
             DynamicVars["WingedLightPower"].IntValue, Owner.Creature, this);
         PlayerCmd.EndTurn(Owner, false);

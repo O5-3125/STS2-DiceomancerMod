@@ -21,17 +21,11 @@ public class ForgetMeNot : ModPotionTemplate
 
     // 目标类型
     public override TargetType TargetType => TargetType.Self;
-
-    // 定义动态变量
-    // protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
-
-    // 这里显示预览卡牌灵魂。或者你也可以添加提示关键词
-    // protected override IEnumerable<IHoverTip> AdditionalHoverTips => [HoverTipFactory.FromCard<Soul>()];
-
+    
     // 药水图片。不一定非得是png，只要最终能被Godot当成Texture读取即可。
     public override PotionAssetProfile AssetProfile => new(
-        "res://Diceomancer/images/Potions/后悔药.png",
-        "res://Diceomancer/images/Potions/后悔药.png"
+        $"res://Diceomancer/images/Potions/{GetType().Name}.png",
+        $"res://Diceomancer/images/Potions/{GetType().Name}.png"
     );
 
     // 使用时的效果逻辑

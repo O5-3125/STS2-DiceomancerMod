@@ -10,7 +10,7 @@
   "DICEOMANCER_KEYWORD_PHANTOM.title": "幻影",
   "DICEOMANCER_KEYWORD_PHANTOM.description": "获得这张牌的幻影。\n幻影牌费用-1，消耗且移除幻影关键词。",
   "DICEOMANCER_KEYWORD_STORM.title": "风暴",
-  "DICEOMANCER_KEYWORD_STORM.description": "打出此牌时，每有1点怒火，额外结算1次。",
+  "DICEOMANCER_KEYWORD_STORM.description": "打出此牌时，每有1个情感球，额外结算1次。",
   
   "DICEOMANCER_KEYWORD_CHAOS4.title": "混乱4",
   "DICEOMANCER_KEYWORD_CHAOS4.description": "抽到时在1~4范围内重掷这张牌的基本效果。",
