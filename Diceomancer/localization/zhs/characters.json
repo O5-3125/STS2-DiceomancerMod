@@ -1,35 +1,35 @@
 ﻿{
-  /*------------- 莽战士 ----------- */
+  /*------------- 野蛮人 ----------- */
   // 混沌香气事件中的内心独白
-  "DICEOMANCER_CHARACTER_BERSERKER.aromaPrinciple": "[sine][red]……ZZZ…ZZZ…ZZZ…[/red][/sine]",
+  "DICEOMANCER_CHARACTER_BARBARIAN.aromaPrinciple": "[sine][red]……ZZZ…ZZZ…ZZZ…[/red][/sine]",
   // 多人模式：存活时回合结束对白
-  "DICEOMANCER_CHARACTER_BERSERKER.banter.alive.endTurnPing": "多人模式：存活时回合结束对白",
+  "DICEOMANCER_CHARACTER_BARBARIAN.banter.alive.endTurnPing": "多人模式：存活时回合结束对白",
   // 多人模式：死亡后回合结束对白
-  "DICEOMANCER_CHARACTER_BERSERKER.banter.dead.endTurnPing": "多人模式：死亡后回合结束对白",
+  "DICEOMANCER_CHARACTER_BARBARIAN.banter.dead.endTurnPing": "多人模式：死亡后回合结束对白",
   // 自定义模式文本
-  "DICEOMANCER_CHARACTER_BERSERKER.cardsModifierDescription": "莽战士的卡牌现在会出现在奖励和商店中。",
+  "DICEOMANCER_CHARACTER_BARBARIAN.cardsModifierDescription": "野蛮人的卡牌现在会出现在奖励和商店中。",
   // 卡池名字
-  "DICEOMANCER_CHARACTER_BERSERKER.cardsModifierTitle": "莽战士卡牌",
+  "DICEOMANCER_CHARACTER_BARBARIAN.cardsModifierTitle": "野蛮人卡牌",
   // 角色选择界面描述
-  "DICEOMANCER_CHARACTER_BERSERKER.description": "还没做好。\n",
+  "DICEOMANCER_CHARACTER_BARBARIAN.description": "野蛮人可不是傻瓜！\n",
   // 死亡时事件对话
-  "DICEOMANCER_CHARACTER_BERSERKER.eventDeathPrevention": "死亡时事件对话",
+  "DICEOMANCER_CHARACTER_BARBARIAN.eventDeathPrevention": "死亡时事件对话",
   // 沉没宝库事件中对金币的独白
-  "DICEOMANCER_CHARACTER_BERSERKER.goldMonologue": "[sine][blue]金币总是有用的。[/blue][/sine]",
+  "DICEOMANCER_CHARACTER_BARBARIAN.goldMonologue": "[sine][blue]金币总是有用的。[/blue][/sine]",
   // 物主形容词，用于动态文本
-  "DICEOMANCER_CHARACTER_BERSERKER.possessiveAdjective": "莽战士",
+  "DICEOMANCER_CHARACTER_BARBARIAN.possessiveAdjective": "野蛮人",
   // 宾语代词
-  "DICEOMANCER_CHARACTER_BERSERKER.pronounObject": "莽战士",
+  "DICEOMANCER_CHARACTER_BARBARIAN.pronounObject": "野蛮人",
   // 所有格代词
-  "DICEOMANCER_CHARACTER_BERSERKER.pronounPossessive": "莽战士",
+  "DICEOMANCER_CHARACTER_BARBARIAN.pronounPossessive": "野蛮人",
   // 主语代词
-  "DICEOMANCER_CHARACTER_BERSERKER.pronounSubject": "莽战士",
+  "DICEOMANCER_CHARACTER_BARBARIAN.pronounSubject": "野蛮人",
   // 角色名（标题用）
-  "DICEOMANCER_CHARACTER_BERSERKER.title": "莽战士",
+  "DICEOMANCER_CHARACTER_BARBARIAN.title": "野蛮人",
   // 角色名（作宾语用）
-  "DICEOMANCER_CHARACTER_BERSERKER.titleObject": "莽战士",
+  "DICEOMANCER_CHARACTER_BARBARIAN.titleObject": "野蛮人",
   // 解锁条件文案，{Prerequisite} 会被替换
-  "DICEOMANCER_CHARACTER_BERSERKER.unlockText": "用[pink]{Prerequisite}[/pink]进行一局游戏来解锁这个角色。",
+  "DICEOMANCER_CHARACTER_BARBARIAN.unlockText": "用[pink]{Prerequisite}[/pink]进行一局游戏来解锁这个角色。",
 
   /*------------- 工匠 ----------- */
   // 混沌香气事件中的内心独白

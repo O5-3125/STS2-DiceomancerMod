@@ -20,7 +20,7 @@ public class HeartOfSteel : ModRelicTemplate
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new HealVar(40)
+        new HealVar(50)
     ];
 
     public override async Task BeforeCombatStart()

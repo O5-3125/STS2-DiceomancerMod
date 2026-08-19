@@ -19,10 +19,17 @@ public class InspirationVoid : ModRelicTemplate
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(5)];
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new CardsVar(5),
+        new StringVar("cardTitle", nameof(NullCard))
+    ];
+
     public override string PackedIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
     protected override string PackedIconOutlinePath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
+
     protected override string BigIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
+
     // 通过HoverTipFactory添加各种提示文本
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
         HoverTipFactory.FromCardWithCardHoverTips<NullCard>();

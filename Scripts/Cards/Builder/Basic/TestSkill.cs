@@ -1,5 +1,5 @@
 using Diceomancer.Scripts.Common;
-using Diceomancer.Scripts.Hero;
+using Diceomancer.Scripts.Common.Utils;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -9,7 +9,6 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Enchantments;
 using MegaCrit.Sts2.Core.ValueProps;
-using STS2RitsuLib.Combat.SecondaryResources;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
@@ -30,6 +29,6 @@ public class TestSkill()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await SecondaryResourceCmd.Gain(Owner, Rage.Id, 1);
+        await BarbarianCardUtils.ChannelEmotionOrbs(choiceContext, Owner, 1);
     }
 }

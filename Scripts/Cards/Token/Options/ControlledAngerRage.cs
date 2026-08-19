@@ -1,10 +1,9 @@
-using Diceomancer.Scripts.Hero;
+using Diceomancer.Scripts.Common.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
-using STS2RitsuLib.Combat.SecondaryResources;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
@@ -25,6 +24,7 @@ public class ControlledAngerRage()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await SecondaryResourceCmd.Gain(Owner, Rage.Id, DynamicVars["Rage"].IntValue, this);
+        await BarbarianCardUtils.ChannelEmotionOrbs(choiceContext, Owner,
+            DynamicVars["Rage"].IntValue);
     }
 }

@@ -1,4 +1,7 @@
 ﻿{
+  "DICEOMANCER_ORB_EMOTION_ORB.title": "情感球",
+  "DICEOMANCER_ORB_EMOTION_ORB.description": "情感球：没有被动效果。激发时对随机敌人施加3层燃烧。",
+  "DICEOMANCER_ORB_EMOTION_ORB.smartDescription": "[gold]激发：[/gold]对随机敌人施加[blue]{Evoke}[/blue]层[gold]燃烧[/gold]。",
   "DICEOMANCER_ORB_MANA_BLACK.title": "黑色球",
   "DICEOMANCER_ORB_MANA_BLACK.description": "黑色球：没有效果。",
   "DICEOMANCER_ORB_MANA_BLACK.smartDescription": "没有效果",

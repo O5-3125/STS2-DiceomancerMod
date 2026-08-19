@@ -1,7 +1,4 @@
 using Diceomancer.Scripts.Common.Utils;
-using Diceomancer.Scripts.Hero.Berserker;
-using Diceomancer.Scripts.Powers.Berserker;
-using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -21,6 +18,6 @@ public class ReleaseConvert()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await BerserkerCardUtils.ConvertFrenzyToRage(choiceContext, Owner, this);
+        await BarbarianCardUtils.ConvertFuryToOrbs(choiceContext, Owner);
     }
 }

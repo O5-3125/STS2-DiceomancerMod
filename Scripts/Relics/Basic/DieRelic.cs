@@ -23,17 +23,12 @@ public abstract class DieRelic : ModRelicTemplate
 
     private CardReward? _lastReward;
     private bool _optionUsed;
-    
+
     protected abstract string OptionKey { get; }
 
-
-    // public override string PackedIconPath => $"res://Diceomancer/images/Relics/{IconFileName}";
-    // protected override string PackedIconOutlinePath => $"res://Diceomancer/images/Relics/{IconFileName}";
-    // protected override string BigIconPath => $"res://Diceomancer/images/Relics/{IconFileName}";
-    
-    public override string PackedIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}";
-    protected override string PackedIconOutlinePath => $"res://Diceomancer/images/Relics/{GetType().Name}";
-    protected override string BigIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}";
+    public override string PackedIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
+    protected override string PackedIconOutlinePath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
+    protected override string BigIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
 
     public override async Task AfterObtained()
     {
@@ -42,10 +37,12 @@ public abstract class DieRelic : ModRelicTemplate
         {
             await RelicCmd.Remove(other);
         }
+
         await base.AfterObtained();
     }
 
-    public override bool TryModifyCardRewardAlternatives(Player player, CardReward cardReward, List<CardRewardAlternative> alternatives)
+    public override bool TryModifyCardRewardAlternatives(Player player, CardReward cardReward,
+        List<CardRewardAlternative> alternatives)
     {
         if (Owner != player) return false;
         if (!ReferenceEquals(_lastReward, cardReward))
@@ -53,9 +50,11 @@ public abstract class DieRelic : ModRelicTemplate
             _lastReward = cardReward;
             _optionUsed = false;
         }
+
         if (_optionUsed) return false;
 
-        alternatives.Add(new CardRewardAlternative(OptionKey, () => OnEnchantReward(cardReward), PostAlternateCardRewardAction.DoNothing));
+        alternatives.Add(new CardRewardAlternative(OptionKey, () => OnEnchantReward(cardReward),
+            PostAlternateCardRewardAction.DoNothing));
         return true;
     }
 
@@ -63,8 +62,8 @@ public abstract class DieRelic : ModRelicTemplate
     {
         Flash();
 
-        var cards = cardReward.Cards.ToList();
-        foreach (CardModel card in cards)
+        var cards = cardReward.Cards.Where(model => model.Enchantment is null).ToList();
+        foreach (var card in cards)
         {
             EnchantCard(card);
         }
