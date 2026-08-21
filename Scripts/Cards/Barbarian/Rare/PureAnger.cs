@@ -1,8 +1,12 @@
 using Diceomancer.Scripts.Common;
 using Diceomancer.Scripts.Common.Utils;
 using Diceomancer.Scripts.Hero.Barbarian;
+using Diceomancer.Scripts.Orbs;
+using Diceomancer.Scripts.Orbs.Elements;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -24,6 +28,11 @@ public class PureAnger : ModCardTemplate
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [MyKeywords.Bonus];
 
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
+    [
+        HoverTipFactory.FromOrb<FireElementOrb>()
+    ];
+
     public override int ModifyXValue(CardModel card, int originalValue)
     {
         return originalValue + (IsUpgraded ? 1 : 0);
@@ -33,8 +42,11 @@ public class PureAnger : ModCardTemplate
     {
         var xValue = ResolveEnergyXValue();
         if (xValue <= 0) return;
-
-        await BarbarianCardUtils.ChannelEmotionOrbs(choiceContext, Owner, xValue);
+        for (int i = 0; i < xValue; i++)
+        {
+            await OrbCmd.Channel<FireElementOrb>(choiceContext, Owner);
+        }
+        
     }
 
     protected override void OnUpgrade()

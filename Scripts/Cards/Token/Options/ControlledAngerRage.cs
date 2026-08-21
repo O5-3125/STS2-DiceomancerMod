@@ -1,4 +1,5 @@
 using Diceomancer.Scripts.Common.Utils;
+using Diceomancer.Scripts.Orbs.Elements;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -19,12 +20,14 @@ public class ControlledAngerRage()
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new IntVar("Rage", 3)
+        new RepeatVar(3)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await BarbarianCardUtils.ChannelEmotionOrbs(choiceContext, Owner,
-            DynamicVars["Rage"].IntValue);
+        for (int i = 0; i < DynamicVars.Repeat.IntValue; i++)
+        {
+            await OrbCmd.Channel<FireElementOrb>(choiceContext, Owner);
+        }
     }
 }

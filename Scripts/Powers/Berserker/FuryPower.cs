@@ -1,5 +1,8 @@
 using Diceomancer.Scripts.Common.Utils;
+using Diceomancer.Scripts.Orbs;
+using Diceomancer.Scripts.Orbs.Elements;
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -28,6 +31,12 @@ public class FuryPower : ModPowerTemplate
         if (Amount <= 0) return;
 
         Flash();
-        await BarbarianCardUtils.ConvertFuryToOrbs(choiceContext, Owner.Player);
+        for (int i = 0; i < Amount; i++)
+        {
+            await OrbCmd.Channel<FireElementOrb>(choiceContext, Owner.Player);
+        }
+
+        await PowerCmd.Remove(this);
+        // await BarbarianCardUtils.ConvertFuryToOrbs(choiceContext, Owner.Player);
     }
 }

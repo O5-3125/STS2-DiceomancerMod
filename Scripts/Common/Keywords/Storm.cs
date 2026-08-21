@@ -50,7 +50,7 @@ public static class Storm
             if (!HasStorm(card)) return playCount;
 
 
-            var orbCount = BarbarianCardUtils.CountEmotionOrbs(card.Owner);
+            var orbCount = BarbarianCardUtils.CountElementOrbs(card.Owner);
 
             return playCount + orbCount;
         }

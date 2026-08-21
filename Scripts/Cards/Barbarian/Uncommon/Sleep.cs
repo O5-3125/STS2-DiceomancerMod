@@ -3,6 +3,7 @@ using Diceomancer.Scripts.Hero.Barbarian;
 using Diceomancer.Scripts.Powers;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -21,6 +22,11 @@ public class Sleep() : ModCardTemplate(2, CardType.Skill, CardRarity.Uncommon, T
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new PowerVar<Injury>(16)
+    ];
+
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
+    [
+        HoverTipFactory.FromPower<Injury>()
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

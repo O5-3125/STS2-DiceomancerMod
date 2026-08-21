@@ -1,7 +1,4 @@
 ﻿{
-  "DICEOMANCER_ORB_EMOTION_ORB.title": "情感球",
-  "DICEOMANCER_ORB_EMOTION_ORB.description": "情感球：没有被动效果。激发时对随机敌人施加3层燃烧。",
-  "DICEOMANCER_ORB_EMOTION_ORB.smartDescription": "[gold]激发：[/gold]对随机敌人施加[blue]{Evoke}[/blue]层[gold]燃烧[/gold]。",
   "DICEOMANCER_ORB_MANA_BLACK.title": "黑色球",
   "DICEOMANCER_ORB_MANA_BLACK.description": "黑色球：没有效果。",
   "DICEOMANCER_ORB_MANA_BLACK.smartDescription": "没有效果",
@@ -19,5 +16,27 @@
   "DICEOMANCER_ORB_MANA_RED.smartDescription": "没有效果",
   "DICEOMANCER_ORB_MANA_VOID.title": "无色球",
   "DICEOMANCER_ORB_MANA_VOID.description": "无色球：没有效果。",
-  "DICEOMANCER_ORB_MANA_VOID.smartDescription": "没有效果"
+  "DICEOMANCER_ORB_MANA_VOID.smartDescription": "没有效果",
+  
+  "DICEOMANCER_ORB_WATER_ELEMENT_ORB.title": "水元素",
+  "DICEOMANCER_ORB_WATER_ELEMENT_ORB.description": "元素：获得格挡。",
+  "DICEOMANCER_ORB_WATER_ELEMENT_ORB.smartDescription": "[gold]被动：[/gold]回合结束时，获得[blue]{Passive}[/blue]点[gold]格挡[/gold]。\n[gold]激发：[/gold]获得[blue]{Evoke}[/blue]点[gold]格挡[/gold]。",
+  "DICEOMANCER_ORB_FIRE_ELEMENT_ORB.title": "火元素",
+  "DICEOMANCER_ORB_FIRE_ELEMENT_ORB.description": "元素：向随机敌人施加燃烧。",
+  "DICEOMANCER_ORB_FIRE_ELEMENT_ORB.smartDescription": "[gold]被动：[/gold]回合结束时，向随机敌人施加[blue]{Passive}[/blue]层[gold]燃烧[/gold]。\n[gold]激发：[/gold]向所有敌人施加[blue]{Evoke}[/blue]层[gold]燃烧[/gold]。",
+  "DICEOMANCER_ORB_EARTH_ELEMENT_ORB.title": "土元素",
+  "DICEOMANCER_ORB_EARTH_ELEMENT_ORB.description": "元素：恢复负伤。",
+  "DICEOMANCER_ORB_EARTH_ELEMENT_ORB.smartDescription": "[gold]被动：[/gold]回合结束时，恢复[blue]{Passive}[/blue]层[gold]负伤[/gold]。\n[gold]激发：[/gold]回复[blue]{Evoke}[/blue]点生命。",
+  "DICEOMANCER_ORB_DARK_ELEMENT_ORB.title": "暗元素",
+  "DICEOMANCER_ORB_DARK_ELEMENT_ORB.description": "元素：向随机敌人减益。",
+  "DICEOMANCER_ORB_DARK_ELEMENT_ORB.smartDescription": "[gold]被动：[/gold]回合结束时，向随机敌人施加[blue]{Passive}[/blue]层随机减益。\n[gold]激发：[/gold]向随机敌人施加[blue]{Evoke}[/blue]层所有减益。",
+  "DICEOMANCER_ORB_CHAOS_ELEMENT_ORB.title": "扭曲元素",
+  "DICEOMANCER_ORB_CHAOS_ELEMENT_ORB.description": "元素：获得栏位。",
+  "DICEOMANCER_ORB_CHAOS_ELEMENT_ORB.smartDescription": "[gold]激发：[/gold]获得[blue]1[/blue]个栏位，生成1个[gold]扭曲元素[/gold]。",
+  "DICEOMANCER_ORB_VOID_ELEMENT_ORB.title": "纯粹元素",
+  "DICEOMANCER_ORB_VOID_ELEMENT_ORB.description": "元素：生成随机元素。",
+  "DICEOMANCER_ORB_VOID_ELEMENT_ORB.smartDescription": "[gold]被动：[/gold]回合结束时，生成随机基础元素。\n[gold]激发：[/gold]生成所有元素各1个。",
+  "DICEOMANCER_ORB_FUSION_ELEMENT_ORB.title": "融合元素",
+  "DICEOMANCER_ORB_FUSION_ELEMENT_ORB.description": "融合元素：暂无效果。",
+  "DICEOMANCER_ORB_FUSION_ELEMENT_ORB.smartDescription": "暂无效果"
 }

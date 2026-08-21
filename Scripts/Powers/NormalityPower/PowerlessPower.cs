@@ -12,47 +12,37 @@ using STS2RitsuLib.Scaffolding.Content;
 namespace Diceomancer.Scripts.Powers.NormalityPower;
 
 [RegisterPower]
-public class PowerlessPower :ModPowerTemplate  //TemporaryStrengthPower 
+public class PowerlessPower : ModPowerTemplate
 {
     public override PowerType Type => PowerType.Debuff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
-    
+
     public override PowerAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Power/{GetType().Name}.png",
         $"res://Diceomancer/images/Power/{GetType().Name}.png"
     );
-    
+
     public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer,
         CardModel? cardSource, CardPlay? cardPlay)
     {
         if (dealer != Owner && dealer != null && !Owner.Pets.Contains(dealer)) return 0m;
-    
+
         if (!props.IsPoweredAttack()) return 0m;
-    
+
         // if (cardSource == null)
         // {
         //     return 0m;
         // }
-        
+
         return -Amount;
-        
     }
-    
-    public override async Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer,
-        DamageResult result, ValueProp props, Creature target, CardModel? cardSource)
-    {
-        if (dealer != null && (dealer == Owner || dealer.PetOwner?.Creature == Owner) && props.IsPoweredAttack())
-        {
-            await PowerCmd.Remove(this);
-        }
-    }
-    
+
     public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
         IEnumerable<Creature> participants)
     {
         if (side != Owner.Side) return;
-    
+
         await PowerCmd.Remove(this);
     }
 }

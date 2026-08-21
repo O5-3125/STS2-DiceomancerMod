@@ -29,6 +29,5 @@ public class TestSkill()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await BarbarianCardUtils.ChannelEmotionOrbs(choiceContext, Owner, 1);
     }
 }

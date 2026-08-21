@@ -57,7 +57,6 @@ public class Injury : ModPowerTemplate, IHealthBarForecastSource
             ValueProp.Unblockable | ValueProp.Unpowered, null, null);
 
         if (side == Owner.Side)
-            // await PowerCmd.Remove(this);
             await PowerCmd.ModifyAmount(choiceContext, this, -(Amount / 2+ 1), Owner, null);
     }
 }

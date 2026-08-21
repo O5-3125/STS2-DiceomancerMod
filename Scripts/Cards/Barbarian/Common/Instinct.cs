@@ -1,5 +1,6 @@
 using Diceomancer.Scripts.Hero.Barbarian;
 using Diceomancer.Scripts.Powers;
+using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -30,7 +31,9 @@ public class Instinct() : ModCardTemplate(1, CardType.Skill, CardRarity.Common, 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
         new HoverTip(new LocString("static_hover_tips", "vengeance.title"),
-            new LocString("static_hover_tips", "vengeance.description"))
+            new LocString("static_hover_tips", "vengeance.description")),
+        HoverTipFactory.FromPower<Excitement>(),
+        HoverTipFactory.FromPower<StrengthPower>()
     ];
 
     protected override bool ShouldGlowGoldInternal =>

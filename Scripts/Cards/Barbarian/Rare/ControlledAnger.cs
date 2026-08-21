@@ -2,11 +2,14 @@
 using Diceomancer.Scripts.Common;
 using Diceomancer.Scripts.Common.Utils;
 using Diceomancer.Scripts.Hero.Barbarian;
+using Diceomancer.Scripts.Orbs;
+using Diceomancer.Scripts.Orbs.Elements;
 using Diceomancer.Scripts.Powers;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using STS2RitsuLib.Interop.AutoRegistration;
@@ -28,6 +31,12 @@ public class ControlledAnger() : ModCardTemplate(1, CardType.Skill, CardRarity.R
         new("Rage", 3),
         new CardsVar(4),
         new PowerVar<Injury>(8)
+    ];
+
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
+    [
+        HoverTipFactory.FromOrb<FireElementOrb>(),
+        HoverTipFactory.FromPower<Injury>()
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

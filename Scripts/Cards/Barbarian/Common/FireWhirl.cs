@@ -29,7 +29,8 @@ public class FireWhirl() : ModCardTemplate(1, CardType.Skill, CardRarity.Common,
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
-        HoverTipFactory.FromCard<Flame>()
+        HoverTipFactory.FromCard<Flame>(),
+        HoverTipFactory.FromPower<BurnPower>()
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

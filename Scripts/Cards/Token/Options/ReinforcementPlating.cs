@@ -1,3 +1,4 @@
+using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -19,12 +20,12 @@ public class ReinforcementPlating()
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<PlatingPower>(5)
+        new PowerVar<FortifiedPower>(7)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<PlatingPower>(choiceContext, Owner.Creature,
-            DynamicVars["PlatingPower"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<FortifiedPower>(choiceContext, Owner.Creature,
+            DynamicVars["FortifiedPower"].IntValue, Owner.Creature, this);
     }
 }

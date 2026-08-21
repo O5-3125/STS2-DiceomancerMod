@@ -28,7 +28,8 @@ public class Burst() : ModCardTemplate(1, CardType.Skill, CardRarity.Common, Tar
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
         new HoverTip(new LocString("static_hover_tips", "vengeance.title"),
-            new LocString("static_hover_tips", "vengeance.description"))
+            new LocString("static_hover_tips", "vengeance.description")),
+        HoverTipFactory.FromPower<FuryPower>()
     ];
 
     protected override bool ShouldGlowGoldInternal =>
@@ -40,7 +41,7 @@ public class Burst() : ModCardTemplate(1, CardType.Skill, CardRarity.Common, Tar
 
         if (Owner.Creature.GetPowerAmount<Injury>() > 4)
             await PowerCmd.Apply<FuryPower>(choiceContext, Owner.Creature,
-                DynamicVars["FrenzyPower"].IntValue, Owner.Creature, this);
+                DynamicVars["FuryPower"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

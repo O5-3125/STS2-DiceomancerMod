@@ -1,5 +1,6 @@
 ﻿using Diceomancer.Scripts.Cards.Template;
 using Diceomancer.Scripts.Hero.Builder;
+using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -23,7 +24,7 @@ public class Hope() : MiracleTemplate(1, CardType.Skill, CardRarity.Rare, Target
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new PowerVar<StrengthPower>(4),
-        new PowerVar<PlatingPower>(4).WithSharedTooltip("miracle")
+        new PowerVar<FortifiedPower>(6).WithSharedTooltip("miracle")
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -33,13 +34,13 @@ public class Hope() : MiracleTemplate(1, CardType.Skill, CardRarity.Rare, Target
         await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature, DynamicVars["StrengthPower"].IntValue,
             Owner.Creature, this);
 
-        await PowerCmd.Apply<PlatingPower>(choiceContext, Owner.Creature, DynamicVars["PlatingPower"].IntValue,
+        await PowerCmd.Apply<FortifiedPower>(choiceContext, Owner.Creature, DynamicVars["FortifiedPower"].IntValue,
             Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
         DynamicVars["StrengthPower"].UpgradeValueBy(2);
-        DynamicVars["PlatingPower"].UpgradeValueBy(2);
+        DynamicVars["FortifiedPower"].UpgradeValueBy(3);
     }
 }

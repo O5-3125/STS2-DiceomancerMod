@@ -3,6 +3,7 @@ using Diceomancer.Scripts.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -15,6 +16,11 @@ public class Superposition() : ModCardTemplate(2, CardType.Power, CardRarity.Rar
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new PowerVar<SuperpositionPower>(1)
+    ];
+
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
+    [
+        HoverTipFactory.FromPower<SuperpositionPower>()
     ];
 
 

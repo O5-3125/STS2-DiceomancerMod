@@ -2,9 +2,11 @@ using Diceomancer.Scripts.Common;
 using Diceomancer.Scripts.Common.Utils;
 using Diceomancer.Scripts.Hero.Barbarian;
 using Diceomancer.Scripts.Powers;
+using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -24,6 +26,12 @@ public class VeryVeryAnger() : ModCardTemplate(1, CardType.Skill, CardRarity.Com
     [
         new PowerVar<Injury>(2),
         new PowerVar<Excitement>(2)
+    ];
+
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
+    [
+        HoverTipFactory.FromPower<Injury>(),
+        HoverTipFactory.FromPower<Excitement>()
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

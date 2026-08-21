@@ -13,7 +13,8 @@ using STS2RitsuLib.Scaffolding.Content;
 namespace Diceomancer.Scripts.Cards.Barbarian.Basic;
 
 [RegisterCard(typeof(BarbarianCardPool))]
-public class Javelin() : ModCardTemplate(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+[RegisterCharacterStarterCard(typeof(Hero.Barbarian.Barbarian))]
+public class Javelin() : ModCardTemplate(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
 {
     public override CardAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"

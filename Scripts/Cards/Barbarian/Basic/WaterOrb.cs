@@ -1,5 +1,6 @@
+﻿using Diceomancer.Scripts.Common;
 using Diceomancer.Scripts.Hero.Barbarian;
-using Diceomancer.Scripts.Powers.NormalityPower;
+using Diceomancer.Scripts.Orbs.Elements;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -8,10 +9,11 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
-namespace Diceomancer.Scripts.Cards.Barbarian.Common;
+namespace Diceomancer.Scripts.Cards.Barbarian.Basic;
 
 [RegisterCard(typeof(BarbarianCardPool))]
-public class MistyStep() : ModCardTemplate(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+[RegisterCharacterStarterCard(typeof(Hero.Barbarian.Barbarian))]
+public class WaterOrb() : ModCardTemplate(0, CardType.Attack, CardRarity.Basic, TargetType.Self)
 {
     public override CardAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
@@ -19,26 +21,22 @@ public class MistyStep() : ModCardTemplate(1, CardType.Skill, CardRarity.Common,
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new("Evade", 2M)
+        new RepeatVar(1)
     ];
 
-    // 通过HoverTipFactory添加各种提示文本
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
-        HoverTipFactory.FromPower<EvadePower>()
+        HoverTipFactory.FromOrb<WaterElementOrb>()
     ];
+
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<EvadePower>(choiceContext,
-            Owner.Creature,
-            DynamicVars["Evade"].IntValue,
-            Owner.Creature,
-            this);
+        await OrbCmd.Channel<WaterElementOrb>(choiceContext, Owner);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["Evade"].UpgradeValueBy(1);
+        AddKeyword(MyKeywords.Bonus);
     }
 }

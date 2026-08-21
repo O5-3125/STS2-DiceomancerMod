@@ -1,4 +1,7 @@
 using Diceomancer.Scripts.Common.Utils;
+using Diceomancer.Scripts.Orbs;
+using Diceomancer.Scripts.Orbs.Elements;
+using Diceomancer.Scripts.Powers.Berserker;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -18,6 +21,17 @@ public class ReleaseConvert()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await BarbarianCardUtils.ConvertFuryToOrbs(choiceContext, Owner);
+        var fury = (Owner).Creature.GetPower<FuryPower>();
+
+        if (fury == null) return;
+
+
+        for (var i = 0; i < fury.Amount; i++)
+        {
+            
+            await OrbCmd.Channel<FireElementOrb>(choiceContext, Owner);
+        }
+
+        await PowerCmd.Remove<FuryPower>(Owner.Creature);
     }
 }

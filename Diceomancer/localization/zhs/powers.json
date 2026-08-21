@@ -1,15 +1,6 @@
 ﻿{
   //  description：静态描述。从卡牌弹出的能力提示文本，没有任何独有变量。
   //  smartDescription：动态描述。悬浮玩家角色弹出的提示，会注入下文列出的运行时变量并叠加 `DynamicVars`。
-
-  //`Amount` 当前层数/数值 `获得[blue]{Amount}[/blue]点[gold]力量[/gold]。`
-  //`OnPlayer` 持有者是否为玩家 `{OnPlayer:你\|该敌人}获得{Amount}点力量。`
-  //`IsMultiplayer` 本场战斗是否多人 `{IsMultiplayer:（联机）\|}`
-  //`PlayerCount` 本场战斗玩家数量 `场上共有{PlayerCount}名玩家。`
-  //`OwnerName` 持有者名称 `{OwnerName}获得{Amount}点力量。`
-  //`ApplierName` 施加者名称 `由{ApplierName}施加。`
-  //`TargetName` 目标名称 `对{TargetName}生效。`
-
   //  remoteDescription：联机专用。当能力由他人施加（`Applier` 存在且不是本地玩家）且配置了该键时，用其替换 `smartDescription`。
 
   "DICEOMANCER_POWER_BEACON_POWER.title": "信标",
@@ -25,27 +16,31 @@
   //
   "DICEOMANCER_POWER_EVADE_POWER.title": "闪避",
   "DICEOMANCER_POWER_EVADE_POWER.description": "下次受到的伤害变为0。\n回合开始时递减。",
-  "DICEOMANCER_POWER_EVADE_POWER.smartDescription": "阻止下{Amount}次受到的伤害。\n回合开始时失去一层。",
+  "DICEOMANCER_POWER_EVADE_POWER.smartDescription": "阻止下{Amount}次受到的伤害。\n回合开始时减少一层。",
   //
   "DICEOMANCER_POWER_CRITICAL_HIT.title": "暴击",
   "DICEOMANCER_POWER_CRITICAL_HIT.description": "下次造成的伤害翻倍。\n回合结束时递减。",
-  "DICEOMANCER_POWER_CRITICAL_HIT.smartDescription": "下{Amount}次造成的伤害翻倍。\n回合结束时失去一层。",
+  "DICEOMANCER_POWER_CRITICAL_HIT.smartDescription": "下{Amount}次造成的伤害翻倍。\n回合结束时减少一层。",
   //
   "DICEOMANCER_POWER_HASTE_POWER.title": "加速",
   "DICEOMANCER_POWER_HASTE_POWER.description": "本回合你每打出一张牌，抽一张牌。",
   "DICEOMANCER_POWER_HASTE_POWER.smartDescription": "本回合当你打出牌时，层数减少并抽一张牌。",
   //
   "DICEOMANCER_POWER_EXCITEMENT.title": "临时力量",
-  "DICEOMANCER_POWER_EXCITEMENT.description": "攻击伤害增加，回合结束时失去。",
-  "DICEOMANCER_POWER_EXCITEMENT.smartDescription": "本回合攻击伤害增加{Amount}。",
+  "DICEOMANCER_POWER_EXCITEMENT.description": "攻击伤害增加，回合结束时失去一半。",
+  "DICEOMANCER_POWER_EXCITEMENT.smartDescription": "攻击伤害增加{Amount}。回合结束时失去一半。",
+  //
+  "DICEOMANCER_POWER_FORTIFIED_POWER.title": "加固",
+  "DICEOMANCER_POWER_FORTIFIED_POWER.description": "回合结束时获得层数点格挡，然后层数减半。",
+  "DICEOMANCER_POWER_FORTIFIED_POWER.smartDescription": "回合结束时获得{Amount}点[gold]格挡[/gold]，然后层数减半。",
   //
   "DICEOMANCER_POWER_BURN_POWER.title": "燃烧",
   "DICEOMANCER_POWER_BURN_POWER.description": "燃烧的生物会在自身回合结束时受到伤害。燃烧层数每回合减少。",
-  "DICEOMANCER_POWER_BURN_POWER.smartDescription": "回合结束时受到{Amount}点伤害。",
+  "DICEOMANCER_POWER_BURN_POWER.smartDescription": "回合结束时受到{Amount}点伤害。燃烧减半。",
   //
   "DICEOMANCER_POWER_BLEED_POWER.title": "流血",
   "DICEOMANCER_POWER_BLEED_POWER.description": "流血的生物会在自身回合结束时失去生命。流血层数每回合增加1。",
-  "DICEOMANCER_POWER_BLEED_POWER.smartDescription": "回合结束时失去{Amount}点生命。流血层数增加。",
+  "DICEOMANCER_POWER_BLEED_POWER.smartDescription": "回合结束时失去{Amount}点生命。流血增加1。",
   //
   "DICEOMANCER_POWER_BLIND_POWER.title": "目盲",
   "DICEOMANCER_POWER_BLIND_POWER.description": "下次造成的伤害落空。",
@@ -56,8 +51,8 @@
   "DICEOMANCER_POWER_BURDEN_POWER.smartDescription": "本回合你打出下{Amount}张牌时，失去{Energy:energyIcons()}。",
   //
   "DICEOMANCER_POWER_POWERLESS_POWER.title": "无力",
-  "DICEOMANCER_POWER_POWERLESS_POWER.description": "本回合下次造成的伤害减少。",
-  "DICEOMANCER_POWER_POWERLESS_POWER.smartDescription": "本回合下次造成的伤害减少{Amount}。",
+  "DICEOMANCER_POWER_POWERLESS_POWER.description": "本回合造成的伤害减少。",
+  "DICEOMANCER_POWER_POWERLESS_POWER.smartDescription": "本回合造成的伤害减少{Amount}。",
   //
   "DICEOMANCER_POWER_INJURY.title": "负伤",
   "DICEOMANCER_POWER_INJURY.description": "负伤将在你的回合结束时一次性结算。",
@@ -66,10 +61,6 @@
   "DICEOMANCER_POWER_PANIC_POWER.title": "慌乱",
   "DICEOMANCER_POWER_PANIC_POWER.description": "你每打出一张牌，随机丢弃一张牌。",
   "DICEOMANCER_POWER_PANIC_POWER.smartDescription": "本回合当你每打出一张牌，随机丢弃一张牌。",
-  //
-  "DICEOMANCER_POWER_TECH_POWER.title": "科技",
-  "DICEOMANCER_POWER_TECH_POWER.description": "用于建造的资源。",
-  "DICEOMANCER_POWER_TECH_POWER.smartDescription": "右键点击建造牌，消耗科技进行建造。",
   //
   "DICEOMANCER_POWER_BLACK_ELEMENT.title": "黯元素",
   "DICEOMANCER_POWER_BLACK_ELEMENT.description": "回合结束时给予随机敌人随机减益效果。",
@@ -113,6 +104,7 @@
   //
   "DICEOMANCER_POWER_DEFENSIVE_TACTIC_POWER.title": "防御战术",
   "DICEOMANCER_POWER_DEFENSIVE_TACTIC_POWER.smartDescription": "打出技能牌时，获得{Amount}点格挡。",
+  //
   "DICEOMANCER_POWER_ELASTIC_DEFENCE.title": "弹性防御",
   "DICEOMANCER_POWER_ELASTIC_DEFENCE.smartDescription": "受到未被格挡的伤害时，获得{Amount}格挡。",
   //
@@ -123,7 +115,7 @@
   "DICEOMANCER_POWER_MAX_HAND_SIZE.smartDescription": "手牌上限变为{Amount}。",
   //
   "DICEOMANCER_POWER_IGNITE.title": "点燃",
-  "DICEOMANCER_POWER_IGNITE.smartDescription": "回合开始时，获得{Amount}张烈焰。",
+  "DICEOMANCER_POWER_IGNITE.smartDescription": "回合开始时，获得{Amount}张[gold]烈焰[/gold]。",
   //
   "DICEOMANCER_POWER_WINGED_LIGHT_POWER.title": "飞光",
   "DICEOMANCER_POWER_WINGED_LIGHT_POWER.smartDescription": "出牌后，结束你的额外回合。",
@@ -136,19 +128,12 @@
   //
   "DICEOMANCER_POWER_DYSON_SPHERE_POWER.title": "戴森球计划",
   "DICEOMANCER_POWER_DYSON_SPHERE_POWER.smartDescription": "每抽一张牌，获得{Amount:energyIcons()}。",
+  //
   "DICEOMANCER_POWER_SHARK_TYPHOON_POWER.title": "鲨卷风",
   "DICEOMANCER_POWER_SHARK_TYPHOON_POWER.smartDescription": "抽到非本职业牌时，对随机敌人造成{Amount}点伤害。",
   //
   "DICEOMANCER_POWER_MASS_PRODUCTION_POWER.title": "大规模生产",
   "DICEOMANCER_POWER_MASS_PRODUCTION_POWER.smartDescription": "当你变化牌时，将变化后的牌的复制加入手牌。",
-  //
-  "DICEOMANCER_POWER_FORTIFIED_POWER.title": "加固",
-  "DICEOMANCER_POWER_FORTIFIED_POWER.description": "回合结束时获得层数点格挡，然后层数减半。",
-  "DICEOMANCER_POWER_FORTIFIED_POWER.smartDescription": "回合结束时获得{Amount}点[gold]格挡[/gold]，然后层数减半。",
-  //
-  "DICEOMANCER_POWER_GRASS_RETALIATION_POWER.title": "反击",
-  "DICEOMANCER_POWER_GRASS_RETALIATION_POWER.description": "当格挡被击破时，对玩家造成12点伤害。",
-  "DICEOMANCER_POWER_GRASS_RETALIATION_POWER.smartDescription": "当格挡被击破时，对玩家造成12点伤害。",
   //
   "DICEOMANCER_POWER_INJURY_BLOCK.title": "止痛",
   "DICEOMANCER_POWER_INJURY_BLOCK.description": "阻止[gold]负伤[/gold]的触发。",
@@ -162,13 +147,13 @@
   "DICEOMANCER_POWER_LIMIT_BREAK_POWER.description": "下次洗牌后失去生命。",
   "DICEOMANCER_POWER_LIMIT_BREAK_POWER.smartDescription": "下次[gold]洗牌[/gold]后，失去{Amount}点生命。",
   //
-  "DICEOMANCER_POWER_FIRE_PUNCH_POWER.title": "火焰拳",
+  "DICEOMANCER_POWER_FIRE_PUNCH_POWER.title": "炎拳",
   "DICEOMANCER_POWER_FIRE_PUNCH_POWER.description": "[gold]燃烧[/gold]不再减少。",
   "DICEOMANCER_POWER_FIRE_PUNCH_POWER.smartDescription": "{OwnerName}的[gold]燃烧[/gold]不再减少。",
   //
   "DICEOMANCER_POWER_FURY_POWER.title": "狂怒",
-  "DICEOMANCER_POWER_FURY_POWER.description": "回合开始时，如果有空余的充能球槽位，消耗狂怒获得等量的情感充能球，直到槽位占满。",
-  "DICEOMANCER_POWER_FURY_POWER.smartDescription": "回合开始时，如果有空余的[gold]充能球槽位[/gold]，消耗{Amount}层[gold]狂怒[/gold]获得等量的[gold]情感球[/gold]，直到槽位占满。",
+  "DICEOMANCER_POWER_FURY_POWER.description": "回合开始时，生成火元素。",
+  "DICEOMANCER_POWER_FURY_POWER.smartDescription": "下回合开始时生成{Amount}个[red]火元素[/red]。",
   //
   "DICEOMANCER_POWER_GAIN_MAX_HP_POWER.title": "重返自然",
   "DICEOMANCER_POWER_GAIN_MAX_HP_POWER.description": "战斗结束时，回复最大生命。",

@@ -23,7 +23,7 @@ public class BurnPower : ModPowerTemplate
         $"res://Diceomancer/images/Power/{GetType().Name}.png"
     );
 
-    public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
         IEnumerable<Creature> participants)
     {
         if (side != Owner.Side) return;
@@ -37,7 +37,7 @@ public class BurnPower : ModPowerTemplate
         {
             if (Owner.GetPowerAmount<FirePunchPower>() <= 0)
             {
-                await PowerCmd.Decrement(this);
+                await PowerCmd.ModifyAmount(choiceContext, this, -(Amount / 2 + 1), Owner, null);
             }
         }
         else

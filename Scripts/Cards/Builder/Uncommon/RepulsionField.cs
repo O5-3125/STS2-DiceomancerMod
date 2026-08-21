@@ -1,6 +1,7 @@
 ﻿using Diceomancer.Scripts.Cards.Template;
 using Diceomancer.Scripts.Cards.Upgrade;
 using Diceomancer.Scripts.Hero.Builder;
+using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -22,14 +23,14 @@ public class RepulsionField()
 
     protected override IEnumerable<IHoverTip> OwnAdditionalHoverTips =>
     [
-        HoverTipFactory.FromPower<PlatingPower>(),
+        HoverTipFactory.FromPower<FortifiedPower>(),
         HoverTipFactory.FromPower<WeakPower>()
     ];
 
     protected override IEnumerable<DynamicVar> OwnCanonicalVars =>
     [
         new PowerVar<WeakPower>(2),
-        new PowerVar<PlatingPower>(5)
+        new PowerVar<FortifiedPower>(7)
     ];
 
 
@@ -39,12 +40,12 @@ public class RepulsionField()
 
         await PowerCmd.Apply<WeakPower>(choiceContext, Owner.Creature.CombatState.HittableEnemies,
             DynamicVars.Weak.IntValue, Owner.Creature, this);
-        await PowerCmd.Apply<PlatingPower>(choiceContext, Owner.Creature,
-            DynamicVars["PlatingPower"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<FortifiedPower>(choiceContext, Owner.Creature,
+            DynamicVars["FortifiedPower"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["PlatingPower"].UpgradeValueBy(2m);
+        DynamicVars["FortifiedPower"].UpgradeValueBy(3m);
     }
 }

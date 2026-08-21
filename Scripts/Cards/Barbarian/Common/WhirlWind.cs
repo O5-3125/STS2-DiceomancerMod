@@ -32,9 +32,6 @@ public class WhirlWind : ModCardTemplate
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(CombatState);
-
-        await BarbarianCardUtils.EvokeEmotionOrbs(choiceContext, Owner, 3);
-
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this, cardPlay)
             .TargetingAllOpponents(CombatState)

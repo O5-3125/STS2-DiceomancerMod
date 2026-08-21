@@ -63,6 +63,7 @@
         <Content Include="Scripts\Cards\Ancient\K.cs.uid" />
         <Content Include="Scripts\Cards\Ancient\NullCard.cs.uid" />
         <Content Include="Scripts\Cards\Builder\Uncommon\Swarm.cs.uid" />
+        <Content Include="Scripts\Cards\Curse\Curse.cs.uid" />
         <Content Include="Scripts\Cards\Curse\Exhausted.cs.uid" />
         <Content Include="Scripts\Cards\Curse\Hallucination.cs.uid" />
         <Content Include="Scripts\Cards\Curse\Hesitation.cs.uid" />
@@ -97,7 +98,6 @@
 
 
     <ItemGroup>
-        <Folder Include="Scripts\Cards\Builder\" />
         <Folder Include="Scripts\Cards\Token\Options\" />
         <Folder Include="Scripts\Cards\Token\Scrap\"/>
         <Folder Include="Scripts\Powers\MonstersPower\" />

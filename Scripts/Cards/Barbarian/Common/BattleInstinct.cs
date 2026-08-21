@@ -29,7 +29,8 @@ public class BattleInstinct() : ModCardTemplate(1, CardType.Skill, CardRarity.Co
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
         new HoverTip(new LocString("static_hover_tips", "vengeance.title"),
-            new LocString("static_hover_tips", "vengeance.description"))
+            new LocString("static_hover_tips", "vengeance.description")),
+        HoverTipFactory.FromPower<HastePower>()
     ];
 
     protected override bool ShouldGlowGoldInternal =>

@@ -25,7 +25,8 @@ public class Ignite()
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
-        HoverTipFactory.FromCard<Flame>()
+        HoverTipFactory.FromCard<Flame>(),
+        HoverTipFactory.FromPower<Powers.Ignite>()
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

@@ -33,7 +33,7 @@ public class Evolution() : ModCardTemplate(1, CardType.Skill, CardRarity.Rare, T
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new PowerVar<Excitement>(2),
-        new PowerVar<PlatingPower>(2),
+        new PowerVar<FortifiedPower>(3),
         new PowerVar<HastePower>(2),
         new DynamicVar("Evolution", 2M)
             .WithSharedTooltip("evolution")
@@ -44,7 +44,7 @@ public class Evolution() : ModCardTemplate(1, CardType.Skill, CardRarity.Rare, T
         var option1 = Owner.Creature.CombatState.CreateCard<EvolutionExcitement>(Owner);
         ModifyCardCmd.ModifyCardDynamicVars(option1, DynamicVars["Excitement"].IntValue);
         var option2 = Owner.Creature.CombatState.CreateCard<EvolutionPlating>(Owner);
-        ModifyCardCmd.ModifyCardDynamicVars(option2, DynamicVars["PlatingPower"].IntValue);
+        ModifyCardCmd.ModifyCardDynamicVars(option2, DynamicVars["FortifiedPower"].IntValue);
         var option3 = Owner.Creature.CombatState.CreateCard<EvolutionHaste>(Owner);
         ModifyCardCmd.ModifyCardDynamicVars(option3, DynamicVars["HastePower"].IntValue);
         var options = new List<CardModel> { option1, option2, option3 };

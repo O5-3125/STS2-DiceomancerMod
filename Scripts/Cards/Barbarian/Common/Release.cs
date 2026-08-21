@@ -1,10 +1,13 @@
 using Diceomancer.Scripts.Cards.Token.Options;
 using Diceomancer.Scripts.Common.Utils;
 using Diceomancer.Scripts.Hero.Barbarian;
+using Diceomancer.Scripts.Orbs;
+using Diceomancer.Scripts.Orbs.Elements;
 using Diceomancer.Scripts.Powers.Berserker;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using STS2RitsuLib.Interop.AutoRegistration;
@@ -24,6 +27,12 @@ public class Release() : ModCardTemplate(1, CardType.Skill, CardRarity.Common, T
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new PowerVar<FuryPower>(3)
+    ];
+
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
+    [
+        HoverTipFactory.FromPower<FuryPower>(),
+        HoverTipFactory.FromOrb<FireElementOrb>()
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

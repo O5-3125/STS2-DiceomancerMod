@@ -1,4 +1,5 @@
 using System.Reflection;
+using Diceomancer.Scripts.Cards.Curse;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.CardRewardAlternatives;
@@ -58,9 +59,12 @@ public abstract class DieRelic : ModRelicTemplate
         return true;
     }
 
-    private Task OnEnchantReward(CardReward cardReward)
+    private async Task OnEnchantReward(CardReward cardReward)
     {
         Flash();
+
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(base.Owner.RunState.CreateCard<Curse>(base.Owner),
+            PileType.Deck));
 
         var cards = cardReward.Cards.Where(model => model.Enchantment is null).ToList();
         foreach (var card in cards)
@@ -70,7 +74,7 @@ public abstract class DieRelic : ModRelicTemplate
 
         _optionUsed = true;
         RefreshRewardScreen(cardReward);
-        return Task.CompletedTask;
+        // return Task.CompletedTask;
     }
 
     protected abstract void EnchantCard(CardModel card);
