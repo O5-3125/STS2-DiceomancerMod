@@ -1,5 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -32,13 +31,6 @@ public class ChaosSpell() : ModCardTemplate(0, CardType.Skill, CardRarity.Event,
 
         for (var i = 0; i < powerList.Count(); i++)
             powerList.ElementAt(i).SetAmount(powerAmountList.ElementAt(i));
-
-
-        // foreach (var power in powerList) await PowerCmd.Remove(power);
-        //
-        // for (var i = 0; i < powerList.Count(); i++)
-        //     await PowerCmd.Apply(choiceContext, powerList.ElementAt(i), Owner.Creature,
-        //         powerAmountList.ElementAt(i), Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

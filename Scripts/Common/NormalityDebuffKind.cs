@@ -12,7 +12,7 @@ public enum NormalityDebuffKind
 
     Bleed, // 流血
     Burn, // 燃烧
-    Blind, // 目盲  本回合下次攻击伤害为0
-    Strength, // 无力 力量-1
-    Tainted//  污染
+    Blind, // 目盲
+    ThinSkin, //  脆皮
+    Powerless // 无力
 }

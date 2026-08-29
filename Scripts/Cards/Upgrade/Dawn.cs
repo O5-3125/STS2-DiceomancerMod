@@ -1,4 +1,5 @@
 ﻿using Diceomancer.Scripts.Hero.CardPool;
+using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -19,7 +20,8 @@ public class Dawn()
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<StrengthPower>(2)
+        new PowerVar<StrengthPower>(2),
+        new PowerVar<PowerlessPower>(2),
     ];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
@@ -30,24 +32,13 @@ public class Dawn()
         await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature,
             DynamicVars["StrengthPower"].IntValue, Owner.Creature, this);
 
-        // if (!IsUpgraded)
-        // {
-        //     await PowerCmd.Apply<StrengthPower>(choiceContext, cardPlay.Target,
-        //         -DynamicVars["StrengthPower"].IntValue, Owner.Creature, this);
-        // }
-        // else
-        // {
-        await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature.CombatState.HittableEnemies,
-            -DynamicVars["StrengthPower"].IntValue, Owner.Creature, this);
-        // }
+        await PowerCmd.Apply<PowerlessPower>(choiceContext, Owner.Creature.CombatState.HittableEnemies,
+            DynamicVars["PowerlessPower"].IntValue, Owner.Creature, this);
     }
-    //
-    // public override TargetType TargetType => Target;
-    // private TargetType Target { get; set; } = TargetType.AnyEnemy;
 
     protected override void OnUpgrade()
     {
-        // Target = TargetType.AllEnemies;
         DynamicVars["StrengthPower"].UpgradeValueBy(1);
+        DynamicVars["PowerlessPower"].UpgradeValueBy(1);
     }
 }

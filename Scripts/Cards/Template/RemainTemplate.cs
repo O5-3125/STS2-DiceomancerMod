@@ -4,18 +4,23 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Cards.Template;
 
-// [RegisterCard(typeof(ColorlessCardPool))]
-public sealed class RemainTemplate()
-    : ModCardTemplate(0, CardType.Skill, CardRarity.Rare, TargetType.AllEnemies)
+public abstract class RemainTemplate(
+    int energyCost,
+    CardType type,
+    CardRarity rarity,
+    TargetType targetType,
+    int baseRemain)
+    : ModCardTemplate(energyCost, type, rarity, targetType)
 {
-    private const int MaxRemain = 10;
 
-    private int _currentRemain = MaxRemain;
+
+    private int _currentRemain = baseRemain;
 
     [SavedProperty]
     private int CurrentRemain
@@ -31,11 +36,10 @@ public sealed class RemainTemplate()
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        // new DamageVar(12, ValueProp.Move),
         new IntVar("Remain", CurrentRemain)
     ];
 
-    public override async Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (cardPlay.Card != this) return;
 
@@ -56,7 +60,7 @@ public sealed class RemainTemplate()
 
     public override async Task AfterRestSiteHeal(Player player, bool isMimicked)
     {
-        if (player == Owner && CurrentRemain < MaxRemain) UpdateFromPlay(MaxRemain);
+        if (player == Owner && CurrentRemain < _currentRemain) UpdateFromPlay(_currentRemain);
     }
 
     private void UpdateFromPlay(int newRemain)
@@ -64,9 +68,4 @@ public sealed class RemainTemplate()
         CurrentRemain = newRemain;
     }
 
-
-    // protected override void OnUpgrade()
-    // {
-    //     base.DynamicVars["Remain"].UpgradeValueBy(1m);
-    // }
 }

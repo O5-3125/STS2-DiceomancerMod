@@ -1,79 +1,96 @@
 ﻿{
-  "DICEOMANCER_RELIC_MY_DECK.title": "自制卡组",
-  "DICEOMANCER_RELIC_MY_DECK.description": "当你生成牌时，将其加入卡组。\n当你消耗牌时，将其移出卡组。",
-  "DICEOMANCER_RELIC_MY_DECK.flavor": "让咱们走吧，就你还有我。\n当十一日帝国正将天空吞没。\n宛如人形溶烂得像蛤蜊摆上早餐桌。",
   //
-  "DICEOMANCER_RELIC_TEST_RELIC.title": "测试遗物",
-  "DICEOMANCER_RELIC_TEST_RELIC.description": "测试遗物。",
-  "DICEOMANCER_RELIC_TEST_RELIC.flavor": "测试遗物。",
-  //
-  "DICEOMANCER_RELIC_STATUS.title": "地位",
-  "DICEOMANCER_RELIC_STATUS.description": "你的商店和战斗奖励只有稀有牌。",
+  "DICEOMANCER_RELIC_STATUS.title": "王冠",
+  "DICEOMANCER_RELIC_STATUS.description": "你的商店和战斗奖励只有[gold]稀有[/gold]牌。",
   "DICEOMANCER_RELIC_STATUS.flavor": "注定伟大。",
   //
-  "DICEOMANCER_RELIC_FOUL_PLAY.title": "千术",
-  "DICEOMANCER_RELIC_FOUL_PLAY.description": "拾起时，将{cardTitle}加入你的牌组。",
-  "DICEOMANCER_RELIC_FOUL_PLAY.flavor": "这是什么？",
+  "DICEOMANCER_RELIC_FOUL_PLAY.title": "印牌器",
+  "DICEOMANCER_RELIC_FOUL_PLAY.description": "拾起时，将[gold]{cardTitle}[/gold]加入你的[gold]牌组[/gold]。",
+  "DICEOMANCER_RELIC_FOUL_PLAY.flavor": "要什么牌自己印。",
   //
-  "DICEOMANCER_RELIC_BUILDER_MANA.title": "工匠之球",
-  "DICEOMANCER_RELIC_BUILDER_MANA.description": "在每场战斗开始时，获得{TechPower}点[gold]科技[/gold]。",
-  "DICEOMANCER_RELIC_BUILDER_MANA.flavor": "下雨当成晴天干，晚上当成白天干。",
-  //
-  "DICEOMANCER_RELIC_BUILDER_RING.title": "工匠护符",
-  "DICEOMANCER_RELIC_BUILDER_RING.description": "每回合打出{Cards}张牌后，获得{Energy:energyIcons()},抽2张牌",
-  "DICEOMANCER_RELIC_BUILDER_RING.flavor": "科技引领进步。",
-  //
-  "DICEOMANCER_RELIC_PRO_RING.title": "高手护符",
-  "DICEOMANCER_RELIC_PRO_RING.description": "每回合一次,打出攻击牌后免费打出技能牌，打出技能牌后免费打出攻击牌。",
-  "DICEOMANCER_RELIC_PRO_RING.flavor": "天下武功，无坚不摧，唯快不破！",
-  //
-  "DICEOMANCER_RELIC_RED_BALL.title": "行动之球",
-  "DICEOMANCER_RELIC_RED_BALL.description": "你受到伤害不再失去生命，而是获得等量[gold]负伤[/gold]计数。回合结束失去[gold]负伤[/gold]点生命，随后[gold]负伤[/gold]减半。",
-  "DICEOMANCER_RELIC_RED_BALL.flavor": "速战速决",
-//
   "DICEOMANCER_RELIC_RED_MANA.title": "情感之球",
-  "DICEOMANCER_RELIC_RED_MANA.description": "受到未被格挡的攻击伤害时改为获得等量[gold]负伤[/gold]。",
-  "DICEOMANCER_RELIC_RED_MANA.flavor": "   ",
+  "DICEOMANCER_RELIC_RED_MANA.description": "受到未被[gold]格挡[/gold]的攻击伤害时改为获得等量[gold]负伤[/gold]。",
+  "DICEOMANCER_RELIC_RED_MANA.flavor": "这个遗物的细节将在未来揭晓……",
+  //
+  "DICEOMANCER_RELIC_RED_PURPLE_MANA.title": "情感之球",
+  "DICEOMANCER_RELIC_RED_PURPLE_MANA.description": "受到未被[gold]格挡[/gold]的攻击伤害时改为获得等量[gold]负伤[/gold]。\n每场战斗一次：右键此遗物，打乱你的状态层数。",
+  "DICEOMANCER_RELIC_RED_PURPLE_MANA.flavor": "这个遗物的细节将在未来揭晓……",
   //
   "DICEOMANCER_RELIC_INSPIRATION_VOID.title": "灵感虚空",
-  "DICEOMANCER_RELIC_INSPIRATION_VOID.description": "拾起时，将至多{Cards}张牌[gold]变化[/gold]为[gold]占位符[/gold]。",
+  "DICEOMANCER_RELIC_INSPIRATION_VOID.description": "拾起时，将至多{Cards}张牌[gold]变化[/gold]为[gold]{cardTitle}[/gold]。",
   "DICEOMANCER_RELIC_INSPIRATION_VOID.flavor": "遗忘并非缺失，总有东西会填补缺口。",
-  "DICEOMANCER_RELIC_INSPIRATION_VOID.selectionScreenPrompt": "选择{Cards}张牌变化。",
+  "DICEOMANCER_RELIC_INSPIRATION_VOID.selectionScreenPrompt": "选择{Cards}张牌[gold]变化[/gold]。",
   //
   "DICEOMANCER_RELIC_HEART_OF_STEEL.title": "钢铁之心",
   "DICEOMANCER_RELIC_HEART_OF_STEEL.description": "战斗开始时，生命值变为{Heal}。",
   "DICEOMANCER_RELIC_HEART_OF_STEEL.flavor": "难以受伤，永不愈合。",
   //
   "DICEOMANCER_RELIC_OUROBOROS.title": "衔尾蛇",
-  "DICEOMANCER_RELIC_OUROBOROS.description": "回合结束时，如果你没有手牌也没有能量，则获得额外回合。",
+  "DICEOMANCER_RELIC_OUROBOROS.description": "回合结束时，如果你没有[gold]手牌[/gold]也没有能量，则获得额外回合。",
   "DICEOMANCER_RELIC_OUROBOROS.flavor": "无穷无尽",
   //
   "DICEOMANCER_RELIC_SMALL_MIRROR.title": "小镜子",
-  "DICEOMANCER_RELIC_SMALL_MIRROR.description": "每回合打出的第{Cards}张牌额外打出一次。",
+  "DICEOMANCER_RELIC_SMALL_MIRROR.description": "每回合打出的第{Cards}张[gold]手牌[/gold]额外打出一次。",
   "DICEOMANCER_RELIC_SMALL_MIRROR.flavor": "",
   //
   "DICEOMANCER_RELIC_MINI_MONUMENT.title": "纪念碑",
-  "DICEOMANCER_RELIC_MINI_MONUMENT.description": "回合结束时，保留最多{Cards}张牌。",
-  "DICEOMANCER_RELIC_MINI_MONUMENT.selectionScreenPrompt": "选择{Cards}张牌保留。",
+  "DICEOMANCER_RELIC_MINI_MONUMENT.description": "回合结束时，保留最多{Cards}张[gold]手牌[/gold]。",
+  "DICEOMANCER_RELIC_MINI_MONUMENT.selectionScreenPrompt": "选择{Cards}张[gold]手牌[/gold]保留。",
   "DICEOMANCER_RELIC_MINI_MONUMENT.flavor": "来自上一轮文明的痕迹。",
-//
+  //
   "DICEOMANCER_RELIC_DIMENSIONAL_BAG.title": "次元袋",
-  "DICEOMANCER_RELIC_DIMENSIONAL_BAG.description": "回合结束时，丢弃随机手牌，跳过你的弃牌阶段。",
-  "DICEOMANCER_RELIC_DIMENSIONAL_BAG.flavor": "。",
+  "DICEOMANCER_RELIC_DIMENSIONAL_BAG.description": "回合结束时，丢弃所有[gold]手牌[/gold]。",
+  "DICEOMANCER_RELIC_DIMENSIONAL_BAG.flavor": "很大的袋子，可以装一些你想要丢掉的东西。",
   //
   "DICEOMANCER_RELIC_CHAOS_PENDANT.title": "混乱挂坠",
-  "DICEOMANCER_RELIC_CHAOS_PENDANT.description": "卡牌奖励现在会包含所有卡牌。",
-  "DICEOMANCER_RELIC_CHAOS_PENDANT.flavor": "世界在碰撞，秩序在崩塌。",
+  "DICEOMANCER_RELIC_CHAOS_PENDANT.description": "卡牌奖励和商店会包含大部分卡牌。",
+  "DICEOMANCER_RELIC_CHAOS_PENDANT.flavor": "看卡牌的眼光都变得混沌了起来。",
   //
   "DICEOMANCER_RELIC_CARD_BOOK.title": "便携卡包",
-  "DICEOMANCER_RELIC_CARD_BOOK.description": "拾起时，记录你的牌组大小。\n当你的牌组变得更大时，移除卡牌。",
-  "DICEOMANCER_RELIC_CARD_BOOK.flavor": "不是很大。",
+  "DICEOMANCER_RELIC_CARD_BOOK.description": "拾起时，记录你的[gold]牌组[/gold]大小。\n当卡组变得更大时，随机[red]失去[/red]卡牌。\n（优先失去[gold]诅咒[/gold]和基础牌）",
+  "DICEOMANCER_RELIC_CARD_BOOK.flavor": "很小的卡包，再塞入卡牌就会掉出来。",
   //
   "DICEOMANCER_RELIC_PIGGY_TOY.title": "小猪玩偶",
-  "DICEOMANCER_RELIC_PIGGY_TOY.description": "战斗开始时，获得{ThickSkin}层[gold]厚皮[/gold]。",
+  "DICEOMANCER_RELIC_PIGGY_TOY.description": "战斗开始时，获得{ThickSkin:diff()}层[gold]厚皮[/gold]。",
   "DICEOMANCER_RELIC_PIGGY_TOY.flavor": "哼哼哼……",
   //
   "DICEOMANCER_RELIC_IRON_STOMACH.title": "铁胃",
-  "DICEOMANCER_RELIC_IRON_STOMACH.description": "你不再获得诅咒牌。",
-  "DICEOMANCER_RELIC_IRON_STOMACH.flavor": " "
+  "DICEOMANCER_RELIC_IRON_STOMACH.description": "你不再获得[gold]诅咒[/gold]牌。",
+  "DICEOMANCER_RELIC_IRON_STOMACH.flavor": "",
+  //
+  "DICEOMANCER_RELIC_D4_DIE.title": "四面骰",
+  "DICEOMANCER_RELIC_D4_DIE.description": "你可以重掷卡牌奖励上的数字。\n(ps.暂不兼容浮木，同时选择可能会有bug)",
+  "DICEOMANCER_RELIC_D4_DIE.flavor": "别看了，快用吧！",
+  //
+  "DICEOMANCER_RELIC_D6_DIE.title": "六面骰",
+  "DICEOMANCER_RELIC_D6_DIE.description": "你可以重掷卡牌奖励上的数字。\n(ps.暂不兼容浮木，同时选择可能会有bug)",
+  "DICEOMANCER_RELIC_D6_DIE.flavor": "别看了，快用吧！",
+  //
+  "DICEOMANCER_RELIC_D8_DIE.title": "八面骰",
+  "DICEOMANCER_RELIC_D8_DIE.description": "你可以重掷卡牌奖励上的数字。\n(ps.暂不兼容浮木，同时选择可能会有bug)",
+  "DICEOMANCER_RELIC_D8_DIE.flavor": "别看了，快用吧！",
+  //
+  "DICEOMANCER_RELIC_D12_DIE.title": "十二面骰",
+  "DICEOMANCER_RELIC_D12_DIE.description": "你可以重掷卡牌奖励上的数字。\n(ps.暂不兼容浮木，同时选择可能会有bug)",
+  "DICEOMANCER_RELIC_D12_DIE.flavor": "别看了，快用吧！",
+  //
+  "DICEOMANCER_RELIC_D20_DIE.title": "二十面骰",
+  "DICEOMANCER_RELIC_D20_DIE.description": "你可以重掷卡牌奖励上的数字。\n(ps.暂不兼容浮木，同时选择可能会有bug)",
+  "DICEOMANCER_RELIC_D20_DIE.flavor": "别看了，快用吧！",
+  //
+  "DICEOMANCER_RELIC_VIAL_OF_FORGETFULNESS.title": "瓶装失忆",
+  "DICEOMANCER_RELIC_VIAL_OF_FORGETFULNESS.description": "拾起时，获得一个[gold]药水栏位[/gold]和一瓶[gold]{Potion}[/gold]。",
+  "DICEOMANCER_RELIC_VIAL_OF_FORGETFULNESS.flavor": "以防你忘记了如何忘记。",
+  //
+  "DICEOMANCER_RELIC_BLACK_CARD.title": "很黑的卡",
+  "DICEOMANCER_RELIC_BLACK_CARD.description": "商店物品的价格降低{Gold}[gold]金币[/gold]。",
+  "DICEOMANCER_RELIC_BLACK_CARD.flavor": "尊贵的象征。",
+  //
+  "DICEOMANCER_RELIC_POWER_BANK.title": "聚能手环",
+  "DICEOMANCER_RELIC_POWER_BANK.description": "回合结束时，获得{Energy:energyIcons()}。",
+  "DICEOMANCER_RELIC_POWER_BANK.flavor": "你感受到了无穷无尽的能量。",
+  //
+  "DICEOMANCER_RELIC_EMBER_CORE.title": "余烬之心",
+  "DICEOMANCER_RELIC_EMBER_CORE.description": "回合结束时，保留你未使用的[blue]能量[/blue]到下一回合，但你持有的能量最多为{MaxEnergyCap}。",
+  "DICEOMANCER_RELIC_EMBER_CORE.flavor": "未燃尽的火，总在掌心留一线温热。"
 }

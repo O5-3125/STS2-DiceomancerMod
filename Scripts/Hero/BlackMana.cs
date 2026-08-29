@@ -7,9 +7,7 @@ namespace Diceomancer.Scripts.Hero;
 public static class BlackMana
 {
     public static SecondaryResourceDefinition ManaDefinition { get; private set; } = null!;
-    // public static SecondaryResourceDefinition RageDefinition { get; private set; } = null!;
     public static string ManaId { get; private set; } = string.Empty;
-    // public static string RageId { get; private set; } = string.Empty;
 
     public static void Register()
     {

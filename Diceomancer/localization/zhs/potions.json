@@ -1,8 +1,7 @@
 ﻿{
   "DICEOMANCER_POTION_FORGET_ME_NOT.title": "勿忘我",
-  "DICEOMANCER_POTION_FORGET_ME_NOT.description": "[red]摧毁[/red]弃牌堆的所有卡牌。",
+  "DICEOMANCER_POTION_FORGET_ME_NOT.description": "[red]摧毁[/red][gold]弃牌堆[/gold]的所有卡牌。",
 
-
-  "DICEOMANCER_POTION_BONFIRE.title": "小篝火",
-  "DICEOMANCER_POTION_BONFIRE.description": "回复最大生命值的30%。 "
+  "DICEOMANCER_POTION_MUNDANE_POTION.title": "不平凡的药水",
+  "DICEOMANCER_POTION_MUNDANE_POTION.description": "获得一瓶[gold]不平凡的药水[/gold]。"
 }

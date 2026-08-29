@@ -2,21 +2,27 @@ using System.Reflection;
 using Diceomancer.Scripts.Cards.Ancient;
 using Diceomancer.Scripts.Cards.Builder.Basic;
 using Diceomancer.Scripts.Common;
-using Diceomancer.Scripts.Hero;
 using Diceomancer.Scripts.Hero.CardPool;
 using Diceomancer.Scripts.Powers;
+using Diceomancer.Scripts.Relics.Ancient;
 using Diceomancer.Scripts.Relics.Basic;
+using Diceomancer.Scripts.Relics.Rare;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Logging;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Modding;
+using MegaCrit.Sts2.Core.Models.Events;
 using STS2RitsuLib;
+using STS2RitsuLib.CardPiles;
 using STS2RitsuLib.Cards.Transforms;
 using STS2RitsuLib.Content;
 using STS2RitsuLib.Interop;
 using STS2RitsuLib.Patching.Core;
+using STS2RitsuLib.Scaffolding.Ancients.Options;
 
 namespace Diceomancer.Scripts;
 
@@ -30,7 +36,7 @@ public class Entry
     public static void Init()
     {
         var assembly = Assembly.GetExecutingAssembly();
-        // new Harmony("sts2.diceomancer.binarysword").PatchAll(assembly);
+        new Harmony("sts2.diceomancer.binarysword").PatchAll(assembly);
         RitsuLibFramework.EnsureGodotScriptsRegistered(assembly, Logger);
         // 自动注册内容
         ModTypeDiscoveryHub.RegisterModAssembly(ModId, assembly);
@@ -41,10 +47,11 @@ public class Entry
 
         // 注册初始卡的先古升级
         // 第一个类型参数是你的初始卡，第二个类型参数是被升级成的卡。
-        RitsuLibFramework.RegisterArchaicToothTranscendenceMapping<Pipe, MetalParts>();
+        RitsuLibFramework.RegisterArchaicToothTranscendenceMapping<D6DieCard, D20DieCard>();
 
         // 注册初始遗物的先古升级
-        RitsuLibFramework.RegisterTouchOfOrobasRefinementMapping<BuilderMana, BuilderRing>();
+        RitsuLibFramework.RegisterTouchOfOrobasRefinementMapping<D6Die, D12Die>();
+        RitsuLibFramework.RegisterTouchOfOrobasRefinementMapping<RedMana, RedPurpleMana>();
 
         // 注册卡池
         ModContentRegistry.For(ModId)

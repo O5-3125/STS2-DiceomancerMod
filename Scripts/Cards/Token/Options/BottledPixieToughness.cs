@@ -7,15 +7,15 @@ using MegaCrit.Sts2.Core.Models.CardPools;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
+using Diceomancer.Scripts.Cards.Template;
+using Diceomancer.Scripts.Hero.CardPool;
+
 namespace Diceomancer.Scripts.Cards.Token.Options;
 
-[RegisterCard(typeof(TokenCardPool))]
+[RegisterCard(typeof(OptionsCardPool))]
 public class BottledPixieToughness()
-    : ModCardTemplate(-1, CardType.Skill, CardRarity.Token, TargetType.Self)
+    : OptionsTemplate()
 {
-    public override CardAssetProfile AssetProfile => new(
-        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
-    );
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

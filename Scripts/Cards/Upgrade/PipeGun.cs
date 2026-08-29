@@ -36,6 +36,7 @@ public sealed class PipeGun()
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Repeat.UpgradeValueBy(1m);
+        DynamicVars.Damage.UpgradeValueBy(2m);
+        // DynamicVars.Repeat.UpgradeValueBy(1m);
     }
 }

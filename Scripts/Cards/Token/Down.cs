@@ -1,4 +1,5 @@
 ﻿using Diceomancer.Scripts.Common;
+using Diceomancer.Scripts.Common.Keywords;
 using Diceomancer.Scripts.Common.Utils;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -36,8 +37,6 @@ public class Down() : ModCardTemplate(1, CardType.Skill, CardRarity.Token, Targe
 
 
         ModifyCardCmd.ModifyCardListDynamicVarsAdditive(cardModels, (int)-DynamicVars["Down"].BaseValue);
-
-
     }
 
     protected override void OnUpgrade()

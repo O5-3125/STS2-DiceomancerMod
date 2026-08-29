@@ -4,7 +4,6 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
-using MegaCrit.Sts2.Core.Models.Powers;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
@@ -18,7 +17,7 @@ public class Blur() : ModCardTemplate(2, CardType.Skill, CardRarity.Event, Targe
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new PowerVar<EvadePower>(4),
-        new PowerVar<PlatingPower>(4)
+        new PowerVar<FortifiedPower>(6)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -26,8 +25,8 @@ public class Blur() : ModCardTemplate(2, CardType.Skill, CardRarity.Event, Targe
         await PowerCmd.Apply<EvadePower>(choiceContext, Owner.Creature,
             DynamicVars["EvadePower"].IntValue, Owner.Creature, this);
 
-        await PowerCmd.Apply<PlatingPower>(choiceContext, Owner.Creature,
-            DynamicVars["PlatingPower"].IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<FortifiedPower>(choiceContext, Owner.Creature,
+            DynamicVars["FortifiedPower"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

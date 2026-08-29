@@ -18,12 +18,12 @@ public sealed class Pipe()
     : UpgradeTemplate<PipeGun>(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy, 3)
 {
     public override CardAssetProfile AssetProfile => new(
-        PortraitPath:$"res://Diceomancer/images/Cards/{GetType().Name}.png"
+        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
     );
 
     protected override IEnumerable<DynamicVar> OwnCanonicalVars =>
     [
-        new DamageVar(4, ValueProp.Move),
+        new DamageVar(6, ValueProp.Move),
         new PowerVar<WeakPower>(1)
     ];
 
@@ -43,6 +43,6 @@ public sealed class Pipe()
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(4m);
+        DynamicVars.Damage.UpgradeValueBy(3m);
     }
 }

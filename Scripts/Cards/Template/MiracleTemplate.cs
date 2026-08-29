@@ -15,7 +15,6 @@ public abstract class MiracleTemplate(int energyCost, CardType type, CardRarity 
     public override CardAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
     );
-    // protected override HashSet<CardTag> CanonicalTags => [MyTags.Modify.GetModCardTag()];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
@@ -27,33 +26,20 @@ public abstract class MiracleTemplate(int energyCost, CardType type, CardRarity 
 
     protected override bool ShouldGlowGoldInternal => Miracle;
 
-    public override Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)
+    public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)
     {
-        if (card != this) return Task.CompletedTask;
+        if (card != this) return;
 
         Miracle = !fromHandDraw;
-        return Task.CompletedTask;
     }
-
-    public override Task AfterCardDiscarded(PlayerChoiceContext choiceContext, CardModel card)
+ 
+    public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
     {
-        if (card != this) return Task.CompletedTask;
-        Miracle = true;
+        if (card != this) return;
+        if (card.Pile == null || card.Pile.Type == PileType.Deck) return;
 
-        return Task.CompletedTask;
-    }
 
-    public override Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
-    {
-        Miracle = true;
-        return Task.CompletedTask;
-    }
-
-    public override Task AfterCardGeneratedForCombat(CardModel card, Player? creator)
-    {
-        if (card == this)
+        if (card.Pile != PileType.Hand.GetPile(Owner))
             Miracle = true;
-
-        return Task.CompletedTask;
     }
 }

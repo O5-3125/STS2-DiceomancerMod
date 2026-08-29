@@ -1,4 +1,4 @@
-using Diceomancer.Scripts.Common;
+using Diceomancer.Scripts.Cards.Template;
 using Diceomancer.Scripts.Hero.Builder;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -7,34 +7,16 @@ using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using STS2RitsuLib.Cards.DynamicVars;
-using STS2RitsuLib.CardTags;
 using STS2RitsuLib.Interop.AutoRegistration;
-using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Cards.Builder.Uncommon;
 
 [RegisterCard(typeof(BuilderCardPool))]
-// [RegisterCharacterStarterCard(typeof(DiceomancerCharacter))]
-public class WhatIsThis() : ModCardTemplate(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class WhatIsThis() : EvolutionTemplate(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self, 2M)
 {
-    public override CardAssetProfile AssetProfile => new(
-        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
-    );
-
-    // public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
-
-    protected override HashSet<CardTag> CanonicalTags =>
+    protected override IEnumerable<DynamicVar> OwnCanonicalVars =>
     [
-        MyTags.Evolution.GetModCardTag()
-    ];
-
-
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new CardsVar(3),
-        new DynamicVar("Evolution", 2M)
-            .WithSharedTooltip("evolution")
+        new CardsVar(3)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

@@ -1,8 +1,8 @@
 using Diceomancer.Scripts.Cards.Token.Options;
 using Diceomancer.Scripts.Common;
+using Diceomancer.Scripts.Common.Keywords;
 using Diceomancer.Scripts.Common.Utils;
 using Diceomancer.Scripts.Hero.Builder;
-using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -27,6 +27,11 @@ public class ToolBox() : ModCardTemplate(0, CardType.Skill, CardRarity.Common, T
         new BlockVar(5, ValueProp.Move)
     ];
 
+    public override IEnumerable<CardKeyword> CanonicalKeywords =>
+    [
+        CardKeyword.Exhaust
+    ];
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         var option1 = Owner.Creature.CombatState.CreateCard<ToolBoxDamage>(Owner);
@@ -36,11 +41,8 @@ public class ToolBox() : ModCardTemplate(0, CardType.Skill, CardRarity.Common, T
         var options = new List<CardModel> { option1, option2 };
 
         var cardModel =
-            await CardSelectCmd.FromChooseACardScreen(choiceContext, options, base.Owner, canSkip: true);
-        if (cardModel is not null)
-        {
-            await CardCmd.AutoPlay(choiceContext, cardModel.CreateDupe(Owner), null);
-        }
+            await CardSelectCmd.FromChooseACardScreen(choiceContext, options, Owner, true);
+        if (cardModel is not null) await CardCmd.AutoPlay(choiceContext, cardModel.CreateDupe(Owner), null);
     }
 
     protected override void OnUpgrade()
