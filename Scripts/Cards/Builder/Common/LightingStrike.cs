@@ -1,4 +1,5 @@
 ﻿using Diceomancer.Scripts.Common;
+using Diceomancer.Scripts.Common.Keywords;
 using Diceomancer.Scripts.Hero.Builder;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -25,7 +26,7 @@ public class LightingStrike() : ModCardTemplate(1, CardType.Attack, CardRarity.C
 
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7, ValueProp.Move)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -39,6 +40,6 @@ public class LightingStrike() : ModCardTemplate(1, CardType.Attack, CardRarity.C
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(4);
+        DynamicVars.Damage.UpgradeValueBy(2);
     }
 }

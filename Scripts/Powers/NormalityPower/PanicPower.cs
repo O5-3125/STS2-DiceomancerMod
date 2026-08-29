@@ -24,7 +24,7 @@ public class PanicPower : ModPowerTemplate
     );
 
     // 每出一张牌
-    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    public override async Task BeforeCardPlayed(CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(Owner.Player);
 
@@ -32,7 +32,7 @@ public class PanicPower : ModPowerTemplate
         if (hand.Cards is { Count: > 0 })
         {
             var cardModel = Owner.Player.RunState.Rng.Shuffle.NextItem(hand.Cards);
-            if (cardModel != null) await CardCmd.Discard(choiceContext, cardModel);
+            if (cardModel != null) await CardCmd.Discard(new ThrowingPlayerChoiceContext(), cardModel);
         }
 
         Flash();

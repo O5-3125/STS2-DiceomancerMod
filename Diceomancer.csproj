@@ -53,7 +53,7 @@
             <Private>false</Private>
         </Reference>
         <!-- NuGet获取，注意版本是否一致，不一致手动更改Version -->
-        <PackageReference Include="STS2.RitsuLib" Version="0.5.10"/>
+        <PackageReference Include="STS2.RitsuLib" Version="0.5.18"/>
 <!--        <PackageReference Include="STS2.RitsuLib" Version="*"/>-->
 
 
@@ -61,6 +61,7 @@
     </ItemGroup>
     
     <ItemGroup>
+        <Content Include="Diceomancer\localization\zhs\card_reward_ui.json" />
         <Content Include="Scripts\Cards\Ancient\K.cs.uid" />
         <Content Include="Scripts\Cards\Ancient\NullCard.cs.uid" />
         <Content Include="Scripts\Cards\Builder\Uncommon\Swarm.cs.uid" />
@@ -71,11 +72,6 @@
         <Content Include="Scripts\Cards\Event\InvincibleStrike.cs.uid" />
         <Content Include="Scripts\Cards\Event\StrikeSecret.cs.uid" />
         <Content Include="Scripts\Cards\Template\MiracleTemplate.cs.uid" />
-        <Content Include="计划\事件.md" />
-        <Content Include="计划\卡牌.md" />
-        <Content Include="计划\怪物.md" />
-        <Content Include="计划\角色.md" />
-        <Content Include="计划\遭遇.md" />
     </ItemGroup>
 
 
@@ -83,7 +79,6 @@
         <Compile Remove="Example\**" />
         <Compile Remove="Scripts\Hero\WonderfulCardPool\**" />
         <Compile Remove="示例\**" />
-        <Compile Remove="Diceomancer\**" />
         <Compile Remove=".godot\**" />
         <Compile Remove="教程\**" />
     </ItemGroup>
@@ -93,7 +88,6 @@
         <EmbeddedResource Remove="Example\**" />
         <EmbeddedResource Remove="Scripts\Hero\WonderfulCardPool\**" />
         <EmbeddedResource Remove="示例\**" />
-        <EmbeddedResource Remove="Diceomancer\**" />
         <EmbeddedResource Remove=".godot\**" />
         <EmbeddedResource Remove="教程\**" />
     </ItemGroup>

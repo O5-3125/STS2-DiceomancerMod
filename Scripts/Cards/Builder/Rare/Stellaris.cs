@@ -12,13 +12,13 @@ using STS2RitsuLib.Scaffolding.Content;
 namespace Diceomancer.Scripts.Cards.Builder.Rare;
 
 [RegisterCard(typeof(BuilderCardPool))]
-public class Stellaris() : ModCardTemplate(2, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class Stellaris() : ModCardTemplate(2, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     public override CardAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
     );
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    // public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

@@ -8,7 +8,6 @@ namespace Diceomancer.Scripts.Common.Utils;
 public static class RandomCmd
 {
     
-    
     public static int CheckD4(Player player)
     {
         return GetRandomInt(player, 1, 4);

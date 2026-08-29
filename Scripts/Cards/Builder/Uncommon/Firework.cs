@@ -45,6 +45,6 @@ public class Firework()
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Cards.UpgradeValueBy(3m);
+        DynamicVars.Cards.UpgradeValueBy(1m);
     }
 }

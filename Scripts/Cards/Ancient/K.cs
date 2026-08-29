@@ -1,5 +1,5 @@
-using Diceomancer.Scripts.Hero;
 using Diceomancer.Scripts.Hero.Builder;
+using Diceomancer.Scripts.Hero.CardPool;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -7,13 +7,14 @@ using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.CardPools;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Cards.Ancient;
 
 // 加入哪个卡池
-[RegisterCard(typeof(BuilderCardPool))]
+[RegisterCard(typeof(ColorlessCardPool))]
 public class K()
     : ModCardTemplate(1, CardType.Skill, CardRarity.Ancient, TargetType.Self)
 {

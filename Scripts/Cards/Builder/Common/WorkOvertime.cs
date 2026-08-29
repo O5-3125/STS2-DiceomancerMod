@@ -1,9 +1,7 @@
 using Diceomancer.Scripts.Hero.Builder;
-using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using STS2RitsuLib.Interop.AutoRegistration;
@@ -24,16 +22,11 @@ public class WorkOvertime()
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new HpLossVar(3m),
-        // new EnergyVar(1),
-        new CardsVar(1),
-        new PowerVar<TechPower>(1)
+        new HpLossVar(2m),
+        new EnergyVar(1),
+        new CardsVar(1)
     ];
 
-    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
-    [
-        HoverTipFactory.FromPower<TechPower>()
-    ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -42,14 +35,12 @@ public class WorkOvertime()
 
 
         await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
-
-        await PowerCmd.Apply<TechPower>(choiceContext,
-            Owner.Creature, DynamicVars["TechPower"].IntValue, Owner.Creature, this);
+        await PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, Owner);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.HpLoss.UpgradeValueBy(-2);
-        DynamicVars["TechPower"].UpgradeValueBy(1);
+        DynamicVars.Cards.UpgradeValueBy(1);
+        // DynamicVars.HpLoss.UpgradeValueBy(-2);
     }
 }

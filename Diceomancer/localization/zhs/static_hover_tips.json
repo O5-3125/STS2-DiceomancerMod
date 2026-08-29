@@ -5,16 +5,19 @@
   
   "assault.title": "突击",
   "assault.description": "第一次打出时生效",
+  "vengeance.title": "复仇",
+  "vengeance.description": "如果你的[gold]负伤[/gold]层数大于[gold]复仇[/gold]要求，则效果生效。",
   "flow.title": "流转",
   "flow.description": "若上一张牌与本牌类型不同，则生效。",
   "buff.title": "增益",
-  "buff.description": "一定范围内的正面buff。",
+  "buff.description": "一定范围内的正面[gold]增益[/gold]。",
   "debuff.title": "减益",
-  "debuff.description": "一定范围内的负面debuff。",
-  
-  
+  "debuff.description": "一定范围内的负面[gold]减益[/gold]。",
+
+  "kick.title": "增幅",
+  "kick.description": "打出此牌时可以至多弃X张牌，每次弃牌都复制结算该牌效果。",
   "upgrade.title": "建造",
-  "upgrade.description": "右键点击建造牌，消耗科技进行建造。",
+  "upgrade.description": "打出相邻[gold]手牌[/gold]进行[gold]建造[/gold]，[gold]建造[/gold]完成后变成另一张牌。",
   "miracle.title":"奇迹",
   "miracle.description":"如果这张牌不是在回合开始时抽到的，则触发效果。",
   "modify.title": "改装",

@@ -1,4 +1,5 @@
 ﻿using Diceomancer.Scripts.Common;
+using Diceomancer.Scripts.Common.Keywords;
 using Diceomancer.Scripts.Hero.Builder;
 using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Commands;
@@ -20,7 +21,7 @@ public class Mist() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommon, Ta
 
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
-        CardKeyword.Ethereal,
+        CardKeyword.Ethereal
     ];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>

@@ -1,14 +1,11 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Diceomancer.Scripts.Cards.Template;
 using Diceomancer.Scripts.Cards.Upgrade;
 using Diceomancer.Scripts.Common;
+using Diceomancer.Scripts.Common.Keywords;
 using Diceomancer.Scripts.Hero.Builder;
-using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -41,6 +38,6 @@ public class EnergyCore()
 
     protected override void OnUpgrade()
     {
-        base.EnergyCost.UpgradeBy(-1);
+        EnergyCost.UpgradeBy(-1);
     }
 }

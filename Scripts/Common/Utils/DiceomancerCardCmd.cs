@@ -11,173 +11,67 @@ namespace Diceomancer.Scripts.Common.Utils;
 
 public static class DiceomancerCardCmd
 {
-    // buff
-    private static readonly NormalityBuffKind[] NormalityBuffKinds =
+    // 增益
+    private delegate Task ApplyBuff(PlayerChoiceContext choiceContext, Creature target, decimal amount,
+        Creature applier, CardModel? cardSource);
+
+    // 单一数据源：新增/删除一个增益只需改这一处
+    private static readonly (NormalityBuffKind Kind, ApplyBuff Apply)[] NormalityBuffs =
     [
-        NormalityBuffKind.Strength, // 力量
-        NormalityBuffKind.Dexterity, // 敏捷
-        NormalityBuffKind.Focus, // 集中
-        // NormalityBuffKind.Buffer, // 缓冲
-        // NormalityBuffKind.Intangible, // 无实体
-        NormalityBuffKind.Plating, // 覆甲
-        NormalityBuffKind.Regen, // 再生
-        NormalityBuffKind.RetainHand, //  保留
-        NormalityBuffKind.Vigor, // 活力
-        NormalityBuffKind.Thorns, // 荆棘
-        NormalityBuffKind.Haste, // 加速
-        NormalityBuffKind.Evade, // 闪避 免疫下次伤害
-        NormalityBuffKind.CriticalHit, // 暴击
+        (NormalityBuffKind.Strength, (c, t, a, ap, s) => PowerCmd.Apply<StrengthPower>(c, t, a, ap, s)), // 力量
+        (NormalityBuffKind.Dexterity, (c, t, a, ap, s) => PowerCmd.Apply<DexterityPower>(c, t, a, ap, s)), // 敏捷
+        (NormalityBuffKind.Focus, (c, t, a, ap, s) => PowerCmd.Apply<FocusPower>(c, t, a, ap, s)), // 集中
+        (NormalityBuffKind.Plating, (c, t, a, ap, s) => PowerCmd.Apply<PlatingPower>(c, t, a, ap, s)), // 覆甲
+        (NormalityBuffKind.Regen, (c, t, a, ap, s) => PowerCmd.Apply<RegenPower>(c, t, a, ap, s)), // 再生
+        (NormalityBuffKind.RetainHand, (c, t, a, ap, s) => PowerCmd.Apply<RetainHandPower>(c, t, a, ap, s)), // 保留
+        (NormalityBuffKind.Vigor, (c, t, a, ap, s) => PowerCmd.Apply<VigorPower>(c, t, a, ap, s)), // 活力
+        (NormalityBuffKind.Thorns, (c, t, a, ap, s) => PowerCmd.Apply<ThornsPower>(c, t, a, ap, s)), // 荆棘
+        (NormalityBuffKind.Haste, (c, t, a, ap, s) => PowerCmd.Apply<HastePower>(c, t, a, ap, s)), // 加速
+        (NormalityBuffKind.Evade, (c, t, a, ap, s) => PowerCmd.Apply<EvadePower>(c, t, a, ap, s)), // 闪避
+        (NormalityBuffKind.CriticalHit, (c, t, a, ap, s) => PowerCmd.Apply<CriticalHit>(c, t, a, ap, s)), // 暴击
+        (NormalityBuffKind.BlockNextTurn, (c, t, a, ap, s) => PowerCmd.Apply<BlockNextTurnPower>(c, t, a, ap, s)), //下回合格挡
+        (NormalityBuffKind.Fortified, (c, t, a, ap, s) => PowerCmd.Apply<FortifiedPower>(c, t, a, ap, s)), // 加固
+        (NormalityBuffKind.Toughness, (c, t, a, ap, s) => PowerCmd.Apply<ToughnessPower>(c, t, a, ap, s)), // 坚韧
     ];
 
     public static async Task ApplyRandomBuff(PlayerChoiceContext choiceContext, Player owner, Creature target,
         Creature applier, CardModel? cardSource, decimal amount)
     {
-        var kind = PickRandomBuff(owner, target);
-        await ApplyRandomBuff(choiceContext, kind, target, applier, cardSource, amount);
+        var entry = owner.RunState.Rng.CombatCardSelection.NextItem(NormalityBuffs);
+        await entry.Apply(choiceContext, target, amount, applier, cardSource);
     }
 
-    private static NormalityBuffKind PickRandomBuff(Player owner, Creature target)
-    {
-        var combatCardSelection = owner.RunState.Rng.CombatCardSelection;
-        return new NormalityBuffKind?(combatCardSelection.NextItem(NormalityBuffKinds)).GetValueOrDefault();
-    }
 
-    private static async Task ApplyRandomBuff(PlayerChoiceContext choiceContext, NormalityBuffKind kind,
-        Creature target, Creature applier, CardModel? cardSource, decimal amount)
-    {
-        switch (kind)
-        {
-            case NormalityBuffKind.Strength:
-                await PowerCmd.Apply<StrengthPower>(choiceContext, target, amount, applier, cardSource);
-                break;
-            case NormalityBuffKind.Dexterity:
-                await PowerCmd.Apply<DexterityPower>(choiceContext, target, amount, applier, cardSource);
-                break;
-            case NormalityBuffKind.Focus:
-                await PowerCmd.Apply<FocusPower>(choiceContext, target, amount, applier, cardSource);
-                break;
-            case NormalityBuffKind.Buffer:
-                await PowerCmd.Apply<BufferPower>(choiceContext, target, amount, applier, cardSource);
-                break;
-            case NormalityBuffKind.Intangible:
-                await PowerCmd.Apply<IntangiblePower>(choiceContext, target, amount, applier, cardSource);
-                break;
-            case NormalityBuffKind.Plating:
-                await PowerCmd.Apply<PlatingPower>(choiceContext, target, amount, applier, cardSource);
-                break;
-            case NormalityBuffKind.Regen:
-                await PowerCmd.Apply<RegenPower>(choiceContext, target, amount, applier, cardSource);
-                break;
-            case NormalityBuffKind.RetainHand:
-                await PowerCmd.Apply<RetainHandPower>(choiceContext, target, amount, applier, cardSource);
-                break;
-            case NormalityBuffKind.Vigor:
-                await PowerCmd.Apply<VigorPower>(choiceContext, target, amount, applier, cardSource);
-                break;
-            case NormalityBuffKind.Thorns:
-                await PowerCmd.Apply<ThornsPower>(choiceContext, target, amount, applier, cardSource);
-                break;
-            case NormalityBuffKind.Haste:
-                await PowerCmd.Apply<HastePower>(choiceContext, target, amount, applier, cardSource);
+// 减益
+    private delegate Task ApplyDebuff(PlayerChoiceContext choiceContext, Creature target, decimal amount,
+        Creature? applier, CardModel? cardSource);
 
-                break;
-            case NormalityBuffKind.Evade:
-                await PowerCmd.Apply<EvadePower>(choiceContext, target, amount, applier, cardSource);
-
-                break;
-            case NormalityBuffKind.CriticalHit:
-                await PowerCmd.Apply<CriticalHit>(choiceContext, target, amount, applier, cardSource);
-                break;
-            default:
-                // await PowerCmd.Apply<BufferPower>(choiceContext, target, amount, applier, cardSource);
-                break;
-        }
-    }
-
-    // debuff
-    private static readonly NormalityDebuffKind[] NormalityDebuffKinds =
+    private static readonly (NormalityDebuffKind Kind, ApplyDebuff Apply)[] NormalityDebuffs =
     [
-        NormalityDebuffKind.Poison, // 毒
-        NormalityDebuffKind.Doom, // 灾厄
-        NormalityDebuffKind.Demise, // 消亡
-        NormalityDebuffKind.Frail, // 脆弱
-        NormalityDebuffKind.Vulnerable, // 易伤
-        NormalityDebuffKind.Weak, // 虚弱
-        NormalityDebuffKind.Bleed, // 流血
-        NormalityDebuffKind.Burn, // 燃烧
-        // NormalityDebuffKind.Blind, // 目盲  本回合下次攻击伤害为0
-        NormalityDebuffKind.Strength, // 无力 力量-1
-        NormalityDebuffKind.Tainted //  污染
+        (NormalityDebuffKind.Poison, (c, t, a, ap, s) => PowerCmd.Apply<PoisonPower>(c, t, a, ap, s)), // 毒
+        (NormalityDebuffKind.Doom, (c, t, a, ap, s) => PowerCmd.Apply<DoomPower>(c, t, a, ap, s)), // 灾厄
+        (NormalityDebuffKind.Demise, (c, t, a, ap, s) => PowerCmd.Apply<DemisePower>(c, t, a, ap, s)), // 消亡
+        (NormalityDebuffKind.Frail, (c, t, a, ap, s) => PowerCmd.Apply<FrailPower>(c, t, a, ap, s)), // 脆弱
+        (NormalityDebuffKind.Vulnerable, (c, t, a, ap, s) => PowerCmd.Apply<VulnerablePower>(c, t, a, ap, s)), // 易伤
+        (NormalityDebuffKind.Weak, (c, t, a, ap, s) => PowerCmd.Apply<WeakPower>(c, t, a, ap, s)), // 虚弱
+        (NormalityDebuffKind.Bleed, (c, t, a, ap, s) => PowerCmd.Apply<BleedPower>(c, t, a, ap, s)), // 流血
+        (NormalityDebuffKind.Burn, (c, t, a, ap, s) => PowerCmd.Apply<BurnPower>(c, t, a, ap, s)), // 燃烧
+        // (NormalityDebuffKind.Blind, (c, t, a, ap, s) => PowerCmd.Apply<BlindPower>(c, t, a, ap, s)), // 目盲
+        (NormalityDebuffKind.Powerless, (c, t, a, ap, s) => PowerCmd.Apply<PowerlessPower>(c, t, a, ap, s)), // 无力
+        (NormalityDebuffKind.ThinSkin, (c, t, a, ap, s) => PowerCmd.Apply<ThinSkinPower>(c, t, a, ap, s)), // 脆皮
     ];
 
     public static async Task ApplyRandomDebuff(PlayerChoiceContext choiceContext, Player owner, Creature target,
         Creature? applier, CardModel? cardSource, decimal amount)
     {
-        var kind = PickRandomDebuff(owner, target);
-        await ApplyRandomDebuff(choiceContext, kind, target, applier, cardSource, amount);
+        var entry = owner.RunState.Rng.CombatCardSelection.NextItem(NormalityDebuffs);
+        await entry.Apply(choiceContext, target, amount, applier, cardSource);
     }
-
-    private static NormalityDebuffKind PickRandomDebuff(Player owner, Creature target)
-    {
-        var combatCardSelection = owner.RunState.Rng.CombatCardSelection;
-
-        return new NormalityDebuffKind?(combatCardSelection.NextItem(NormalityDebuffKinds)).GetValueOrDefault();
-    }
-
-    private static async Task ApplyRandomDebuff(PlayerChoiceContext choiceContext, NormalityDebuffKind kind,
-        Creature target, Creature? applier, CardModel? cardSource, decimal amount)
-    {
-        switch (kind)
-        {
-            case NormalityDebuffKind.Poison:
-                await PowerCmd.Apply<PoisonPower>(choiceContext, target, amount, applier, cardSource);
-                break;
-            case NormalityDebuffKind.Doom:
-                await PowerCmd.Apply<DoomPower>(choiceContext, target, amount, applier, cardSource);
-                break;
-            case NormalityDebuffKind.Demise:
-                await PowerCmd.Apply<DemisePower>(choiceContext, target, amount, applier, cardSource);
-                break;
-            case NormalityDebuffKind.Frail:
-                await PowerCmd.Apply<FrailPower>(choiceContext, target, amount, applier, cardSource);
-                break;
-            case NormalityDebuffKind.Vulnerable:
-                await PowerCmd.Apply<VulnerablePower>(choiceContext, target, amount, applier, cardSource);
-                break;
-            case NormalityDebuffKind.Weak:
-                await PowerCmd.Apply<WeakPower>(choiceContext, target, amount, applier, cardSource);
-                break;
-            case NormalityDebuffKind.Bleed:
-                await PowerCmd.Apply<BleedPower>(choiceContext, target, amount, applier, cardSource);
-                break;
-            case NormalityDebuffKind.Burn:
-                await PowerCmd.Apply<BurnPower>(choiceContext, target, amount, applier, cardSource);
-                break;
-            case NormalityDebuffKind.Blind:
-                // await PowerCmd.Apply<Blin>(choiceContext, target, amount, applier, cardSource);
-                break;
-            case NormalityDebuffKind.Strength:
-                await PowerCmd.Apply<StrengthPower>(choiceContext, target, -amount, applier, cardSource);
-                break;
-            case NormalityDebuffKind.Tainted:
-                await PowerCmd.Apply<WeakPower>(choiceContext, target, amount, applier, cardSource);
-                break;
-            default:
-                // await PowerCmd.Apply<DemisePower>(choiceContext, target, amount, applier, cardSource);
-                break;
-        }
-    }
-
 
     public static async Task ApplyAllDebuff(PlayerChoiceContext choiceContext, Creature target, Creature applier,
         CardModel? cardSource, decimal amount)
     {
-        await PowerCmd.Apply<PoisonPower>(choiceContext, target, amount, applier, cardSource);
-        await PowerCmd.Apply<DoomPower>(choiceContext, target, amount, applier, cardSource);
-        await PowerCmd.Apply<DemisePower>(choiceContext, target, amount, applier, cardSource);
-        await PowerCmd.Apply<FrailPower>(choiceContext, target, amount, applier, cardSource);
-        await PowerCmd.Apply<VulnerablePower>(choiceContext, target, amount, applier, cardSource);
-        await PowerCmd.Apply<WeakPower>(choiceContext, target, amount, applier, cardSource);
-        await PowerCmd.Apply<DemisePower>(choiceContext, target, amount, applier, cardSource);
+        foreach (var entry in NormalityDebuffs)
+            await entry.Apply(choiceContext, target, amount, applier, cardSource);
     }
 }

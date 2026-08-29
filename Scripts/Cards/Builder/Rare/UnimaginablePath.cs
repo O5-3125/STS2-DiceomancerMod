@@ -1,4 +1,5 @@
 ﻿using Diceomancer.Scripts.Common;
+using Diceomancer.Scripts.Common.Keywords;
 using Diceomancer.Scripts.Hero.Builder;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;

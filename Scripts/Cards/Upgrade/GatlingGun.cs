@@ -1,4 +1,5 @@
 using Diceomancer.Scripts.Common;
+using Diceomancer.Scripts.Common.Keywords;
 using Diceomancer.Scripts.Hero.CardPool;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -12,7 +13,7 @@ namespace Diceomancer.Scripts.Cards.Upgrade;
 
 [RegisterCard(typeof(UpgradeCardPool))]
 public class GatlingGun()
-    : ModCardTemplate(1, CardType.Attack, CardRarity.Ancient, TargetType.Self)
+    : ModCardTemplate(1, CardType.Attack, CardRarity.Rare, TargetType.Self)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
@@ -41,28 +42,10 @@ public class GatlingGun()
 
         BaseReplayCount += 1;
     }
-
-
-    // public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card, bool isAutoPlay,
-    //     ResourceInfo resources, PileType pileType, CardPilePosition position)
-    // {
-    //     return base.ModifyCardPlayResultPileTypeAndPosition(card, isAutoPlay, resources, pileType, position);
-    // }
-
-    //
-    // protected override (PileType, CardPilePosition) GetResultPileTypeAndPositionForCardPlay()
-    // {
-    //     var (pileType, item) = base.GetResultPileTypeAndPositionForCardPlay();
-    //     if (pileType != PileType.Discard)
-    //     {
-    //         return (pileType, item);
-    //     }
-    //
-    //     return (PileType.Hand, CardPilePosition.Bottom);
-    // }
-
+    
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(1);
+        DynamicVars.Repeat.UpgradeValueBy(1);
     }
 }

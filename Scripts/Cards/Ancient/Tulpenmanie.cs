@@ -1,4 +1,3 @@
-using Diceomancer.Scripts.Hero;
 using Diceomancer.Scripts.Hero.Builder;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;

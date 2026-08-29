@@ -40,20 +40,12 @@ public class BlindPower : ModPowerTemplate
         return 0m;
     }
 
-    public override async Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command)
-    {
-        if (command.Attacker != Owner) return;
-
-        await PowerCmd.Decrement(this);
-    }
-
-
     public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
         IEnumerable<Creature> participants)
     {
         if (!participants.Contains(base.Owner)) return;
 
-        // await PowerCmd.Decrement(this);
-        await PowerCmd.Remove(this);
+        await PowerCmd.Decrement(this);
+        // await PowerCmd.Remove(this);
     }
 }

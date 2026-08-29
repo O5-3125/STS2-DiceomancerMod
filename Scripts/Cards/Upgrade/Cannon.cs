@@ -20,7 +20,7 @@ public class Cannon() : ModCardTemplate(2, CardType.Skill, CardRarity.Common, Ta
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(12, ValueProp.Move),
-        new PowerVar<BurnPower>(6)
+        new PowerVar<BurnPower>(9)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

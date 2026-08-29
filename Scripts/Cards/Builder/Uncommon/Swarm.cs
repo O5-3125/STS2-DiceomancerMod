@@ -1,36 +1,21 @@
-using Diceomancer.Scripts.Common;
-using Diceomancer.Scripts.Hero;
+using Diceomancer.Scripts.Cards.Template;
 using Diceomancer.Scripts.Hero.Builder;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
-using STS2RitsuLib.Cards.DynamicVars;
-using STS2RitsuLib.CardTags;
 using STS2RitsuLib.Interop.AutoRegistration;
-using STS2RitsuLib.Scaffolding.Content;
 
-namespace Diceomancer.Scripts.Cards.Uncommon;
+namespace Diceomancer.Scripts.Cards.Builder.Uncommon;
 
 [RegisterCard(typeof(BuilderCardPool))]
-public class Swarm() : ModCardTemplate(2, CardType.Attack, CardRarity.Uncommon, TargetType.RandomEnemy)
+public class Swarm() : EvolutionTemplate(2, CardType.Attack, CardRarity.Uncommon, TargetType.RandomEnemy, 2M)
 {
-    public override CardAssetProfile AssetProfile => new(
-        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
-    );
-
-    protected override HashSet<CardTag> CanonicalTags =>
-    [
-        MyTags.Evolution.GetModCardTag()
-    ];
-
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    protected override IEnumerable<DynamicVar> OwnCanonicalVars =>
     [
         new DamageVar(3m, ValueProp.Move),
-        new RepeatVar(3),
-        new DynamicVar("Evolution", 2M)
-            .WithSharedTooltip("evolution")
+        new RepeatVar(3)
     ];
 
     // 添加这一行，指定卡牌立绘路径，这里是MyMod/images/cards/Test.png
@@ -48,10 +33,8 @@ public class Swarm() : ModCardTemplate(2, CardType.Attack, CardRarity.Uncommon, 
             .Execute(choiceContext);
     }
 
-    // 升级后的效果逻辑
     protected override void OnUpgrade()
     {
         DynamicVars["Evolution"].UpgradeValueBy(1);
-        // DynamicVars.Damage.UpgradeValueBy(4); 
     }
 }

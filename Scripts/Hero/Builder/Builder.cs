@@ -52,7 +52,7 @@ public class
                 // 人物头像(地图)。
                 IconPath: "res://Diceomancer/scenes/Heros/HeroIcon.tscn",
                 // 人物选择背景。
-                CharacterSelectBgPath: "res://Diceomancer/scenes/Heros/Hero_bg.tscn",
+                CharacterSelectBgPath: "res://Diceomancer/scenes/Heros/Builder_bg.tscn",
                 // 人物选择图标。
                 CharacterSelectIconPath: "res://Diceomancer/images/Hero/Builder.png",
                 // 人物选择图标-锁定状态。

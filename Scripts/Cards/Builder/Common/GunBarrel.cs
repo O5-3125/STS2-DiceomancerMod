@@ -5,8 +5,8 @@ using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -15,18 +15,23 @@ namespace Diceomancer.Scripts.Cards.Builder.Common;
 
 [RegisterCard(typeof(BuilderCardPool))]
 public class GunBarrel() :
-    UpgradeTemplate<Cannon>(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies, 3)
+    UpgradeTemplate<Cannon>(2, CardType.Attack, CardRarity.Common, TargetType.AllEnemies, 3)
 {
     public override CardAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
     );
 
+    protected override IEnumerable<IHoverTip> OwnAdditionalHoverTips =>
+    [
+        HoverTipFactory.FromPower<FortifiedPower>(),
+    ];
+
+
     protected override IEnumerable<DynamicVar> OwnCanonicalVars =>
     [
-        new DamageVar(6, ValueProp.Move),
-        new BlockVar(3, ValueProp.Move),
-        // new PowerVar<PlatingPower>(4),
-        // new PowerVar<ToughnessPower>(2),
+        new DamageVar(7, ValueProp.Move),
+        // new BlockVar(3, ValueProp.Move),
+        new PowerVar<FortifiedPower>(5),
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -38,18 +43,12 @@ public class GunBarrel() :
             .TargetingAllOpponents(Owner.Creature.CombatState)
             .Execute(choiceContext);
 
-        // await PowerCmd.Apply<PlatingPower>(choiceContext, Owner.Creature,
-        // DynamicVars["PlatingPower"].BaseValue, Owner.Creature, this);
-
-        // await PowerCmd.Apply<ToughnessPower>(choiceContext, Owner.Creature,
-        //     DynamicVars["ToughnessPower"].BaseValue, Owner.Creature, this);
-
-        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
+        await PowerCmd.Apply<FortifiedPower>(choiceContext, Owner.Creature,
+            DynamicVars["FortifiedPower"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(3);
-        DynamicVars.Block.UpgradeValueBy(1);
+        EnergyCost.UpgradeBy(-1);
     }
 }

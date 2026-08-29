@@ -2,15 +2,15 @@
   "DICEOMANCER_KEYWORD_BONUS.title": "附赠",
   "DICEOMANCER_KEYWORD_BONUS.description": "抽到这张牌时，抽一张牌。",
   "DICEOMANCER_KEYWORD_REBOUND.title": "回响",
-  "DICEOMANCER_KEYWORD_REBOUND.description": "打出后回到手牌",
+  "DICEOMANCER_KEYWORD_REBOUND.description": "打出后回到[gold]手牌[/gold]。",
   "DICEOMANCER_KEYWORD_FRAGILE.title": "一次性",
-  "DICEOMANCER_KEYWORD_FRAGILE.description": "打出后从牌组中移除",
+  "DICEOMANCER_KEYWORD_FRAGILE.description": "打出后从[gold]牌组[/gold]中移除。",
   "DICEOMANCER_KEYWORD_LIMITED.title": "限制",
-  "DICEOMANCER_KEYWORD_LIMITED.description": "每回合只能打出一张限制牌",
+  "DICEOMANCER_KEYWORD_LIMITED.description": "每回合只能打出一张[gold]限制[/gold]牌。",
   "DICEOMANCER_KEYWORD_PHANTOM.title": "幻影",
-  "DICEOMANCER_KEYWORD_PHANTOM.description": "获得这张牌的幻影。\n幻影牌费用-1，消耗且移除幻影关键词。",
-  "DICEOMANCER_KEYWORD_DIABOLICAL.title": "恶行",
-  "DICEOMANCER_KEYWORD_DIABOLICAL.description": "右键点击这张牌将其消耗，获得3[gold]灾厄[/gold]。",
+  "DICEOMANCER_KEYWORD_PHANTOM.description": "获得这张牌的[gold]幻影[/gold]。\n[gold]幻影[/gold]牌费用减1，[gold]消耗[/gold]且移除[gold]幻影[/gold]关键词。",
+  "DICEOMANCER_KEYWORD_STORM.title": "风暴",
+  "DICEOMANCER_KEYWORD_STORM.description": "打出这张牌时，每有{energyPrefix:energyIcons(1)}，额外打出一次。",
   
   "DICEOMANCER_KEYWORD_CHAOS4.title": "混乱4",
   "DICEOMANCER_KEYWORD_CHAOS4.description": "抽到时在1~4范围内重掷这张牌的基本效果。",
@@ -21,5 +21,7 @@
   "DICEOMANCER_KEYWORD_CHAOS12.title": "混乱12",
   "DICEOMANCER_KEYWORD_CHAOS12.description": "抽到时在1~12范围内重掷这张牌的基本效果。",
   "DICEOMANCER_KEYWORD_CHAOS20.title": "混乱20",
-  "DICEOMANCER_KEYWORD_CHAOS20.description": "抽到时在1~20范围内重掷这张牌的基本效果。"
+  "DICEOMANCER_KEYWORD_CHAOS20.description": "抽到时在1~20范围内重掷这张牌的基本效果。",
+  "DICEOMANCER_KEYWORD_WILD.title": "狂野",
+  "DICEOMANCER_KEYWORD_WILD.description": "能量不足时也可以打出。打出时不会扣除能量，改为每点能量需求对你造成2点伤害。"
 }

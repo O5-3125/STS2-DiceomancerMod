@@ -1,4 +1,5 @@
 using Diceomancer.Scripts.Hero.Builder;
+using Diceomancer.Scripts.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -17,13 +18,13 @@ public class DefensiveTactic() : ModCardTemplate(2, CardType.Power, CardRarity.U
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<Powers.DefensiveTacticPower>(3m)
+        new PowerVar<DefensiveTacticPower>(3m)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<Powers.DefensiveTacticPower>(choiceContext, Owner.Creature,
+        await PowerCmd.Apply<DefensiveTacticPower>(choiceContext, Owner.Creature,
             DynamicVars["DefensiveTacticPower"].BaseValue, Owner.Creature, this);
     }
 

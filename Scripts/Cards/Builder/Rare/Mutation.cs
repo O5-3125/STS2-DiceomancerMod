@@ -1,31 +1,20 @@
-﻿using Diceomancer.Scripts.Common;
+﻿using Diceomancer.Scripts.Cards.Template;
 using Diceomancer.Scripts.Common.Utils;
 using Diceomancer.Scripts.Hero.Builder;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using STS2RitsuLib.Cards.DynamicVars;
-using STS2RitsuLib.CardTags;
 using STS2RitsuLib.Interop.AutoRegistration;
-using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Cards.Builder.Rare;
 
 [RegisterCard(typeof(BuilderCardPool))]
-public class Mutation() : ModCardTemplate(2, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class Mutation() : EvolutionTemplate(2, CardType.Skill, CardRarity.Rare, TargetType.Self, 2M)
 {
-    public override CardAssetProfile AssetProfile => new(
-        $"res://Diceomancer/images/Cards/{GetType().Name}.png"
-    );
-
-    protected override HashSet<CardTag> CanonicalTags => [MyTags.Evolution.GetModCardTag()];
-
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    protected override IEnumerable<DynamicVar> OwnCanonicalVars =>
     [
         new("Buff", 3),
-        new RepeatVar(3),
-        new DynamicVar("Evolution", 2M)
-            .WithSharedTooltip("evolution")
+        new RepeatVar(3)
     ];
 
     // 打出时的效果逻辑
@@ -37,7 +26,6 @@ public class Mutation() : ModCardTemplate(2, CardType.Skill, CardRarity.Rare, Ta
                 Owner.Creature, null, DynamicVars["Buff"].IntValue);
     }
 
-    // 升级后的效果逻辑
     protected override void OnUpgrade()
     {
         DynamicVars["Evolution"].UpgradeValueBy(1);

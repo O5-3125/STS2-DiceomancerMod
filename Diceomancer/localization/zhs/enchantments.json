@@ -1,18 +1,32 @@
 ﻿{
+  "DICEOMANCER_ENCHANTMENT_D4_ENCHANT.title": "D4",
+  "DICEOMANCER_ENCHANTMENT_D4_ENCHANT.extraCardText": "这张牌的数值被重掷为1到4之间的随机值。",
+  "DICEOMANCER_ENCHANTMENT_D4_ENCHANT.description": "将这张牌上的所有数值重掷为1到4之间的随机值。",
+  "DICEOMANCER_ENCHANTMENT_D6_ENCHANT.title": "D6",
+  "DICEOMANCER_ENCHANTMENT_D6_ENCHANT.extraCardText": "这张牌的数值被重掷为1到6之间的随机值。",
+  "DICEOMANCER_ENCHANTMENT_D6_ENCHANT.description": "将这张牌上的所有数值重掷为1到6之间的随机值。",
+  "DICEOMANCER_ENCHANTMENT_D8_ENCHANT.title": "D8",
+  "DICEOMANCER_ENCHANTMENT_D8_ENCHANT.extraCardText": "这张牌的数值被重掷为1到8之间的随机值。",
+  "DICEOMANCER_ENCHANTMENT_D8_ENCHANT.description": "将这张牌上的所有数值重掷为1到8之间的随机值。",
+  "DICEOMANCER_ENCHANTMENT_D12_ENCHANT.title": "D12",
+  "DICEOMANCER_ENCHANTMENT_D12_ENCHANT.extraCardText": "这张牌的数值被重掷为1到12之间的随机值。",
+  "DICEOMANCER_ENCHANTMENT_D12_ENCHANT.description": "将这张牌上的所有数值重掷为1到12之间的随机值。",
+  "DICEOMANCER_ENCHANTMENT_D20_ENCHANT.title": "D20",
+  "DICEOMANCER_ENCHANTMENT_D20_ENCHANT.extraCardText": "这张牌的数值被重掷为1到20之间的随机值。",
+  "DICEOMANCER_ENCHANTMENT_D20_ENCHANT.description": "将这张牌上的所有数值重掷为1到20之间的随机值。",
+  
   "DICEOMANCER_ENCHANTMENT_PHASE_ENCHANT.title": "能量",
-  "DICEOMANCER_ENCHANTMENT_PHASE_ENCHANT.extraCardText": "打出时，获得{Energy:energyIcons()}",
-  // 额外添加在卡牌上的文本
-  "DICEOMANCER_ENCHANTMENT_PHASE_ENCHANT.description": "打出时，获得{Energy:energyIcons()}",
-  // 附魔介绍
+  "DICEOMANCER_ENCHANTMENT_PHASE_ENCHANT.extraCardText": "打出时，获得{Energy:energyIcons()}。",
+  "DICEOMANCER_ENCHANTMENT_PHASE_ENCHANT.description": "打出时，获得{Energy:energyIcons()}。",
   
   
-  /////
+  ///// 组件文字
   "DICEOMANCER_MODEL_CAPABILITY_PHASE_CAPABILITY.description": "[blue]获得{Energy:energyIcons()}[/blue]。",
   "DICEOMANCER_MODEL_CAPABILITY_DRAW_CAPABILITY.description": "[blue]抽{DrawCapability:diff()}张牌[/blue]。",
-  "DICEOMANCER_MODEL_CAPABILITY_RANDOM_BUFF_CAPABILITY.description": "[blue]获得{Buff:diff()}层随机增益[/blue]。",
-  "DICEOMANCER_MODEL_CAPABILITY_RANDOM_DEBUFF_CAPABILITY.description": "[blue]向随机敌人施加{Debuff:diff()}层随机减益[/blue]。",
-  "DICEOMANCER_MODEL_CAPABILITY_PHANTOM_CAPABILITY.description": "[blue]将{PhantomCapability:diff()}张本牌的幻影加入手牌[/blue]。",
+  "DICEOMANCER_MODEL_CAPABILITY_RANDOM_BUFF_CAPABILITY.description": "[blue]获得{Buff:diff()}层随机[gold]增益[/gold][/blue]。",
+  "DICEOMANCER_MODEL_CAPABILITY_RANDOM_DEBUFF_CAPABILITY.description": "[blue]向随机敌人施加{Debuff:diff()}层随机[gold]减益[/gold][/blue]。",
+  "DICEOMANCER_MODEL_CAPABILITY_PHANTOM_CAPABILITY.description": "[blue]将{PhantomCapability:diff()}张本牌的[gold]幻影[/gold]加入[gold]手牌[/gold][/blue]。",
   "DICEOMANCER_MODEL_CAPABILITY_SPRAY_CAPABILITY.description": "[blue]对所有敌人造成{SprayCapability:diff()}点伤害[/blue]。",
-  "DICEOMANCER_MODEL_CAPABILITY_BLOCK_CAPABILITY.description": "[blue]获得{BlockCapability:diff()}点格挡[/blue]。"
+  "DICEOMANCER_MODEL_CAPABILITY_BLOCK_CAPABILITY.description": "[blue]获得{BlockCapability:diff()}点[gold]格挡[/gold][/blue]。"
 
 }

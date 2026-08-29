@@ -50,10 +50,10 @@ public class EvadePower : ModPowerTemplate
     public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target,
         DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
-        if (target != base.Owner)
-        {
-            return;
-        }
+        if (props is ValueProp.Unblockable) return;
+        if (target != base.Owner) return;
+        if (!props.IsPoweredAttack()) return;
+
 
         await PowerCmd.Decrement(this);
     }

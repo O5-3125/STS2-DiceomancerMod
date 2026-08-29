@@ -1,4 +1,5 @@
 using Diceomancer.Scripts.Capabilitys;
+using Diceomancer.Scripts.Cards.Template;
 using Diceomancer.Scripts.Hero.Builder;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -15,7 +16,8 @@ using STS2RitsuLib.Scaffolding.Content;
 namespace Diceomancer.Scripts.Cards.Builder.Common;
 
 [RegisterCard(typeof(BuilderCardPool))]
-public class QuillSpray() : ModCardTemplate(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
+public class QuillSpray() : EvolutionTemplate(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies, 2)
+// ModCardTemplate(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
 {
     public override CardAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
@@ -27,10 +29,10 @@ public class QuillSpray() : ModCardTemplate(1, CardType.Attack, CardRarity.Commo
             new LocString("static_hover_tips", "modify.description"))
     ];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    protected override IEnumerable<DynamicVar> OwnCanonicalVars =>
     [
-        new DamageVar(8, ValueProp.Move),
-        new("modify", 3)
+        new DamageVar(5, ValueProp.Move),
+        new("modify", 5)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

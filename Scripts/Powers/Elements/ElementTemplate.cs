@@ -14,9 +14,13 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Powers.Elements;
 
-
-public abstract class ElementTemplate<TTransform>: ModPowerTemplate where TTransform : CardModel
+public abstract class ElementTemplate<TTransform> : ModPowerTemplate where TTransform : CardModel
 {
+    public override PowerAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Power/Element/{GetType().Name}.png",
+        $"res://Diceomancer/images/Power/Element/{GetType().Name}.png"
+    );
+    
     // 类型，Buff或Debuff
     public override PowerType Type => PowerType.Buff;
 
@@ -25,34 +29,8 @@ public abstract class ElementTemplate<TTransform>: ModPowerTemplate where TTrans
 
     public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
-
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new("Buff", 3)
-    ];
-
-
-    // 回合结束
-    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
-        IEnumerable<Creature> participants)
-    {
-        if (!participants.Contains(base.Owner)) return;
-        Flash();
-
-
-        ArgumentNullException.ThrowIfNull(Owner.CombatState);
-        var enemy = base.Owner.CombatState.RunState.Rng.CombatTargets.NextItem(base.CombatState.HittableEnemies);
-        if (enemy == null) return;
-
-        await DiceomancerCardCmd.ApplyRandomDebuff(choiceContext, Owner.Player, enemy, null,
-            null, DynamicVars["Buff"].IntValue);
-        await PowerCmd.Decrement(this);
-    }
-
     public override async Task AfterRemoved(Creature oldOwner)
     {
         await CardPileCmd.AddToCombatAndPreview<TTransform>(Owner, PileType.Hand, 1, null);
     }
-
-    
 }

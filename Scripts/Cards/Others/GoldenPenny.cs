@@ -4,7 +4,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using STS2RitsuLib.Scaffolding.Content;
 
-namespace Diceomancer.Scripts.Cards.Berserker.Others;
+namespace Diceomancer.Scripts.Cards.Others;
 
 // [RegisterCard(typeof(BuilderCardPool))]
 public class GoldenPenny() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
