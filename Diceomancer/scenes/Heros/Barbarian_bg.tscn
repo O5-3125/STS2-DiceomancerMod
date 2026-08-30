@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddeu7qpep8at7"]
+
+[ext_resource type="Texture2D" uid="uid://dsmtvlmefg78t" path="res://Diceomancer/images/Hero/Barbarian.png" id="1_5pty4"]
+
+[node name="TestBg" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 1600.0
+offset_bottom = 660.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1280, 600)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1280.0
+offset_top = -600.0
+offset_right = 640.0
+offset_bottom = 478.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.015686275, 0.6117647, 0.36078432, 1)
+
+[node name="Icon2" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 64.0
+offset_top = 848.0
+offset_right = 264.0
+offset_bottom = 1048.0
+flip_h = true
+
+[node name="Barbarian" type="Sprite2D" parent="Control"]
+position = Vector2(1457, 522)
+texture = ExtResource("1_5pty4")

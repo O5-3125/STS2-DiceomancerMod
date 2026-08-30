@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://drtlogvvb6e8h"]
+
+[ext_resource type="Texture2D" uid="uid://bgr8tstphf4ct" path="res://Diceomancer/images/Hero/HeroIcon.png" id="1_qdx0k"]
+
+[node name="IroncladMerchant" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="HeroIcon" type="Sprite2D" parent="."]
+position = Vector2(28, 28.000004)
+scale = Vector2(0.2790175, 0.27901754)
+texture = ExtResource("1_qdx0k")
