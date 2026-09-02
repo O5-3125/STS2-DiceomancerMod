@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -22,13 +23,18 @@ public class EarthElement : ElementTemplate<EssenceOfEarth>
         new EnergyVar(1)
     ];
 
-    public override async Task AfterSideTurnStartLate
-        (CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+
+    public override async Task Evoke(PlayerChoiceContext choiceContext)
     {
-        if (!participants.Contains(base.Owner)) return;
         Flash();
         await PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, Owner.Player);
-
         await PowerCmd.Decrement(this);
+    }
+
+
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    {
+        if (player != Owner.Player) return;
+        await Evoke(choiceContext);
     }
 }

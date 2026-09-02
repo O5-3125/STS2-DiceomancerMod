@@ -27,7 +27,7 @@ public class EssenceOfBlack()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await DiceomancerCardCmd.ApplyAllDebuff(choiceContext, cardPlay.Target, Owner.Creature, this,
+        await RandomPowerCmd.ApplyAllDebuff(choiceContext, cardPlay.Target, Owner.Creature, this,
             DynamicVars["debuff"].IntValue);
     }
 

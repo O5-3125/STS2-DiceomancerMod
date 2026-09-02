@@ -21,7 +21,8 @@ public class EssenceOfEarth()
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<EnergyNextTurnPower>(1)
+        new PowerVar<EnergyNextTurnPower>(1),
+        new PowerVar<PyrePower>(1)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

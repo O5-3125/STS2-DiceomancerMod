@@ -39,7 +39,7 @@ public class RecklessCharge() : ModCardTemplate(2, CardType.Attack, CardRarity.C
             .Targeting(cardPlay.Target)
             .Execute(choiceContext);
 
-        await BarbarianCardUtils.HealInjury(choiceContext, Owner.Creature, DynamicVars["Injury"].IntValue);
+        await BarbarianCmd.HealInjury(choiceContext, Owner.Creature, DynamicVars["Injury"].IntValue);
     }
 
     protected override void OnUpgrade()

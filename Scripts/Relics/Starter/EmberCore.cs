@@ -27,10 +27,17 @@ public class EmberCore : ModRelicTemplate
         BigIconPath: $"res://Diceomancer/images/Relics/{GetType().Name}.png"
     );
 
+
     public override bool ShowCounter => true;
 
     public override int DisplayAmount => DynamicVars["MaxEnergyCap"].IntValue;
 
+    public void UpdateDisplayAmount()
+    {
+        AssertMutable();
+        // _cardsPlayed = value;
+        InvokeDisplayAmountChanged();
+    }
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -40,6 +47,7 @@ public class EmberCore : ModRelicTemplate
     public override decimal ModifyEnergyGain(Player player, decimal amount)
     {
         if (player != Owner) return amount;
+
         return Math.Max(0m, Math.Min(amount, DynamicVars["MaxEnergyCap"].IntValue - player.PlayerCombatState.Energy));
     }
 

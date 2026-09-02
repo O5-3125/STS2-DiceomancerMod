@@ -92,5 +92,9 @@
   //
   "DICEOMANCER_RELIC_EMBER_CORE.title": "余烬之心",
   "DICEOMANCER_RELIC_EMBER_CORE.description": "回合结束时，保留你未使用的[blue]能量[/blue]到下一回合，但你持有的能量最多为{MaxEnergyCap}。",
-  "DICEOMANCER_RELIC_EMBER_CORE.flavor": "未燃尽的火，总在掌心留一线温热。"
+  "DICEOMANCER_RELIC_EMBER_CORE.flavor": "未燃尽的火，总在掌心留一线温热。",
+  //
+  "DICEOMANCER_RELIC_BUILDER_RING.title": "工匠护符",
+  "DICEOMANCER_RELIC_BUILDER_RING.description": "每回合当你打出第{Play}张牌，抽{Draw}张牌并获得{Energy:energyIcons()}",
+  "DICEOMANCER_RELIC_BUILDER_RING.flavor": ""
 }

@@ -25,7 +25,8 @@ public class Javelin() : ModCardTemplate(1, CardType.Attack, CardRarity.Basic, T
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(6, ValueProp.Move),
-        new CardsVar(2)
+        new CardsVar(2),
+        new("Vengeance", 4)
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
@@ -35,7 +36,7 @@ public class Javelin() : ModCardTemplate(1, CardType.Attack, CardRarity.Basic, T
     ];
 
     protected override bool ShouldGlowGoldInternal =>
-        Owner.Creature.GetPowerAmount<Injury>() > 4;
+        Owner.Creature.GetPowerAmount<Injury>() > DynamicVars["Vengeance"].IntValue;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -46,7 +47,7 @@ public class Javelin() : ModCardTemplate(1, CardType.Attack, CardRarity.Basic, T
             .Targeting(cardPlay.Target)
             .Execute(choiceContext);
 
-        if (Owner.Creature.GetPowerAmount<Injury>() > 4)
+        if (Owner.Creature.GetPowerAmount<Injury>() > DynamicVars["Vengeance"].IntValue)
             await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.IntValue, Owner);
     }
 

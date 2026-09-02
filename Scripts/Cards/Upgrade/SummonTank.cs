@@ -1,4 +1,5 @@
-﻿using Diceomancer.Scripts.Hero.CardPool;
+﻿using Diceomancer.Scripts.Common.Utils;
+using Diceomancer.Scripts.Hero.CardPool;
 using Diceomancer.Scripts.Powers.Elements;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -35,14 +36,8 @@ public class SummonTank() : ModCardTemplate(2, CardType.Skill, CardRarity.Uncomm
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var steamTankElement =
-            await PowerCmd.Apply<SteamTankElement>(choiceContext, Owner.Creature, DynamicVars.Summon.IntValue,
-                Owner.Creature, this);
-        if (steamTankElement != null)
-        {
-            steamTankElement.DynamicVars.Damage.BaseValue = DynamicVars.Damage.BaseValue;
-            steamTankElement.DynamicVars.Block.BaseValue = DynamicVars.Block.BaseValue;
-        }
+        await ElementCmd.SummonSteamTankElement(choiceContext, Owner.Creature, Owner.Creature, this,
+            DynamicVars.Summon.IntValue, DynamicVars.Damage.BaseValue, DynamicVars.Block.BaseValue);
     }
 
     protected override void OnUpgrade()

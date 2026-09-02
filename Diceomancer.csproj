@@ -71,7 +71,9 @@
         <Content Include="Scripts\Cards\Curse\Vertigo.cs.uid" />
         <Content Include="Scripts\Cards\Event\InvincibleStrike.cs.uid" />
         <Content Include="Scripts\Cards\Event\StrikeSecret.cs.uid" />
+        <Content Include="Scripts\Cards\Template\FlowTemplate.cs.uid" />
         <Content Include="Scripts\Cards\Template\MiracleTemplate.cs.uid" />
+        <Content Include="Scripts\新的卡牌.md" />
     </ItemGroup>
 
 
@@ -94,8 +96,6 @@
 
 
     <ItemGroup>
-        <Folder Include="Scripts\Cards\Builder\" />
-        <Folder Include="Scripts\Cards\Token\Options\" />
         <Folder Include="Scripts\Cards\Token\Scrap\"/>
         <Folder Include="Scripts\Patches\" />
         <Folder Include="Scripts\Powers\MonstersPower\" />

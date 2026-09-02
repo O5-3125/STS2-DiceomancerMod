@@ -22,7 +22,7 @@ public class InspirationVoid : ModRelicTemplate
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new CardsVar(5),
-        new StringVar("cardTitle",  GetType().Name)
+        new StringVar("cardTitle", ModelDb.Card<NullCard>().Title)
     ];
 
     public override string PackedIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";

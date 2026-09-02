@@ -84,9 +84,12 @@
   "DICEOMANCER_POWER_WATER_ELEMENT.title": "水元素",
   "DICEOMANCER_POWER_WATER_ELEMENT.description": "回合结束时获得[gold]格挡[/gold]。",
   "DICEOMANCER_POWER_WATER_ELEMENT.smartDescription": "回合结束时获得{Block:diff()}点[gold]格挡[/gold]。",
+  "DICEOMANCER_POWER_PURE_ELEMENT.title": "纯粹元素",
+  "DICEOMANCER_POWER_PURE_ELEMENT.description": "回合结束时召唤随机基础元素。",
+  "DICEOMANCER_POWER_PURE_ELEMENT.smartDescription": "回合结束时召唤随机基础元素。",
   //
   "DICEOMANCER_POWER_STANDARDIZED_SUMMON_POWER.title": "标准化召唤",
-  "DICEOMANCER_POWER_STANDARDIZED_SUMMON_POWER.smartDescription": "回合开始时，[gold]召唤[/gold]{StandardizedSummonPower:diff()}个[red]火元素[/red]。",
+  "DICEOMANCER_POWER_STANDARDIZED_SUMMON_POWER.smartDescription": "回合开始时，[gold]召唤[/gold]{Amount:diff()}个[red]火元素[/red]。",
   //
   "DICEOMANCER_POWER_SUPERPOSITION_POWER.title": "叠加态",
   "DICEOMANCER_POWER_SUPERPOSITION_POWER.smartDescription": "[gold]混乱[/gold]牌获得[gold]重放[/gold]。",
@@ -157,7 +160,7 @@
   //
   "DICEOMANCER_POWER_FURY_POWER.title": "狂怒",
   "DICEOMANCER_POWER_FURY_POWER.description": "下回合开始时，获得能量。",
-  "DICEOMANCER_POWER_FURY_POWER.smartDescription": "下回合开始时，获得{Amount}能量。",
+  "DICEOMANCER_POWER_FURY_POWER.smartDescription": "下回合开始时，获得{Amount}点能量。",
   //
   "DICEOMANCER_POWER_GAIN_MAX_HP_POWER.title": "重返自然",
   "DICEOMANCER_POWER_GAIN_MAX_HP_POWER.description": "战斗结束时，最大生命回复。",
@@ -166,5 +169,26 @@
   "DICEOMANCER_POWER_SPLINTER_TWIN_POWER.title": "分裂双身",
   "DICEOMANCER_POWER_SPLINTER_TWIN_POWER.description": "回合开始时，选择[gold]手牌[/gold]复制。",
   "DICEOMANCER_POWER_SPLINTER_TWIN_POWER.smartDescription": "回合开始时，选择最多{Amount}张[gold]手牌[/gold]，将这些牌的复制加入你的[gold]手牌[/gold]。",
-  "DICEOMANCER_POWER_SPLINTER_TWIN_POWER.selectionScreenPrompt": "选择[gold]手牌[/gold]进行复制。"
+  "DICEOMANCER_POWER_SPLINTER_TWIN_POWER.selectionScreenPrompt": "选择[gold]手牌[/gold]进行复制。",
+  //
+  "DICEOMANCER_POWER_SCAVENGER_POWER.title": "食腐",
+  "DICEOMANCER_POWER_SCAVENGER_POWER.smartDescription": "每当[gold]元素[/gold]消失时，获得{Amount}点能量。",
+  //
+  "DICEOMANCER_POWER_CYCLE_OF_LIFE_POWER.title": "轮回",
+  "DICEOMANCER_POWER_CYCLE_OF_LIFE_POWER.smartDescription": "每当[gold]元素[/gold]消失时，[gold]召唤[/gold]{Amount}个随机基础[gold]元素[/gold]。",
+  //
+  "DICEOMANCER_POWER_VICISSITUDES_POWER.title": "枯荣",
+  "DICEOMANCER_POWER_VICISSITUDES_POWER.smartDescription": "每当[gold]元素[/gold]消失时，随机[gold]元素[/gold]层数翻倍{Amount}次。",
+  //
+  "DICEOMANCER_POWER_WILDERNESS_RECLAMATION_POWER.title": "复归荒野",
+  "DICEOMANCER_POWER_WILDERNESS_RECLAMATION_POWER.smartDescription": "回合开始时，触发所有[gold]元素[/gold]。",
+  //
+  "DICEOMANCER_POWER_THATS_HANDY_POWER.title": "这个顺手",
+  "DICEOMANCER_POWER_THATS_HANDY_POWER.smartDescription": "当你打出[gold]衍生[/gold]牌后，对随机敌人造成{Amount}点伤害。",
+  //
+  "DICEOMANCER_POWER_WASTE_NOT_POWER.title": "可别浪费",
+  "DICEOMANCER_POWER_WASTE_NOT_POWER.smartDescription": "回合开始时，将{Amount}张随机[gold]废品[/gold]牌加入[gold]手牌[/gold]。",
+  //
+  "DICEOMANCER_POWER_SPARKS_POWER.title": "火花",
+  "DICEOMANCER_POWER_SPARKS_POWER.smartDescription": "当你打出[gold]衍生[/gold]牌后，获得{EnergyPrefix:EnergyIcons(Amount)}。"
 }

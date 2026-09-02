@@ -27,14 +27,8 @@ public class SpaceFireElement : ElementTemplate<EssenceOfFire>
         new RepeatVar(6)
     ];
 
-
-    // 回合结束
-    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
-        IEnumerable<Creature> participants)
+    public override async Task Evoke(PlayerChoiceContext choiceContext)
     {
-        if (!participants.Contains(base.Owner)) return;
-
-
         ArgumentNullException.ThrowIfNull(Owner.CombatState);
         var enemy = base.Owner.CombatState.RunState.Rng.CombatTargets.NextItem(base.CombatState.HittableEnemies);
         if (enemy == null) return;
@@ -46,5 +40,14 @@ public class SpaceFireElement : ElementTemplate<EssenceOfFire>
         }
 
         await PowerCmd.Decrement(this);
+    }
+
+    // 回合结束
+    public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
+        IEnumerable<Creature> participants)
+    {
+        if (!participants.Contains(base.Owner)) return;
+
+        await Evoke(choiceContext);
     }
 }

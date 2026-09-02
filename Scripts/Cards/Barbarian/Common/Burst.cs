@@ -22,8 +22,9 @@ public class Burst() : ModCardTemplate(1, CardType.Skill, CardRarity.Common, Tar
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new("MaxEnergyCap", 1m),
-        new PowerVar<FuryPower>(4)
+        new("MaxEnergyCap", 2m),
+        new PowerVar<FuryPower>(4),
+        new("Vengeance", 4)
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
@@ -34,14 +35,14 @@ public class Burst() : ModCardTemplate(1, CardType.Skill, CardRarity.Common, Tar
     ];
 
     protected override bool ShouldGlowGoldInternal =>
-        Owner.Creature.GetPowerAmount<Injury>() > 4;
+        Owner.Creature.GetPowerAmount<Injury>() > DynamicVars["Vengeance"].IntValue;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await BarbarianCardUtils.SetMaxEnergyCap(Owner, DynamicVars["MaxEnergyCap"].IntValue);
+        await BarbarianCmd.GainMaxEnergyCap(Owner, DynamicVars["MaxEnergyCap"].IntValue);
 
 
-        if (Owner.Creature.GetPowerAmount<Injury>() > 4)
+        if (Owner.Creature.GetPowerAmount<Injury>() > DynamicVars["Vengeance"].IntValue)
             await PowerCmd.Apply<FuryPower>(choiceContext, Owner.Creature,
                 DynamicVars["FuryPower"].IntValue, Owner.Creature, this);
     }

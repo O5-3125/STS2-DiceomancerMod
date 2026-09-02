@@ -19,9 +19,6 @@ public class Maneuver() : ModCardTemplate(0, CardType.Skill, CardRarity.Uncommon
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
     );
 
-    protected override bool IsPlayable =>
-        IsUpgradable || Owner.Creature.GetPower<Fatigue>() is null;
-
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new CardsVar(4),

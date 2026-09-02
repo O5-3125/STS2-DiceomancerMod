@@ -34,7 +34,7 @@ public class TheOldWay() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommo
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await BarbarianCardUtils.SetMaxEnergyCap(Owner, DynamicVars["MaxEnergyCap"].IntValue);
+        await BarbarianCmd.SetMaxEnergyCap(Owner, DynamicVars["MaxEnergyCap"].IntValue);
 
         await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.IntValue, Owner);
 

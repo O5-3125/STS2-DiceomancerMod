@@ -25,7 +25,9 @@ public class Instinct() : ModCardTemplate(1, CardType.Skill, CardRarity.Common, 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new PowerVar<Excitement>(3),
-        new PowerVar<StrengthPower>(3)
+        new PowerVar<StrengthPower>(3),
+        new("Vengeance", 4),
+        new("Vengeance2", 8)
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
@@ -37,17 +39,17 @@ public class Instinct() : ModCardTemplate(1, CardType.Skill, CardRarity.Common, 
     ];
 
     protected override bool ShouldGlowGoldInternal =>
-        Owner.Creature.GetPowerAmount<Injury>() > 4;
+        Owner.Creature.GetPowerAmount<Injury>() > DynamicVars["Vengeance"].IntValue;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         var injury = Owner.Creature.GetPowerAmount<Injury>();
 
-        if (injury > 4)
+        if (injury > DynamicVars["Vengeance"].IntValue)
             await PowerCmd.Apply<Excitement>(choiceContext, Owner.Creature,
                 DynamicVars["Excitement"].IntValue, Owner.Creature, this);
 
-        if (injury > 8)
+        if (injury > DynamicVars["Vengeance"].IntValue)
             await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature,
                 DynamicVars["StrengthPower"].IntValue, Owner.Creature, this);
     }

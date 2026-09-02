@@ -24,7 +24,7 @@ public class BandageHeal()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await BarbarianCardUtils.HealInjury(choiceContext, Owner.Creature,
+        await BarbarianCmd.HealInjury(choiceContext, Owner.Creature,
             DynamicVars["Injury"].IntValue);
     }
 }

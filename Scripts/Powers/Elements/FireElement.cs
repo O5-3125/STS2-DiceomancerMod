@@ -21,18 +21,23 @@ public class FireElement : ElementTemplate<EssenceOfFire>
     [
         new DamageVar(4, ValueProp.Unpowered)
     ];
-    
-    // 回合结束
-    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
-        IEnumerable<Creature> participants)
-    {
-        if (!participants.Contains(base.Owner)) return;
 
+    public override async Task Evoke(PlayerChoiceContext choiceContext)
+    {
         ArgumentNullException.ThrowIfNull(Owner.CombatState);
         var enemy = base.Owner.CombatState.RunState.Rng.CombatTargets.NextItem(base.CombatState.HittableEnemies);
         if (enemy == null) return;
         await CreatureCmd.Damage(choiceContext, enemy,
             DynamicVars.Damage.IntValue, ValueProp.Unpowered, base.Owner);
         await PowerCmd.Decrement(this);
+    }
+
+    // 回合结束
+    public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
+        IEnumerable<Creature> participants)
+    {
+        if (!participants.Contains(base.Owner)) return;
+
+        await Evoke(choiceContext);
     }
 }

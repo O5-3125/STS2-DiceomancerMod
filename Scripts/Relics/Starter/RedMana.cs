@@ -1,6 +1,4 @@
-﻿using Diceomancer.Scripts.Hero;
-using Diceomancer.Scripts.Hero.Barbarian;
-using Diceomancer.Scripts.Hero.Builder;
+﻿using Diceomancer.Scripts.Hero.Barbarian;
 using Diceomancer.Scripts.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -13,7 +11,7 @@ using STS2RitsuLib.Cards;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
-namespace Diceomancer.Scripts.Relics.Basic;
+namespace Diceomancer.Scripts.Relics.Starter;
 
 [RegisterRelic(typeof(BarbarianRelicPool))]
 [RegisterCharacterStarterRelic(typeof(Barbarian))]

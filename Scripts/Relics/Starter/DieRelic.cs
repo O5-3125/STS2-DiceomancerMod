@@ -5,7 +5,6 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.CardRewardAlternatives;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
-using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Entities.Rewards;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Screens.CardSelection;
@@ -13,7 +12,7 @@ using MegaCrit.Sts2.Core.Nodes.Screens.Overlays;
 using MegaCrit.Sts2.Core.Rewards;
 using STS2RitsuLib.Scaffolding.Content;
 
-namespace Diceomancer.Scripts.Relics.Basic;
+namespace Diceomancer.Scripts.Relics.Starter;
 
 // 骰子遗物基类：卡牌奖励获得"附魔对应骰子"选项，拾起时移除已有的其他骰子遗物。
 // 与Driftwood的重掷一致，该选项在一个奖励中只能用一次。

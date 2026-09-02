@@ -40,7 +40,7 @@ public class RandomDebuffCapability : CardPlayCapability, ICardDescriptionContri
 
         // if (enemy == null) return;
 
-        await DiceomancerCardCmd.ApplyRandomDebuff(choiceContext, card.Owner,
+        await RandomPowerCmd.ApplyRandomDebuff(choiceContext, card.Owner,
             enemy, card.Owner.Creature, card, DynamicVars["Debuff"].IntValue);
     }
 }

@@ -1,4 +1,5 @@
-﻿using Diceomancer.Scripts.Hero.Builder;
+﻿using Diceomancer.Scripts.Common.Utils;
+using Diceomancer.Scripts.Hero.Builder;
 using Diceomancer.Scripts.Powers.Elements;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -31,10 +32,8 @@ public class SummonBlack() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncom
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var blackElement =
-            await PowerCmd.Apply<BlackElement>(choiceContext, Owner.Creature, DynamicVars.Summon.IntValue,
-                Owner.Creature, this);
-        if (blackElement != null) blackElement.DynamicVars["Buff"].BaseValue = DynamicVars["Buff"].BaseValue;
+        await ElementCmd.SummonBlackElement(choiceContext, Owner.Creature, Owner.Creature, this,
+            DynamicVars.Summon.IntValue, DynamicVars["Buff"].BaseValue);
     }
 
     protected override void OnUpgrade()

@@ -1,5 +1,6 @@
 ﻿using Diceomancer.Scripts.Cards.Template;
 using Diceomancer.Scripts.Cards.Upgrade;
+using Diceomancer.Scripts.Common.Utils;
 using Diceomancer.Scripts.Hero.Builder;
 using Diceomancer.Scripts.Powers.Elements;
 using MegaCrit.Sts2.Core.Commands;
@@ -34,8 +35,8 @@ public class BatchSummon()
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         for (var i = 0; i < DynamicVars["FireElement"].IntValue; i++)
-            await PowerCmd.Apply<FireElement>(choiceContext, Owner.Creature, DynamicVars["FireElement"].IntValue,
-                Owner.Creature, this);
+            await ElementCmd.SummonFireElement(choiceContext, Owner.Creature, Owner.Creature, this,
+                DynamicVars["FireElement"].IntValue);
     }
 
     protected override void OnUpgrade()

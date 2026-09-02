@@ -10,7 +10,7 @@ namespace Diceomancer.Scripts.Powers.Berserker;
 [RegisterPower]
 public class GainMaxHpPower : ModPowerTemplate
 {
-    public override PowerType Type => PowerType.Debuff;
+    public override PowerType Type => PowerType.Buff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
 

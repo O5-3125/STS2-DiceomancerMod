@@ -13,25 +13,17 @@ public class UpgradeCardPool : TypeListCardPoolModel
         _poolFrameMaterial = MaterialUtils.CreateReplaceHueShaderMaterial(0.5f, 0.5f, 0.5f);
 
     // 卡池的ID。必须唯一防撞车。
-    public override string Title => "Modify";
-    public override string EnergyColorName => "Modify";
+    public override string Title => "建造完成";
 
-    // 卡牌描述，遗物描述中使用的能量图标。大小为24x24。
-    public override string? TextEnergyIconPath => "res://Diceomancer/images/Energy/D20.png";
+    public override string EnergyColorName => "colorless";
 
-    // tooltip和卡牌左上角的能量图标。大小为74x74。
-    public override string? BigEnergyIconPath => "res://Diceomancer/images/Energy/D20_big.png";
+    public override Color DeckEntryCardColor => new("A3A3A3FF");
 
-    // 能量表盘文字轮廓颜色
-    // public override Color EnergyOutlineColor => new(0f, 0f, 0f);
-
-    // 卡池的主题色。
-    public override Color DeckEntryCardColor => new(0.533f, 0.247f, 0.961f);
 
     // 如果你是自定义卡框，上面一行换成这个
     // private static readonly Material? _poolFrameMaterial = MaterialUtils.CreateUnmodulatedHsvShaderMaterial();
     public override Material? PoolFrameMaterial => _poolFrameMaterial;
 
     // 卡池是否是无色。例如事件、状态等卡池就是无色的。
-    public override bool IsColorless => true;
+    public override bool IsColorless => false;
 }

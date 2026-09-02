@@ -13,17 +13,13 @@ namespace Diceomancer.Scripts.Powers;
 [RegisterPower]
 public class WingedLightPower : ModPowerTemplate
 {
-    // 类型，Buff或Debuff
     public override PowerType Type => PowerType.Debuff;
 
-    // 叠加类型，Counter表示可叠加，Single表示不可叠加
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    // 自定义图标路径。1:1即可。原版游戏大图256x256，小图64x64。
-    // 自定义图标路径。1:1即可。原版游戏大图256x256，小图64x64。
     public override PowerAssetProfile AssetProfile => new(
-        // IconPath: $"res://Diceomancer/images/Power/{GetType().Name}.png",
-        // BigIconPath: $"res://Diceomancer/images/Power/{GetType().Name}_big.png"
+        $"res://Diceomancer/images/Power/{GetType().Name}.png",
+        $"res://Diceomancer/images/Power/{GetType().Name}.png"
     );
 
 

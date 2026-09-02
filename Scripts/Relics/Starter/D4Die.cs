@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using STS2RitsuLib.Interop.AutoRegistration;
 
-namespace Diceomancer.Scripts.Relics.Basic;
+namespace Diceomancer.Scripts.Relics.Starter;
 
 [RegisterRelic(typeof(SharedRelicPool))]
 public class D4Die : DieRelic

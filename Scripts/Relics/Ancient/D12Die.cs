@@ -1,6 +1,6 @@
 using Diceomancer.Scripts.Enchantments;
 using Diceomancer.Scripts.Hero.Builder;
-using Diceomancer.Scripts.Relics.Basic;
+using Diceomancer.Scripts.Relics.Starter;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Models;

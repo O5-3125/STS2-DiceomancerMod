@@ -1,4 +1,5 @@
-﻿using Diceomancer.Scripts.Hero.CardPool;
+﻿using Diceomancer.Scripts.Common.Utils;
+using Diceomancer.Scripts.Hero.CardPool;
 using Diceomancer.Scripts.Powers.Elements;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -35,14 +36,8 @@ public class SummonSpaceFire() : ModCardTemplate(1, CardType.Skill, CardRarity.R
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var spaceFireElement =
-            await PowerCmd.Apply<SpaceFireElement>(choiceContext, Owner.Creature, DynamicVars.Summon.IntValue,
-                Owner.Creature, this);
-        if (spaceFireElement != null)
-        {
-            spaceFireElement.DynamicVars.Damage.BaseValue = DynamicVars.Damage.BaseValue;
-            spaceFireElement.DynamicVars.Repeat.BaseValue = DynamicVars.Repeat.BaseValue;
-        }
+        await ElementCmd.SummonSpaceFireElement(choiceContext, Owner.Creature, Owner.Creature, this,
+            DynamicVars.Summon.IntValue, DynamicVars.Damage.BaseValue, DynamicVars.Repeat.BaseValue);
     }
 
     protected override void OnUpgrade()

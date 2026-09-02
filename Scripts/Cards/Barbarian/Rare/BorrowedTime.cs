@@ -30,7 +30,7 @@ public class BorrowedTime() : ModCardTemplate(2, CardType.Skill, CardRarity.Rare
         var halfAmount = injury / 2m;
         if (halfAmount < 1m) return;
 
-        await BarbarianCardUtils.HealInjury(choiceContext, Owner.Creature, halfAmount);
+        await BarbarianCmd.HealInjury(choiceContext, Owner.Creature, halfAmount);
         await CreatureCmd.Heal(Owner.Creature, halfAmount);
     }
 

@@ -1,8 +1,6 @@
 ﻿{
   "evolution.title": "进化",
   "evolution.description": "打出后，卡牌上的数字在本场战斗增加{Evolution}。",
-  
-  
   "assault.title": "突击",
   "assault.description": "第一次打出时生效",
   "vengeance.title": "复仇",
@@ -10,19 +8,19 @@
   "flow.title": "流转",
   "flow.description": "若上一张牌与本牌类型不同，则生效。",
   "buff.title": "增益",
-  "buff.description": "一定范围内的正面[gold]增益[/gold]。",
+  "buff.description": "一定范围内的正面[gold]状态[/gold]。",
   "debuff.title": "减益",
-  "debuff.description": "一定范围内的负面[gold]减益[/gold]。",
-
+  "debuff.description": "一定范围内的负面[gold]状态[/gold]。",
   "kick.title": "增幅",
   "kick.description": "打出此牌时可以至多弃X张牌，每次弃牌都复制结算该牌效果。",
   "upgrade.title": "建造",
   "upgrade.description": "打出相邻[gold]手牌[/gold]进行[gold]建造[/gold]，[gold]建造[/gold]完成后变成另一张牌。",
-  "miracle.title":"奇迹",
-  "miracle.description":"如果这张牌不是在回合开始时抽到的，则触发效果。",
+  "miracle.title": "奇迹",
+  "miracle.description": "如果这张牌不是在回合开始时抽到的，则触发效果。",
   "modify.title": "改装",
   "modify.description": "使另一张牌获得此效果。",
-  
+  "remain.title": "余量",
+  "remain.description": "打出此牌后余量减少。无余量的牌不会出现在战斗中。[gold]休息[/gold]后重置余量。",
   "DICEOMANCER_SECONDARY_RESOURCE_BLACK_MANA.title": "黑球",
   "DICEOMANCER_SECONDARY_RESOURCE_BLACK_MANA.description": "对黑球的描述文本。"
 }

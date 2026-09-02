@@ -34,7 +34,7 @@ public class BigMeat() : ModCardTemplate(1, CardType.Skill, CardRarity.Basic, Ta
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await BarbarianCardUtils.HealInjury(choiceContext, Owner.Creature, DynamicVars["Injury"].IntValue);
+        await BarbarianCmd.HealInjury(choiceContext, Owner.Creature, DynamicVars["Injury"].IntValue);
         await CreatureCmd.Heal(Owner.Creature, DynamicVars.Heal.BaseValue);
     }
 

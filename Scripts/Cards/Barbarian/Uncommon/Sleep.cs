@@ -31,7 +31,7 @@ public class Sleep() : ModCardTemplate(2, CardType.Skill, CardRarity.Uncommon, T
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await BarbarianCardUtils.HealInjury(choiceContext, Owner.Creature, DynamicVars["Injury"].IntValue);
+        await BarbarianCmd.HealInjury(choiceContext, Owner.Creature, DynamicVars["Injury"].IntValue);
     }
 
     protected override void OnUpgrade()

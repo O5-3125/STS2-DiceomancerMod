@@ -9,13 +9,11 @@ namespace Diceomancer.Scripts.Hero.CardPool;
 public class WonderfulCardPool : TypeListCardPoolModel
 {
     // 卡池的ID。必须唯一防撞车。
-    public override string Title => "Wonderful";
+    public override string Title => "奇妙牌";
+    public override string EnergyColorName => "colorless";
 
-    public override string EnergyColorName => "Wonderful";
+    public override Color DeckEntryCardColor => new("A3A3A3FF");
 
     // 卡池是否是无色。例如事件、状态等卡池就是无色的。
-    public override bool IsColorless => true;
-
-    // 卡池的主题色。
-    public override Color DeckEntryCardColor => new(0, 0, 0);
+    public override bool IsColorless => false;
 }

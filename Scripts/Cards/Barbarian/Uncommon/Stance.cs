@@ -27,7 +27,7 @@ public class Stance() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommon, 
     
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await BarbarianCardUtils.GainMaxEnergyCap(Owner, DynamicVars["MaxEnergyCap"].IntValue);
+        await BarbarianCmd.GainMaxEnergyCap(Owner, DynamicVars["MaxEnergyCap"].IntValue);
 
 
         await PlayerCmd.GainEnergy(Owner.GetEnergy(), Owner);

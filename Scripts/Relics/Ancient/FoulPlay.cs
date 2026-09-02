@@ -43,7 +43,7 @@ public class FoulPlay : ModRelicTemplate
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new StringVar("cardTitle", nameof(K))
+        new StringVar("cardTitle", ModelDb.Card<K>().Title)
     ];
 
     public override async Task AfterObtained()

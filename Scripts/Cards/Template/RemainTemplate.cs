@@ -5,7 +5,9 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
+using STS2RitsuLib.Cards.DynamicVars;
 using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Cards.Template;
@@ -18,7 +20,7 @@ public abstract class RemainTemplate(
     int baseRemain)
     : ModCardTemplate(energyCost, type, rarity, targetType)
 {
-
+    private readonly int _baseRemain = baseRemain;
 
     private int _currentRemain = baseRemain;
 
@@ -37,6 +39,7 @@ public abstract class RemainTemplate(
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new IntVar("Remain", CurrentRemain)
+            .WithSharedTooltip("remain")
     ];
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -47,25 +50,36 @@ public abstract class RemainTemplate(
         intValue--;
         UpdateFromPlay(intValue);
         (DeckVersion as RemainTemplate)?.UpdateFromPlay(intValue);
-        if (intValue <= 0) await CardCmd.Exhaust(choiceContext, this);
+        // if (intValue <= 0) await CardCmd.Exhaust(choiceContext, this);
+        if (intValue <= 0) await CardPileCmd.RemoveFromCombat(this);
     }
+
+
+    public override async Task AfterRoomEntered(AbstractRoom room)
+    {
+        if (room is CombatRoom && DynamicVars["Remain"].IntValue <= 0)
+        {
+            await CardPileCmd.RemoveFromCombat(this);
+        }
+    }
+
 
     public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext,
         ICombatState combatState)
     {
-        if (player == Owner && Owner.PlayerCombatState?.TurnNumber == 1 &&
+        if (player == Owner &&
+            Owner.PlayerCombatState?.TurnNumber == 1 &&
             DynamicVars["Remain"].IntValue <= 0)
             await CardPileCmd.RemoveFromCombat(this);
     }
 
     public override async Task AfterRestSiteHeal(Player player, bool isMimicked)
     {
-        if (player == Owner && CurrentRemain < _currentRemain) UpdateFromPlay(_currentRemain);
+        if (player == Owner && CurrentRemain < _baseRemain) UpdateFromPlay(_baseRemain);
     }
 
     private void UpdateFromPlay(int newRemain)
     {
         CurrentRemain = newRemain;
     }
-
 }

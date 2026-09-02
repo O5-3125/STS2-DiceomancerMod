@@ -23,7 +23,8 @@ public class BattleInstinct() : ModCardTemplate(1, CardType.Skill, CardRarity.Co
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<HastePower>(4)
+        new PowerVar<HastePower>(4),
+        new("Vengeance", 3)
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
@@ -34,14 +35,14 @@ public class BattleInstinct() : ModCardTemplate(1, CardType.Skill, CardRarity.Co
     ];
 
     protected override bool ShouldGlowGoldInternal =>
-        Owner.Creature.GetPowerAmount<Injury>() > 3;
+        Owner.Creature.GetPowerAmount<Injury>() > DynamicVars["Vengeance"].IntValue;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await PowerCmd.Apply<HastePower>(choiceContext, Owner.Creature,
             DynamicVars["HastePower"].IntValue, Owner.Creature, this);
 
-        if (Owner.Creature.GetPowerAmount<Injury>() > 3)
+        if (Owner.Creature.GetPowerAmount<Injury>() > DynamicVars["Vengeance"].IntValue)
             await PowerCmd.Apply<HastePower>(choiceContext, Owner.Creature,
                 DynamicVars["HastePower"].IntValue, Owner.Creature, this);
     }

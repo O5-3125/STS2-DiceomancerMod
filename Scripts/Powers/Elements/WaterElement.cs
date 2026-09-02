@@ -22,14 +22,20 @@ public class WaterElement : ElementTemplate<EssenceOfWater>
         new BlockVar(3, ValueProp.Unpowered)
     ];
 
+    public override async Task Evoke(PlayerChoiceContext choiceContext)
+    {
+        await CreatureCmd.GainBlock(Owner, DynamicVars.Block, null);
+
+        await PowerCmd.Decrement(this);
+    }
+
     // 回合结束
-    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
+    public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
         IEnumerable<Creature> participants)
     {
         if (!participants.Contains(base.Owner)) return;
 
-        await CreatureCmd.GainBlock(Owner, DynamicVars.Block, null);
 
-        await PowerCmd.Decrement(this);
+        await Evoke(choiceContext);
     }
 }

@@ -21,11 +21,6 @@ public class BodyBurning() : ModCardTemplate(2, CardType.Power, CardRarity.Uncom
         new PowerVar<Powers.BodyBurning>(3)
     ];
 
-    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
-    [
-        HoverTipFactory.FromPower<Powers.BodyBurning>()
-    ];
-
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await PowerCmd.Apply<Powers.BodyBurning>(choiceContext, Owner.Creature,

@@ -3,10 +3,9 @@ using Diceomancer.Scripts.Hero.Builder;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.RelicPools;
 using STS2RitsuLib.Interop.AutoRegistration;
 
-namespace Diceomancer.Scripts.Relics.Basic;
+namespace Diceomancer.Scripts.Relics.Starter;
 
 // 加入角色遗物池
 [RegisterRelic(typeof(BuilderRelicPool))]

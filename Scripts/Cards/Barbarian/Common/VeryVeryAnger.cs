@@ -37,7 +37,7 @@ public class VeryVeryAnger() : ModCardTemplate(1, CardType.Skill, CardRarity.Com
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await BarbarianCardUtils.HealInjury(choiceContext, Owner.Creature, DynamicVars["Injury"].IntValue);
+        await BarbarianCmd.HealInjury(choiceContext, Owner.Creature, DynamicVars["Injury"].IntValue);
 
         await PowerCmd.Apply<Excitement>(choiceContext, Owner.Creature,
             DynamicVars["Excitement"].IntValue, Owner.Creature, this);

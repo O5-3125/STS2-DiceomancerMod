@@ -32,7 +32,7 @@ public class RandomBuffCapability : CardPlayCapability, ICardDescriptionContribu
     
     protected override async Task OnOwnerCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await DiceomancerCardCmd.ApplyRandomBuff(choiceContext, cardPlay.Card.Owner,
+        await RandomPowerCmd.ApplyRandomBuff(choiceContext, cardPlay.Card.Owner,
             cardPlay.Card.Owner.Creature, cardPlay.Card.Owner.Creature,
             cardPlay.Card, DynamicVars["Buff"].IntValue);
     }

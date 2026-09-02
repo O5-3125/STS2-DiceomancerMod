@@ -38,6 +38,6 @@ public class Flame() : ModCardTemplate(0, CardType.Skill, CardRarity.Token, Targ
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Repeat.UpgradeValueBy(1);
+        DynamicVars.Energy.UpgradeValueBy(1);
     }
 }

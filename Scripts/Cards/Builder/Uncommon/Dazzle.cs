@@ -19,7 +19,7 @@ public class Dazzle() :
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await DiceomancerCardCmd.ApplyRandomDebuff(choiceContext, Owner, cardPlay.Target,
+        await RandomPowerCmd.ApplyRandomDebuff(choiceContext, Owner, cardPlay.Target,
             Owner.Creature, this, DynamicVars["Debuff"].IntValue);
     }
 

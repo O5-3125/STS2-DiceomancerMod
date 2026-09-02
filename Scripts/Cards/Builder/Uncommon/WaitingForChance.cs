@@ -24,8 +24,7 @@ public class WaitingForChance() : ModCardTemplate(1, CardType.Skill, CardRarity.
         new CardsVar(2),
         new EnergyVar(2)
     ];
-
-
+    
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
         CardKeyword.Exhaust,

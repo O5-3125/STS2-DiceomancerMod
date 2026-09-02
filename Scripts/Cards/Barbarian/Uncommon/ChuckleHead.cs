@@ -35,7 +35,7 @@ public class ChuckleHead() : ModCardTemplate(2, CardType.Skill, CardRarity.Uncom
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await BarbarianCardUtils.HealInjury(choiceContext, Owner.Creature, DynamicVars["Injury"].IntValue);
+        await BarbarianCmd.HealInjury(choiceContext, Owner.Creature, DynamicVars["Injury"].IntValue);
 
         await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature,
             DynamicVars["StrengthPower"].IntValue, Owner.Creature, this);

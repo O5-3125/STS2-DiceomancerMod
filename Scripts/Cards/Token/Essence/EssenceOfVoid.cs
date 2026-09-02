@@ -1,3 +1,4 @@
+using Diceomancer.Scripts.Common.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -19,14 +20,17 @@ public class EssenceOfVoid()
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<EnergyNextTurnPower>(1)
+        new RepeatVar(3)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<EnergyNextTurnPower>(choiceContext, Owner.Creature,
-            DynamicVars["EnergyNextTurnPower"].IntValue, Owner.Creature, this);
+        for (int i = 0; i < DynamicVars.Repeat.IntValue; i++)
+        {
+            await ElementCmd.SummonRandomBasicElement(choiceContext, Owner.Creature, Owner.Creature, this);
+        }
     }
 }

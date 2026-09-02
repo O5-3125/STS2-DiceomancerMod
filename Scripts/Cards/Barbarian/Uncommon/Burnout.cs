@@ -36,7 +36,7 @@ public class Burnout() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommon,
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await BarbarianCardUtils.SetMaxEnergyCap(Owner, DynamicVars["MaxEnergyCap"].IntValue);
+        await BarbarianCmd.SetMaxEnergyCap(Owner, DynamicVars["MaxEnergyCap"].IntValue);
 
         await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature,
             DynamicVars["StrengthPower"].IntValue, Owner.Creature, this);

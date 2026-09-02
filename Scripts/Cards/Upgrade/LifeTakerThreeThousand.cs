@@ -27,7 +27,7 @@ public class LifeTakerThreeThousand()
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         for (var i = 0; i < DynamicVars.Repeat.IntValue; i++)
-            await DiceomancerCardCmd.ApplyRandomBuff(choiceContext, Owner, Owner.Creature, Owner.Creature, this,
+            await RandomPowerCmd.ApplyRandomBuff(choiceContext, Owner, Owner.Creature, Owner.Creature, this,
                 DynamicVars["Buff"].IntValue);
     }
 

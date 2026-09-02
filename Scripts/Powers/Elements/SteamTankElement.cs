@@ -22,16 +22,21 @@ public class SteamTankElement : ElementTemplate<EssenceOfWater>
         new BlockVar(10, ValueProp.Unpowered)
     ];
 
-    // 回合结束
-    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
-        IEnumerable<Creature> participants)
+    public override async Task Evoke(PlayerChoiceContext choiceContext)
     {
-        if (!participants.Contains(base.Owner)) return;
-
         ArgumentNullException.ThrowIfNull(Owner.CombatState);
         await CreatureCmd.Damage(choiceContext, base.CombatState.HittableEnemies,
             DynamicVars.Damage.IntValue, ValueProp.Unpowered, base.Owner);
         await CreatureCmd.GainBlock(Owner, DynamicVars.Block, null);
         await PowerCmd.Decrement(this);
+    }
+
+    // 回合结束
+    public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
+        IEnumerable<Creature> participants)
+    {
+        if (!participants.Contains(base.Owner)) return;
+
+        await Evoke(choiceContext);
     }
 }

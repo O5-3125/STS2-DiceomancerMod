@@ -22,7 +22,7 @@ public class Mutation() : EvolutionTemplate(2, CardType.Skill, CardRarity.Rare, 
     {
         ArgumentNullException.ThrowIfNull(CombatState, "base.CombatState");
         for (var i = 0; i < DynamicVars.Repeat.IntValue; i++)
-            await DiceomancerCardCmd.ApplyRandomBuff(choiceContext, Owner, Owner.Creature,
+            await RandomPowerCmd.ApplyRandomBuff(choiceContext, Owner, Owner.Creature,
                 Owner.Creature, null, DynamicVars["Buff"].IntValue);
     }
 

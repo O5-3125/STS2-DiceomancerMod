@@ -1,5 +1,6 @@
 ﻿using Diceomancer.Scripts.Cards.Template;
 using Diceomancer.Scripts.Cards.Upgrade;
+using Diceomancer.Scripts.Common.Utils;
 using Diceomancer.Scripts.Hero.Builder;
 using Diceomancer.Scripts.Powers.Elements;
 using MegaCrit.Sts2.Core.Commands;
@@ -35,12 +36,10 @@ public class AdvancedSummoning()
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         for (var i = 0; i < DynamicVars["WaterElement"].IntValue; i++)
-            await PowerCmd.Apply<WaterElement>(choiceContext, Owner.Creature, 4,
-                Owner.Creature, this);
+            await ElementCmd.SummonWaterElement(choiceContext, Owner.Creature, Owner.Creature, this);
 
         for (var i = 0; i < DynamicVars["FireElement"].IntValue; i++)
-            await PowerCmd.Apply<FireElement>(choiceContext, Owner.Creature, 3,
-                Owner.Creature, this);
+            await ElementCmd.SummonFireElement(choiceContext, Owner.Creature, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
