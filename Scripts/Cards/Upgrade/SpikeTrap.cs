@@ -35,7 +35,7 @@ public sealed class SpikeTrap()
 
     protected override void OnUpgrade()
     {
-        DynamicVars["ThornsPower"].UpgradeValueBy(3);
+        DynamicVars["ThornsPower"].UpgradeValueBy(1);
         DynamicVars["FortifiedPower"].UpgradeValueBy(2);
         AddKeyword(CardKeyword.Retain);
     }

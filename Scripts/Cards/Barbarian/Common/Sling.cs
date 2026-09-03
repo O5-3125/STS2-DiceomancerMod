@@ -24,7 +24,7 @@ public class Sling() : ModCardTemplate(2, CardType.Attack, CardRarity.Common, Ta
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(8, ValueProp.Move),
+        new DamageVar(15, ValueProp.Move),
         new PowerVar<HastePower>(2)
     ];
 
@@ -48,7 +48,7 @@ public class Sling() : ModCardTemplate(2, CardType.Attack, CardRarity.Common, Ta
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(4);
+        DynamicVars.Damage.UpgradeValueBy(5);
         DynamicVars["HastePower"].UpgradeValueBy(2);
     }
 }

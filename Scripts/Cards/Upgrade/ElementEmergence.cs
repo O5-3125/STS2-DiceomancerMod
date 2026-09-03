@@ -1,10 +1,6 @@
-using Diceomancer.Scripts.Cards.Template;
-using Diceomancer.Scripts.Cards.Upgrade;
 using Diceomancer.Scripts.Common.Utils;
-using Diceomancer.Scripts.Hero.Builder;
 using Diceomancer.Scripts.Hero.CardPool;
 using Diceomancer.Scripts.Powers.Elements;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -12,7 +8,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
-namespace Diceomancer.Scripts.Cards.Builder.Common;
+namespace Diceomancer.Scripts.Cards.Upgrade;
 
 [RegisterCard(typeof(UpgradeCardPool))]
 public class ElementEmergence() : ModCardTemplate(1, CardType.Skill, CardRarity.Common, TargetType.Self)

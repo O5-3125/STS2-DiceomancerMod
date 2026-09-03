@@ -24,7 +24,7 @@ public class SteamEngine()
     protected override IEnumerable<DynamicVar> OwnCanonicalVars =>
     [
         new EnergyVar(2),
-        new BlockVar(9, ValueProp.Move)
+        new BlockVar(6, ValueProp.Move)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

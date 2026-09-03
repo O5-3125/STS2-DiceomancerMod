@@ -1,6 +1,7 @@
 ﻿using Diceomancer.Scripts.Common.Utils;
 using Diceomancer.Scripts.Hero.Barbarian;
 using Diceomancer.Scripts.Powers;
+using Diceomancer.Scripts.Powers.Berserker;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -21,7 +22,7 @@ public class RecklessCharge() : ModCardTemplate(2, CardType.Attack, CardRarity.C
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(9, ValueProp.Move),
+        new DamageVar(15, ValueProp.Move),
         new PowerVar<Injury>(5)
     ];
 

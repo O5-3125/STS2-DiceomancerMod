@@ -23,7 +23,7 @@ public class Firecrackers() : ModCardTemplate(2, CardType.Attack, CardRarity.Unc
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new EnergyVar(1),
-        new DamageVar(8, ValueProp.Move)
+        new DamageVar(12, ValueProp.Move)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

@@ -20,7 +20,7 @@ public class Molotov() : ModCardTemplate(1, CardType.Skill, CardRarity.Common, T
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<BurnPower>(8),
+        new PowerVar<BurnPower>(12),
         new PowerVar<WeakPower>(2)
     ];
 
@@ -42,7 +42,7 @@ public class Molotov() : ModCardTemplate(1, CardType.Skill, CardRarity.Common, T
 
     protected override void OnUpgrade()
     {
-        DynamicVars["BurnPower"].UpgradeValueBy(4);
+        DynamicVars["BurnPower"].UpgradeValueBy(3);
         DynamicVars["WeakPower"].UpgradeValueBy(1);
     }
 }

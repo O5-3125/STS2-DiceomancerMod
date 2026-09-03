@@ -22,9 +22,9 @@ public class TheOldWay() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommo
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new CardsVar(3),
-        new PowerVar<StrengthPower>(3),
-        new("MaxEnergyCap", 3m)
+        new CardsVar(5),
+        new PowerVar<StrengthPower>(5),
+        new("MaxEnergyCap", 5m)
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>

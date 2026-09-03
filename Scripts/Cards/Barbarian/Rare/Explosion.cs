@@ -23,7 +23,7 @@ public class Explosion() : ModCardTemplate(1, CardType.Attack, CardRarity.Rare, 
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(3, ValueProp.Move)
+        new DamageVar(5, ValueProp.Move)
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>

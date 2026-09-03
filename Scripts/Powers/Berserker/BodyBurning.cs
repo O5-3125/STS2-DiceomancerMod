@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
-namespace Diceomancer.Scripts.Powers;
+namespace Diceomancer.Scripts.Powers.Berserker;
 
 [RegisterPower]
 public class BodyBurning : ModPowerTemplate
@@ -21,7 +21,7 @@ public class BodyBurning : ModPowerTemplate
     );
 
 
-    public override async Task BeforeCardPlayed(CardPlay cardPlay)
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (cardPlay.Card.Owner.Creature != Owner) return;
 
@@ -30,7 +30,6 @@ public class BodyBurning : ModPowerTemplate
         Flash();
         var creature = Owner.Player.RunState.Rng.CombatTargets.NextItem(CombatState.HittableEnemies);
         if (creature != null)
-            await PowerCmd.Apply<BurnPower>(new ThrowingPlayerChoiceContext(),
-                creature, Amount, Owner, null);
+            await PowerCmd.Apply<BurnPower>(choiceContext, creature, Amount, Owner, null);
     }
 }

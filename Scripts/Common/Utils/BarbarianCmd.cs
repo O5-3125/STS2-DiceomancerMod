@@ -29,7 +29,7 @@ public static class BarbarianCmd
 
     public static async Task GainMaxEnergyCap(Player player, int cap)
     {
-        var relic = player.GetRelic<EmberCore>();
+        var relic = player.GetRelic<FirstFire>();
         if (relic == null) return;
 
         relic.DynamicVars["MaxEnergyCap"].BaseValue += cap;
@@ -39,7 +39,7 @@ public static class BarbarianCmd
 
     public static async Task LossMaxEnergyCap(Player player, int cap)
     {
-        var relic = player.GetRelic<EmberCore>();
+        var relic = player.GetRelic<FirstFire>();
         if (relic == null) return;
 
         relic.DynamicVars["MaxEnergyCap"].BaseValue -= cap;
@@ -50,7 +50,7 @@ public static class BarbarianCmd
 
     public static async Task SetMaxEnergyCap(Player player, int newEnergyCap)
     {
-        var relic = player.GetRelic<EmberCore>();
+        var relic = player.GetRelic<FirstFire>();
         if (relic == null) return;
 
         relic.DynamicVars["MaxEnergyCap"].BaseValue = newEnergyCap;
@@ -58,9 +58,9 @@ public static class BarbarianCmd
         UpdateDisplayAmount(relic);
     }
 
-    private static void UpdateDisplayAmount(EmberCore emberCore)
+    private static void UpdateDisplayAmount(FirstFire firstFire)
     {
-        emberCore.Flash();
-        emberCore.UpdateDisplayAmount();
+        firstFire.Flash();
+        firstFire.UpdateDisplayAmount();
     }
 }

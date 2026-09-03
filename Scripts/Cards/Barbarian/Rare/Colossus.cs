@@ -1,5 +1,6 @@
 using Diceomancer.Scripts.Hero.Barbarian;
 using Diceomancer.Scripts.Powers;
+using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -20,8 +21,8 @@ public class Colossus() : ModCardTemplate(4, CardType.Power, CardRarity.Rare, Ta
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<StrengthPower>(16),
-        new PowerVar<ThickSkin>(8),
+        new PowerVar<StrengthPower>(24),
+        new PowerVar<ThickSkin>(12),
         new PowerVar<MaxHandSize>(3)
     ];
 

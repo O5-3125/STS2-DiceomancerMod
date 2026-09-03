@@ -195,6 +195,7 @@
   "THE_ARCHITECT.talk.DICEOMANCER_CHARACTER_BUILDER.0-1r.next": "继续",
   "THE_ARCHITECT.talk.DICEOMANCER_CHARACTER_BUILDER.0-2r.ancient": "...",
   "THE_ARCHITECT.talk.DICEOMANCER_CHARACTER_BUILDER.1-0r.char": "说真的，你们应该修一部电梯。",
+  "THE_ARCHITECT.talk.DICEOMANCER_CHARACTER_BUILDER.1-0r.next": "继续",
   "THE_ARCHITECT.talk.DICEOMANCER_CHARACTER_BUILDER.1-1r.ancient": "预算不足。",
   /*------------- 建筑师 × 野蛮人 ----------- */
   "THE_ARCHITECT.talk.DICEOMANCER_CHARACTER_BARBARIAN.0-0r.ancient": "野蛮人。你脑子里的怒气，和这座塔一样高。",
@@ -228,5 +229,4 @@
   "VAKUU.talk.DICEOMANCER_CHARACTER_BARBARIAN.2-1.char": "……真相，我自己会去找。",
   "VAKUU.talk.DICEOMANCER_CHARACTER_BARBARIAN.2-1.next": "继续",
   "VAKUU.talk.DICEOMANCER_CHARACTER_BARBARIAN.2-2.ancient": "呵……那祝你找得顺利。\n我会在[sine]终点[/sine]，等你改变主意。"
-
 }

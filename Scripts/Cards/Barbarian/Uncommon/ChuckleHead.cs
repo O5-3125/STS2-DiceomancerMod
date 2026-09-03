@@ -1,6 +1,7 @@
 ﻿using Diceomancer.Scripts.Common.Utils;
 using Diceomancer.Scripts.Hero.Barbarian;
 using Diceomancer.Scripts.Powers;
+using Diceomancer.Scripts.Powers.Berserker;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -23,8 +24,8 @@ public class ChuckleHead() : ModCardTemplate(2, CardType.Skill, CardRarity.Uncom
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<Injury>(8),
-        new PowerVar<StrengthPower>(2)
+        new PowerVar<Injury>(12),
+        new PowerVar<StrengthPower>(3)
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
@@ -43,7 +44,7 @@ public class ChuckleHead() : ModCardTemplate(2, CardType.Skill, CardRarity.Uncom
 
     protected override void OnUpgrade()
     {
-        DynamicVars["Injury"].UpgradeValueBy(2);
-        DynamicVars["StrengthPower"].UpgradeValueBy(1);
+        DynamicVars["Injury"].UpgradeValueBy(4);
+        DynamicVars["StrengthPower"].UpgradeValueBy(2);
     }
 }

@@ -22,9 +22,9 @@ public class BloodToKnife() : ModCardTemplate(1, CardType.Attack, CardRarity.Rar
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new MaxHpVar(8),
-        new DamageVar(5, ValueProp.Move),
-        new RepeatVar(5)
+        new MaxHpVar(12),
+        new DamageVar(6, ValueProp.Move),
+        new RepeatVar(6)
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>

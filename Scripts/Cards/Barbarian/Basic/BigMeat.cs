@@ -1,6 +1,7 @@
 ﻿using Diceomancer.Scripts.Common.Utils;
 using Diceomancer.Scripts.Hero.Barbarian;
 using Diceomancer.Scripts.Powers;
+using Diceomancer.Scripts.Powers.Berserker;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -20,6 +21,8 @@ public class BigMeat() : ModCardTemplate(1, CardType.Skill, CardRarity.Basic, Ta
     );
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    
+    protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -40,6 +43,7 @@ public class BigMeat() : ModCardTemplate(1, CardType.Skill, CardRarity.Basic, Ta
 
     protected override void OnUpgrade()
     {
-        DynamicVars["Injury"].UpgradeValueBy(3);
+        DynamicVars["Injury"].UpgradeValueBy(2);
+        DynamicVars.Heal.UpgradeValueBy(1);
     }
 }

@@ -23,19 +23,19 @@
   "DICEOMANCER_POWER_CRITICAL_HIT.smartDescription": "下{Amount}次造成的伤害翻倍。\n回合结束时减少一层。",
   //
   "DICEOMANCER_POWER_HASTE_POWER.title": "加速",
-  "DICEOMANCER_POWER_HASTE_POWER.description": "本回合你每打出一张牌，抽一张牌。",
-  "DICEOMANCER_POWER_HASTE_POWER.smartDescription": "本回合当你打出牌时，层数减少并抽一张牌。",
+  "DICEOMANCER_POWER_HASTE_POWER.description": "你每打出一张牌，抽一张牌。回合结束层数递减。",
+  "DICEOMANCER_POWER_HASTE_POWER.smartDescription": "本回合当你打出牌时，层数减少并抽一张牌。回合结束层数递减。",
   //
   "DICEOMANCER_POWER_EXCITEMENT.title": "临时力量",
   "DICEOMANCER_POWER_EXCITEMENT.description": "攻击伤害增加，回合结束时失去一半。",
   "DICEOMANCER_POWER_EXCITEMENT.smartDescription": "攻击伤害增加{Amount}。回合结束时失去一半。",
   //
   "DICEOMANCER_POWER_FORTIFIED_POWER.title": "加固",
-  "DICEOMANCER_POWER_FORTIFIED_POWER.description": "回合结束时获得层数点[gold]格挡[/gold]，然后层数减半。",
+  "DICEOMANCER_POWER_FORTIFIED_POWER.description": "回合结束时获得等量[gold]格挡[/gold]，然后层数减半。",
   "DICEOMANCER_POWER_FORTIFIED_POWER.smartDescription": "回合结束时获得{Amount}点[gold]格挡[/gold]，然后层数减半。",
   //
   "DICEOMANCER_POWER_BURN_POWER.title": "燃烧",
-  "DICEOMANCER_POWER_BURN_POWER.description": "[gold]燃烧[/gold]的生物会在自身回合结束时受到伤害。[gold]燃烧[/gold]层数每回合减少。",
+  "DICEOMANCER_POWER_BURN_POWER.description": "[gold]燃烧[/gold]的生物会在自身回合结束时受到伤害。[gold]燃烧[/gold]层数每回合减半。",
   "DICEOMANCER_POWER_BURN_POWER.smartDescription": "回合结束时受到{Amount}点伤害。[gold]燃烧[/gold]减半。",
   //
   "DICEOMANCER_POWER_BLEED_POWER.title": "流血",
@@ -107,7 +107,7 @@
   "DICEOMANCER_POWER_BREAK_COCOON.smartDescription": "失去生命时，获得等量[gold]力量[/gold]。",
   //
   "DICEOMANCER_POWER_COUNTER_HELIX.title": "反击螺旋",
-  "DICEOMANCER_POWER_COUNTER_HELIX.smartDescription": "受到未被[gold]格挡[/gold]的伤害时，所有敌人失去{Amount}点生命。",
+  "DICEOMANCER_POWER_COUNTER_HELIX.smartDescription": "当你受到伤害时，所有敌人失去{Amount}点生命。",
   //
   "DICEOMANCER_POWER_DEFENSIVE_TACTIC_POWER.title": "防御战术",
   "DICEOMANCER_POWER_DEFENSIVE_TACTIC_POWER.smartDescription": "打出[gold]技能牌[/gold]时，获得{Amount}点[gold]格挡[/gold]。",

@@ -18,10 +18,15 @@ public class BarelyAScratch() : ModCardTemplate(1, CardType.Skill, CardRarity.Ra
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
     );
 
+    protected override bool ShouldGlowGoldInternal =>
+        Owner.Creature.GetPowerAmount<Injury>() > DynamicVars["Vengeance"].IntValue;
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new MaxHpVar(7),
-        new PowerVar<StrengthPower>(4)
+        new MaxHpVar(11),
+        new PowerVar<StrengthPower>(6),
+        new("Vengeance", 12),
+        new PowerVar<InjuryBlock>(1)
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
@@ -38,6 +43,11 @@ public class BarelyAScratch() : ModCardTemplate(1, CardType.Skill, CardRarity.Ra
 
         await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature,
             DynamicVars["StrengthPower"].IntValue, Owner.Creature, this);
+
+
+        if (Owner.Creature.GetPowerAmount<Injury>() > DynamicVars["Vengeance"].IntValue)
+            await PowerCmd.Apply<InjuryBlock>(choiceContext, Owner.Creature,
+                DynamicVars["InjuryBlock"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

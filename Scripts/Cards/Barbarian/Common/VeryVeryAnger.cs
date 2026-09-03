@@ -3,6 +3,7 @@ using Diceomancer.Scripts.Common.Keywords;
 using Diceomancer.Scripts.Common.Utils;
 using Diceomancer.Scripts.Hero.Barbarian;
 using Diceomancer.Scripts.Powers;
+using Diceomancer.Scripts.Powers.Berserker;
 using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -25,8 +26,8 @@ public class VeryVeryAnger() : ModCardTemplate(1, CardType.Skill, CardRarity.Com
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<Injury>(2),
-        new PowerVar<Excitement>(2)
+        new PowerVar<Injury>(3),
+        new PowerVar<Excitement>(3)
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>

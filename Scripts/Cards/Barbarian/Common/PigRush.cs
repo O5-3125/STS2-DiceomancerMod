@@ -24,7 +24,7 @@ public class PigRush() : ModCardTemplate(3, CardType.Attack, CardRarity.Common, 
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(10, ValueProp.Move),
+        new DamageVar(18, ValueProp.Move),
         new PowerVar<VulnerablePower>(2)
     ];
 

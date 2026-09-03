@@ -1,5 +1,6 @@
 using Diceomancer.Scripts.Hero.Barbarian;
 using Diceomancer.Scripts.Powers;
+using Diceomancer.Scripts.Powers.Berserker;
 using Diceomancer.Scripts.Powers.NormalityPower;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -24,8 +25,8 @@ public class Instinct() : ModCardTemplate(1, CardType.Skill, CardRarity.Common, 
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<Excitement>(3),
-        new PowerVar<StrengthPower>(3),
+        new PowerVar<Excitement>(5),
+        new PowerVar<StrengthPower>(5),
         new("Vengeance", 4),
         new("Vengeance2", 8)
     ];

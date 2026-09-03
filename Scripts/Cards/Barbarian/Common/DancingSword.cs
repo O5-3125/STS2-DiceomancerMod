@@ -21,7 +21,7 @@ public class DancingSword()
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(6, ValueProp.Move),
+        new DamageVar(12, ValueProp.Move),
         new PowerVar<VulnerablePower>(1)
     ];
 
@@ -45,7 +45,7 @@ public class DancingSword()
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(4);
+        DynamicVars.Damage.UpgradeValueBy(3);
         DynamicVars["VulnerablePower"].UpgradeValueBy(1);
     }
 }

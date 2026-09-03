@@ -1,6 +1,7 @@
 ﻿using Diceomancer.Scripts.Common.Utils;
 using Diceomancer.Scripts.Hero.Barbarian;
 using Diceomancer.Scripts.Powers;
+using Diceomancer.Scripts.Powers.Berserker;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -22,7 +23,7 @@ public class Roar() : ModCardTemplate(1, CardType.Skill, CardRarity.Common, Targ
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<Injury>(6),
+        new PowerVar<Injury>(9),
         new CardsVar(3)
     ];
 

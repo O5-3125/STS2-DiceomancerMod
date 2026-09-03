@@ -17,13 +17,13 @@ public class BreakCocoon() : ModCardTemplate(2, CardType.Power, CardRarity.Ancie
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
-        HoverTipFactory.FromPower<Powers.BreakCocoon>()
+        HoverTipFactory.FromPower<Powers.Berserker.BreakCocoon>()
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<Powers.BreakCocoon>(choiceContext, Owner.Creature, 1m, Owner.Creature, this);
+        await PowerCmd.Apply<Powers.Berserker.BreakCocoon>(choiceContext, Owner.Creature, 1m, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

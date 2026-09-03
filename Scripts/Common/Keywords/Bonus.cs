@@ -26,11 +26,11 @@ public static class Bonus
         return card != null && card.Keywords.Contains(MyKeywords.Bonus);
     }
 
-    private static async Task TriggerBonusEffect(PlayerChoiceContext choiceContext, CardModel card)
+    private static async Task TriggerBonusEffect(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)
     {
         // 附赠
         // if (card.Keywords.Contains(MyKeywords.Bonus)) 
-        await CardPileCmd.Draw(choiceContext, 1m, card.Owner);
+        await CardPileCmd.Draw(choiceContext, 1m, card.Owner, fromHandDraw);
     }
 
     [RegisterSingleton]
@@ -54,7 +54,7 @@ public static class Bonus
             // 附赠
             if (!HasBonus(card)) return Task.CompletedTask;
 
-            return TriggerBonusEffect(choiceContext, card);
+            return TriggerBonusEffect(choiceContext, card, fromHandDraw);
         }
     }
 }

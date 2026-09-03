@@ -9,6 +9,7 @@ using STS2RitsuLib.Scaffolding.Content;
 
 using Diceomancer.Scripts.Cards.Template;
 using Diceomancer.Scripts.Hero.CardPool;
+using Diceomancer.Scripts.Powers.Berserker;
 
 namespace Diceomancer.Scripts.Cards.Token.Options;
 

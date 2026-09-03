@@ -23,7 +23,7 @@ public class FeuxFollets() : ModCardTemplate(2, CardType.Skill, CardRarity.Uncom
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<BurnPower>(9)
+        new PowerVar<BurnPower>(12)
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>

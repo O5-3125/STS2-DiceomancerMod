@@ -4,6 +4,7 @@ using Diceomancer.Scripts.Cards.Builder.Basic;
 using Diceomancer.Scripts.Common;
 using Diceomancer.Scripts.Hero.CardPool;
 using Diceomancer.Scripts.Powers;
+using Diceomancer.Scripts.Powers.Builder;
 using Diceomancer.Scripts.Relics.Ancient;
 using Diceomancer.Scripts.Relics.Rare;
 using Diceomancer.Scripts.Relics.Starter;

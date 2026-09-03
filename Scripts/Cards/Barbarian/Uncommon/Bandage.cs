@@ -21,7 +21,6 @@ public class Bandage() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommon,
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
     );
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

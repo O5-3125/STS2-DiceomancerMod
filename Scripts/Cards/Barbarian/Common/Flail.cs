@@ -20,7 +20,7 @@ public class Flail() : ModCardTemplate(0, CardType.Attack, CardRarity.Common, Ta
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(6, ValueProp.Move),
+        new DamageVar(12, ValueProp.Move),
         new("SelfDamage", 3)
     ];
 
@@ -47,6 +47,6 @@ public class Flail() : ModCardTemplate(0, CardType.Attack, CardRarity.Common, Ta
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(4);
+        DynamicVars.Damage.UpgradeValueBy(8);
     }
 }

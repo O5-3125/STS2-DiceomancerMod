@@ -21,8 +21,8 @@ public class TheExplosionSpell() : ModCardTemplate(5, CardType.Attack, CardRarit
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(99, ValueProp.Move),
-        new("MaxEnergyCap", 1)
+        new DamageVar(150, ValueProp.Move),
+        new("MaxEnergyCap", 3)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -41,6 +41,6 @@ public class TheExplosionSpell() : ModCardTemplate(5, CardType.Attack, CardRarit
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(51);
+        DynamicVars.Damage.UpgradeValueBy(90);
     }
 }

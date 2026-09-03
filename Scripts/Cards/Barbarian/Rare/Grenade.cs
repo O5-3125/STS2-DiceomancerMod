@@ -4,13 +4,14 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
+using STS2RitsuLib.Combat.CardTargeting;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
 namespace Diceomancer.Scripts.Cards.Barbarian.Rare;
 
 [RegisterCard(typeof(BarbarianCardPool))]
-public class Grenade() : ModCardTemplate(1, CardType.Attack, CardRarity.Rare, TargetType.Self)
+public class Grenade() : ModCardTemplate(1, CardType.Attack, CardRarity.Rare, CustomTargetType.Everyone)
 {
     public override CardAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
@@ -18,16 +19,15 @@ public class Grenade() : ModCardTemplate(1, CardType.Attack, CardRarity.Rare, Ta
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(30, ValueProp.Move)
+        new DamageVar(50, ValueProp.Move)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(CombatState);
 
-        foreach (var creature in CombatState.Creatures)
+        foreach (var creature in this.GetTargets(cardPlay.Target))
         {
-            if (creature.IsDead) continue;
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
                 .FromCard(this, cardPlay)
                 .Targeting(creature)
@@ -38,6 +38,6 @@ public class Grenade() : ModCardTemplate(1, CardType.Attack, CardRarity.Rare, Ta
     protected override void OnUpgrade()
     {
         AddKeyword(CardKeyword.Retain);
-        DynamicVars.Damage.UpgradeValueBy(20);
+        DynamicVars.Damage.UpgradeValueBy(49);
     }
 }

@@ -27,7 +27,7 @@ public class FuryPower : ModPowerTemplate
         if (Owner.Player is null) return;
         if (Amount <= 0) return;
         Flash();
-        var relic = Owner.Player.GetRelic<EmberCore>();
+        var relic = Owner.Player.GetRelic<FirstFire>();
         if (relic == null)
         {
             await PlayerCmd.GainEnergy(Amount, Owner.Player);
@@ -35,7 +35,9 @@ public class FuryPower : ModPowerTemplate
         }
         else
         {
-            for (var i = 0; i < relic.DynamicVars["MaxEnergyCap"].IntValue; i++)
+            for (var i = base.Owner.Player.PlayerCombatState.Energy;
+                 i < relic.DynamicVars["MaxEnergyCap"].IntValue;
+                 i++)
             {
                 await PlayerCmd.GainEnergy(1, Owner.Player);
                 await PowerCmd.Decrement(this);

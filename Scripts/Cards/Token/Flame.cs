@@ -22,7 +22,7 @@ public class Flame() : ModCardTemplate(0, CardType.Skill, CardRarity.Token, Targ
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new PowerVar<BurnPower>(2),
-        new EnergyVar(2)
+        new EnergyVar(1)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

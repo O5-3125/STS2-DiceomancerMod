@@ -19,7 +19,7 @@ namespace Diceomancer.Scripts.Cards.Builder.Common;
 
 [RegisterCard(typeof(BuilderCardPool))]
 public class Recycle()
-    : UpgradeTemplate<TrashBin>(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self, 3)
+    : UpgradeTemplate<TrashBin>(1, CardType.Skill, CardRarity.Common, TargetType.Self, 3)
 {
     public override CardAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"

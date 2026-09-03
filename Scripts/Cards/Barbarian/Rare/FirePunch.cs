@@ -20,7 +20,7 @@ public class FirePunch() : ModCardTemplate(1, CardType.Skill, CardRarity.Rare, T
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<BurnPower>(12)
+        new PowerVar<BurnPower>(18)
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>

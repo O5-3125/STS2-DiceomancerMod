@@ -22,7 +22,7 @@ public class Backdraft() : ModCardTemplate(2, CardType.Skill, CardRarity.Uncommo
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<BurnPower>(10)
+        new PowerVar<BurnPower>(20)
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>

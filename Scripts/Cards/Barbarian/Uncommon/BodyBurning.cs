@@ -18,17 +18,17 @@ public class BodyBurning() : ModCardTemplate(2, CardType.Power, CardRarity.Uncom
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<Powers.BodyBurning>(3)
+        new PowerVar<Powers.Berserker.BodyBurning>(5)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<Powers.BodyBurning>(choiceContext, Owner.Creature,
+        await PowerCmd.Apply<Powers.Berserker.BodyBurning>(choiceContext, Owner.Creature,
             DynamicVars["BodyBurning"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["BodyBurning"].UpgradeValueBy(1);
+        DynamicVars["BodyBurning"].UpgradeValueBy(2);
     }
 }

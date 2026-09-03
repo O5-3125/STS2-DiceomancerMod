@@ -22,8 +22,8 @@ public class Scratch() : ModCardTemplate(2, CardType.Attack, CardRarity.Uncommon
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(5, ValueProp.Move),
-        new HpLossVar(5)
+        new DamageVar(9, ValueProp.Move),
+        new HpLossVar(9)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

@@ -25,7 +25,7 @@ public class BlockWithFace() : ModCardTemplate(2, CardType.Skill, CardRarity.Unc
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new PowerVar<InjuryBlock>(1),
-        new CardsVar(3)
+        new CardsVar(1)
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>

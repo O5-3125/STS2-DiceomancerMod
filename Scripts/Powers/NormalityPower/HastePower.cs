@@ -37,6 +37,6 @@ public class HastePower : ModPowerTemplate
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
         IEnumerable<Creature> participants)
     {
-        await PowerCmd.Remove(this);
+        await PowerCmd.Decrement(this);
     }
 }

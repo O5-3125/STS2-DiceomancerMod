@@ -12,8 +12,8 @@
   "DICEOMANCER_RELIC_RED_MANA.description": "受到未被[gold]格挡[/gold]的攻击伤害时改为获得等量[gold]负伤[/gold]。",
   "DICEOMANCER_RELIC_RED_MANA.flavor": "这个遗物的细节将在未来揭晓……",
   //
-  "DICEOMANCER_RELIC_RED_PURPLE_MANA.title": "情感之球",
-  "DICEOMANCER_RELIC_RED_PURPLE_MANA.description": "受到未被[gold]格挡[/gold]的攻击伤害时改为获得等量[gold]负伤[/gold]。\n每场战斗一次：右键此遗物，打乱你的状态层数。",
+  "DICEOMANCER_RELIC_RED_PURPLE_MANA.title": "红紫之球",
+  "DICEOMANCER_RELIC_RED_PURPLE_MANA.description": "受到未被[gold]格挡[/gold]的攻击伤害时改为获得等量[gold]负伤[/gold]。\n每回合一次：右键此遗物，打乱你的状态层数。",
   "DICEOMANCER_RELIC_RED_PURPLE_MANA.flavor": "这个遗物的细节将在未来揭晓……",
   //
   "DICEOMANCER_RELIC_INSPIRATION_VOID.title": "灵感虚空",
@@ -90,9 +90,9 @@
   "DICEOMANCER_RELIC_POWER_BANK.description": "回合结束时，获得{Energy:energyIcons()}。",
   "DICEOMANCER_RELIC_POWER_BANK.flavor": "你感受到了无穷无尽的能量。",
   //
-  "DICEOMANCER_RELIC_EMBER_CORE.title": "余烬之心",
-  "DICEOMANCER_RELIC_EMBER_CORE.description": "回合结束时，保留你未使用的[blue]能量[/blue]到下一回合，但你持有的能量最多为{MaxEnergyCap}。",
-  "DICEOMANCER_RELIC_EMBER_CORE.flavor": "未燃尽的火，总在掌心留一线温热。",
+  "DICEOMANCER_RELIC_FIRST_FIRE.title": "原初之火",
+  "DICEOMANCER_RELIC_FIRST_FIRE.description": "回合结束时，获得你未使用[blue]能量[/blue]的[gold]狂怒[/gold]，但你持有的能量最多为{MaxEnergyCap}。",
+  "DICEOMANCER_RELIC_FIRST_FIRE.flavor": "大火大火烧烧烧！",
   //
   "DICEOMANCER_RELIC_BUILDER_RING.title": "工匠护符",
   "DICEOMANCER_RELIC_BUILDER_RING.description": "每回合当你打出第{Play}张牌，抽{Draw}张牌并获得{Energy:energyIcons()}",

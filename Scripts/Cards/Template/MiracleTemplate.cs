@@ -37,6 +37,7 @@ public abstract class MiracleTemplate(int energyCost, CardType type, CardRarity 
     {
         if (card != this) return;
         if (card.Pile == null || card.Pile.Type == PileType.Deck) return;
+        if (card.Pile.Type == PileType.Play) return;
 
 
         if (card.Pile != PileType.Hand.GetPile(Owner))

@@ -83,6 +83,7 @@
         <Compile Remove="示例\**" />
         <Compile Remove=".godot\**" />
         <Compile Remove="教程\**" />
+        <Compile Remove="Scripts\Cards\Act\**" />
     </ItemGroup>
 
 
@@ -92,12 +93,16 @@
         <EmbeddedResource Remove="示例\**" />
         <EmbeddedResource Remove=".godot\**" />
         <EmbeddedResource Remove="教程\**" />
+        <EmbeddedResource Remove="Scripts\Cards\Act\**" />
     </ItemGroup>
 
 
     <ItemGroup>
         <Folder Include="Scripts\Cards\Token\Scrap\"/>
+        <Folder Include="Scripts\Encounters\" />
+        <Folder Include="Scripts\Monster\" />
         <Folder Include="Scripts\Patches\" />
+        <Folder Include="Scripts\Powers\Monster\" />
         <Folder Include="Scripts\Powers\MonstersPower\" />
         <Folder Include="Scripts\Relics\Common\" />
     </ItemGroup>

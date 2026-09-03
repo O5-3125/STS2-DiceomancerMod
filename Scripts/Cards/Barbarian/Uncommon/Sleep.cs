@@ -1,6 +1,7 @@
 ﻿using Diceomancer.Scripts.Common.Utils;
 using Diceomancer.Scripts.Hero.Barbarian;
 using Diceomancer.Scripts.Powers;
+using Diceomancer.Scripts.Powers.Berserker;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -21,7 +22,7 @@ public class Sleep() : ModCardTemplate(2, CardType.Skill, CardRarity.Uncommon, T
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<Injury>(16)
+        new PowerVar<Injury>(25)
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
@@ -36,6 +37,6 @@ public class Sleep() : ModCardTemplate(2, CardType.Skill, CardRarity.Uncommon, T
 
     protected override void OnUpgrade()
     {
-        DynamicVars["Injury"].UpgradeValueBy(4);
+        DynamicVars["Injury"].UpgradeValueBy(5);
     }
 }

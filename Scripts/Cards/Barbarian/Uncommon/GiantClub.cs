@@ -24,8 +24,8 @@ public class GiantClub() : ModCardTemplate(4, CardType.Attack, CardRarity.Uncomm
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(18, ValueProp.Move),
-        new PowerVar<ThinSkinPower>(3)
+        new DamageVar(30, ValueProp.Move),
+        new PowerVar<ThinSkinPower>(5)
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
@@ -48,7 +48,7 @@ public class GiantClub() : ModCardTemplate(4, CardType.Attack, CardRarity.Uncomm
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(6);
+        DynamicVars.Damage.UpgradeValueBy(12);
         DynamicVars["ThinSkinPower"].UpgradeValueBy(2);
     }
 }

@@ -31,7 +31,7 @@ public class BuilderRing : ModRelicTemplate
         }
     }
 
-    public override RelicRarity Rarity => RelicRarity.Starter;
+    public override RelicRarity Rarity => RelicRarity.Ancient;
 
     public override RelicAssetProfile AssetProfile => new(
         IconPath: $"res://Diceomancer/images/Relics/{GetType().Name}.png",

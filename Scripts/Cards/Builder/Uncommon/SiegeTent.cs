@@ -27,8 +27,8 @@ public class SiegeTent()
 
     protected override IEnumerable<DynamicVar> OwnCanonicalVars =>
     [
-        new PowerVar<FortifiedPower>(6),
-        new BlockVar(8, ValueProp.Move)
+        new PowerVar<FortifiedPower>(4),
+        new BlockVar(9, ValueProp.Move)
     ];
 
     protected override IEnumerable<IHoverTip> OwnAdditionalHoverTips =>
@@ -48,7 +48,7 @@ public class SiegeTent()
     
     protected override void OnUpgrade()
     {
-        DynamicVars.Block.UpgradeValueBy(4);
+        DynamicVars.Block.UpgradeValueBy(3);
         DynamicVars["FortifiedPower"].UpgradeValueBy(2);
     }
 }

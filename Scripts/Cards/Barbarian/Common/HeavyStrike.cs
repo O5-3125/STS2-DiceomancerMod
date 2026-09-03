@@ -23,7 +23,7 @@ public class HeavyStrike() :
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(18, ValueProp.Move),
+        new DamageVar(15, ValueProp.Move),
         new PowerVar<FuryPower>(2)
     ];
 

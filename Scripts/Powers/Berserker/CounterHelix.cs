@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
-namespace Diceomancer.Scripts.Powers;
+namespace Diceomancer.Scripts.Powers.Berserker;
 
 [RegisterPower]
 public class CounterHelix : ModPowerTemplate
@@ -23,11 +23,11 @@ public class CounterHelix : ModPowerTemplate
     public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target,
         DamageResult result, ValueProp props, Creature? _, CardModel? __)
     {
-        if (target == Owner && props.IsPoweredAttack() && result.UnblockedDamage > 0)
+        if (target == Owner && !props.HasFlag(ValueProp.Unblockable))
         {
             Flash();
             await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies,
-                Amount, ValueProp.Unblockable | ValueProp.Unpowered, null, null, null);
+                Amount, ValueProp.Unblockable | ValueProp.Unpowered, Owner, null, null);
         }
     }
 }

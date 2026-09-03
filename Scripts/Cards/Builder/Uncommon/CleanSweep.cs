@@ -14,6 +14,7 @@ public class CleanSweep() : KickTemplate(0, CardType.Skill, CardRarity.Uncommon,
     public override CardAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
     );
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [MyKeywords.Bonus,CardKeyword.Exhaust];
 
     protected override IEnumerable<DynamicVar> OwnCanonicalVars =>
     [

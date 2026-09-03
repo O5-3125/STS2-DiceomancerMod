@@ -1,5 +1,3 @@
-using Diceomancer.Scripts.Cards.Template;
-using Diceomancer.Scripts.Hero.Builder;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -11,7 +9,7 @@ using MegaCrit.Sts2.Core.Models.CardPools;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
-namespace Diceomancer.Scripts.Cards.Builder.Uncommon;
+namespace Diceomancer.Scripts.Cards.Colorless;
 
 [RegisterCard(typeof(ColorlessCardPool))]
 public class WhatIsThis() : ModCardTemplate(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)

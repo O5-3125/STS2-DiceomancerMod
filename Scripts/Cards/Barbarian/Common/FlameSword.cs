@@ -27,7 +27,7 @@ public class FlameSword() : ModCardTemplate(3, CardType.Attack, CardRarity.Commo
     ];
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(15, ValueProp.Move)
+        new DamageVar(30, ValueProp.Move)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

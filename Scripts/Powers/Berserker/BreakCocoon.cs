@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
-namespace Diceomancer.Scripts.Powers;
+namespace Diceomancer.Scripts.Powers.Berserker;
 
 [RegisterPower]
 public class BreakCocoon : ModPowerTemplate

@@ -24,7 +24,7 @@ public class FireWhirl() : ModCardTemplate(1, CardType.Skill, CardRarity.Common,
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<BurnPower>(5),
+        new PowerVar<BurnPower>(9),
         new CardsVar(2)
     ];
 

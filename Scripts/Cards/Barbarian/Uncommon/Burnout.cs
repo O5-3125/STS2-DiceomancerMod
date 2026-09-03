@@ -26,7 +26,7 @@ public class Burnout() : ModCardTemplate(1, CardType.Skill, CardRarity.Uncommon,
     [
         new("MaxEnergyCap", 1m),
 
-        new PowerVar<StrengthPower>(2)
+        new PowerVar<StrengthPower>(3)
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>

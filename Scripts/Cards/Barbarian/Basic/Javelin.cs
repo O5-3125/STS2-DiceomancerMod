@@ -1,5 +1,6 @@
 using Diceomancer.Scripts.Hero.Barbarian;
 using Diceomancer.Scripts.Powers;
+using Diceomancer.Scripts.Powers.Berserker;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -24,7 +25,7 @@ public class Javelin() : ModCardTemplate(1, CardType.Attack, CardRarity.Basic, T
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(6, ValueProp.Move),
+        new DamageVar(10, ValueProp.Move),
         new CardsVar(2),
         new("Vengeance", 4)
     ];
@@ -53,6 +54,6 @@ public class Javelin() : ModCardTemplate(1, CardType.Attack, CardRarity.Basic, T
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(4);
+        DynamicVars.Damage.UpgradeValueBy(2);
     }
 }

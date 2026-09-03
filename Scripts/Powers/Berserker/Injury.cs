@@ -1,5 +1,4 @@
-﻿using Diceomancer.Scripts.Powers.Berserker;
-using Godot;
+﻿using Godot;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -10,7 +9,7 @@ using STS2RitsuLib.Combat.HealthBars;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
-namespace Diceomancer.Scripts.Powers;
+namespace Diceomancer.Scripts.Powers.Berserker;
 
 [RegisterPower]
 public class Injury : ModPowerTemplate, IHealthBarForecastSource
@@ -21,10 +20,10 @@ public class Injury : ModPowerTemplate, IHealthBarForecastSource
     // 叠加类型，Counter表示可叠加，Single表示不可叠加
     public override PowerStackType StackType => PowerStackType.Counter;
 
-  public override PowerAssetProfile AssetProfile => new(
-    $"res://Diceomancer/images/Power/{GetType().Name}.png",
-    $"res://Diceomancer/images/Power/{GetType().Name}.png"
-);
+    public override PowerAssetProfile AssetProfile => new(
+        $"res://Diceomancer/images/Power/{GetType().Name}.png",
+        $"res://Diceomancer/images/Power/{GetType().Name}.png"
+    );
 
     // 覆盖生命血条
     public IEnumerable<HealthBarForecastSegment> GetHealthBarForecastSegments(HealthBarForecastContext context)
@@ -39,7 +38,7 @@ public class Injury : ModPowerTemplate, IHealthBarForecastSource
     }
 
     // 回合结束后
-    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
+    public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
         IEnumerable<Creature> participants)
     {
         if (!participants.Contains(Owner)) return;
@@ -57,6 +56,6 @@ public class Injury : ModPowerTemplate, IHealthBarForecastSource
             ValueProp.Unblockable | ValueProp.Unpowered, null, null);
 
         if (side == Owner.Side)
-            await PowerCmd.ModifyAmount(choiceContext, this, -(Amount / 2+ 1), Owner, null);
+            await PowerCmd.ModifyAmount(choiceContext, this, -(Amount / 2 + 1), Owner, null);
     }
 }

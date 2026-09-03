@@ -15,12 +15,12 @@ public class ElasticDefence() : ModCardTemplate(2, CardType.Power, CardRarity.Un
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
     );
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<Powers.ElasticDefence>(5m)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<Powers.Builder.ElasticDefence>(5m)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<Powers.ElasticDefence>(choiceContext, Owner.Creature,
+        await PowerCmd.Apply<Powers.Builder.ElasticDefence>(choiceContext, Owner.Creature,
             DynamicVars["ElasticDefence"].BaseValue, Owner.Creature, this);
     }
 

@@ -2,6 +2,7 @@
 using Diceomancer.Scripts.Common.Keywords;
 using Diceomancer.Scripts.Hero.Barbarian;
 using Diceomancer.Scripts.Powers;
+using Diceomancer.Scripts.Powers.Berserker;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -22,7 +23,7 @@ public class DyingSurge() : ModCardTemplate(0, CardType.Skill, CardRarity.Uncomm
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<StrengthPower>(10)
+        new PowerVar<StrengthPower>(15)
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>

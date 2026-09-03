@@ -21,8 +21,8 @@ public class WildGrowth() : ModCardTemplate(3, CardType.Skill, CardRarity.Uncomm
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new MaxHpVar(4),
-        new HealVar(4)
+        new MaxHpVar(6),
+        new HealVar(6)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -33,6 +33,6 @@ public class WildGrowth() : ModCardTemplate(3, CardType.Skill, CardRarity.Uncomm
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Heal.UpgradeValueBy(6);
+        DynamicVars.Heal.UpgradeValueBy(9);
     }
 }

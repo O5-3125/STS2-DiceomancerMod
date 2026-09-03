@@ -1,6 +1,7 @@
 ﻿using Diceomancer.Scripts.Cards.Token;
 using Diceomancer.Scripts.Hero.CardPool;
 using Diceomancer.Scripts.Powers;
+using Diceomancer.Scripts.Powers.Berserker;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;

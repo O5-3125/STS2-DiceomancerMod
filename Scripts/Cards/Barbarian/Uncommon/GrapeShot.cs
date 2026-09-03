@@ -24,7 +24,7 @@ public class GrapeShot() : ModCardTemplate(2, CardType.Skill, CardRarity.Uncommo
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(5, ValueProp.Move),
+        new DamageVar(9, ValueProp.Move),
         new PowerVar<VulnerablePower>(1)
     ];
 

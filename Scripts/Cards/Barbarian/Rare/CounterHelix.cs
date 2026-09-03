@@ -16,17 +16,20 @@ public class CounterHelix() : ModCardTemplate(2, CardType.Power, CardRarity.Rare
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
     );
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<Powers.CounterHelix>(5m)];
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new PowerVar<Powers.Berserker.CounterHelix>(9m)
+    ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
-        HoverTipFactory.FromPower<Powers.CounterHelix>()
+        HoverTipFactory.FromPower<Powers.Berserker.CounterHelix>()
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<Powers.CounterHelix>(choiceContext, Owner.Creature,
+        await PowerCmd.Apply<Powers.Berserker.CounterHelix>(choiceContext, Owner.Creature,
             DynamicVars["CounterHelix"].BaseValue, Owner.Creature, this);
     }
 

@@ -20,18 +20,18 @@ public class Ignite()
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<Powers.Ignite>(1)
+        new PowerVar<Powers.Berserker.Ignite>(2)
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
         HoverTipFactory.FromCard<Flame>(),
-        HoverTipFactory.FromPower<Powers.Ignite>()
+        HoverTipFactory.FromPower<Powers.Berserker.Ignite>()
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<Powers.Ignite>(choiceContext, Owner.Creature,
+        await PowerCmd.Apply<Powers.Berserker.Ignite>(choiceContext, Owner.Creature,
             DynamicVars["Ignite"].IntValue, Owner.Creature, this);
     }
 
