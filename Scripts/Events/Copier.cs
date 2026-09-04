@@ -48,7 +48,7 @@ public sealed class Copier : ModEventTemplate
     // 复印一个！失去50金币，选择1张牌复制加入牌组
     private async Task Copy()
     {
-        await PlayerCmd.LoseGold(DynamicVars.Gold.BaseValue, Owner!, GoldLossType.Stolen);
+        await PlayerCmd.LoseGold(DynamicVars.Gold.BaseValue, Owner!,  GoldLossType.Spent);
 
         var selected = await CardSelectCmd.FromDeckGeneric(Owner!,
             new CardSelectorPrefs(new LocString(LocTable, $"{Id.Entry}.pages.INITIAL.options.COPY.prompt"), 1),

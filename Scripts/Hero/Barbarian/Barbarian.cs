@@ -29,9 +29,6 @@ public class
 
     public override int StartingGold => 99;
     
-    // 初始充能球栏位
-    public override int BaseOrbSlotCount => 4;
-
     public override CharacterAssetProfile AssetProfile => CharacterAssetProfiles.Merge(
         CharacterAssetProfiles.Ironclad(),
         new CharacterAssetProfile(

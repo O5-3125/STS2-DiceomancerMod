@@ -17,17 +17,18 @@ public class ToughnessPower : ModPowerTemplate
     public override PowerType Type => PowerType.Buff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
+
     public override PowerAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Power/{GetType().Name}.png",
         $"res://Diceomancer/images/Power/{GetType().Name}.png"
     );
-    
+
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props,
         Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         if (target != base.Owner) return 1m;
         if (!props.IsPoweredAttack()) return 1m;
-        if (props is ValueProp.Unblockable) return 1m;
+        if (props.HasFlag(ValueProp.Unblockable)) return 1m;
 
         return 0.5m;
     }

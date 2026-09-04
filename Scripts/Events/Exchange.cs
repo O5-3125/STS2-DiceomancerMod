@@ -48,7 +48,7 @@ public sealed class Exchange : ModEventTemplate
     // 交易一轮试试！失去60金币，50%概率获得100金币，否则获得1金币
     private async Task Trade()
     {
-        await PlayerCmd.LoseGold(DynamicVars.Gold.BaseValue, Owner!, GoldLossType.Stolen);
+        await PlayerCmd.LoseGold(DynamicVars.Gold.BaseValue, Owner!,  GoldLossType.Spent);
         await RollTrade(Owner.RunState.Rng.Niche.NextBool());
         SetEventState(L10NLookup($"{Id.Entry}.pages.CONTINUE.description"), ContinueOptions());
     }
@@ -56,7 +56,7 @@ public sealed class Exchange : ModEventTemplate
     // 继续交易！！失去60金币，40%概率获得100金币，否则获得1金币，然后重复本场景
     private async Task TradeAgain()
     {
-        await PlayerCmd.LoseGold(DynamicVars.Gold.BaseValue, Owner!, GoldLossType.Stolen);
+        await PlayerCmd.LoseGold(DynamicVars.Gold.BaseValue, Owner!,  GoldLossType.Spent);
 
         await RollTrade(Owner.RunState.Rng.Niche.NextInt(100) < 40);
         SetEventState(L10NLookup($"{Id.Entry}.pages.CONTINUE.description"), ContinueOptions());

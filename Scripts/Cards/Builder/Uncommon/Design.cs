@@ -1,5 +1,6 @@
 ﻿using Diceomancer.Scripts.Common;
 using Diceomancer.Scripts.Hero.Builder;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Factories;
@@ -37,10 +38,12 @@ public class Design()
             DynamicVars.Cards.IntValue,
             Owner.RunState.Rng.CombatCardGeneration).ToList();
 
-        if (IsUpgraded) CardCmd.Upgrade(cards, CardPreviewStyle.HorizontalLayout);
+        if (IsUpgraded) CardCmd.Upgrade(cards, CardPreviewStyle.MessyLayout);
 
-        var cardModel =
-            await CardSelectCmd.FromChooseACardScreen(choiceContext, cards, Owner, true);
+
+        var cardModel = (await CardSelectCmd.FromSimpleGrid(choiceContext, cards, Owner,
+            new CardSelectorPrefs(SelectionScreenPrompt, 0, 1))).FirstOrDefault();
+        
         if (cardModel != null) await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Hand, Owner);
     }
 

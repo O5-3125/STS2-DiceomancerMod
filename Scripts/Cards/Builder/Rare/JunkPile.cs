@@ -32,7 +32,7 @@ public class JunkPile()
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         var junkCards = CardFactory.GetForCombat(Owner,
-            Owner.Character.CardPool.AllCards,
+            ModelDb.CardPool<JunkCardPool>().AllCards,
             DynamicVars.Cards.IntValue, Owner.RunState.Rng.CombatCardGeneration).ToList();
 
         await CardPileCmd.AddGeneratedCardsToCombat(junkCards, PileType.Hand, Owner);

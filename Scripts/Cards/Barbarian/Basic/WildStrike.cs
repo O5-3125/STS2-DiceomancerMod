@@ -26,7 +26,7 @@ public class WildStrike() :
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(7, ValueProp.Move)
+        new DamageVar(6, ValueProp.Move)
     ];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [MyKeywords.Wild];

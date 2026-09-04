@@ -14,7 +14,7 @@ using STS2RitsuLib.Scaffolding.Content;
 namespace Diceomancer.Scripts.Cards.Barbarian.Uncommon;
 
 [RegisterCard(typeof(BarbarianCardPool))]
-public class GiantClub() : ModCardTemplate(4, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies)
+public class GiantClub() : ModCardTemplate(4, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     public override CardAssetProfile AssetProfile => new(
         $"res://Diceomancer/images/Cards/{GetType().Name}.png"
@@ -35,11 +35,11 @@ public class GiantClub() : ModCardTemplate(4, CardType.Attack, CardRarity.Uncomm
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        ArgumentNullException.ThrowIfNull(CombatState);
+        ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this, cardPlay)
-            .TargetingAllOpponents(CombatState)
+            .Targeting(cardPlay.Target)
             .Execute(choiceContext);
 
         await PowerCmd.Apply<ThinSkinPower>(choiceContext, CombatState.Creatures,

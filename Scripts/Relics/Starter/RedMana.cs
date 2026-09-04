@@ -34,13 +34,24 @@ public class RedMana : ModRelicTemplate, ICardOnPlayHookListener
         HoverTipFactory.FromPower<Injury>()
     ];
 
+    public override async Task AfterModifyingHpLostAfterOsty()
+    {
+        Flash();
+        await PowerCmd.Apply<Injury>(new ThrowingPlayerChoiceContext(), Owner.Creature, injuryAmount, null, null);
+    }
+
+    private decimal injuryAmount;
+
     public override decimal ModifyHpLostAfterOstyLate(Creature target, decimal amount, ValueProp props,
         Creature? dealer, CardModel? cardSource)
     {
-        if (target != Owner.Creature || props.HasFlag(ValueProp.Unblockable) || amount == 0) return amount;
+        if (target != Owner.Creature || props.HasFlag(ValueProp.Unblockable) || amount == 0)
+        {
+            return amount;
+        }
 
-        Flash();
-        PowerCmd.Apply<Injury>(new ThrowingPlayerChoiceContext(), target, amount, null, null);
+        injuryAmount = amount;
+
         return 0m;
     }
 }

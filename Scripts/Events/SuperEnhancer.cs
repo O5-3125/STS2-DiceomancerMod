@@ -44,7 +44,7 @@ public sealed class SuperEnhancer : ModEventTemplate
     // 付出金钱！失去30金币，50%概率升级随机卡牌，然后重复本场景
     private async Task PayGold()
     {
-        await PlayerCmd.LoseGold(DynamicVars.Gold.BaseValue, Owner!, GoldLossType.Stolen);
+        await PlayerCmd.LoseGold(DynamicVars.Gold.BaseValue, Owner!, GoldLossType.Spent);
         if (Owner.RunState.Rng.Niche.NextBool())
         {
             await UpgradeRandomCard();

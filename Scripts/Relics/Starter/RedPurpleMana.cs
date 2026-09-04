@@ -22,26 +22,37 @@ public class RedPurpleMana : ModRelicTemplate, IModRightClickableCard
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
     // 小图标（原版85x85）
-    public override string PackedIconPath =>  $"res://Diceomancer/images/Relics/{GetType().Name}.png";
+    public override string PackedIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
 
     // 轮廓图标（原版85x85）
-    protected override string PackedIconOutlinePath =>  $"res://Diceomancer/images/Relics/{GetType().Name}.png";
+    protected override string PackedIconOutlinePath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
 
     // 大图标（原版256x256）
-    protected override string BigIconPath =>  $"res://Diceomancer/images/Relics/{GetType().Name}.png";
+    protected override string BigIconPath => $"res://Diceomancer/images/Relics/{GetType().Name}.png";
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
         HoverTipFactory.FromPower<Injury>()
     ];
 
+    public override async Task AfterModifyingHpLostAfterOsty()
+    {
+        Flash();
+        await PowerCmd.Apply<Injury>(new ThrowingPlayerChoiceContext(), Owner.Creature, injuryAmount, null, null);
+    }
+
+    private decimal injuryAmount;
+
     public override decimal ModifyHpLostAfterOstyLate(Creature target, decimal amount, ValueProp props,
         Creature? dealer, CardModel? cardSource)
     {
-        if (target != Owner.Creature || props.HasFlag(ValueProp.Unblockable) || amount == 0) return amount;
+        if (target != Owner.Creature || props.HasFlag(ValueProp.Unblockable) || amount == 0)
+        {
+            return amount;
+        }
 
-        Flash();
-        PowerCmd.Apply<Injury>(new ThrowingPlayerChoiceContext(), target, amount, null, null);
+        injuryAmount = amount;
+
         return 0m;
     }
 

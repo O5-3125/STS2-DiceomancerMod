@@ -48,6 +48,7 @@ public class Lore() : ModCardTemplate(1, CardType.Skill, CardRarity.Rare, Target
             cardModelList,
             Math.Min(cardModelList.Count(), DynamicVars.Cards.IntValue),
             Owner.RunState.Rng.CombatCardGeneration).ToList();
+        
         if (list.Count == 0)
         {
             var text = "ChoicesParadox generated no cards for selection. Returning early to prevent softlock.";

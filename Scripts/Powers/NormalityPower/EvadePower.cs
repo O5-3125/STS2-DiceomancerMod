@@ -39,7 +39,7 @@ public class EvadePower : ModPowerTemplate
             return 1m;
         }
 
-        if (props is ValueProp.Unblockable)
+        if (props.HasFlag(ValueProp.Unblockable))
         {
             return 1m;
         }
@@ -50,7 +50,7 @@ public class EvadePower : ModPowerTemplate
     public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target,
         DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
-        if (props is ValueProp.Unblockable) return;
+        if (props.HasFlag(ValueProp.Unblockable)) return;
         if (target != base.Owner) return;
         if (!props.IsPoweredAttack()) return;
 

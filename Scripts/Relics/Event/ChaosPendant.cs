@@ -54,38 +54,10 @@ public class ChaosPendant : ModRelicTemplate
         return cardRarity;
     }
 
-    public override decimal ModifyMerchantPrice(Player player, MerchantEntry entry, decimal cost)
-    {
-        if (entry is not MerchantCardEntry card) return cost;
-
-        switch (card.CreationResult?.Card.Rarity)
-        {
-            case CardRarity.Ancient:
-                return cost * 5m;
-            case CardRarity.Basic:
-                return cost * 0.8m;
-
-            case CardRarity.Event:
-            case CardRarity.Token:
-            case null:
-            case CardRarity.None:
-            case CardRarity.Common:
-            case CardRarity.Uncommon:
-            case CardRarity.Rare:
-            case CardRarity.Status:
-            case CardRarity.Curse:
-            case CardRarity.Quest:
-            default:
-                break;
-        }
-
-        return cost;
-    }
-
     private static readonly List<CardRarity> Rarities =
     [
         CardRarity.Ancient,
-        CardRarity.Basic,
+        // CardRarity.Basic,
         CardRarity.Event,
         CardRarity.Token,
         
